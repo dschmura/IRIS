@@ -1,0 +1,43 @@
+@import 'compass/css3'
+
+
+@mixin buttonize($base_color: #5291C5, $button_size: 2em) 
+  -webkit-box-sizing: border-box
+  display: inline-block
+  color: #fff
+  text-decoration: none
+
+  line-height: $button_size
+
+  padding: 0 $button_size/2
+  height: $button_size
+  @include border-radius($button_size/4)
+
+  border: 1px solid darken($base_color, 20%)
+  @include linear-gradient(color-stops(lighten($base_color, 30%), lighten($base_color, 15%) 4%, $base_color))
+  text-shadow: darken($base_color, 10%) 0 -1px 0
+  -webkit-box-shadow: inset lighten($base_color, 80%) 0 0 2px
+
+  &:active 
+    @include linear-gradient(color-stops(darken($base_color, 30%), darken($base_color, 15%) 4%, darken($base_color, 7%)))
+    -webkit-box-shadow: inset darken($base_color, 30%) 0 0 .5em
+
+
+            
+
+.button 
+  @include buttonize
+  
+    
+
+.green_button 
+  @include buttonize(#3A8A20) // Green
+
+.big_green_button 
+  @extend .green_button
+  font-size: 2em
+
+
+.sign_up_button 
+  @include buttonize(#758FC2)
+  

@@ -1,0 +1,67 @@
+/* pages controller */
+/* line 7, ../../../src/pages.sass */
+.main_image {
+  width: 100.1%;
+  position: relative;
+  left: -2%;
+  text-align: center;
+}
+
+/* line 14, ../../../src/pages.sass */
+#main_features {
+  clear: both;
+  margin-top: 1em;
+  text-align: center;
+}
+/* line 18, ../../../src/pages.sass */
+#main_features ul {
+  text-align: center;
+}
+/* line 20, ../../../src/pages.sass */
+#main_features ul li {
+  float: left;
+  list-style-type: none;
+  margin-bottom: 2em;
+  width: 22%;
+  margin-left: 2%;
+  background-color: #979170;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#979170), to(#979170), color-stop(0.5, #80805a));
+  display: block;
+  border-radius: 15px;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+}
+/* line 30, ../../../src/pages.sass */
+#main_features ul li a {
+  padding: 8% 0 8% 0;
+  text-decoration: none;
+  height: 20px;
+  text-align: center;
+  color: white;
+  font-size: 140%;
+  display: block;
+  min-height: 20px;
+}
+/* line 39, ../../../src/pages.sass */
+#main_features ul li:hover {
+  background-color: #6188d5;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#6188d5), to(#bbc8e1), color-stop(0.5, #bbc8e1));
+}
+
+/* line 45, ../../../src/pages.sass */
+#coda-slider-home {
+  width: 1174px;
+  height: 400px;
+ 
+}
+/* line 48, ../../../src/pages.sass */
+#coda-slider-home .panel {
+  width: 1174px;
+  height: 400px;
+}
+
+/* line 52, ../../../src/pages.sass */
+.coda-slider-wrapper-home {
+  float: left;
+  max-height: 375px;
+}

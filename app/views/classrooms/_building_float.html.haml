@@ -1,0 +1,51 @@
+
+
+#building_float.span-4
+
+
+  %center
+    = link_to image_tag(@building_image, :class => "round"), "../classrooms?utf8=✓&search%5Blocation_id_equals%5D=#{@building.id}"
+
+  %br
+  %b Building: 
+  = link_to @building.name, "../classrooms?utf8=✓&search%5Blocation_id_equals%5D=#{@building.id}"
+  %br
+  %b Room Name:
+  = @classroom.location.name
+  %br
+    %b Facility Code:
+    = @classroom.facility_code_heprod  
+
+
+  %b Student Capacity  
+  = @classroom.student_capacity  
+  %br
+  %br
+  - if @owner.id == 1
+    %em
+      %b ISS Classroom
+  - else
+    %em
+      %b Departmental Classroom 
+  %br 
+
+  = link_to "View Room Schedule", "https://heprod.dsc.umich.edu/services/facilitycalendar?facilityid=#{@classroom.facility_code_heprod }", :target => "_blank"
+
+  %br 
+  %br 
+  %b 
+    Contact: 
+  = link_to @owner.department_name, "mailto:"+@owner.contact_email
+  %br
+  %br
+    = link_to "Back to classrooms list", :classrooms
+
+  -#= form_for @search do |f| 
+
+    = f.label "Room Number"
+    = f.text_field :facility_code_heprod_contains, :size => 8, :placeholder => "USB2230", :class => "round"
+    = f.submit 
+
+  -#
+    %center#building_sign
+      = link_to image_tag(@building_sign_image, :class => "round"), "../classrooms?utf8=✓&search%5Blocation_id_equals%5D=#{@building.locatable_id}"

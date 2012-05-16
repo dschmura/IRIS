@@ -1,0 +1,138 @@
+/* Site wide forms and error messages */
+/* line 7, ../../../src/site_forms.sass */
+textarea:focus, input:focus {
+  border: 2px solid #990000;
+}
+
+/* STYLING FOR ERROR MESSAGES */
+/* line 15, ../../../src/site_forms.sass */
+#error_explanation {
+  width: 450px;
+  padding: 4px;
+  margin-bottom: 20px;
+  background-color: #e7e8e0;
+  font-size: 0.9em;
+  padding-bottom: 7px;
+}
+/* line 23, ../../../src/site_forms.sass */
+#error_explanation ul {
+  font-size: 12px;
+  margin: 1em 0 0 1em;
+  list-style: square;
+}
+/* line 28, ../../../src/site_forms.sass */
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -4px;
+  background-color: #990000;
+  color: white;
+}
+/* line 36, ../../../src/site_forms.sass */
+#error_explanation p {
+  color: #333333;
+  margin-bottom: 0;
+  padding: 5px;
+}
+
+/* line 41, ../../../src/site_forms.sass */
+.field_with_errors {
+  margin-top: 1em;
+  padding: 2px;
+  background-color: #990000;
+  display: inline;
+  border: 1px solid #990000;
+  width: auto;
+}
+/* line 48, ../../../src/site_forms.sass */
+.field_with_errors label {
+  color: #990000;
+  font-weight: bold;
+}
+
+/* line 52, ../../../src/site_forms.sass */
+.error {
+  width: auto;
+  max-width: 400px;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+}
+
+/* line 56, ../../../src/site_forms.sass */
+.success {
+  background: #e6efc2;
+  color: #264409;
+  padding-left: 1em;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border: 2px solid #c6d880;
+}
+
+/* FORMS STYLING */
+/* line 66, ../../../src/site_forms.sass */
+div.field, div.actions {
+  margin-bottom: 0;
+}
+
+/* line 69, ../../../src/site_forms.sass */
+form.front {
+  max-width: 300px;
+}
+
+/* line 71, ../../../src/site_forms.sass */
+.sidebar_home {
+  width: 20%;
+  vertical-align: top;
+  background: #fafec7;
+  padding: 1em;
+  float: right;
+  position: relative;
+  top: -525px;
+}
+
+/* ----- SimpleForm Styles ----- */
+/* line 85, ../../../src/site_forms.sass */
+.simple_form div.input {
+  margin-bottom: 8px;
+}
+/* line 88, ../../../src/site_forms.sass */
+.simple_form label {
+  float: left;
+  width: 180px;
+  height: 2em;
+  text-align: right;
+  margin-right: 10px;
+  text-align: right;
+}
+
+/* line 98, ../../../src/site_forms.sass */
+label.collection_radio {
+  float: left;
+  text-align: left;
+  margin-right: -80px;
+}
+
+/* line 104, ../../../src/site_forms.sass */
+input.radio {
+  float: left;
+}
+/* line 107, ../../../src/site_forms.sass */
+input.radio .error {
+  clear: left;
+  color: black;
+  display: block;
+  margin-left: 120px;
+  font-size: 12px;
+}
+/* line 114, ../../../src/site_forms.sass */
+input.radio .hint {
+  clear: left;
+  margin-left: 120px;
+  font-size: 12px;
+  color: #555555;
+  display: block;
+  font-style: italic;
+}

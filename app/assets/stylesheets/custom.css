@@ -1,0 +1,267 @@
+/* line 8, ../../../src/custom.sass */
+html {
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1200px;
+  text-align: center;
+}
+
+/* BASIC PAGE ELEMENTS FOR ALL PAGES */
+/* line 15, ../../../src/custom.sass */
+body {
+  -webkit-column-count: 1;
+  -moz-column-count: 1;
+  -o-column-count: 1;
+  column-count: 1;
+  /* for non-css3 browsers */
+  background: #c9bf98;
+  /* for IE */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#979170', endColorstr='#e4debd');
+  /* for webkit browsers */
+  background: -webkit-gradient(linear, left top, left bottom, from(#979170), to(#e4debd));
+  /* for firefox 3.6+ */
+  background: -moz-linear-gradient(top, #979170, #e4debd);
+  display: block;
+  text-align: left;
+}
+
+/* line 30, ../../../src/custom.sass */
+header {
+  padding-top: 20px;
+  padding-bottom: 1%;
+}
+/* line 33, ../../../src/custom.sass */
+header img {
+  background: white;
+}
+/* line 35, ../../../src/custom.sass */
+header nav {
+  height: 33px;
+}
+
+/* line 38, ../../../src/custom.sass */
+footer {
+  text-align: center;
+  clear: both;
+  padding-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* line 44, ../../../src/custom.sass */
+footer nav {
+  float: none;
+}
+
+/* line 47, ../../../src/custom.sass */
+section {
+  background: white;
+  min-height: 95%;
+  height: auto;
+  padding: 0 2% 1% 2%;
+}
+/* line 54, ../../../src/custom.sass */
+section h1 {
+  font-size: 200%;
+  margin-left: 1%;
+  padding: 2% 0% 0% 0%;
+}
+/* line 58, ../../../src/custom.sass */
+section h3 {
+  padding: 2% 0% 0% 0%;
+}
+/* line 60, ../../../src/custom.sass */
+section p {
+  padding: 0% 3% 0% 0%;
+}
+
+/* line 62, ../../../src/custom.sass */
+a {
+  color: #0099cc;
+  text-decoration: none;
+}
+/* line 65, ../../../src/custom.sass */
+a:hover {
+  text-decoration: underline;
+  color: #006699;
+  text-shadow: 0px 1px 0px #758fc2;
+}
+/* line 69, ../../../src/custom.sass */
+a:visited {
+  color: #006699;
+}
+
+/* Site wide navigation */
+/* line 73, ../../../src/custom.sass */
+nav {
+  float: right;
+  background: white;
+  border-radius: 15px;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  white-space: nowrap;
+  #background-image: -webkit-gradient(linear, left top, left bottom, from(#999999), to(#6c6c6c), color-stop(0.5, #a9a9a9));
+}
+/* line 79, ../../../src/custom.sass */
+nav ul {
+  height: auto;
+}
+/* line 82, ../../../src/custom.sass */
+nav ul li {
+  list-style-type: none;
+  display: inline-block;
+  border-right: 1px #cccccc solid;
+  -webkit-transition: all 0.5s;
+  height: 100%;
+  width: 67px;
+  text-align: center;
+  padding: 0.8em 0.6em 0.5em 0.5em;
+}
+/* line 91, ../../../src/custom.sass */
+nav ul li a {
+  font-weight: bold;
+  text-shadow: 1px 1px 0px #cccccc;
+}
+/* line 94, ../../../src/custom.sass */
+nav ul li:hover {
+  background-color: #e7e8e0;
+}
+/* line 96, ../../../src/custom.sass */
+nav ul li:visited {
+  color: #0099cc;
+}
+/* line 98, ../../../src/custom.sass */
+nav ul li:last-child {
+  border-right-style: hidden;
+}
+
+/* line 101, ../../../src/custom.sass */
+.round {
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+}
+
+/* line 104, ../../../src/custom.sass */
+.pagination {
+  /*background: #808080 */
+  /*@include rounded-corners(15px) */
+  /*border: 1px solid #e5e5e5 */
+  text-align: center;
+  padding: 0.5em;
+  cursor: default;
+}
+/* line 111, ../../../src/custom.sass */
+.pagination a, .pagination span {
+  padding: 0.2em 0.3em;
+}
+/* line 113, ../../../src/custom.sass */
+.pagination .disabled {
+  color: #aaaaaa;
+}
+/* line 115, ../../../src/custom.sass */
+.pagination .current {
+  font-style: normal;
+  font-weight: bold;
+  background-color: #bfd6e6;
+  display: inline-block;
+  width: 1.4em;
+  height: 1.4em;
+  line-height: 1.5;
+  -moz-border-radius: 1em;
+  -webkit-border-radius: 1em;
+  border-radius: 1em;
+  text-shadow: rgba(255, 255, 255, 0.8) 1px 1px 1px;
+}
+/* line 127, ../../../src/custom.sass */
+.pagination a {
+  text-decoration: none;
+  color: black;
+}
+/* line 130, ../../../src/custom.sass */
+.pagination a:hover, .pagination a:focus {
+  text-decoration: underline;
+}
+
+/* line 135, ../../../src/custom.sass */
+.construction {
+  background-color: transparent;
+  width: 175px;
+  position: absolute;
+  right: 3.5em;
+  top: 5em;
+  z-index: 15;
+}
+
+/* !BASIC PAGE ELEMENTS FOR ALL PAGES */
+/*STYLING FOR SPECIFIC FORMS */
+/* line 147, ../../../src/custom.sass */
+#location_room_attributes_description, #building_history, #location_description, #location_type_description, #location_building_attributes_description, #location_building_attributes_history {
+  height: 100px;
+  width: 500px;
+}
+
+/* line 150, ../../../src/custom.sass */
+#building_description, #classroom_location_attributes_description {
+  height: 100px;
+  width: 500px;
+}
+
+/* line 154, ../../../src/custom.sass */
+#classroom_location_attributes_latitude, #classroom_location_attributes_longitude {
+  width: 100px;
+  float: left;
+}
+
+/* line 158, ../../../src/custom.sass */
+#room_facility_code_heprod, #room_room_number, #building_building_code_heprod, #location_building_attributes_building_code_heprod, #location_room_attributes_facility_code_heprod, #location_room_attributes_room_number {
+  width: 60px;
+}
+
+/* line 161, ../../../src/custom.sass */
+#location_name, #room_name, #building_name {
+  width: 275px;
+}
+
+/* line 164, ../../../src/custom.sass */
+#building_location_attributes_latitude, #building_location_attributes_longitude {
+  width: 120px;
+  float: left;
+}
+
+/* line 168, ../../../src/custom.sass */
+#classroom_student_capacity {
+  width: 45px;
+}
+
+/* line 171, ../../../src/custom.sass */
+#room_attribute_facility_code_heprod {
+  width: 65px;
+}
+
+/* line 174, ../../../src/custom.sass */
+#search_student_capacity_greater_than_or_equal_to, #search_room_number_contains {
+  padding: 0.3em;
+  border-radius: 8px;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+}
+
+/* line 178, ../../../src/custom.sass */
+#location_image_form {
+  display: block;
+  clear: both;
+  margin-bottom: 2em;
+}
+/* line 183, ../../../src/custom.sass */
+#location_image_form img {
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  width: 250px;
+  height: auto;
+  clear: both;
+  float: left;
+}
+
+/* END FORMS */

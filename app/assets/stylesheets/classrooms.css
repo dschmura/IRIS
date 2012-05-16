@@ -1,0 +1,373 @@
+/* Classroom Styles */
+/* Classrooms have location attributes as well (lat/long) */
+/* Index */
+/* line 17, ../../src/classrooms.sass */
+#rooms_search {
+  -webkit-column-count: 1;
+  -moz-column-count: 1;
+  -o-column-count: 1;
+  column-count: 1;
+  clear: both;
+  overflow: hidden;
+  margin-right: 1.5%;
+  border-radius: 11px;
+  -moz-border-radius: 11px;
+  -webkit-border-radius: 11px;
+}
+
+/* line 23, ../../src/classrooms.sass */
+#rooms_search_form {
+  background-color: #76a6c9;
+  #min-height: 675px;
+  #height: 100%;
+  padding: 0 0 1000px 1em;
+  margin-bottom: -1000px;
+  display: inline;
+}
+
+/* line 31, ../../src/classrooms.sass */
+#rooms_search_instructions {
+  margin-top: 1em;
+  font-size: 0.9em;
+  color: #4c4c4c;
+  font-style: oblique;
+}
+
+/* line 36, ../../src/classrooms.sass */
+#rooms_search_instructions_extended {
+  font-size: 0.9em;
+  color: #4c4c4c;
+  font-style: oblique;
+  border-top: 1px solid white;
+  display: none;
+}
+
+/* line 43, ../../src/classrooms.sass */
+#rooms_results {
+  margin: 0 0 0 -1%;
+  padding-left: 1%;
+  min-height: 675px;
+  height: 100%;
+  background-color: #f8f5e4;
+  border-left: 1px solid #999999;
+}
+
+/* line 51, ../../src/classrooms.sass */
+#number_of_results_selector {
+  float: right;
+}
+
+/* line 54, ../../src/classrooms.sass */
+#rooms_search_results_count {
+  background: #e7e8e0;
+  padding: 1em;
+  margin: 1em 1em 1em 0;
+  font-weight: bold;
+}
+
+/* line 61, ../../src/classrooms.sass */
+#building_float {
+  visibility: visible;
+  z-index: 10001;
+  /*max-width: 200px */
+  /*width: 200px */
+  float: left;
+  height: auto;
+  min-height: 376px;
+  max-height: 376px;
+  background: #ddd7af;
+  position: absolute;
+  left: 0%;
+  padding: 1em;
+}
+/* line 75, ../../src/classrooms.sass */
+#building_float img {
+  width: 95%;
+}
+
+/* line 81, ../../src/classrooms.sass */
+#building_sign img {
+  height: 85px;
+  width: 128px;
+}
+
+/* line 85, ../../src/classrooms.sass */
+#updated_on {
+  float: right;
+}
+
+/* line 90, ../../src/classrooms.sass */
+.panel-wrapper .room_image {
+  max-width: 900px;
+  overflow: hidden;
+}
+
+/* line 95, ../../src/classrooms.sass */
+#classroom_top_section {
+  position: relative;
+  width: 102.3%;
+  right: 2%;
+  height: 350px;
+  min-height: 400px;
+  max-height: 350px;
+  background: #76a6c9;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#76a6c9', endColorstr='#B5C9D5');
+  background: -webkit-gradient(linear, left top, left bottom, from(#76a6c9), to(#b5c9d5), color-stop(0.5, #e6e6e6));
+  background: -moz-linear-gradient(top, #76a6c9, #b5c9d5);
+}
+
+/* line 108, ../../src/classrooms.sass */
+#room_number {
+  /*@include rounded-corners(11px) */
+  zoom: 1;
+  filter: alpha(opacity=70);
+  opacity: 0.7;
+  visibility: visible;
+  width: 180px;
+  font-size: 85%;
+  background: #999999;
+  position: absolute;
+  right: 75px;
+  top: 125px;
+  float: right;
+  z-index: 1000;
+}
+/* line 121, ../../src/classrooms.sass */
+#room_number h1 {
+  margin-top: 6px;
+  margin-left: 15px;
+  color: white;
+}
+
+/* line 128, ../../src/classrooms.sass */
+#technician_required {
+  color: maroon;
+  font-weight: bold;
+}
+
+/* Show */
+/* line 133, ../../src/classrooms.sass */
+.coda-slider-wrapper {
+  float: left;
+  height: 400px;
+}
+
+/* line 137, ../../src/classrooms.sass */
+#main_image {
+  display: block;
+}
+
+/* line 139, ../../src/classrooms.sass */
+#panorama {
+  width: 100%;
+  height: 400px;
+  display: block;
+}
+/* line 143, ../../src/classrooms.sass */
+#panorama object {
+  position: relative;
+  bottom: 15px;
+}
+
+/* line 148, ../../src/classrooms.sass */
+.legacy_panorama {
+  position: relative;
+  left: 12px;
+  z-index: 15;
+}
+
+/* line 154, ../../src/classrooms.sass */
+#classroom_thumb {
+  float: left;
+  width: 200px;
+  padding: 1em;
+  border-radius: 15px;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+}
+
+/* line 160, ../../src/classrooms.sass */
+.classroom_index_thumb {
+  max-height: 50px;
+  height: 45px;
+  max-width: 55px;
+}
+
+/* line 165, ../../src/classrooms.sass */
+#image_nav {
+  z-index: 15000;
+  position: absolute;
+  top: 450px;
+  left: 65%;
+  float: right;
+  width: auto;
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  border-radius: 20px;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  white-space: nowrap;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#e7e8e0), to(white), color-stop(0.5, #e6e6e6));
+}
+/* line 178, ../../src/classrooms.sass */
+#image_nav ul {
+  height: 8px;
+}
+/* line 182, ../../src/classrooms.sass */
+#image_nav ul li {
+  list-style-type: none;
+  display: inline-block;
+  width: 65px;
+  border-right: 1px #818181 solid;
+  -webkit-transition: all 0.5s;
+  text-align: center;
+  padding: 0.4em 0.5em 0.5em 0.5em;
+}
+/* line 191, ../../src/classrooms.sass */
+#image_nav ul li a {
+  font-weight: bold;
+  text-shadow: 1px 1px 0px #cccccc;
+}
+/* line 195, ../../src/classrooms.sass */
+#image_nav ul li:hover {
+  #background-color: #e7e8e0;
+}
+/* line 197, ../../src/classrooms.sass */
+#image_nav ul li:visited {
+  color: #0099cc;
+}
+/* line 199, ../../src/classrooms.sass */
+#image_nav ul li:last-child {
+  border-right-style: hidden;
+}
+
+/* Edit */
+/* line 205, ../../src/classrooms.sass */
+#capacity_slider {
+  position: relative;
+  left: 23%;
+  /* layout */
+}
+
+/*      jQuery Coda-Slider v2.0 - http://www.ndoherty.biz/coda-slider
+ *      Copyright (c) 2009 Niall Doherty
+ *      This plugin available for use in all personal or commercial projects under both MIT and GPL licenses. */
+/* Insignificant stuff, for demo purposes */
+/* line 220, ../../src/classrooms.sass */
+.panel h2.title {
+  margin-bottom: 10px;
+}
+
+/* line 223, ../../src/classrooms.sass */
+noscript div {
+  background: #cccccc;
+  border: 1px solid #990000;
+  margin: 20px 0;
+  padding: 15px;
+}
+
+/* line 229, ../../src/classrooms.sass */
+.panel {
+  min-height: 400px;
+  height: auto !important;
+}
+
+/* line 233, ../../src/classrooms.sass */
+#coda-slider-1 {
+  width: 1200px;
+}
+/* line 235, ../../src/classrooms.sass */
+#coda-slider-1 .panel {
+  width: 1200px;
+}
+
+/* line 238, ../../src/classrooms.sass */
+#coda-slider-rooms {
+  width: 900px;
+}
+/* line 240, ../../src/classrooms.sass */
+#coda-slider-rooms .panel {
+  width: 900px;
+}
+
+/* Most common stuff you'll need to change */
+/* line 245, ../../src/classrooms.sass */
+.coda-slider-wrapper {
+  float: left;
+  position: relative;
+  left: 17.2%;
+}
+
+/* Use this to keep the slider content contained in a box even when JavaScript is disabled */
+/* line 256, ../../src/classrooms.sass */
+.coda-slider-no-js .coda-slider {
+  height: 200px;
+  overflow: auto !important;
+  padding-right: 10px;
+}
+
+/* Change the width of the entire slider (without dynamic arrows) */
+/* line 263, ../../src/classrooms.sass */
+.coda-slider {
+  width: 500px;
+}
+/* line 265, ../../src/classrooms.sass */
+.coda-slider .panel {
+  width: 500px;
+}
+
+/* Change margin and width of the slider (with dynamic arrows) */
+/* line 270, ../../src/classrooms.sass */
+.coda-slider-wrapper.arrows .coda-slider {
+  width: 600px;
+  margin: 0 10px;
+}
+/* line 272, ../../src/classrooms.sass */
+.coda-slider-wrapper.arrows .coda-slider .panel {
+  width: 600px;
+}
+
+/* Arrow styling */
+/* line 278, ../../src/classrooms.sass */
+.coda-nav-left a, .coda-nav-right a {
+  background: black;
+  color: white;
+  padding: 5px;
+  width: 100px;
+}
+
+/* Don't change anything below here unless you know what you're doing */
+/* Miscellaneous */
+/* line 292, ../../src/classrooms.sass */
+.coda-slider-wrapper {
+  clear: both;
+  overflow: auto;
+}
+
+/* line 296, ../../src/classrooms.sass */
+.coda-slider {
+  float: left;
+  overflow: hidden;
+  position: relative;
+}
+/* line 300, ../../src/classrooms.sass */
+.coda-slider .panel {
+  display: block;
+  float: left;
+}
+/* line 303, ../../src/classrooms.sass */
+.coda-slider .panel-container {
+  position: relative;
+}
+
+/* line 306, ../../src/classrooms.sass */
+.coda-nav-left, .coda-nav-right {
+  float: left;
+}
+
+/* line 309, ../../src/classrooms.sass */
+.coda-nav-left a, .coda-nav-right a {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+}

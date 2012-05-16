@@ -1,0 +1,107 @@
+= simple_form_for @building, :html => {:multipart => true} do |f|
+  -if @building.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@building.errors.count, "error")} prohibited this location from being saved:"
+      %ul
+        - @building.errors.full_messages.each do |msg|
+          %li= msg
+  %hr.span-23
+  #location_image_form.span-23.last
+    -if @building.location.picture_file_name != nil
+      = image_tag @building.location.picture.url.to_s
+      %p.prepend-4#update_image
+        
+        %b Change the image for this building.  
+        %br
+        %br
+        = f.simple_fields_for :location do |loc|
+          -# paperclip method
+          = loc.file_field :picture
+    
+
+    - else
+      %p.prepend-4
+        %b Upload an image for this building.  
+        %br
+        %br
+        = f.simple_fields_for :location do |loc|
+          -# paperclip method
+          = loc.file_field :picture
+    %hr
+          
+    #location_image_form.span-23.last
+      -if @building.location.building_sign_file_name != nil
+        = image_tag @building.location.building_sign.url(:medium).to_s
+        %p.prepend-4#update_image
+
+          %b Upload a building sign for this building.  
+          %br
+          %br
+          = f.simple_fields_for :location do |loc|
+            -# paperclip method
+            = loc.file_field :building_sign
+
+      - else
+        %p.prepend-4
+          %b Upload a building sign for this building.  
+          %br
+          %br
+          = f.simple_fields_for :location do |loc|
+            -# paperclip method
+            = loc.file_field :building_sign          
+  %br
+  %br
+  %br 
+  %br
+  %br
+  %br
+  %hr.span-23
+  = f.input :building_code_heprod , :placeholder => 'Building Code'  
+  #where_am_i_map
+    .input
+      %label
+        Address:
+      %input#addresspicker_map
+      #map
+  #lat_long_form  
+    = f.simple_fields_for :location do |loc|
+      = loc.input :latitude, :as => "string", :label => "Latitude"
+    
+      = loc.input :longitude, :as => "string" , :label => "Longitude"
+    %br
+    %br
+  = f.simple_fields_for :location do |loc|
+    = loc.input :name
+  = f.input :building_short_code, :placeholder => 'BR',:input_html => { :size => 3}
+  = f.input :address, :placeholder => "1234 Main Way"
+  = f.input :address2,  :placeholder => "Central Campus"
+  = f.input :city,  :placeholder => "Ann Arbor", :input_html => { :value => 'Ann Arbor',:size => 25 }
+  = f.input :state,  :placeholder => "MI", :input_html => { :value => 'MI',:size => 2 }
+  = f.input :zip,  :placeholder => "48109-1234", :input_html => { :value => '48109', :size => 10 }
+  = f.input :description,  :placeholder => "Building description"
+  = f.input :history,  :placeholder => "Optional building history (if available)"
+
+  .actions
+    = f.button :submit
+     
+   
+:javascript  
+  $(window).load(function(){
+    var addresspicker = $( "#addresspicker" ).addresspicker();
+    var addresspickerMap = $( "#addresspicker_map" ).addresspicker({
+      elements: {
+        map:      "#map",
+        lat:      "#building_location_attributes_latitude",
+        lng:      "#building_location_attributes_longitude",
+
+        locality: '#locality',
+        country:  '#country'
+      }
+    });
+    var gmarker = addresspickerMap.addresspicker( "marker");
+    gmarker.setVisible(true);
+    addresspickerMap.addresspicker( "updatePosition");
+
+    });
+
+

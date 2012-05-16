@@ -1,0 +1,62 @@
+class LocationsController < ApplicationController
+  ## We are going to check authentication before accessing anything but show or index
+  before_filter :authenticate_user!, :except => [:show, :index]
+  
+  def index
+    @locatable = find_locatable
+    @locations = Location.paginate(:page => params[:page], :per_page => 10)
+    @page_title = "Locations"
+
+  end
+  
+  def show
+    @location = Location.find(params[:id])
+    @page_title = @location.name
+  end
+
+  def new
+    @location = Location.new
+    @page_title = "Add a New Location"
+  end
+  
+  def edit
+    @location = Location.find(params[:id])
+    @page_title = "Editing - " + @location.name
+  end
+
+  def create
+    @locatable = find_locatable
+    @location = @locatable.locations.build(params[:location])
+    if @location.save
+      redirect_to([@location], :notice => 'Location was successfully created.')      
+    end
+  end
+
+  def update
+    @location = Location.find(params[:id])
+    if @location.update_attributes(params[:location])
+      redirect_to(@location, :notice => 'Location was successfully updated.') 
+      render :action => "edit" 
+    end
+  end
+
+  def destroy
+    @location = Location.find(params[:id])
+    @location.destroy
+    redirect_to(locations_url) 
+  end
+  
+  private
+  
+  def find_locatable  
+    params.each do |name, value|  
+      if name =~ /(.+)_id$/  
+        return $1.classify.constantize.find(value)  
+      else
+        return "SUCKS"
+      end  
+      
+    end  
+    nil  
+  end
+end

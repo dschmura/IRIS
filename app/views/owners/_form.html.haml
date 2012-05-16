@@ -1,0 +1,13 @@
+= simple_form_for(@owner) do |f|
+  = f.error_notification
+
+  .inputs
+    = f.input :department_name
+    = f.input :facility_id
+    = f.input :contact_name
+    = f.input :contact_phone
+    = f.input :contact_email
+    = f.input :notes
+
+  .actions
+    = f.button :submit

@@ -1,0 +1,227 @@
+= simple_form_for @classroom, :html => {:multipart => true} do |f|
+  = f.error_notification  
+  #building_code  
+    -# = @buildings.find(3).building_short_code
+    %br
+
+  .inputs
+  
+    = f.input :room_number, :placeholder => "AudB", :input_html => { :tabindex => '1' }
+
+    
+    #where_am_i_map
+      .input
+        %label
+          Address:
+        %input#addresspicker_map
+        #map
+    = f.input :location_id, :collection => Location.where(:locatable_type => "Building").order("name ASC"), :prompt => "What Building is this room in?", :label => "Building"
+    
+    = link_to "Add a Building", new_building_path, :style => "position: relative; left: 420px; bottom: 30px;", :target => "_blank"
+    
+    
+    = f.input :owner_id, :collection => Owner.order("department_name ASC"), :prompt => "Who owns this space?", :label => "Owner", :label_method => :department_name
+    
+    -# = f.collection_select :owner_id, Owner.all, :id, :department_name, :label => "Owner"
+    
+    = link_to "Add an Owner", new_owner_path, :style => "position: relative; left: 4680px; bottom: 30px;", :target => "_blank"
+    
+    = f.simple_fields_for :location do |loc|
+      
+      = loc.input :name, :placeholder => "Angell Hall Aud B"
+      = loc.input :latitude, :as => "string"
+      %br
+      %br
+      = loc.input :longitude,  :as => "string"
+      %br
+      %br
+
+    = f.input :student_capacity,  :as => "string", :placeholder => '0'
+    <input id= "capacity_slider" type="range" min="0" max="1000" value="0" step="1" onchange="printValue('capacity_slider', 'classroom_student_capacity')" />
+   
+    
+    = f.input :facility_code_heprod, :placeholder => "AHAudB"
+    %br
+      *Combine the building short code with the room number
+    
+    %br
+    -#= f.input :is_department_space
+    %br
+      = f.simple_fields_for :location do |loc|  
+        = loc.input :description, :placeholder => "Classroom Description (will be displayed in map)"
+      %hr.span-23
+      #location_image_form.span-23.last
+        -if @classroom.location.picture_file_name != nil
+          = image_tag @classroom.location.picture.url.to_s
+          %p.prepend-4#update_image
+            %b Change the image for this classroom.  
+            %br
+            %br
+            = f.simple_fields_for :location do |loc|
+              -# paperclip method
+              = loc.file_field :picture
+  
+        - else
+          %p.prepend-4
+            %b Upload an image for this classroom.  
+            %br
+            %br
+            = f.simple_fields_for :location do |loc|
+              -# paperclip method
+              = loc.file_field :picture
+  
+    
+  %hr.span-23.last
+    .attributes_disclosure_wrapper
+      %h3 Attributes              
+      %p (Display additional classroom attributes)
+      #attributes_wrapper.span-23
+    
+        #room_design_section.span-10
+          #attribute_blackout
+            = f.input :light_control
+          #attribute_classroom_layout 
+            Layout:
+            = f.input :layout_platform
+            = f.input :layout_stage
+            = f.input :layout_tiered
+          #attribute_seating
+            Seating:
+            = f.input :seating_auditorium
+            = f.input :seating_chairs_fixed
+            = f.input :seating_movable_tables_chairs
+            = f.input :seating_table_conference
+            = f.input :seating_tables_any
+            = f.input :seating_tables_fixed
+            = f.input :seating_tables_moveable
+          #attribute_sound_amplification
+            = f.input :sound_amplification
+          #attribute_network
+            = f.input :ethernet_students
+          #attribute_power_outlets
+            = f.input :power_students
+          #attribute_board
+            Writing Surface:
+            = f.input :writing_surface_chalkboard_any
+            = f.input :writing_surface_chalkboard_25ft
+            = f.input :writing_surface_whiteboard_any
+            = f.input :writing_surface_whiteboard_25ft
+          #attribute_computer_lab
+            Computer Classroom:
+            = f.input :computer_classroom_any
+            #attribute_podium_computer_mac
+              = f.input :computer_classroom_mac
+            #attribute_podium_computer_pc
+              = f.input :computer_classroom_windows
+      
+        #equipment_section.span-10  
+          #attribute_dvd
+            DVD Player  
+            = f.input :dvd_player_regular, :label => 'Standard'
+            = f.input :dvd_player_blueray, :label => 'Blu-ray'
+          #attribute_captioning_device  
+            = f.input :captioning_device
+          #attribute_computer_lab.podium_computer
+            Podium Computer
+            = f.input :podium_computer_any
+            #attribute_podium_computer_mac
+              = f.input :podium_computer_mac
+            #attribute_podium_computer_pc
+              = f.input :podium_computer_windows
+          #attribute_doc_camera  
+            = f.input :document_camera
+          #attribute_interactive_pen
+            = f.input :interactive_pen
+          #attribute_lecture_capture
+            = f.input :lecture_capture
+          #attribute_telephone
+            = f.input :telephone
+          #attribute_video_conferencing
+            = f.input :video_conferencing
+          #attribute_projecters
+            Projection:
+            = f.input :projection_16mm_film
+            = f.input :projection_35mm_file
+            = f.input :projection_digital_data_video
+            = f.input :projection_traditional_slide
+    
+        #notes_section.span-12.prepend-1
+          #attribute_notes
+            = f.input :notes
+        #accessibility_section.span-10.prepend-1
+          %h3
+            Accessibility    
+          #attribute_assisted_listening
+            = f.input :assisted_listening
+          #attribute_instructor_wheelchair_access
+            = f.input :wheelchair_instructor
+      %hr.span-23
+    .actions
+      = f.button :submit
+
+:javascript
+  function showValue(newValue)
+  {
+    document.getElementById("classroom_student_capacity").innerHTML=newValue;}
+
+  function printValue(sliderID, textbox) {
+              var x = document.getElementById(textbox);
+              var y = document.getElementById(sliderID);
+              x.value = y.value;
+          }
+  window.onload = function() 
+  { printValue('slider1', 'rangeValue1'); printValue('slider2', 'rangeValue2'); printValue('slider3', 'rangeValue3'); printValue('slider4', 'rangeValue4'); }        
+    
+:javascript
+  $().ready(function() {
+    $('#coda-slider-1').codaSlider();
+  });
+
+-#toggle the visability of the attributes and the disclosure triangle's state
+:javascript
+  $('.attributes_disclosure_wrapper h3').click(function() { 
+  $("div:contains('attributes_disclosure_wrapper')").toggleClass("attributes_disclosure_wrapper_active");
+  $('#attributes_wrapper').toggle('fast', function(){
+    });
+  });
+
+
+-# Auto update HeProd with building code and room number
+:javascript
+  $('#classroom_room_number').keyup( function(){
+    var room_number = $('input#classroom_room_number').val()
+     $('#classroom_facility_code_heprod').val(room_number) ;
+     $('#classroom_location_attributes_name').val(room_number) ;
+
+  
+  $('#classroom_location_id').change( function() {
+    var room_name = $('option:selected', this).html();
+    
+    $('#classroom_location_attributes_name').val(room_number + " " + room_name) ;
+  } );
+    });
+
+  
+  
+
+
+
+:javascript
+  $(window).load(function(){
+    var addresspicker = $( "#addresspicker" ).addresspicker();
+    var addresspickerMap = $( "#addresspicker_map" ).addresspicker({
+      elements: {
+        map:      "#map",
+        lat:      "#classroom_location_attributes_latitude",
+        lng:      "#classroom_location_attributes_longitude",
+        locality: '#locality',
+        country:  '#country'
+      }
+    });
+    var gmarker = addresspickerMap.addresspicker( "marker");
+    gmarker.setVisible(true);
+    addresspickerMap.addresspicker( "updatePosition");
+
+    });
+
+

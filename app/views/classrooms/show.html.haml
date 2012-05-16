@@ -1,0 +1,152 @@
+
+
+
+#image_nav
+  %ul
+    %li
+      = link_to "Picture", "#1", :class => "xtrig",  :rel => "coda-slider-1"
+    %li
+      = link_to "Panorama", "#2", :class => "xtrig",  :rel => "coda-slider-1"
+    %li
+      = link_to "Map",  "#3", :class => "xtrig",  :rel => "coda-slider-1"
+#classroom_top_section 
+  = render :partial => 'building_float'  
+    
+  .coda-slider-wrapper.span-20
+    
+    .coda-slider.preload#coda-slider-rooms
+      .panel
+        .panel-wrapper      
+          = image_tag @classroom.location.picture.url(:show).to_s, :alt => @classroom_alt,   :height => "100%", :class => "room_image round"
+      .panel
+        .panel-wrapper
+   
+          #panorama.round
+            %center
+              %h2 This room does not have a panorama
+            
+       
+      .panel
+        .panel-wrapper.round
+          <div id="map_canvas" style="width:100%; height:400px"></div>
+
+#room_number
+  %h1  
+    = @classroom.location.name          
+-#
+  #image_nav
+  %ul
+    %li
+      = link_to "Picture", "#1", :class => "xtrig",  :rel => "coda-slider-1"
+    %li
+      = link_to "Panorama", "#2", :class => "xtrig",  :rel => "coda-slider-1"
+    %li
+      = link_to "Map",  "#3", :class => "xtrig",  :rel => "coda-slider-1"
+
+#technician_required
+  = technician_required
+
+
+
+
+  
+= render :partial => 'show_room_attributes'
+
+
+
+- if user_signed_in?
+  = link_to 'Edit', edit_classroom_path
+  \|
+-#= link_to 'List', classrooms_path
+
+
+-#hide attributes that are not checked in the database
+:javascript
+  $('input:checkbox').not(':checked').css({
+    opacity: 0
+    
+  })
+  $("input[type=checkbox][checked]").css({
+    'opacity' : '0.0'
+    })
+  $("input[type=checkbox][checked]").parent().css({  
+    'background': 'url(../images/user_interface_elements/checked.png) no-repeat  190px -5px'  
+    
+  })
+  $('input:checkbox').not(':checked').parent().css({
+     'opacity': '0.5',
+     'font-style': 'italic',
+
+     'font-size': '92%',
+     'line-height': '85%'
+   })
+
+  $('input:checkbox').not(':checked').closest('#attribute_podium_computer_mac').css({
+    'background' : 'transparent url() no-repeat  100px 10px'     
+  })
+  
+  $('input:checkbox').not(':checked').closest('#attribute_podium_computer_pc').css({
+    'background' : 'transparent url() no-repeat  100px 10px'      
+  })
+:javascript
+  $().ready(function() {
+    $('#coda-slider-rooms').codaSlider({
+    autoHeight: true,
+    autoSlide: false,
+    crossLinking: true,
+    externalTriggerSelector: "a.xtrig",
+    firstPanelToLoad: 1,
+    panelTitleSelector: "h2.title",
+    slideEaseDuration: 1000,
+    slideEaseFunction: "easeInOutExpo"
+    });
+  });
+
+
+  
+-#find location on a google map from lat/long in database
+:javascript
+  function initialize() {
+    var latlng = new google.maps.LatLng(#{@classroom.location.latitude.to_s},#{@classroom.location.longitude.to_s});
+    var myOptions = {
+      zoom: 16,
+      center: latlng,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    }
+    var map = new google.maps.Map(document.getElementById("map_canvas"),
+      myOptions);
+
+    var contentString = '<div id="content" style="width:auto;">'+
+      '<div id="siteNotice">'+
+        '</div>'+
+        '<h4 id="firstHeading" class="firstHeading"> All classrooms in #{link_to @building.name,  "../classrooms?utf8=✓&search%5Blocation_id_equals%5D=#{@building.id}"}</h3>'+
+        '<div id="bodyContent">#{link_to image_tag(@building.picture.url(:medium).to_s, :class => "round", :style => "width: 100px;" ), "../classrooms?utf8=✓&search%5Blocation_id_equals%5D=#{@building.id}"}'+'<p id="firstHeading" class="firstHeading"> Floor Map: #{link_to @classroom.location.name,  basement, :target => "_blank"}</p></div>'
+        '<div>  </div>'+
+        '</div>';
+    var infowindow = new google.maps.InfoWindow({
+      content: contentString
+    });
+
+    var marker = new google.maps.Marker({
+      position: latlng, 
+      map: map,
+      title:"#{@classroom.location.name}"
+    });
+
+    google.maps.event.addListener(marker, 'click', function() {
+      infowindow.open(map,marker);
+    });    
+  }
+
+- if @classroom.facility_code_heprod && FileTest.exists?(Rails.root + "public/system/videos/panoramas/#{@classroom.facility_code_heprod.upcase}_QTVR_OUT.xml")
+  :javascript
+    // use HTML5 panorama
+    if (ggHasHtml5Css3D() || ggHasWebGL()){
+      pano=new pano2vrPlayer("panorama");
+      pano.readConfigUrl("/system/videos/panoramas/#{@classroom.facility_code_heprod.upcase}_QTVR_OUT.xml");
+      }
+      else{
+      $("#panorama").replaceWith("<object CLASSID=\"clsid:02BF25D5-8C17-4B23-BC80-D3488ABDDC6B\" width=\"900\" height=\"330\" CODEBASE=\"http://www.apple.com/qtactivex/qtplugin.cab\" class=\"legacy_panorama\"> <param name=\"src\" value=\"/system/videos/panoramas/#{@classroom.facility_code_heprod.upcase}_QTVR.mov\"><param name=\"target\" value=\"myself\" /><param name=\"controller\" value=\"false\"><param name=\"scale\" value=\"tofit\"><param name=\"kioskmode\" value=\"true\"> <embed src=\"/system/videos/panoramas/#{@classroom.facility_code_heprod.upcase}_QTVR.mov\" width=\"900\" height=\"330\" scale=\"tofit\" target=\"myself\"  kioskmode=\"true\" loop=\"false\" controller=\"false\" pluginspage=\"http://www.apple.com/quicktime/\"></embed></object>"
+      );
+    }
+- else  

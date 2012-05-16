@@ -1,0 +1,36 @@
+/* USERS STYLING */
+/* line 2, ../../../src/users.sass */
+ul.users {
+  margin-top: 1em;
+}
+/* line 4, ../../../src/users.sass */
+ul.users li {
+  list-style: none;
+}
+
+/* line 8, ../../../src/users.sass */
+.profile {
+  min-height: 150px;
+}
+/* line 10, ../../../src/users.sass */
+.profile img.gravatar {
+  width: 40px;
+  border: 1px solid #999999;
+  margin-bottom: -15px;
+}
+
+/* line 15, ../../../src/users.sass */
+.sidebar {
+  float: left;
+  margin-top: 2em;
+  width: 20%;
+  padding: 1em;
+  margin-right: 0.5em;
+  vertical-align: top;
+  background: #fafec7;
+  position: absolute;
+  top: 9%;
+  right: 8%;
+}
+
+/* !USERS STYLING */
