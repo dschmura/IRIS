@@ -19,6 +19,7 @@ group :production do
   #gem 'mysql'
   gem 'sqlite3'
   gem 'faker'
+  gem 'unicorn'
 end
 
 gem 'sqlite3'
