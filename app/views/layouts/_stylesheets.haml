@@ -1,43 +1,10 @@
-
-
-= stylesheet_link_tag 'blueprint/screen', :media => 'screen'
-= stylesheet_link_tag 'blueprint/print', :media => 'print'
-= stylesheet_link_tag 'custom', :media => 'screen'
-= stylesheet_link_tag 'custom', :media => 'print'
-= stylesheet_link_tag 'site_forms', :media => 'screen'
-= stylesheet_link_tag 'buildings', :media => 'screen'
-= stylesheet_link_tag 'classrooms', :media => 'screen'
-= stylesheet_link_tag 'pages', :media => 'screen'
-= stylesheet_link_tag 'attribute_icons', :media => 'screen'
-= stylesheet_link_tag 'attribute_icons', :media => 'print'
-= stylesheet_link_tag 'liquid', :media => 'screen'
-
+= stylesheet_link_tag "application", :media => "screen, projection"
+= stylesheet_link_tag "application-print", :media => "print"
 
 = javascript_include_tag "application"
 
-= javascript_include_tag 'jquery.js'
-
-
--# For google map integrateion (addresspicker depends on others)
-= javascript_include_tag 'https://maps.google.com/maps/api/js?sensor=true'
-= javascript_include_tag 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.js'
-= javascript_include_tag 'jquery.ui.addresspicker.js'
-
--# For QT Panoramas
-= javascript_include_tag 'https://www.apple.com/library/quicktime/scripts/qtp_library.js'
-= javascript_include_tag 'https://www.apple.com/library/quicktime/scripts/ac_quicktime.js'
--# To play panoramas in html5
-= javascript_include_tag 'pano2vr_player.js'
-
--# = javascript_include_tag :defaults
-= javascript_include_tag 'jquery_ujs.js'
-= javascript_include_tag 'jquery.coda-slider-2.0.js'
-
-
--# Want to switch to Googleapi to host javascripts?
--# = javascript_include_tag 'http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.js'
-
-
+-# For google map integration (addresspicker depends on others)
+= javascript_include_tag "https://maps.google.com/maps/api/js?sensor=true"
 
 -# crap to deal with old versions of IE crapitude
 <!--[if lt IE 9]>
