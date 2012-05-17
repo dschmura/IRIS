@@ -14,8 +14,8 @@ textarea:focus, input:focus {
   font-size: 0.9em;
   padding-bottom: 7px;
 }
-/* line 23, ../../../src/site_forms.sass */
-#error_explanation ul {
+/* line 24, ../../../src/site_forms.sass */
+#error_explanation ul li {
   font-size: 12px;
   margin: 1em 0 0 1em;
   list-style: square;
@@ -52,7 +52,7 @@ textarea:focus, input:focus {
   font-weight: bold;
 }
 
-/* line 52, ../../../src/site_forms.sass */
+/* line 53, ../../../src/site_forms.sass */
 .error {
   width: auto;
   max-width: 400px;
@@ -61,7 +61,7 @@ textarea:focus, input:focus {
   -webkit-border-radius: 10px;
 }
 
-/* line 56, ../../../src/site_forms.sass */
+/* line 57, ../../../src/site_forms.sass */
 .success {
   background: #e6efc2;
   color: #264409;
@@ -72,17 +72,17 @@ textarea:focus, input:focus {
 }
 
 /* FORMS STYLING */
-/* line 66, ../../../src/site_forms.sass */
+/* line 67, ../../../src/site_forms.sass */
 div.field, div.actions {
   margin-bottom: 0;
 }
 
-/* line 69, ../../../src/site_forms.sass */
+/* line 70, ../../../src/site_forms.sass */
 form.front {
   max-width: 300px;
 }
 
-/* line 71, ../../../src/site_forms.sass */
+/* line 72, ../../../src/site_forms.sass */
 .sidebar_home {
   width: 20%;
   vertical-align: top;
@@ -94,11 +94,11 @@ form.front {
 }
 
 /* ----- SimpleForm Styles ----- */
-/* line 85, ../../../src/site_forms.sass */
+/* line 86, ../../../src/site_forms.sass */
 .simple_form div.input {
   margin-bottom: 8px;
 }
-/* line 88, ../../../src/site_forms.sass */
+/* line 89, ../../../src/site_forms.sass */
 .simple_form label {
   float: left;
   width: 180px;
@@ -108,18 +108,18 @@ form.front {
   text-align: right;
 }
 
-/* line 98, ../../../src/site_forms.sass */
+/* line 99, ../../../src/site_forms.sass */
 label.collection_radio {
   float: left;
   text-align: left;
   margin-right: -80px;
 }
 
-/* line 104, ../../../src/site_forms.sass */
+/* line 105, ../../../src/site_forms.sass */
 input.radio {
   float: left;
 }
-/* line 107, ../../../src/site_forms.sass */
+/* line 108, ../../../src/site_forms.sass */
 input.radio .error {
   clear: left;
   color: black;
@@ -127,7 +127,7 @@ input.radio .error {
   margin-left: 120px;
   font-size: 12px;
 }
-/* line 114, ../../../src/site_forms.sass */
+/* line 115, ../../../src/site_forms.sass */
 input.radio .hint {
   clear: left;
   margin-left: 120px;

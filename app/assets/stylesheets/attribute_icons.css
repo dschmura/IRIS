@@ -100,7 +100,7 @@ a.tip2:hover span:after {
   display: block;
   clear: both;
   padding-left: 10px;
-  background: url(../images/user_interface_elements/up_arrow.gif) no-repeat 100px 10px;
+  background: url(user_interface_elements/up_arrow.gif) no-repeat 100px 10px;
 }
 
 /* line 111, ../../../src/attribute_icons.sass */
@@ -108,7 +108,7 @@ a.tip2:hover span:after {
   cursor: pointer;
   padding: 5px;
   padding-left: 10px;
-  background: url(../images/user_interface_elements/down_arrow.gif) no-repeat 100px 14px;
+  background: url(user_interface_elements/down_arrow.gif) no-repeat 100px 14px;
 }
 
 /* line 117, ../../../src/attribute_icons.sass */
@@ -119,7 +119,7 @@ a.tip2:hover span:after {
   display: block;
   clear: both;
   padding-left: 10px;
-  background: url(../images/user_interface_elements/up_arrow.gif) no-repeat 100px 10px;
+  background: url(user_interface_elements/up_arrow.gif) no-repeat 100px 10px;
 }
 
 /* line 126, ../../../src/attribute_icons.sass */
@@ -127,7 +127,7 @@ a.tip2:hover span:after {
   cursor: pointer;
   padding: 5px;
   padding-left: 10px;
-  background: url(../images/user_interface_elements/down_arrow.gif) no-repeat 100px 14px;
+  background: url(user_interface_elements/down_arrow.gif) no-repeat 100px 14px;
 }
 
 /* line 132, ../../../src/attribute_icons.sass */
@@ -144,7 +144,7 @@ a.tip2:hover span:after {
 #attribute_student_capacity {
   overflow: visible;
   padding-left: 115px;
-  background: url(../images/attribute_icons/capacity.png) no-repeat 80px 0%;
+  background: url(attribute_icons/capacity.png) no-repeat 80px 0%;
 }
 /* line 143, ../../../src/attribute_icons.sass */
 #attribute_student_capacity span {
@@ -158,7 +158,7 @@ a.tip2:hover span:after {
 #attribute_blackout {
   overflow: visible;
   padding-left: 25px;
-  background: url(../images/attribute_icons/blackout.png) no-repeat 115px 0%;
+  background: url(attribute_icons/blackout.png) no-repeat 115px 0%;
   border-bottom: 1px solid #999999;
   margin-bottom: 1em;
   width: 65%;
@@ -173,7 +173,7 @@ a.tip2:hover span:after {
   margin-bottom: 2em;
   overflow: visible;
   padding-left: 25px;
-  background: url(../images/attribute_icons/layout.png) no-repeat 0% 0%;
+  background: url(attribute_icons/layout.png) no-repeat 0% 0%;
 }
 
 /* line 164, ../../../src/attribute_icons.sass */
@@ -184,21 +184,21 @@ a.tip2:hover span:after {
   margin-bottom: 2em;
   overflow: visible;
   padding-left: 25px;
-  background: url(../images/attribute_icons/seating.png) no-repeat 0% 0%;
+  background: url(attribute_icons/seating.png) no-repeat 0% 0%;
 }
 
 /* line 169, ../../../src/attribute_icons.sass */
 #attribute_sound_amplification {
   overflow: visible;
   padding-left: 25px;
-  background: url(../images/attribute_icons/amplification.png) no-repeat 70px 0%;
+  background: url(attribute_icons/amplification.png) no-repeat 70px 0%;
 }
 
 /* line 174, ../../../src/attribute_icons.sass */
 #attribute_network {
   overflow: visible;
   padding-left: 25px;
-  background: url(../images/attribute_icons/ethernet.png) no-repeat 80px 0%;
+  background: url(attribute_icons/ethernet.png) no-repeat 80px 0%;
 }
 
 /* line 178, ../../../src/attribute_icons.sass */
@@ -209,7 +209,7 @@ a.tip2:hover span:after {
   margin-bottom: 2em;
   overflow: visible;
   padding-left: 25px;
-  background: url(../images/attribute_icons/power.png) no-repeat 95px 0%;
+  background: url(attribute_icons/power.png) no-repeat 95px 0%;
 }
 
 /* line 183, ../../../src/attribute_icons.sass */
@@ -220,14 +220,14 @@ a.tip2:hover span:after {
   margin-bottom: 2em;
   overflow: visible;
   padding-left: 25px;
-  background: url(../images/attribute_icons/board_type.png) no-repeat 0% 0%;
+  background: url(attribute_icons/board_type.png) no-repeat 0% 0%;
 }
 
 /* line 188, ../../../src/attribute_icons.sass */
 #attribute_computer_lab {
   overflow: visible;
   padding-left: 25px;
-  background: url(../images/attribute_icons/computer_classroom.png) no-repeat 0% 0%;
+  background: url(attribute_icons/computer_classroom.png) no-repeat 0% 0%;
 }
 
 /* line 192, ../../../src/attribute_icons.sass */
@@ -236,7 +236,7 @@ a.tip2:hover span:after {
   position: relative;
   left: -4%;
   padding-left: 10px;
-  background: url(../images/attribute_icons/apple_computer.png) no-repeat 182px 0%;
+  background: url(attribute_icons/apple_computer.png) no-repeat 182px 0%;
 }
 /* line 198, ../../../src/attribute_icons.sass */
 #attribute_podium_computer_mac label {
@@ -250,7 +250,7 @@ a.tip2:hover span:after {
   position: relative;
   left: -4%;
   padding-left: 10px;
-  background: url(../images/attribute_icons/windows_computer.png) no-repeat 180px 0%;
+  background: url(attribute_icons/windows_computer.png) no-repeat 180px 0%;
 }
 /* line 207, ../../../src/attribute_icons.sass */
 #attribute_podium_computer_pc label {
@@ -266,7 +266,7 @@ a.tip2:hover span:after {
   width: 65%;
   margin-bottom: 2em;
   padding-left: 25px;
-  background: url(../images/attribute_icons/dvd.png) no-repeat 0% 0%;
+  background: url(attribute_icons/dvd.png) no-repeat 0% 0%;
 }
 
 /* line 215, ../../../src/attribute_icons.sass */
@@ -277,7 +277,7 @@ a.tip2:hover span:after {
   width: 65%;
   margin-bottom: 2em;
   padding-left: 25px;
-  background: url(../images/attribute_icons/captioning.png) no-repeat 0% 0%;
+  background: url(attribute_icons/captioning.png) no-repeat 0% 0%;
 }
 
 /* line 220, ../../../src/attribute_icons.sass */
@@ -292,28 +292,28 @@ a.tip2:hover span:after {
 #attribute_doc_camera {
   overflow: visible;
   padding-left: 25px;
-  background: url(../images/attribute_icons/document_camera.png) no-repeat 70px 0%;
+  background: url(attribute_icons/document_camera.png) no-repeat 70px 0%;
 }
 
 /* line 228, ../../../src/attribute_icons.sass */
 #attribute_interactive_pen {
   overflow: visible;
   padding-left: 25px;
-  background: url(../images/attribute_icons/interactive_pen.png) no-repeat 88px 0%;
+  background: url(attribute_icons/interactive_pen.png) no-repeat 88px 0%;
 }
 
 /* line 232, ../../../src/attribute_icons.sass */
 #attribute_lecture_capture {
   overflow: visible;
   padding-left: 25px;
-  background: url(../images/attribute_icons/lecture_capture.png) no-repeat 85px 0%;
+  background: url(attribute_icons/lecture_capture.png) no-repeat 85px 0%;
 }
 
 /* line 236, ../../../src/attribute_icons.sass */
 #attribute_telephone {
   overflow: visible;
   padding-left: 25px;
-  background: url(../images/attribute_icons/telephone.png) no-repeat 115px 0%;
+  background: url(attribute_icons/telephone.png) no-repeat 115px 0%;
 }
 
 /* line 240, ../../../src/attribute_icons.sass */
@@ -324,7 +324,7 @@ a.tip2:hover span:after {
   width: 65%;
   margin-bottom: 2em;
   padding-left: 25px;
-  background: url(../images/attribute_icons/video_conferencing.png) no-repeat 65px 0%;
+  background: url(attribute_icons/video_conferencing.png) no-repeat 65px 0%;
 }
 
 /* line 245, ../../../src/attribute_icons.sass */
@@ -335,21 +335,21 @@ a.tip2:hover span:after {
   width: 65%;
   margin-bottom: 2em;
   padding-left: 25px;
-  background: url(../images/attribute_icons/projection.png) no-repeat 0% 0%;
+  background: url(attribute_icons/projection.png) no-repeat 0% 0%;
 }
 
 /* line 250, ../../../src/attribute_icons.sass */
 #attribute_assisted_listening {
   overflow: visible;
   padding-left: 25px;
-  background: url(../images/attribute_icons/assisted_listening.png) no-repeat 85px 0%;
+  background: url(attribute_icons/assisted_listening.png) no-repeat 85px 0%;
 }
 
 /* line 254, ../../../src/attribute_icons.sass */
 #attribute_instructor_wheelchair_access {
   overflow: visible;
   padding-left: 25px;
-  background: url(../images/attribute_icons/accessible.png) no-repeat 60px 0%;
+  background: url(attribute_icons/accessible.png) no-repeat 60px 0%;
 }
 
 /* line 259, ../../../src/attribute_icons.sass */
