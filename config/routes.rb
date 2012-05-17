@@ -1,4 +1,4 @@
-SampleApp::Application.routes.draw do
+Iris::Application.routes.draw do
   
   resources :owners
 

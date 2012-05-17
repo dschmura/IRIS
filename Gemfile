@@ -1,12 +1,12 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.1'
+gem 'rails', '~> 3.2.2'
 gem 'simple_form'
 gem "meta_search"
 gem 'geocoder'
 #gem 'geo_location'
 ## Used for uploading and resizing images (Need both paperclip and mini_magick)
-gem 'paperclip', '2.6.0'
+gem 'paperclip', '~> 2.6.0'
 gem 'mini_magick'
 # User authentication management
 gem 'devise'
@@ -63,4 +63,4 @@ group :assets do
   
 end
 
-gem 'jquery-rails'
+gem 'jquery-rails', '~> 2.0.0'
