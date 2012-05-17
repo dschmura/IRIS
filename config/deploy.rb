@@ -1,6 +1,5 @@
 require 'bundler/capistrano'
-$:.unshift(File.expand_path('./lib', ENV['rvm_path']))
-require 'rvm/capistrano'
+load 'deploy/assets'
 
 # =============================================================================
 # GENERAL SETTINGS
@@ -20,9 +19,6 @@ set :scm_verbose, true
 set :use_sudo, false
 set :user, "iris"
 
-set :rvm_ruby_string, 'ruby-1.9.3'
-
-
 set :ssh_options, { :forward_agent => true }
 default_run_options[:pty] = true
 
@@ -30,24 +26,37 @@ default_run_options[:pty] = true
 # RECIPE INCLUDES
 # =============================================================================
 
+set :bundle_flags, "--deployment --quiet --binstubs --shebang ruby-local-exec"
+set :rake, "#{release_path}/bin/rake"
 
+namespace :deploy do
 
-# If you are using Passenger mod_rails uncomment this:
- namespace :deploy do
-   task :start do ; end
-   task :stop do ; end
-   task :restart, :roles => :app, :except => { :no_release => true } do
-     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
-   end
-   
+  %w[start stop restart].each do |command|
+    desc "#{command} unicorn"
+    task command, roles: :app do
+      run "/etc/init.d/unicorn-#{application} #{command}"
+    end
+  end
+
+  namespace :assets do
+    task :precompile, :roles => :web, :except => { :no_release => true } do
+      # from = source.next_revision(current_revision)
+      # if capture("cd #{latest_release} && #{source.local.log(from)} vendor/assets/ app/assets/ | wc -l").to_i > 0
+        run %Q{cd #{latest_release} && #{rake} RAILS_ENV=#{rails_env} #{asset_env} assets:precompile}
+      # else
+      #  logger.info "Skipping asset pre-compilation because there were no asset changes"
+      # end
+    end
+  end
+
    #This step seems to fail often.  I think it is failing on getting to the current path.
 #   namespace :seed do
 #     run "cd #{current_path}; rake db:migrate RAILS_ENV=production"
 #   end
-   
-   # Link in database config
-   after "deploy:update_code", :link_production_db_config
-  
+
+  # Link in database config
+  after "deploy:update_code", :link_production_db_config
+
 end
 
 task :link_production_db_config do
