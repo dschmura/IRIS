@@ -7,4 +7,4 @@ require 'rake'
 
 
 
-SampleApp::Application.load_tasks
+Iris::Application.load_tasks
