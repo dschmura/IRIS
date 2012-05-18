@@ -1,0 +1,30 @@
+!!! 5
+%html
+  %head
+   
+    %title
+      -# Below is the title defined in the application helper
+      -# Since it is a helper there is no @ preceding it.
+      = page_title
+    = favicon_link_tag
+    = yield :head
+    = render "layouts/stylesheets.haml"
+    = csrf_meta_tag
+    
+  -# Added onload initialize() for google maps api  
+  
+  %body.span-24{ :onload => "initialize()" }
+
+ 
+    .container.span-22
+      = render 'layouts/header.haml'
+      
+      %section.round.span-24.last
+        
+        - flash.each do |key, value|
+          .flash{:class=>"#{key}"}
+            = value
+        = yield
+
+      = render 'layouts/footer.haml'
+    -#= debug(params) if Rails.env.development?
