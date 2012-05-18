@@ -1,0 +1,11 @@
+%h1
+  Administration Jump Page
+  
+-# if @user.admin?
+
+= link_to "Classrooms", new_classroom_path
+|
+= link_to "Buildings", new_building_path
+|
+= link_to "Locations", new_location_path
+

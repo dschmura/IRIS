@@ -1,0 +1,67 @@
+
+-#= link_to image_tag("BorrowedUofMPics/LawQuad.jpg", :alt => "Law Quad", :class => "round main_image"), root_path
+
+-# Then somewhere in the <body> section -->
+.main_image
+  .coda-slider-wrapper-home.span-20
+    .coda-slider.preload#coda-slider-home
+      .panel
+        .panel-wrapper
+          = link_to image_tag("BorrowedUofMPics/LawQuad.jpg", :alt => "Law Quad",  :title => "LawQuad"), root_path
+      .panel
+        .panel-wrapper    
+          = link_to image_tag("BorrowedUofMPics/Cube_Fall.jpg", :alt => "Cube", :title => "Cube"), root_path
+      .panel
+        .panel-wrapper
+          = link_to image_tag("BorrowedUofMPics/League_Fountain.jpg", :alt => "Michigan League Fountain", :title => "Michigan League Fountain"), root_path
+      
+       
+
+#main_text
+  %br
+  %p 
+    This website provides information and support for classrooms managed by LSA. You can search for a room that best meets the needs of your class or event, and access support information such as operating instructions for the installed equipment and contact information for additional help.
+
+  %p
+    To schedule the classrooms pictured on this website, instructors should contact the appropriate administrative staff in their department
+
+  %h2 LSA classrooms
+  %p 
+    This website provides information and support for classrooms managed by LSA. You can search for a room that best meets the needs of your class or event, and access support information such as operating instructions for the installed equipment and contact information for additional help.
+    
+  %p 
+    To schedule the classrooms pictured on this website, instructors should contact the appropriate administrative staff in their department.
+  %p
+    Registered student organizations should reserve rooms through Student Organization Accounts Service (SOAS). More information is available in the guidebook for student organizations.
+  %p
+    For more information or assistance with the technology in a room, email 
+    = link_to "iss-help@umich.edu", "mailto:iss-help@umich.edu" 
+    or call 615-0100.
+
+
+
+    
+
+#main_features
+  %ul
+    %li
+      = link_to 'About ISS', about_url, :class => "button"
+    %li
+      = link_to 'Classrooms', classrooms_url, :class => "button"
+    %li
+      = link_to 'Equipment Loan', "http://www.lsa.umich.edu/facstaff/iss/equipmentloancenters", :class => "button", :target => "_blank"
+    %li
+      = link_to 'Instructional Support', about_url, :class => "button"
+
+
+
+:javascript
+  $('#coda-slider-home').codaSlider({
+                      autoSlide: true,
+                      autoSlideInterval: 7000,
+                      autoSlideStopWhenClicked: true,
+                      slideEaseDuration: 2000,
+                      autoHeight: false,
+              
+                      
+                  });
