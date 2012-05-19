@@ -8,9 +8,11 @@
 //= require jquery_ujs
 //= require jquery.ui.addresspicker
 //= require pano2vr_player
-//= require jquery.coda-slider-2.0
 //= require qtp_library
 //= require ac_quicktime
+//= require jquery.coda-slider-2.0
+//= require_self
+//= require_tree .
 
 $(function() {
   $("#classroom_search input").keyup(function() {
