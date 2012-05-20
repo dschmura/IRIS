@@ -27,7 +27,7 @@ gem 'sqlite3'
 
 #gem 'haml'
 gem 'haml-rails'    
-gem 'compass'
+gem 'compass', '~> 0.12.alpha'
 
 gem 'gravatar_image_tag'
 gem "will_paginate", "~> 3.0"

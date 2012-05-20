@@ -1,27 +1,27 @@
 /* Buildings Styles */
 /* Index */
 /* Show */
-/* line 18, ../../../src/buildings.sass */
+/* line 17, ../../../src/buildings.sass */
 #building_location_attributes_latitude, #building_location_attributes_longitude {
   margin-left: 50px;
 }
 
 /* Edit */
 /* BUILDINGS STYLING */
-/* line 26, ../../../src/buildings.sass */
+/* line 25, ../../../src/buildings.sass */
 #building_image img {
   margin-right: 5%;
   float: right;
 }
 
-/* line 29, ../../../src/buildings.sass */
+/* line 28, ../../../src/buildings.sass */
 #building_data {
   float: left;
   margin-left: 3%;
   width: 35%;
 }
 
-/* line 35, ../../../src/buildings.sass */
+/* line 34, ../../../src/buildings.sass */
 #building_map {
   position: relative;
   top: 60px;
@@ -29,7 +29,7 @@
   margin-top: 2%;
 }
 
-/* line 41, ../../../src/buildings.sass */
+/* line 40, ../../../src/buildings.sass */
 #where_am_i_map {
   float: right;
   border: 1px solid #999999;
@@ -37,16 +37,16 @@
   bottom: 50px;
   margin: 1% 2% 1% 1%;
 }
-/* line 48, ../../../src/buildings.sass */
+/* line 47, ../../../src/buildings.sass */
 #where_am_i_map .input label {
   display: none;
 }
-/* line 50, ../../../src/buildings.sass */
+/* line 49, ../../../src/buildings.sass */
 #where_am_i_map .input #addresspicker_map {
   display: none;
 }
 
-/* line 52, ../../../src/buildings.sass */
+/* line 51, ../../../src/buildings.sass */
 #map {
   width: 320px;
   height: 250px;

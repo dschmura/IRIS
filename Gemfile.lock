@@ -206,7 +206,7 @@ DEPENDENCIES
   cancan
   capistrano
   coffee-rails (~> 3.2.1)
-  compass
+  compass (~> 0.12.alpha)
   devise
   factory_girl_rails
   faker
