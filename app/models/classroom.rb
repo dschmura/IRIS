@@ -6,30 +6,18 @@ class Classroom < ActiveRecord::Base
   
   accepts_nested_attributes_for :location, :allow_destroy => true  
   validates_presence_of :location_id, :room_number, :student_capacity, :facility_code_heprod
-  
 
-  
   #attr_accessible :room_number, :student_capacity
   
   validates :student_capacity, :numericality => true,
                                :length => {:within => 1..2000}
-  
-  
+   
   #Makes for links on the site more SEO friendly
   def to_param
     "#{facility_code_heprod.upcase.gsub(/[^[:alnum:]]/,'-')}".gsub(/-{2,}/,'-')
   end
   
-
-   
-
-  
 end
-
-
-
-
-
 
 
 # == Schema Information

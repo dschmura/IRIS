@@ -10,26 +10,16 @@ class ApplicationController < ActionController::Base
   # part of the server setup.)
   # The list of campus network blocks is available http://www.itcom.itd.umich.edu/backbone/umnet/
   def redirect_https        
-          @ip = request.remote_ip     
-          redirect_to :protocol => "https://" unless (request.ssl? || @ip.match(/141.211.|67.194.|141.212.|141.213.|141.214.|141.215.|127.0.0.1/))
-          return true
+    @ip = request.remote_ip     
+    redirect_to :protocol => "https://" unless (request.ssl? || @ip.match(/141.211.|67.194.|141.212.|141.213.|141.214.|141.215.|127.0.0.1/))
+    return true
   end
       before_filter :redirect_https
-
-
 
   private  
     def mobile_device?  
       request.user_agent =~ /Mobile|webOS/  
     end  
     
-    
-
-
-
     helper_method :mobile_device?
- 
-    
-    
-  
 end

@@ -17,7 +17,6 @@ class Location < ActiveRecord::Base
   validates :longitude, :presence => true,
                         :length => {:within => 9..18},
                         :numericality => true
- 
 end
 
 # == Schema Information
