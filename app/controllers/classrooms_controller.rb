@@ -14,7 +14,7 @@ class ClassroomsController < ApplicationController
       else
         @per_page = 10  
        end
-    @classrooms = @search.paginate(:page => params[:page], :per_page => @per_page)   # or @search.relation to lazy load in view
+    @classrooms = @search.paginate(:page => params[:page], :per_page => @per_page).order("student_capacity desc")   # or @search.relation to lazy load in view
         
     respond_to do |format|
       format.html # index.html.erb
@@ -31,14 +31,12 @@ class ClassroomsController < ApplicationController
   # GET /classrooms/1
   # GET /classrooms/1.xml
   def show
-    #@classroom = Classroom.find(params[:id])
-    
+    #@classroom = Classroom.find(params[:id])  
     @classroom = Classroom.find_by_facility_code_heprod(params[:id].upcase)
     @page_title = @classroom.location.name
     @classroom_alt = @classroom.location.name + " - " + @classroom.room_number 
     @building = Location.find(@classroom.location_id)
     @owner = Owner.find(@classroom.owner_id)
-
     @building_image = @building.picture.url(:medium).to_s
     @building_sign_image = @building.building_sign.url(:thumb).to_s
     @search = Classroom.search(params[:search])
