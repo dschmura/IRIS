@@ -142,8 +142,13 @@
           #attribute_instructor_wheelchair_access
             = f.input :wheelchair_instructor
       %hr.span-23
-    .actions
-      = f.button :submit
+      
+    .actions      
+      = f.button :submit 
+      |
+      = link_to "Cancel", @classroom 
+      
+      
 
 :javascript
   function showValue(newValue)
