@@ -6,6 +6,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require  jquery-ui
 
 //= require pano2vr_player
 //= require qtp_library
