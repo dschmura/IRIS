@@ -1,6 +1,3 @@
-
-
-
 %table
   %tr
     %th Image
@@ -9,17 +6,11 @@
       = sort_link @search, :location_name, "Classroom Name", :default_order => :desc
     %th
       -#= sortable "classroom.location.name","Classroom Name"
-      
-      = sort_link @search, :student_capacity, "Capacity", :default_order => :desc
 
+      = sort_link @search, :student_capacity, "Capacity", :default_order => :desc
     %th
       -#= sortable "student_capacity", "Capacity"
-      
       = sort_link @search, :room_number, "Room Number", :default_order => :desc
-
-    
-
-
     - if user_signed_in?
       %th
       %th
@@ -30,12 +21,8 @@
       %td= link_to (image_tag classroom.location.picture.url(:thumb).to_s, :alt => @classroom_alt,   :class => "classroom_index_thumb round"), classroom
       %td= link_to classroom.location.name, classroom
       %td= classroom.student_capacity      
-      
-
       %td= link_to classroom.room_number, classroom
-      
-
-    
+  
       - if user_signed_in?
         %td= link_to 'Show', classroom
         %td= link_to 'Edit', edit_classroom_path(classroom)
@@ -44,14 +31,11 @@
 %br
 = will_paginate
 
-
 -#
   #number_of_results_selector
     = field_for @search do |i|
       = i.select_tag :per_page, options_for_select([1,10,25,50,100], @per_page.to_i), :onchange => "submit"
       per page
-  
-
 
 - if user_signed_in?
   = link_to 'New Classroom', new_classroom_path

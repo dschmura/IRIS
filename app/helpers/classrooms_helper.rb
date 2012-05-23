@@ -9,11 +9,10 @@ module ClassroomsHelper
     tech_req = image_tag("Open_For_Business_Sign.png", :alt => "We are open for change.  Please contribute your feedback.", :class => 'construction')
     
     if technician_required_rooms.include? @classroom.facility_code_heprod
-      technician_required_message
-      
-      
+      technician_required_message  
     end
   end
+  
   
   def basement
     # Buildings with basements or other weird floors

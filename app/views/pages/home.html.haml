@@ -1,7 +1,3 @@
-
--#= link_to image_tag("BorrowedUofMPics/LawQuad.jpg", :alt => "Law Quad", :class => "round main_image"), root_path
-
--# Then somewhere in the <body> section -->
 .main_image
   .coda-slider-wrapper-home.span-20
     .coda-slider.preload#coda-slider-home
@@ -15,8 +11,6 @@
         .panel-wrapper
           = link_to image_tag("BorrowedUofMPics/League_Fountain.jpg", :alt => "Michigan League Fountain", :title => "Michigan League Fountain"), root_path
       
-       
-
 #main_text
   %br
   %p 
@@ -38,10 +32,6 @@
     = link_to "iss-help@umich.edu", "mailto:iss-help@umich.edu" 
     or call 615-0100.
 
-
-
-    
-
 #main_features
   %ul
     %li
@@ -53,15 +43,11 @@
     %li
       = link_to 'Instructional Support', about_url, :class => "button"
 
-
-
 :javascript
   $('#coda-slider-home').codaSlider({
                       autoSlide: true,
                       autoSlideInterval: 7000,
                       autoSlideStopWhenClicked: true,
                       slideEaseDuration: 2000,
-                      autoHeight: false,
-              
-                      
+                      autoHeight: false,         
                   });

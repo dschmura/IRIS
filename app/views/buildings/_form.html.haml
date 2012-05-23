@@ -17,8 +17,6 @@
         = f.simple_fields_for :location do |loc|
           -# paperclip method
           = loc.file_field :picture
-    
-
     - else
       %p.prepend-4
         %b Upload an image for this building.  
@@ -33,14 +31,12 @@
       -if @building.location.building_sign_file_name != nil
         = image_tag @building.location.building_sign.url(:medium).to_s
         %p.prepend-4#update_image
-
           %b Upload a building sign for this building.  
           %br
           %br
           = f.simple_fields_for :location do |loc|
             -# paperclip method
             = loc.file_field :building_sign
-
       - else
         %p.prepend-4
           %b Upload a building sign for this building.  
@@ -80,11 +76,9 @@
   = f.input :zip,  :placeholder => "48109-1234", :input_html => { :value => '48109', :size => 10 }
   = f.input :description,  :placeholder => "Building description"
   = f.input :history,  :placeholder => "Optional building history (if available)"
-
   .actions
     = f.button :submit
      
-   
 :javascript  
   $(window).load(function(){
     var addresspicker = $( "#addresspicker" ).addresspicker();
@@ -93,7 +87,6 @@
         map:      "#map",
         lat:      "#building_location_attributes_latitude",
         lng:      "#building_location_attributes_longitude",
-
         locality: '#locality',
         country:  '#country'
       }

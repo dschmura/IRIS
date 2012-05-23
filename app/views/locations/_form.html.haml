@@ -6,20 +6,12 @@
         - @location.errors.full_messages.each do |msg|
           %li= msg
 
-
-
   = f.input :latitude
   = f.input :longitude
   %br
   %br
   = f.input :name
   = f.input :description
-  -#= f.input :gmaps, :as => :hidden, :input_html => { :value => "true" }
-  
-
-  -#= render 'fields_for_buildings', :collection => @location.buildings
-        
-    
 
   .actions
     = f.button :submit

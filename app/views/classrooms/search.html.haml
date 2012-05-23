@@ -2,18 +2,13 @@
   
   #rooms_search_form.span-6
     Search Form
-
     %hr
     
 = form_for @search do |f| 
   = f.label :room_number_contains 
   = f.text_field :room_number_contains 
-
-
   = f.submit
-
-        
-        
+      
   #rooms_results.span-17.last
     Results
     

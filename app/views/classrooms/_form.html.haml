@@ -3,12 +3,8 @@
   #building_code  
     -# = @buildings.find(3).building_short_code
     %br
-
-  .inputs
-  
+  .inputs  
     = f.input :room_number, :placeholder => "AudB", :input_html => { :tabindex => '1' }
-
-    
     #where_am_i_map
       .input
         %label
@@ -18,16 +14,12 @@
     = f.input :location_id, :collection => Location.where(:locatable_type => "Building").order("name ASC"), :prompt => "What Building is this room in?", :label => "Building"
     
     = link_to "Add a Building", new_building_path, :style => "position: relative; left: 420px; bottom: 30px;", :target => "_blank"
-    
-    
+
     = f.input :owner_id, :collection => Owner.order("department_name ASC"), :prompt => "Who owns this space?", :label => "Owner", :label_method => :department_name
-    
-    -# = f.collection_select :owner_id, Owner.all, :id, :department_name, :label => "Owner"
-    
+        
     = link_to "Add an Owner", new_owner_path, :style => "position: relative; left: 4680px; bottom: 30px;", :target => "_blank"
     
     = f.simple_fields_for :location do |loc|
-      
       = loc.input :name, :placeholder => "Angell Hall Aud B"
       = loc.input :latitude, :as => "string"
       %br
@@ -35,15 +27,11 @@
       = loc.input :longitude,  :as => "string"
       %br
       %br
-
     = f.input :student_capacity,  :as => "string", :placeholder => '0'
-    <input id= "capacity_slider" type="range" min="0" max="1000" value="0" step="1" onchange="printValue('capacity_slider', 'classroom_student_capacity')" />
-   
-    
+    <input id= "capacity_slider" type="range" min="0" max="1000" value="0" step="1" onchange="printValue('capacity_slider', 'classroom_student_capacity')" />   
     = f.input :facility_code_heprod, :placeholder => "AHAudB"
     %br
-      *Combine the building short code with the room number
-    
+      *Combine the building short code with the room number    
     %br
     -#= f.input :is_department_space
     %br
@@ -60,7 +48,6 @@
             = f.simple_fields_for :location do |loc|
               -# paperclip method
               = loc.file_field :picture
-  
         - else
           %p.prepend-4
             %b Upload an image for this classroom.  
@@ -69,7 +56,6 @@
             = f.simple_fields_for :location do |loc|
               -# paperclip method
               = loc.file_field :picture
-  
     
   %hr.span-23.last
     .attributes_disclosure_wrapper
@@ -185,26 +171,17 @@
     });
   });
 
-
 -# Auto update HeProd with building code and room number
 :javascript
   $('#classroom_room_number').keyup( function(){
     var room_number = $('input#classroom_room_number').val()
      $('#classroom_facility_code_heprod').val(room_number) ;
      $('#classroom_location_attributes_name').val(room_number) ;
-
-  
   $('#classroom_location_id').change( function() {
-    var room_name = $('option:selected', this).html();
-    
+    var room_name = $('option:selected', this).html();   
     $('#classroom_location_attributes_name').val(room_number + " " + room_name) ;
   } );
     });
-
-  
-  
-
-
 
 :javascript
   $(window).load(function(){

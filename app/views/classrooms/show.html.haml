@@ -1,6 +1,3 @@
-
-
-
 #image_nav
   %ul
     %li
@@ -12,8 +9,7 @@
 #classroom_top_section 
   = render :partial => 'building_float'  
     
-  .coda-slider-wrapper.span-20
-    
+  .coda-slider-wrapper.span-20   
     .coda-slider.preload#coda-slider-rooms
       .panel
         .panel-wrapper      
@@ -24,8 +20,7 @@
           #panorama.round
             %center
               %h2 This room does not have a panorama
-            
-       
+                  
       .panel
         .panel-wrapper.round
           <div id="map_canvas" style="width:100%; height:400px"></div>
@@ -46,13 +41,7 @@
 #technician_required
   = technician_required
 
-
-
-
-  
 = render :partial => 'show_room_attributes'
-
-
 
 - if user_signed_in?
   = link_to 'Edit', edit_classroom_path
