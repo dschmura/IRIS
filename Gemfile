@@ -15,6 +15,7 @@ gem 'devise'
 gem 'cancan'
 gem 'therubyracer', :require => 'v8'
 
+
 group :production do
   #gem 'mysql'
   gem 'sqlite3'

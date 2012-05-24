@@ -79,9 +79,7 @@
         %li
           Map View
 
-  
-
-  -# Javascript to update value of student capacity text box from slider
+-# Javascript to update value of student capacity text box from slider
 
 :javascript
   function showValue(newValue)
@@ -96,7 +94,6 @@
   window.onload = function() { printValue('slider1', 'rangeValue1'); printValue('slider2', 'rangeValue2'); printValue('slider3', 'rangeValue3'); printValue('slider4', 'rangeValue4'); }
 
 -#toggle the visability of additional search fields and the disclosure triangle's state
-:javascript
   $('.advanced_search_disclosure_wrapper h4').click(function() { 
   $("div:contains('advanced_search_disclosure_wrapper')").toggleClass("advanced_search_disclosure_wrapper_active");
   $('#advanced_search_wrapper').toggle('fast', function(){

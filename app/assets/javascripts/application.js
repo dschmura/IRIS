@@ -8,6 +8,7 @@
 //= require jquery_ujs
 //= require  jquery-ui
 
+
 //= require pano2vr_player
 //= require qtp_library
 //= require ac_quicktime
@@ -15,11 +16,6 @@
 //= require_self
 //= require jquery.ui.addresspicker
 
-$(function() {
-  $("#classroom_search input").keyup(function() {
-    $.get($("#classroom_search").attr("action"), $("#classroom_search").serialize(), null, "script");
-    return false;
-  });
-});
+
 
 

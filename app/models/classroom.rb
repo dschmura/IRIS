@@ -5,13 +5,20 @@ class Classroom < ActiveRecord::Base
   has_one :owner
   
   accepts_nested_attributes_for :location, :allow_destroy => true  
-  validates_presence_of :location_id, :room_number, :student_capacity, :facility_code_heprod
-
+  validates_presence_of :location_id
   #attr_accessible :room_number, :student_capacity
   
   validates :student_capacity, :numericality => true,
-                               :length => {:within => 1..2000}
-   
+                               :length => {:within => 1..2000},
+                               :presence => true
+                               
+  validates :room_number, :presence => true,
+                          :length => {:minimum => 1, :maximum => 6}
+                               
+  validates :facility_code_heprod,  :presence => true,
+                                    :format => {:with => /\A(\D{2,6})+(\d{1,6})+(\z)/i},
+                                    :uniqueness => true
+
   #Makes for links on the site more SEO friendly
   def to_param
     "#{facility_code_heprod.upcase.gsub(/[^[:alnum:]]/,'-')}".gsub(/-{2,}/,'-')

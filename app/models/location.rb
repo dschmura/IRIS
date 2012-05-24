@@ -10,7 +10,8 @@ class Location < ActiveRecord::Base
   
   belongs_to :locatable, :polymorphic => true
   belongs_to :location_type  
-  validates_presence_of   :name
+  validates :name,  :presence => true
+  
   validates :latitude, :presence => true,
                        :length => {:within => 9..18},
                        :numericality => true

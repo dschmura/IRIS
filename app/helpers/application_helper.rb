@@ -13,20 +13,11 @@ module ApplicationHelper
     end
   end
   
-
-
-  
-
-  
-  
   def logo
     image_tag("logo.png", :alt => "University of Michigan LSA Logo", :class => "round")
   end
   def construction_sign
     image_tag("Open_For_Business_Sign.png", :alt => "We are open for change.  Please contribute your feedback.", :class => 'construction')
   end
-  
 
-  
-      
 end
