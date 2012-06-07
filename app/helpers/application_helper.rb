@@ -5,7 +5,7 @@ module ApplicationHelper
   # The base_title gets joined with the @page_title
   def page_title
     base_title = "Instructional Support Services"
-    
+    @base_title = base_title
     if @page_title.nil?
       base_title
     else
@@ -14,8 +14,12 @@ module ApplicationHelper
   end
   
   def logo
-    image_tag("logo.png", :alt => "University of Michigan LSA Logo", :class => "round")
+    image_tag("UniversityOfMichigan_wordmark.png", :alt => "University of Michigan Logo", :width => "400", :style => "padding: 1em;", :class => "round")
   end
+  def footer_logo
+   image_tag("LSA_Logo.png", :alt => "#{@base_title} is brought to you by LSA Instructional Support Services", :style => "height: 35px; float: left;")
+  end
+  
   def construction_sign
     image_tag("Open_For_Business_Sign.png", :alt => "We are open for change.  Please contribute your feedback.", :class => 'construction')
   end
