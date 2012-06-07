@@ -23,16 +23,11 @@
   - else
     %em
       %b Departmental Classroom 
-  %br 
-  = link_to "View Room Schedule", "https://heprod.dsc.umich.edu/services/facilitycalendar?facilityid=#{@classroom.facility_code_heprod }", :target => "_blank"
+
 
   %br 
   %br 
-  %b 
-    Contact: 
-  = link_to @owner.department_name, "mailto:"+@owner.contact_email
-  %br
-  %br
+
     = link_to "Back to classrooms list", :classrooms
 
   -#= form_for @search do |f| 

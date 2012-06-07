@@ -6,6 +6,8 @@
       = link_to "Panorama", "#2", :class => "xtrig",  :rel => "coda-slider-1"
     %li
       = link_to "Map",  "#3", :class => "xtrig",  :rel => "coda-slider-1"
+    %li
+      = link_to "Contact",  "#4", :class => "xtrig",  :rel => "coda-slider-1"
 #classroom_top_section 
   = render :partial => 'building_float'  
     
@@ -24,6 +26,23 @@
       .panel
         .panel-wrapper.round
           <div id="map_canvas" style="width:100%; height:400px"></div>
+      .panel
+        .panel-wrapper.round
+          #contact_sheet 
+            %b Support Contact:
+            = link_to @owner.department_name, "mailto:"+@owner.contact_email
+            %br
+            %br
+            %b Contact Phone:
+            = @owner.contact_phone
+            %br
+            %br
+            %b Room Schedule:
+            = link_to "View Room Schedule", "https://heprod.dsc.umich.edu/services/facilitycalendar?facilityid=#{@classroom.facility_code_heprod }", :target => "_blank"
+            %br
+            %br
+            %b Room Usage Guidelines:
+
 
 #room_number
   %h1  

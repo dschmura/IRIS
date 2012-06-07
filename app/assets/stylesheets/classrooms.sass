@@ -57,7 +57,16 @@
   margin: 1em 1em 1em 0
   font-weight: bold
 
+#contact_sheet
+  width: 100%
+  min-height: 400px
 
+  padding: 4em
+  background: #FFF
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFF', endColorstr='#B5C9D5')
+  background: -webkit-gradient(linear, left top, left bottom, from(#FFF), to(#B5C9D5), color-stop(0.5, #E6E6E6))
+  background: -moz-linear-gradient(top,  #FFF,  #B5C9D5)
+  
 #building_float
   visibility: visible
   z-index: 10001
@@ -163,12 +172,11 @@
   max-width: 55px
   
 #image_nav
-  
   z-index: 15000
   position: absolute
   top: 450px
-  left: 65%
-  float: right
+  left: 60%
+  float: left
   width: auto
   border: 1px solid #999
   background-color: #ccc
@@ -176,11 +184,8 @@
   white-space: nowrap
   background-image: -webkit-gradient(linear, left top, left bottom, from(#e7e8e0), to(#FFFFFF), color-stop(0.5, #E6E6E6))
   ul
-
     height: 8px
-     
     li
-
       list-style-type: none
       display: inline-block 
       width: 65px   
@@ -188,8 +193,7 @@
       -webkit-transition: all 0.5s
       text-align: center
       padding: .4em .5em .5em .5em
-      a
-  
+      a  
         font-weight: bold
         text-shadow: 1px 1px 0px #cccccc     
       &:hover 
