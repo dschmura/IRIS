@@ -119,17 +119,17 @@
         %a{:href=>"#", :class => "tip2"}  
           = f.input :computer_classroom_any, :disabled => true
           %span
-            Room contains any computer for use by the instructor.
+            Room contains either PC or MAC computers at each student workstation
         #attribute_podium_computer_mac
           %a{:href=>"#", :class => "tip2"}
             = f.input :computer_classroom_mac, :disabled => true
             %span
-              Room contains a Mac computer for use by the instructor.
+              Room contains Mac computers at each student workstation
         #attribute_podium_computer_pc
           %a{:href=>"#", :class => "tip2"}
             = f.input :computer_classroom_windows, :disabled => true
             %span
-              Room contains a PC computer for use by the instructor.
+              Room contains PC computers at each student workstation
 
     #equipment_section.span-10
       %h2 Equipment
@@ -178,7 +178,7 @@
         %a{:href=>"#", :class => "tip2"}
           = f.input :interactive_pen, :disabled => true
           %span
-            Room contains special digitial pen and writing surface for commenting/editing digital presentation.
+            Room contains special digital pen and writing surface for commenting/editing digital presentation.
       #attribute_lecture_capture
         %a{:href=>"#", :class => "tip2"}
           = f.input :lecture_capture, :disabled => true
