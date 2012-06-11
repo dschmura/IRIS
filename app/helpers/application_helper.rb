@@ -19,6 +19,9 @@ module ApplicationHelper
   def footer_logo
    image_tag("LSA_Logo.png", :alt => "#{@base_title} is brought to you by LSA Instructional Support Services", :style => "height: 35px; float: left;")
   end
+  def footer_logo_um
+   image_tag("UniversityOfMichigan_wordmark.png", :alt => "#{@base_title} is brought to you by LSA Instructional Support Services", :style => "height: 25px; float: right;")
+  end
   
   def construction_sign
     image_tag("Open_For_Business_Sign.png", :alt => "We are open for change.  Please contribute your feedback.", :class => 'construction')

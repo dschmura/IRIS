@@ -11,9 +11,9 @@ Iris::Application.routes.draw do
   resources :buildings, :has_one => :location 
   
 #Sign in Routes
-  #resources :sessions, :only => [:new, :create, :destroy]
-  #match '/signin', :to => 'sessions#new'
-  #match '/signout', :to => 'sessions#destroy'
+  resources :sessions, :only => [:new, :create, :destroy]
+  match '/signin', :to => 'sessions#new'
+  match '/signout', :to => 'sessions#destroy'
   
 #Pages Routes
   root :to => "pages#home"
