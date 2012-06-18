@@ -2,7 +2,7 @@
   %nav.round
     
     %ul.footer_links
-      
+      = link_to footer_logo, "http://lsa.umich.edu/iss",  :target => "_blank"
       
       %li
         = link_to "Home", root_path
@@ -27,10 +27,10 @@
         - else
           = link_to "Sign in", new_user_session_path
   
-
+      = link_to footer_logo_um, "http://www.umich.edu", :target => "_blank"
   
-    = link_to footer_logo, "http://lsa.umich.edu/iss",  :target => "_blank"
-    = link_to footer_logo_um, "http://www.umich.edu", :target => "_blank"
+    
+    
 
   %p
     = link_to "Copyright The Regents of the University of Michigan, 2011", "http://www.umich.edu", :target => '_blank'
