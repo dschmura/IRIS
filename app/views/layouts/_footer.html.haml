@@ -14,9 +14,7 @@
         = link_to "FAQs", faq_path
       %li
         = link_to "Support", help_path
-      %li
-        = link_to "LSA - ISS", 'http://lsa.umich.edu/iss', :target => '_blank'
-        
+
       %li
         - if user_signed_in?
           = link_to "Sign out",  destroy_user_session_path, :method => 'delete'  

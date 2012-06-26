@@ -17,10 +17,10 @@ module ApplicationHelper
     image_tag("MClassrooms_Logo.png", :alt => "University of Michigan Logo", :width => "250", :style => "padding: 1em;", :class => "round")
   end
   def footer_logo
-   image_tag("LSA_Logo.png", :alt => "#{@base_title} is brought to you by LSA Instructional Support Services", :style => "height: 35px; float: left;")
+   image_tag("LSA_ISS_Pill.png", :alt => "#{@base_title} is brought to you by LSA Instructional Support Services", :style => "height: 35px; float: left; position: relative; right: 18px;")
   end
   def footer_logo_um
-   image_tag("UniversityOfMichigan_wordmark.png", :alt => "#{@base_title} is brought to you by LSA Instructional Support Services", :style => "height: 25px; float: right; padding-top: 5px;")
+   image_tag("UniversityOfMichigan_wordmark.png", :alt => "#{@base_title} is brought to you by LSA Instructional Support Services", :style => "height: 22px; float: right; padding-top: 5px;")
   end
   
   def construction_sign
