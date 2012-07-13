@@ -28,6 +28,7 @@ Iris::Application.routes.draw do
   match '/faq', :to => 'pages#faq'
   match '/events', :to => 'pages#event_support'
   match '/admin', :to => 'pages#admin'
+  
    
 
 end

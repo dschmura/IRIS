@@ -1,0 +1,6 @@
+
+class RedirectController < ApplicationController
+  
+  
+  
+end

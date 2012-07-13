@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '~> 3.2.5'
+gem 'rails', '~> 3.2.6'
 gem 'simple_form'
 gem "meta_search"
 gem 'geocoder'
@@ -14,6 +14,7 @@ gem 'devise'
 #gem 'declarative_authorization'
 gem 'cancan'
 gem 'therubyracer', :require => 'v8'
+gem 'rack-rewrite'
 
 
 group :production do
