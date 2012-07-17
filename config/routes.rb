@@ -1,6 +1,9 @@
 Iris::Application.routes.draw do
- 
 
+  # Rewrite from old site
+  match 'detail.php', :to => 'old_site_redirector#detail'
+  match 'index.php', :to => 'old_site_redirector#pages'
+  
   resources :owners
   devise_for :users
   
