@@ -1,5 +1,5 @@
 Iris::Application.config.middleware.insert_before(Rack::Lock, Rack::Rewrite) do
-
+#config.middleware.insert_before(Rack::Lock, Rack::Rewrite) do
   r301 'detail.php?roomid=645' ,  'classrooms/AH2163'
   r301 'detail.php?roomid=643' ,  'classrooms/AH2271'
   r301 'detail.php?roomid=636' ,  'classrooms/AH4175'
