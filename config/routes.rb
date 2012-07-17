@@ -1,5 +1,6 @@
 Iris::Application.routes.draw do
-  
+ 
+
   resources :owners
   devise_for :users
   
@@ -20,7 +21,10 @@ Iris::Application.routes.draw do
 
   match '/contact', :to => 'pages#contact'
   match '/about',   :to => 'pages#about'
-  match '/help',    :to => 'pages#help'
+  match '/about_iss',   :to => 'pages#about_iss'
+  match '/help',    :to => 'pages#support'
+  match '/support',    :to => 'pages#support'
+  match '/iss_support',    :to => 'pages#iss_support'
   match '/signup',  :to => 'users#new'
 
   match '/development', :to => 'pages#development'

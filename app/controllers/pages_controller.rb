@@ -10,19 +10,27 @@ class PagesController < ApplicationController
   end
   
   def about
-    @page_title="About Us"
+    @page_title="About the MClassrooms site"
+  end
+  
+  def about_iss
+    @page_title="About Instructional Support Services"
   end
   
   def faq
     @page_title="Frequently Asked Questions"
   end
   
+  def iss_support
+    @page_title="ISS Support"
+  end
+  
   def event_support
     @page_title="Event Support"
   end
   
-  def help
-    @page_title="Help"
+  def support
+    @page_title="Support"
   end
   def development
     @page_title="Development"
