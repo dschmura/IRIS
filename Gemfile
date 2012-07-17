@@ -14,7 +14,7 @@ gem 'devise'
 #gem 'declarative_authorization'
 gem 'cancan'
 gem 'therubyracer', :require => 'v8'
-#gem 'rack-rewrite'
+gem 'rack-rewrite'
 
 
 group :production do
