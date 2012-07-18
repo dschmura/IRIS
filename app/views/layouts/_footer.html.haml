@@ -1,32 +1,33 @@
 %footer
   %nav.round
     
-    %ul.footer_links
+    .footer_links
       -# = link_to footer_logo, "http://lsa.umich.edu/iss",  :target => "_blank"
       = link_to footer_logo, about_iss_path
-      
-      %li
-        = link_to "Home", root_path
-      %li
-        = link_to "About", about_path
-      %li
-        = link_to "Classrooms", classrooms_path
-      %li
-        = link_to "FAQs", faq_path
-      %li
-        = link_to "Support", support_path
+      %ul
+        %li
+          = link_to "Home", root_path
+        %li
+          = link_to "About", about_path
+        %li
+          = link_to "Classrooms", classrooms_path
+        %li
+          = link_to "FAQs", faq_path
+        %li
+          = link_to "Support", support_path
 
-      %li
-        - if user_signed_in?
-          = link_to "Sign out",  destroy_user_session_path, :method => 'delete'  
-          = current_user.email
+        %li
+          - if user_signed_in?
+            = link_to "Sign out",  destroy_user_session_path, :method => 'delete'  
+            = current_user.email
 
 
 
-        - else
-          = link_to "Sign in", new_user_session_path
-  
-      = link_to footer_logo_um, "http://www.umich.edu", :target => "_blank"
+          - else
+            = link_to "Sign in", new_user_session_path
+        %li
+        
+          = link_to footer_logo_um, "http://www.umich.edu", :target => "_blank"
   
     
     

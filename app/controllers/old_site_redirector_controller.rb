@@ -17,9 +17,13 @@ class OldSiteRedirectorController < ApplicationController
     new_id = OldSiteRedirectorController::ROOMS[old_roomid]
 
     if (new_id)
-      redirect_to classroom_path(new_id)
+      redirect_to classroom_path(new_id), 
+                  :notice => 'That link that you followed has been updated. Please update your bookmarks.', 
+                  :status=>:moved_permanently
     else
-      redirect_to root_path
+      redirect_to root_path,
+                  :notice => 'That link that you followed has been updated. We could not locate that resource. Please update your bookmarks.', 
+                  :status=>:moved_permanently
     end
     
   end
