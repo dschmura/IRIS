@@ -1,7 +1,8 @@
 !!! 5
 %html
+  
   %head
-   
+    
     %title
       -# Below is the title defined in the application helper
       -# Since it is a helper there is no @ preceding it.
@@ -10,7 +11,7 @@
     = yield :head
     = render "layouts/stylesheets.haml"
     = csrf_meta_tag
-     
+    %meta{:charset => "utf-8"} 
   
   %body.span-24
  
