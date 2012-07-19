@@ -11,6 +11,8 @@
     %th
       -#= sortable "student_capacity", "Capacity"
       = sort_link @search, :room_number, "Room Number", :default_order => :desc
+    -#%th
+      Department
     - if user_signed_in?
       %th
       %th
@@ -18,11 +20,12 @@
 
   - @classrooms.each do |classroom|
     %tr
-      %td= link_to (image_tag classroom.location.picture.url(:thumb).to_s, :alt => @classroom_alt,   :class => "classroom_index_thumb round"), classroom
+
+      %td= link_to (image_tag classroom.location.picture.url(:thumb).to_s, :alt => "#{classroom.location.name} thumbnail",   :class => "classroom_index_thumb round"), classroom
       %td= link_to classroom.location.name, classroom
       %td= classroom.student_capacity      
       %td= link_to classroom.room_number, classroom
-  
+      -# %td= @owner.department_name
       - if user_signed_in?
         %td= link_to 'Show', classroom
         %td= link_to 'Edit', edit_classroom_path(classroom)

@@ -16,6 +16,7 @@ gem 'cancan'
 gem 'therubyracer', :require => 'v8'
 # gem 'rack-rewrite'
 
+gem 'haml'
 group :production do
   #gem 'mysql'
   gem 'sqlite3'

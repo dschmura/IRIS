@@ -1,15 +1,17 @@
 !!! 5
 %html
   %head
-   
+    %meta{:charset => "utf-8"}
     %title
       -# Below is the title defined in the application helper
       -# Since it is a helper there is no @ preceding it.
       = page_title
+    
     = favicon_link_tag
     = yield :head
     = render "layouts/stylesheets.haml"
     = csrf_meta_tag
+     
     
   -# Added onload initialize() for google maps api  
   

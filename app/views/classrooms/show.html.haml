@@ -41,12 +41,17 @@
             = link_to "View Room Schedule", "https://heprod.dsc.umich.edu/services/facilitycalendar?facilityid=#{@classroom.facility_code_heprod }", :target => "_blank"
             %br
             %br
-            %b Room Usage Guidelines:
+            %b Room Usage Guidelines: 
+            None Available.
+            %br
+            %br
+            %b Department Name:
+            = @owner.department_name
 
 
-#room_number
-  %h1  
-    = @classroom.location.name          
+  #room_number
+    %h1  
+      = @classroom.location.name          
 -#
   #image_nav
   %ul

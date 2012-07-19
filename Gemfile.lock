@@ -212,6 +212,7 @@ DEPENDENCIES
   faker
   geocoder
   gravatar_image_tag
+  haml
   haml-rails
   jquery-rails (~> 2.0.0)
   meta_search
