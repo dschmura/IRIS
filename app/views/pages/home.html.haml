@@ -14,39 +14,19 @@
 #main_text
   %br
   %p 
-    This website provides information and support for classrooms managed by LSA. You can search for a room that best meets the needs of your class or event, and access support information such as operating instructions for the installed equipment and contact information for additional help.
-
-  %p
-    To schedule the classrooms pictured on this website, instructors should contact the appropriate administrative staff in their department
-
-  %h2 LSA classrooms
-  %p 
-    This website provides information and support for classrooms managed by LSA. You can search for a room that best meets the needs of your class or event, and access support information such as operating instructions for the installed equipment and contact information for additional help.
-    
-  %p 
-    To schedule the classrooms pictured on this website, instructors should contact the appropriate administrative staff in their department.
-  %p
-    Registered student organizations should reserve rooms through Student Organization Accounts Service (SOAS). More information is available in the guidebook for student organizations.
-  %p
-    For more information or assistance with the technology in a room, email 
-    = link_to "iss-help@umich.edu", "mailto:iss-help@umich.edu" 
-    or call 615-0100.
+    As of fall 2012, the majority of rooms in this database are within the College of LSA. They are available to the general university for class and event scheduling. As a general rule, the registrar's office manages the schedule for university classrooms. Schools, colleges, and departments may have their own procedures. Faculty are encouraged to work through their departmental administrative staff to reserve rooms. Registered student organizations should reserve rooms through Student Organization Accounts Service (SOAS). More information is available in the guidebook for student organizations.
+  
 
 #main_features
   %ul
+    
     %li
-      = link_to 'About ISS', about_iss_url, :class => "button"
-    %li
-      = link_to 'Classrooms', classrooms_url, :class => "button"
-    %li
-      = link_to 'Equipment Loan', "http://www.lsa.umich.edu/facstaff/iss/equipmentloancenters", :class => "button", :target => "_blank"
-    %li
-      = link_to 'Instructional Support', about_url, :class => "button"
-
+      = link_to 'Search Classrooms', classrooms_url, :class => "button"
+    
 :javascript
   $('#coda-slider-home').codaSlider({
                       autoSlide: true,
-                      autoSlideInterval: 7000,
+                      autoSlideInterval: 10000,
                       autoSlideStopWhenClicked: true,
                       slideEaseDuration: 2000,
                       autoHeight: false,         
