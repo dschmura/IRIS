@@ -8,10 +8,10 @@ worker_processes 8
 # If running the master process as root and the workers as an unprivileged
 # user, do this to switch euid/egid in the workers (also chowns logs):
 # user "unprivileged_user", "unprivileged_group"
-user "iris", "iris"
+user "unicorn", "unicorn"
 
-base_dir = "/var/www/html/iris/current"
-shared_path = "/var/www/html/iris/shared"
+base_dir = "/var/www/rooms.lsa.umich.edu/html/iris/current"
+shared_path = "/var/www/rooms.lsa.umich.edu/html/iris/shared"
 
 # Help ensure your application will always spawn in the symlinked
 # "current" directory that Capistrano sets up.
