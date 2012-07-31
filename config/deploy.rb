@@ -55,15 +55,21 @@ namespace :deploy do
 #   end
 
   # Link in database config
-  after "deploy:update_code", :link_production_db_config
+  after "deploy:update_code", :link_production_db
+  after "deploy:link_production_db", :link_production_db_config
   after "deploy:create_symlink", :fix_file_permissions
   after "deploy:setup", :setup_fix_file_permissions
 
 end
 
+task :link_production_db do
+  run "ln -nfs #{deploy_to}/shared/production.sqlite3 #{release_path}/db/production.sqlite3"
+end
+
 task :link_production_db_config do
   run "ln -nfs #{deploy_to}/shared/config/database.yml #{release_path}/config/database.yml"
 end
+
 
 # Run at the end of deployment
 task :fix_file_permissions, :roles => [ :app, :db, :web ] do
