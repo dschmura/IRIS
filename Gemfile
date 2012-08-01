@@ -6,7 +6,7 @@ gem "meta_search"
 gem 'geocoder'
 #gem 'geo_location'
 ## Used for uploading and resizing images (Need both paperclip and mini_magick)
-gem 'paperclip', '~> 2.6.0'
+gem 'paperclip', '~> 3.0'
 gem 'mini_magick'
 # User authentication management
 gem 'devise'
