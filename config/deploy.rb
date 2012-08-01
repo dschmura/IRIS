@@ -76,6 +76,7 @@ task :fix_file_permissions, :roles => [ :app, :db, :web ] do
   run "chmod -R g-w #{release_path}"
   run "chmod g+w #{release_path}/db #{release_path}/db/*.sqlite3"
   run "chmod -R g+w #{release_path}/tmp"
+  run "sudo chmod -R 775 #{release_path}/public/system/"
   run "find #{release_path}/tmp/cache -type f -exec sudo chown unicorn {} \\;"
 end
 
