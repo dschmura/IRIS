@@ -9,10 +9,12 @@
 //= require  jquery-ui
 
 
+
 //= require pano2vr_player
 //= require qtp_library
 //= require ac_quicktime
 //= require jquery.coda-slider-2.0
+
 //= require_self
 //= require jquery.ui.addresspicker
 

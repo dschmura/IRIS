@@ -49,17 +49,7 @@
       %br
       <input id= "capacity_slider" type="range" min="0" max="500"  step="1" onchange="printValue('capacity_slider'
       , 'search_student_capacity_greater_than_or_equal_to')" />
-      
-      
-     
-      -#%p
-        = f.label "Capacity"
-        <label for="amount">Price range:</label>
-        <input type="text" id="amount" style="border:0; color:#f6931f; font-weight:bold;" />
 
-
-        #slider-range
-      
 
       %br
       %br
@@ -74,6 +64,8 @@
     
       %br
       %br
+      
+      
 
       #old_classroom_db_link
         %hr{:style => "width: 200px; margin-top: 55%; "}
@@ -93,26 +85,7 @@
 -# Javascript to update value of student capacity text box from slider
 
 :javascript
-  function showValue(newValue)
-  {
-    document.getElementById("search_student_capacity_greater_than_or_equal_to").innerHTML=newValue;}
-
-  function printValue(sliderID, textbox) {
-              var x = document.getElementById(textbox);
-              var y = document.getElementById(sliderID);
-              x.value = y.value;
-          }
-  window.onload = function() { printValue('slider1', 'rangeValue1'); printValue('slider2', 'rangeValue2'); printValue('slider3', 'rangeValue3'); printValue('slider4', 'rangeValue4'); }
-
--#toggle the visability of additional search fields and the disclosure triangle's state
-  $('.advanced_search_disclosure_wrapper h4').click(function() { 
-  $("div:contains('advanced_search_disclosure_wrapper')").toggleClass("advanced_search_disclosure_wrapper_active");
-  $('#advanced_search_wrapper').toggle('fast', function(){
-    });
-  });
- 
-:javascript
-  $function(){
+  function(){
     $("#slider-range").slider({
       range: true,
       min: 0,
@@ -126,3 +99,16 @@
     			" - $" + $( "#slider-range" ).slider( "values", 1 ) );
     	});
   }
+:javascript
+  function showValue(newValue)
+  {
+    document.getElementById("search_student_capacity_greater_than_or_equal_to").innerHTML=newValue;}
+
+  function printValue(sliderID, textbox) {
+              var x = document.getElementById(textbox);
+              var y = document.getElementById(sliderID);
+              x.value = y.value;
+          }
+  window.onload = function() { printValue('slider1', 'rangeValue1'); printValue('slider2', 'rangeValue2'); printValue('slider3', 'rangeValue3'); printValue('slider4', 'rangeValue4'); }
+
+
