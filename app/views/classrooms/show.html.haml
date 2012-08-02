@@ -161,7 +161,7 @@
     });    
   }
 
-- if @classroom.facility_code_heprod && FileTest.exists?(Rails.root + "public/system/videos/panoramas/#{@classroom.facility_code_heprod.upcase}_QTVR_OUT.xml")
+- if @classroom.facility_code_heprod && FileTest.exists?(Rails.root + "public/system/videos/panoramas/#{@classroom.facility_code_heprod}_QTVR_OUT.xml")
   :javascript
     // use HTML5 panorama
     if (ggHasHtml5Css3D() || ggHasWebGL()){
