@@ -89,10 +89,15 @@
   $('input:checkbox').not(':checked').parent().css({
      'opacity': '0.5',
      'font-style': 'italic',
-
-     'font-size': '92%',
-     'line-height': '85%'
+     'text-transform': 'lowercase',
+     'font-size': '100%',
+     'line-height': '80%',
+     'text-decoration': 'line-through'
+     
    })
+   $('input:checkbox').not(':checked').next().css({
+      'text-decoration': 'line-through'
+    })
 
   $('input:checkbox').not(':checked').closest('#attribute_podium_computer_mac').css({
     'background' : 'transparent url() no-repeat  100px 10px'     
