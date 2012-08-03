@@ -1,6 +1,10 @@
 class Owner < ActiveRecord::Base
   belongs_to :classroom
   accepts_nested_attributes_for :classroom, :allow_destroy => true 
+  
+  def truncated_department_name
+      truncate(value, :length => 40)
+  end
 end
 
 # == Schema Information

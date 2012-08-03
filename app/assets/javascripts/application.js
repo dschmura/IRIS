@@ -14,7 +14,7 @@
 //= require qtp_library
 //= require ac_quicktime
 //= require jquery.coda-slider-2.0
-
+//= require html5slider.js
 //= require_self
 //= require jquery.ui.addresspicker
 
