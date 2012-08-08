@@ -30,7 +30,12 @@
         .panel-wrapper.round
           #contact_sheet 
             %b Support Contact:
-            = link_to @owner.department_name, "mailto:"+@owner.contact_email
+             
+            = @owner.department_name
+            ==> 
+            = link_to @owner.contact_email, "mailto:"+@owner.contact_email
+             
+
             %br
             %br
             %b Contact Phone:
