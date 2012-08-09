@@ -26,9 +26,14 @@
       %b Departmental Classroom 
 
 
-  %br 
-  %br 
-
+  -#
+    %br 
+    %br 
+    %b Floor Map: 
+    #{link_to @classroom.location.name,  basement}
+  
+  %br
+  %br
     = link_to "Back to classrooms list", :back
 
   %br
