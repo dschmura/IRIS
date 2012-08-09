@@ -28,7 +28,11 @@
           <div id="map_canvas" style="width:100%; height:400px"></div>
       .panel
         .panel-wrapper.round
-          #contact_sheet 
+          #contact_sheet
+            %b Department Name:
+            = @owner.department_name
+            %br
+            %br
             %b Support Contact:
              
             = @owner.department_name
@@ -47,11 +51,11 @@
             %br
             %br
             %b Room Usage Guidelines: 
-            None Available.
+            None Available.  
             %br
             %br
-            %b Department Name:
-            = @owner.department_name
+            %b Floor Map: 
+            #{link_to @classroom.location.name,  basement}
 
 
   #room_number
@@ -148,7 +152,7 @@
       '<div id="siteNotice">'+
         '</div>'+
         '<h4 id="firstHeading" class="firstHeading"> All classrooms in #{link_to @building.name,  "../classrooms?utf8=✓&search%5Blocation_id_equals%5D=#{@building.id}"}</h3>'+
-        '<div id="bodyContent">#{link_to image_tag(@building.picture.url(:medium).to_s, :class => "round", :style => "width: 100px;" ), "../classrooms?utf8=✓&search%5Blocation_id_equals%5D=#{@building.id}"}'+'<p id="firstHeading" class="firstHeading"> Floor Map: #{link_to @classroom.location.name,  basement, :target => "_blank"}</p></div>'
+        '<div id="bodyContent">#{link_to image_tag(@building.picture.url(:medium).to_s, :class => "round", :style => "width: 100px;" ), "../classrooms?utf8=✓&search%5Blocation_id_equals%5D=#{@building.id}"}'+'<p id="firstHeading" class="firstHeading"> Floor Map: #{link_to @classroom.location.name,  basement}</p></div>'
         '<div>  </div>'+
         '</div>';
     var infowindow = new google.maps.InfoWindow({
