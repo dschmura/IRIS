@@ -3,14 +3,14 @@
     %th Image
     %th
       -#= sortable "room_number", "Room Number"
-      = sort_link @search, :location_name, "Classroom Name", :default_order => :desc
+      = sort_link @search, :location_name, "Classroom Name", :default_order => :desc, :per_page => @per_page.to_i
     %th
       -#= sortable "classroom.location.name","Classroom Name"
 
-      = sort_link @search, :student_capacity, "Capacity", :default_order => :desc
+      = sort_link @search, :student_capacity, "Capacity", :default_order => :desc, :per_page => @per_page.to_i
     %th
       -#= sortable "student_capacity", "Capacity"
-      = sort_link @search, :room_number, "Room Number", :default_order => :desc
+      = sort_link @search, :room_number, "Room Number", :default_order => :desc, :per_page => @per_page.to_i
     -#%th
       Department
     - if user_signed_in?
