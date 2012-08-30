@@ -16,7 +16,7 @@ class Classroom < ActiveRecord::Base
                           :length => {:minimum => 1, :maximum => 6}
                                
   validates :facility_code_heprod,  :presence => true,
-                                    :format => {:with => /\A(\D{2,6})+(\d{1,6})+(\z)/i},
+
                                     :uniqueness => true
 
   #Makes for links on the site more SEO friendly
