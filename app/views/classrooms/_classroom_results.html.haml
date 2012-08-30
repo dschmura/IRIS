@@ -25,7 +25,7 @@
       %td= link_to classroom.location.name, classroom
       %td= classroom.student_capacity      
       %td= link_to classroom.room_number, classroom
-      -#%td= @owner.department_name
+      -#%td= @owners
       - if user_signed_in?
         %td= link_to 'Show', classroom
         %td= link_to 'Edit', edit_classroom_path(classroom)

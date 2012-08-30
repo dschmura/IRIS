@@ -60,9 +60,15 @@
       = f.label "results per page"
       = select_tag :per_page, options_for_select([10,25,50,100], @per_page.to_i) 
       %br
-      -#= f.collection_select :owner_id_equals, Owner.order("department_name ASC"), :id, :department_name, :prompt => "Limit By Department"
+      = f.collection_select :owner_id_equals, 
+                            Owner.order("department_name ASC"), 
+                            :id,  
+                            :department_name, 
+                            :prompt => "Limit By Supporting Department"
       %br
-
+      %br
+      %br
+      
       = f.submit  
       %br
       %br

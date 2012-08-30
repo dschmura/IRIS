@@ -15,7 +15,7 @@ class ClassroomsController < ApplicationController
         @per_page = 10  
        end
     @classrooms = @search.paginate(:page => params[:page], :per_page => @per_page).order("student_capacity desc")   # or @search.relation to lazy load in view
-   
+    @owners = "Owner"
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @classrooms }

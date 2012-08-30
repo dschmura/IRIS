@@ -2,7 +2,7 @@ class Classroom < ActiveRecord::Base
   
   has_one :location, :as => :locatable
   has_one :building
-  has_one :owner
+  has_one :owner, :as => :ownable
   
   accepts_nested_attributes_for :location, :allow_destroy => true  
   validates_presence_of :location_id
