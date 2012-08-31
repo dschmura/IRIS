@@ -37,7 +37,10 @@
     = link_to "Back to classrooms list", :back
 
   %br
-  
+  %br
+  - if user_signed_in?
+    %b
+      = link_to 'Edit this room', edit_classroom_path
 
   -#= form_for @search do |f| 
 
