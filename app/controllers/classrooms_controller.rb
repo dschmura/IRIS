@@ -48,6 +48,7 @@ class ClassroomsController < ApplicationController
     end
   end
 
+
   # GET /classrooms/new
   # GET /classrooms/new.xml
   def new
