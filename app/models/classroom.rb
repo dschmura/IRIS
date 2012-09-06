@@ -1,37 +1,8 @@
-class Classroom < ActiveRecord::Base
-  
-  has_one :location, :as => :locatable
-  has_one :building
-  has_one :owner, :as => :ownable
-  
-  accepts_nested_attributes_for :location, :allow_destroy => true  
-  validates_presence_of :location_id
-  #attr_accessible :room_number, :student_capacity
-  
-  validates :student_capacity, :numericality => true,
-                               :length => {:within => 1..2000},
-                               :presence => true
-                               
-  validates :room_number, :presence => true,
-                          :length => {:minimum => 1, :maximum => 6}
-                               
-  validates :facility_code_heprod,  :presence => true,
-                                    :format => {:with => /\A(\D{2,6})+(\d{1,6})+(\z)/i},
-                                    :uniqueness => true
-
-  #Makes for links on the site more SEO friendly
-  def to_param
-    "#{facility_code_heprod.upcase.gsub(/[^[:alnum:]]/,'-')}".gsub(/-{2,}/,'-')
-  end
-  
-end
-
-
 # == Schema Information
 #
 # Table name: classrooms
 #
-#  id                              :integer         not null, primary key
+#  id                              :integer          not null, primary key
 #  room_number                     :string(255)
 #  facility_code_heprod            :string(255)
 #  student_capacity                :integer
@@ -77,7 +48,35 @@ end
 #  created_at                      :datetime
 #  updated_at                      :datetime
 #  location_id                     :integer
-#  is_department_space             :boolean         default(FALSE)
-#  owner_id                        :integer         default(1)
+#  is_department_space             :boolean          default(FALSE)
+#  owner_id                        :integer          default(1)
 #
+
+class Classroom < ActiveRecord::Base
+  
+  has_one :location, :as => :locatable
+  has_one :building
+  has_one :owner, :as => :ownable
+  
+  accepts_nested_attributes_for :location, :allow_destroy => true  
+  validates_presence_of :location_id
+  #attr_accessible :room_number, :student_capacity
+  
+  validates :student_capacity, :numericality => true,
+                               :length => {:within => 1..2000},
+                               :presence => true
+                               
+  validates :room_number, :presence => true,
+                          :length => {:minimum => 1, :maximum => 6}
+                               
+  validates :facility_code_heprod,  :presence => true,
+                                    :format => {:with => /\A(\D{2,6})+(\d{1,6})+(\z)/i},
+                                    :uniqueness => true
+
+  #Makes for links on the site more SEO friendly
+  def to_param
+    "#{facility_code_heprod.upcase.gsub(/[^[:alnum:]]/,'-')}".gsub(/-{2,}/,'-')
+  end
+  
+end
 

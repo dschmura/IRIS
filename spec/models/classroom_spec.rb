@@ -1,22 +1,8 @@
-require 'spec_helper'
-
-describe Classroom do
-  pending "add some examples to (or delete) #{__FILE__}"
-end
-
-
-
-
-
-
-
-
-
 # == Schema Information
 #
 # Table name: classrooms
 #
-#  id                              :integer         not null, primary key
+#  id                              :integer          not null, primary key
 #  room_number                     :string(255)
 #  facility_code_heprod            :string(255)
 #  student_capacity                :integer
@@ -62,7 +48,20 @@ end
 #  created_at                      :datetime
 #  updated_at                      :datetime
 #  location_id                     :integer
-#  is_department_space             :boolean         default(FALSE)
-#  owner_id                        :integer         default(1)
+#  is_department_space             :boolean          default(FALSE)
+#  owner_id                        :integer          default(1)
 #
+
+require 'spec_helper'
+
+describe Classroom do
+  pending "add some examples to (or delete) #{__FILE__}"
+end
+
+
+
+
+
+
+
 

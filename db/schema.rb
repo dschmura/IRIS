@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120215142259) do
+ActiveRecord::Schema.define(:version => 20120906152716) do
 
   create_table "buildings", :force => true do |t|
     t.string   "building_code_heprod"
@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(:version => 20120215142259) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "location_id"
+    t.boolean  "is_department_space",             :default => false
     t.integer  "owner_id",                        :default => 1
   end
 
@@ -97,7 +98,7 @@ ActiveRecord::Schema.define(:version => 20120215142259) do
     t.string   "building_sign_content_type"
     t.integer  "building_sign_file_size"
     t.datetime "building_sign_updated_at"
-    t.string   "location_type"
+    t.boolean  "visible",                                   :default => true
   end
 
   add_index "locations", ["locatable_id", "locatable_type"], :name => "index_locations_on_locatable_id_and_locatable_type"

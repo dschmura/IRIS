@@ -1,22 +1,8 @@
-require 'spec_helper'
-
-describe Location do
-  pending "add some examples to (or delete) #{__FILE__}"
-end
-
-
-
-
-
-
-
-
-
 # == Schema Information
 #
 # Table name: locations
 #
-#  id                         :integer         not null, primary key
+#  id                         :integer          not null, primary key
 #  latitude                   :float(255)
 #  longitude                  :float(255)
 #  name                       :string(255)
@@ -36,5 +22,19 @@ end
 #  building_sign_content_type :string(255)
 #  building_sign_file_size    :integer
 #  building_sign_updated_at   :datetime
+#  visible                    :boolean          default(TRUE)
 #
+
+require 'spec_helper'
+
+describe Location do
+  pending "add some examples to (or delete) #{__FILE__}"
+end
+
+
+
+
+
+
+
 
