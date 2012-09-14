@@ -76,6 +76,10 @@
   = f.input :zip,  :placeholder => "48109-1234", :input_html => { :value => '48109', :size => 10 }
   = f.input :description,  :placeholder => "Building description"
   = f.input :history,  :placeholder => "Optional building history (if available)"
+  
+  %br
+  = f.simple_fields_for :location do |loc|
+    = loc.input :visible, :label => "Make this building visible?"
   .actions
     = f.button :submit
      

@@ -37,6 +37,8 @@
     %br
       = f.simple_fields_for :location do |loc|  
         = loc.input :description, :placeholder => "Classroom Description (will be displayed in map)"
+        %br
+        = loc.input :visible, :label => "Make this room visible?"
       %hr.span-23
       #location_image_form.span-23.last
         -if @classroom.location.picture_file_name != nil

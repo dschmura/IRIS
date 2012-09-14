@@ -34,10 +34,17 @@ class LocationsController < ApplicationController
 
   def update
     @location = Location.find(params[:id])
-    if @location.update_attributes(params[:location])
-      redirect_to(@location, :notice => 'Location was successfully updated.') 
-      render :action => "edit" 
+    
+    respond_to do |format|
+      if @location.update_attributes(params[:location])
+        format.html { redirect_to(@location, :notice => 'Location was successfully updated.') }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @location.errors, :status => :unprocessable_entity }
+      end
     end
+    
   end
 
   def destroy
