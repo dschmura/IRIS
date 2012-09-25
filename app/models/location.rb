@@ -27,6 +27,8 @@
 
 class Location < ActiveRecord::Base
   
+
+  
   ## CarrierWave Method
   #mount_uploader :image, ImageUploader
   

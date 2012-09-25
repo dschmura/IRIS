@@ -36,17 +36,22 @@
   %br
     = link_to "Back to classrooms list", :back
 
-  %br
+
   %br
   - if user_signed_in?
     %b
       = link_to 'Edit this room', edit_classroom_path
+    %br
+      This room's visibility is set to:
+      %b 
+        = @classroom.location.visible
 
   -#= form_for @search do |f| 
 
     = f.label "Room Number"
     = f.text_field :facility_code_heprod_contains, :size => 8, :placeholder => "USB2230", :class => "round"
     = f.submit 
+  
 
   -#
     %center#building_sign
