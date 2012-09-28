@@ -22,7 +22,14 @@
     %tr
 
       %td= link_to (image_tag classroom.location.picture.url(:thumb).to_s, :alt => "#{classroom.location.name} thumbnail",   :class => "classroom_index_thumb round"), classroom
-      %td= link_to classroom.location.name, classroom
+      %td
+        %b= link_to classroom.location.name, classroom
+        -#
+          %br
+            Department Name:
+          %br
+            Building Name:
+          
       %td= classroom.student_capacity      
       %td= link_to classroom.room_number, classroom
       -#%td= @owners

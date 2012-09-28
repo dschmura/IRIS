@@ -1,3 +1,7 @@
+-#
+  #wrap
+    #panorama_content
+
 -#= render :partial => "/classrooms/maps/#{basement}", :formats => [:html]
 - if @classroom.location.visible? || user_signed_in?
 
@@ -146,12 +150,13 @@
       }
       var map = new google.maps.Map(document.getElementById("map_canvas"),
         myOptions);
+        map.panBy(120, -70);
 
-      var contentString = '<div id="content" style="width:auto;">'+
-        '<div id="siteNotice">'+
+      var contentString = '<div id="content" style="width: auto; height:90px;" class = "round">'+
+        '<div id="siteNotice" style="max-height: 125px;">'+
           '</div>'+
-          '<h4 id="firstHeading" class="firstHeading"> All classrooms in #{link_to @building.name,  "../classrooms?utf8=✓&search%5Blocation_id_equals%5D=#{@building.id}"}</h3>'+
-          '<div id="bodyContent">#{link_to image_tag(@building.picture.url(:medium).to_s, :class => "round", :style => "width: 100px;" ), "../classrooms?utf8=✓&search%5Blocation_id_equals%5D=#{@building.id}"}'+'<p id="firstHeading" class="firstHeading"> Floor Map: #{link_to @classroom.location.name,  basement}</p></div>'
+            '<div id="firstHeading" class="firstHeading ></div>'+
+          '<div id="bodyContent">#{link_to image_tag(@building.picture.url(:medium).to_s, :style => "width: 110px; float: left; padding-right: 2em" ), "../classrooms?utf8=✓&search%5Blocation_id_equals%5D=#{@building.id}"} <span style="float: left;"><b>#{@building.name}<br /> #{@building.locatable.address}<br />#{link_to 'All Classrooms',  "../classrooms?utf8=✓&search%5Blocation_id_equals%5D=#{@building.id}"} <br /> #{link_to "Floor Map",  basement}</span></div>'
           '<div>  </div>'+
           '</div>';
       var infowindow = new google.maps.InfoWindow({
@@ -166,7 +171,8 @@
 
       google.maps.event.addListener(marker, 'click', function() {
         infowindow.open(map,marker);
-      });    
+      });  
+      infowindow.open(map,marker);  
     }
 
   - if @classroom.facility_code_heprod && FileTest.exists?(Rails.root + "public/system/videos/panoramas/#{@classroom.facility_code_heprod.upcase}_QTVR_OUT.xml")
@@ -183,3 +189,55 @@
 
 - else
   This room is not visible
+  
+  
+:javascript
+$(document).ready(function(){
+    var animateTime = 10,
+        offsetStep = 5,
+        scrollWrapper = $('#wrap');
+
+    //event handling for buttons "left", "right"
+    $('.bttR, .bttL')
+        .mousedown(function() {
+            scrollWrapper.data('loop', true);
+            loopingAnimation($(this), $(this).is('.bttR') );
+        })
+        .bind("mouseup mouseout", function(){
+            scrollWrapper.data('loop', false).stop();
+            $(this).data('scrollLeft', this.scrollLeft);
+        });
+
+    scrollWrapper
+        .mousedown(function(event) {
+            $(this)
+                .data('down', true)
+                .data('x', event.clientX)
+                .data('scrollLeft', this.scrollLeft);
+            return false;
+        })
+        .mouseup(function (event) {
+            $(this).data('down', false);
+        })
+        .mousemove(function (event) {
+            if ($(this).data('down')) {
+                this.scrollLeft = $(this).data('scrollLeft') + $(this).data('x') - event.clientX;
+            }
+        })
+        .mousewheel(function (event, delta) {
+            this.scrollLeft -= (delta * 30);
+        })
+        .css({
+            'overflow' : 'hidden',
+            'cursor' : '-moz-grab'
+        });
+
+    loopingAnimation = function(el, dir){
+        if(scrollWrapper.data('loop')){
+            var sign = (dir) ? offsetStep : -offsetStep;
+            scrollWrapper[0].scrollLeft += sign;
+            setTimeout( function(){ loopingAnimation(el,dir) }, animateTime );
+                                   }
+                        return false;
+        }; 
+})​
