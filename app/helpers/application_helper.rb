@@ -4,7 +4,7 @@ module ApplicationHelper
   # In the controller you can set the @page_title variable
   # The base_title gets joined with the @page_title
   def page_title
-    base_title = "Instructional Support Services"
+    base_title = "University of Michigan Classrooms"
     @base_title = base_title
     if @page_title.nil?
       base_title
