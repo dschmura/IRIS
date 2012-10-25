@@ -50,6 +50,7 @@
 #  location_id                     :integer
 #  is_department_space             :boolean          default(FALSE)
 #  owner_id                        :integer          default(1)
+#  rmrecnbr                        :integer
 #
 
 require 'spec_helper'

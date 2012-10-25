@@ -50,6 +50,7 @@
 #  location_id                     :integer
 #  is_department_space             :boolean          default(FALSE)
 #  owner_id                        :integer          default(1)
+#  rmrecnbr                        :integer
 #
 
 class Classroom < ActiveRecord::Base
@@ -73,7 +74,11 @@ class Classroom < ActiveRecord::Base
                                     :uniqueness => true,
                                     :format => {:with => /\A(\D{2,6})+(\d{1,6})+(\z)/i}, :on => :create
                                     
-                                    
+  validates :rmrecnbr,  :presence => true,
+                        :uniqueness => true,
+                        :numericality => true,
+                        :length => { :is => 7 }
+                      
 
   #Makes for links on the site more SEO friendly
   def to_param
