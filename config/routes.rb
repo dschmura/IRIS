@@ -7,6 +7,8 @@ Iris::Application.routes.draw do
   resources :owners
   devise_for :users
   
+  resources :users
+  
   resources :classrooms do
     get :search, :on => :collection
   end

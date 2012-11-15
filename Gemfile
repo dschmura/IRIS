@@ -3,6 +3,7 @@ source 'http://rubygems.org'
 gem 'rails', '~> 3.2.8'
 gem 'simple_form'
 gem "meta_search"
+#gem "ransack"
 gem 'geocoder'
 #gem 'geo_location'
 ## Used for uploading and resizing images (Need both paperclip and mini_magick)
@@ -13,6 +14,7 @@ gem 'devise'
 # User authorization management
 #gem 'declarative_authorization'
 gem 'cancan'
+gem "rolify", ">= 3.2.0"
 gem 'therubyracer', :require => 'v8'
 # gem 'rack-rewrite'
 
@@ -64,6 +66,7 @@ group :assets do
   gem 'coffee-rails', "~> 3.2.1"
   gem 'uglifier', '>=1.0.3'
   gem 'therubyracer'
+  gem "bootstrap-sass", ">= 2.1.0.0"
 end
 
 gem 'jquery-rails', '~> 2.0.0'

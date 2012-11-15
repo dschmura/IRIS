@@ -74,10 +74,10 @@ class Classroom < ActiveRecord::Base
                                     :uniqueness => true,
                                     :format => {:with => /\A(\D{2,6})+(\d{1,6})+(\z)/i}, :on => :create
                                     
-  validates :rmrecnbr,  :presence => true,
-                        :uniqueness => true,
-                        :numericality => true,
-                        :length => { :is => 7 }
+  #validates :rmrecnbr,  :presence => true,
+  #                      :uniqueness => true,
+  #                      :numericality => true,
+  #                      :length => { :is => 7 }
                       
 
   #Makes for links on the site more SEO friendly

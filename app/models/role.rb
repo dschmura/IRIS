@@ -10,8 +10,9 @@
 #  updated_at    :datetime         not null
 #
 
-require 'spec_helper'
-
-describe Role do
-  pending "add some examples to (or delete) #{__FILE__}"
+class Role < ActiveRecord::Base
+  has_and_belongs_to_many :users, :join_table => :users_roles
+  belongs_to :resource, :polymorphic => true
+  
+  scopify
 end
