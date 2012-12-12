@@ -229,7 +229,7 @@ DEPENDENCIES
   meta_search
   mini_magick
   paperclip (~> 3.0)
-  rails (~> 3.2.9)
+  rails (~> 3.2.8)
   rolify (>= 3.2.0)
   rspec
   rspec-rails
