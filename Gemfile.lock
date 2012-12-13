@@ -212,7 +212,7 @@ PLATFORMS
 
 DEPENDENCIES
   annotate
-  bootstrap-sass (>= 2.1.0.0)
+  bootstrap-sass (>= 2.2.1.1)
   cancan
   capistrano
   coffee-rails (~> 3.2.1)
