@@ -1,9 +1,10 @@
-#room_number
-  %h1  
-    = @classroom.location.name
+
+-##wrap
+  #panorama_content
+
 -#= render :partial => "/classrooms/maps/#{basement}", :formats => [:html]
 - if @classroom.location.visible? || user_signed_in?
-  
+
   #image_nav
     %ul
       %li
@@ -14,12 +15,10 @@
         = link_to "Map",  "#3", :class => "xtrig",  :rel => "coda-slider-1"
       %li
         = link_to "Contact",  "#4", :class => "xtrig",  :rel => "coda-slider-1"
- 
   #classroom_top_section 
     = render :partial => 'building_float'  
   
     .coda-slider-wrapper.span-20   
-      
       .coda-slider.preload#coda-slider-rooms
         .panel
           .panel-wrapper      
@@ -66,8 +65,18 @@
               #{link_to @classroom.location.name,  basement}
 
 
-             
-
+    #room_number
+      %h1  
+        = @classroom.location.name          
+  -#
+    #image_nav
+    %ul
+      %li
+        = link_to "Picture", "#1", :class => "xtrig",  :rel => "coda-slider-1"
+      %li
+        = link_to "Panorama", "#2", :class => "xtrig",  :rel => "coda-slider-1"
+      %li
+        = link_to "Map",  "#3", :class => "xtrig",  :rel => "coda-slider-1"
 
   #technician_required
     = technician_required
