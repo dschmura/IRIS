@@ -10,7 +10,7 @@ role :app, "mason.lsa.umich.edu"
 role :db,  "mason.lsa.umich.edu", :primary => true
 
 set :application,  "iris"
-set :deploy_to,  "/var/www/rooms.lsa.umich.edu/html/#{application}"
+set :deploy_to,  "/var/www/rooms.lsa.umich.edu/html/#{application}/"
 set :deploy_via, :remote_cache
 set :scm, :git
 set :repository, "git@bugs.iss.lsa.umich.edu:iris.git"
