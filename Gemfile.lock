@@ -57,7 +57,7 @@ GEM
       sass (~> 3.1)
     compass-rails (1.0.3)
       compass (>= 0.12.2, < 0.14)
-    devise (2.2.0)
+    devise (2.1.2)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
       railties (~> 3.1)
@@ -150,7 +150,7 @@ GEM
     rdoc (3.12)
       json (~> 1.4)
     ref (1.0.2)
-    rolify (3.2.0)
+    rolify (3.1.0)
     rspec (2.12.0)
       rspec-core (~> 2.12.0)
       rspec-expectations (~> 2.12.0)
@@ -214,11 +214,11 @@ PLATFORMS
 DEPENDENCIES
   annotate
   bootstrap-sass (>= 2.1.0.0)
-  cancan
+  cancan (~> 1.6.7)
   capistrano
   coffee-rails (~> 3.2.1)
   compass-rails
-  devise
+  devise (~> 2.1.0)
   factory_girl_rails
   faker
   geocoder
@@ -231,7 +231,7 @@ DEPENDENCIES
   mini_magick
   paperclip (~> 3.0)
   rails (~> 3.2.11)
-  rolify (>= 3.2.0)
+  rolify (~> 3.1.0)
   rspec
   rspec-rails
   sass-rails (~> 3.2.3)

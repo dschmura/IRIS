@@ -10,11 +10,12 @@ gem 'geocoder'
 gem 'paperclip', '~> 3.0'
 gem 'mini_magick'
 # User authentication management
-gem 'devise'
 # User authorization management
 #gem 'declarative_authorization'
-gem 'cancan'
-gem "rolify", ">= 3.2.0"
+gem "devise", "~> 2.1.0"
+gem "cancan", "~> 1.6.7"
+gem "rolify", "~> 3.1.0"
+
 #gem 'therubyracer', :require => 'v8'
 
 # gem 'rack-rewrite'
