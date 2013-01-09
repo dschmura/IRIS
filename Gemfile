@@ -16,6 +16,8 @@ gem 'devise'
 gem 'cancan'
 gem "rolify", ">= 3.2.0"
 gem 'therubyracer', :require => 'v8'
+## added libv8 to address failure in therubyracer install
+gem 'libv8', '3.11.8.3'
 # gem 'rack-rewrite'
 
 gem 'haml'
