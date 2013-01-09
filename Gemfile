@@ -66,7 +66,7 @@ group :assets do
   gem 'sass-rails', "  ~> 3.2.3"
   gem 'coffee-rails', "~> 3.2.1"
   gem 'uglifier', '>=1.0.3'
-  gem 'therubyracer', :require => 'v8'
+  gem 'therubyracer', '>=0.11.0'
   gem 'libv8', '>= 3.11.8.3'
   gem "bootstrap-sass", ">= 2.1.0.0"
 end
