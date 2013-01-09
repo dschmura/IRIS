@@ -226,7 +226,7 @@ DEPENDENCIES
   haml
   haml-rails
   jquery-rails (~> 2.0.0)
-  libv8 (~> 3.11.8)
+  libv8 (>= 3.11.8.3)
   meta_search
   mini_magick
   paperclip (~> 3.0)
