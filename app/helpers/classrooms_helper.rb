@@ -13,6 +13,14 @@ module ClassroomsHelper
     end
   end
   
+  def attribute_true?(condition)
+   if condition   
+    'attribute_true'
+   else
+    'attribute_false'
+   end
+  end
+  
   
   def basement
     # Buildings with basements or other weird floors

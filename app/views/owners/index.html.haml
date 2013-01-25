@@ -15,7 +15,7 @@
 
   - @owners.each do |owner|
     %tr
-      %td= link_to owner.department_name, edit_owner_path(owner)
+      %td= owner.department_name
       %td= owner.facility_id
       %td= owner.contact_name
       %td= owner.contact_phone

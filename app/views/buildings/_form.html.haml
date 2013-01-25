@@ -1,15 +1,15 @@
-= simple_form_for @building, :html => {:multipart => true} do |f|
+= simple_form_for @building, :html => {:multipart => true, :class => 'form-inline'} do |f|
   -if @building.errors.any?
     #error_explanation
       %h2= "#{pluralize(@building.errors.count, "error")} prohibited this location from being saved:"
       %ul
         - @building.errors.full_messages.each do |msg|
           %li= msg
-  %hr.span-23
-  #location_image_form.span-23.last
+  %hr
+  #location_image_form
     -if @building.location.picture_file_name != nil
       = image_tag @building.location.picture.url.to_s
-      %p.prepend-4#update_image
+      %p#update_image
         
         %b Change the image for this building.  
         %br
@@ -18,7 +18,7 @@
           -# paperclip method
           = loc.file_field :picture
     - else
-      %p.prepend-4
+      %p
         %b Upload an image for this building.  
         %br
         %br
@@ -27,10 +27,10 @@
           = loc.file_field :picture
     %hr
           
-    #location_image_form.span-23.last
+    #location_image_form
       -if @building.location.building_sign_file_name != nil
         = image_tag @building.location.building_sign.url(:medium).to_s
-        %p.prepend-4#update_image
+        %p#update_image
           %b Upload a building sign for this building.  
           %br
           %br
@@ -38,7 +38,7 @@
             -# paperclip method
             = loc.file_field :building_sign
       - else
-        %p.prepend-4
+        %p
           %b Upload a building sign for this building.  
           %br
           %br
@@ -51,7 +51,7 @@
   %br
   %br
   %br
-  %hr.span-23
+  %hr
   = f.input :building_code_heprod , :placeholder => 'Building Code'  
   #where_am_i_map
     .input
@@ -75,11 +75,7 @@
   = f.input :state,  :placeholder => "MI", :input_html => { :value => 'MI',:size => 2 }
   = f.input :zip,  :placeholder => "48109-1234", :input_html => { :value => '48109', :size => 10 }
   = f.input :description,  :placeholder => "Building description"
-  = f.input :history,  :placeholder => "Optional building history (if available)"
-  
-  %br
-  = f.simple_fields_for :location do |loc|
-    = loc.input :visible, :label => "Make this building visible?"
+  = f.input :history,  :placeholder => "Optional building history (if available)", :size => 40
   .actions
     = f.button :submit
      

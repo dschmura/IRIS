@@ -1,3 +1,11 @@
+@mixin rounded-corners($radius: 10px) 
+  border-radius: $radius
+  -moz-border-radius: $radius
+  -webkit-border-radius: $radius
+@mixin transparent($transparency: 0.5, $trans: 50)
+  zoom: 1
+  filter: alpha(opacity=$trans)
+  opacity: $transparency
 .digg_pagination
   background: white
   cursor: default
@@ -45,23 +53,37 @@
  
 
 .apple_pagination
-  background: #f1f1f1
-  border: 1px solid #e5e5e5
+  @include rounded-corners(14px)
+  @include transparent($transparency: 0.8, $trans: 80)
+  margin-top: -2.9em
+  margin-right: auto
+  max-width: 55%
+  min-width: 35%
+  max-height: 10px
+  background: #fff
+  border: 1px solid #CCCCCC
   text-align: center
-  padding: 1em
+  position: absolute
+  right: 10%
+  
   cursor: default
-  a, span, em
-    padding: 0.2em 0.3em
+  a, span
+    position: relative
+    bottom: 15px
+    
+    padding: 0.1em 0.2em
   .disabled
     color: #aaaaaa
   .current
+    position: relative
+    bottom: 15px
     font-style: normal
     font-weight: bold
     background-color: darken(#f1f1f1, 20)
     display: inline-block
     width: 1.4em
     height: 1.4em
-    line-height: 1.5
+    line-height: 1.4
     -moz-border-radius: 1em
     -webkit-border-radius: 1em
     border-radius: 1em
@@ -71,6 +93,7 @@
     color: black
     &:hover, &:focus
       text-decoration: underline
+
 
 .flickr_pagination
   text-align: center

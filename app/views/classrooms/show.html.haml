@@ -1,243 +1,603 @@
 
--##wrap
-  #panorama_content
 
--#= render :partial => "/classrooms/maps/#{basement}", :formats => [:html]
-- if @classroom.location.visible? || user_signed_in?
-
+.row-fluid.classroom_top
+  .span2
+    = render :partial => 'building_float'
+  .span10
+    .tab-content
+      .tab-pane.active#picture
+        = image_tag @classroom.location.picture.url(:show).to_s, :alt => @classroom_alt
+      .tab-pane#pano
+        
+        %h4
+          This room does not have a panorama
+      .tab-pane#map
+        <div id="map_canvas" style="width:780px; height:400px; overflow:;"> </div>
+        
+      .tab-pane#contactme
+        = render :partial => 'contact_sheet'
+.tabbable#classroomTabs
+  %ul.nav.nav-tabs#myTab
+    %li.active
+      %a{"data-toggle" => 'tab', :href => '#picture'}
+        Picture
+    %li
+      %a{"data-toggle" => 'tab', :href => '#pano'}
+        Panorama
+    %li
+      %a{"data-toggle" => 'tab', :href => '#map'}
+        Map
+    %li
+      %a{"data-toggle" => 'tab', :href => '#contactme'}
+        Contact
+-#
   #image_nav
-    %ul
-      %li
-        = link_to "Picture", "#1", :class => "xtrig",  :rel => "coda-slider-1"
-      %li
-        = link_to "Panorama", "#2", :class => "xtrig",  :rel => "coda-slider-1"
-      %li
-        = link_to "Map",  "#3", :class => "xtrig",  :rel => "coda-slider-1"
-      %li
-        = link_to "Contact",  "#4", :class => "xtrig",  :rel => "coda-slider-1"
-  #classroom_top_section 
-    = render :partial => 'building_float'  
-  
-    .coda-slider-wrapper.span-20   
-      .coda-slider.preload#coda-slider-rooms
-        .panel
-          .panel-wrapper      
-            = image_tag @classroom.location.picture.url(:show).to_s, :alt => @classroom_alt,   :height => "100%", :class => "room_image round"
-        .panel
-          .panel-wrapper
- 
-            #panorama.round
-              %center
-                %h2 This room does not have a panorama
-                
-        .panel
-          .panel-wrapper.round
-            <div id="map_canvas" style="width:100%; height:400px"></div>
-        .panel
-          .panel-wrapper.round
-            #contact_sheet
-              %b Department Name:
-              = @owner.department_name
-              %br
-              %br
-              %b Support Contact:
-           
-              = @owner.department_name
-              ==> 
-              = link_to @owner.contact_email, "mailto:"+@owner.contact_email
-           
+  %ul#myTab
+    %li
+      %a{"data-toggle" => 'tab', :href => '#picture'}
+        Picture
+    %li
+      %a{"data-toggle" => 'tab', :href => '#pano'}
+        Panorama
+    %li
+      %a{"data-toggle" => 'tab', :href => '#map'}
+        Map
+    %li
+      %a{"data-toggle" => 'tab', :href => '#contactme'}
+        Contact  
 
-              %br
-              %br
-              %b Contact Phone:
-              = @owner.contact_phone
-              %br
-              %br
-              %b Room Schedule:
-              = link_to "View Room Schedule", "https://heprod.dsc.umich.edu/services/facilitycalendar?facilityid=#{@classroom.facility_code_heprod }", :target => "_blank"
-              %br
-              %br
-              %b Room Usage Guidelines: 
-              None Available.  
-              %br
-              %br
-              %b Floor Map: 
-              #{link_to @classroom.location.name,  basement}
+#room_number
+  %h1  
+    = @classroom.location.name
 
+-if technician_required      
+  .row
+    .span10.offset1  
+      .well
+        #technician_required
+          = technician_required
+      %br
 
-    #room_number
-      %h1  
-        = @classroom.location.name          
-  -#
-    #image_nav
-    %ul
-      %li
-        = link_to "Picture", "#1", :class => "xtrig",  :rel => "coda-slider-1"
-      %li
-        = link_to "Panorama", "#2", :class => "xtrig",  :rel => "coda-slider-1"
-      %li
-        = link_to "Map",  "#3", :class => "xtrig",  :rel => "coda-slider-1"
+.row  
+  #attributes
+    .span4.offset1
+      
+      %h3 Room Design
+      
+      %hr     
+      %i.icon-group  
+      %b 
+      %a{"data-original-title" => "Number of stations with a corresponding writing or lab surface assigned to students for instruction.  In computer labs, this includes only seats with assigned computers. Excludes instructor station and other seating types without writing surfaces.", "data-placement" => "right", :href => "#", :rel => "tooltip"} Student Capacity:
+      = @classroom.student_capacity  
+      %br
+      
+      %i.icon-lightbulb 
+      %a{"data-original-title" => "Room is either windowless or can be darkened with the use of specialized blinds for the purpose of film viewing, high resolution image viewing, etc.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.light_control) } Light Control:
+      
+      - if @classroom.light_control
+        .icon-ok
 
-  #technician_required
-    = technician_required
-
-  = render :partial => 'show_room_attributes'
-
-  - if user_signed_in?
-    = link_to 'Edit', edit_classroom_path
-    \|
-  -#= link_to 'List', classrooms_path
-
-
-  -#hide attributes that are not checked in the database
-
-  :javascript
-    $('input:checkbox').not(':checked').css({
-      opacity: 0
-  
-    })
-    $("input[type=checkbox][checked]").css({
-      'opacity' : '0.0'
-      })
-    $("input[type=checkbox][checked]").parent().css({  
-      'background': 'url(../assets/user_interface_elements/checked.png) no-repeat  190px -5px'  
-  
-    })
-    $('input:checkbox').not(':checked').parent().css({
-       'opacity': '0.5',
-       'font-style': 'italic',
-       'text-transform': 'lowercase',
-       'font-size': '100%',
-       'line-height': '80%',
-       'text-decoration': 'line-through'
+      %br    
+      %hr
+        
+      %i#attribute_classroom_layout
+      %b Layout:
+      %br
+      %br   
+      %ul
+        %ul
+          %li
    
-     })
-     $('input:checkbox').not(':checked').next().css({
-        'text-decoration': 'line-through'
-      })
+          %a{"data-original-title" => "Room provides a raised platform for the instructor.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.layout_platform) } 
+            Layout Platform  
+            - if @classroom.layout_platform
+              .icon-ok
+            
+          %li
+          %a{"data-original-title" => "Room contains a stage in the front of the room.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.layout_stage) } 
+            Layout Stage
+            - if @classroom.layout_stage
+              .icon-ok
+ 
+          %li
+          %a{"data-original-title" => "Room contains a stage in the front of the room.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.layout_tiered) } Layout Tiered
+          - if @classroom.layout_tiered
+            .icon-ok
 
-    $('input:checkbox').not(':checked').closest('#attribute_podium_computer_mac').css({
-      'background' : 'transparent url() no-repeat  100px 10px'     
-    })
+      %hr
+      %i#attribute_seating
+      %b Seating:
+      %ul
+        %ul
+          %li 
+            %a{"data-original-title" => "Room contains fixed chairs with tablet writing surface.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.seating_auditorium) }Seating Auditorium
+            - if @classroom.seating_auditorium
+              .icon-ok
+          %li 
+            %a{"data-original-title" => "Room contains fixed chairs with no tablet.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.seating_chairs_fixed) }Seating Chairs Fixed
+            - if @classroom.seating_chairs_fixed
+              .icon-ok
+          %li 
+            %a{"data-original-title" => "Room contains movable chairs with tablet writing surface.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.seating_movable_tables_chairs) }Seating Moveable Tablet Chairs
+            - if @classroom.seating_movable_tables_chairs
+              .icon-ok
+          %li 
+            %a{"data-original-title" => "Room is set up in a seminar/conference style with seats surrounding large table.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.seating_table_conference) }Seating Table Conference
+            - if @classroom.seating_table_conference
+              .icon-ok
+          %li 
+            %a{"data-original-title" => "Room contains a table writing surface for students (fixed, movable, or seminar/conference).", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.seating_tables_any) }Seating Tables Any
+            - if @classroom.seating_tables_any
+              .icon-ok
+          %li 
+            %a{"data-original-title" => "Room contains fixed table writing surface for students.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.seating_tables_fixed) }Seating Tables Fixed
+            - if @classroom.seating_tables_fixed
+              .icon-ok
+          %li 
+            %a{"data-original-title" => "Room has moveable table writing surface for students. Rooms w/ moveable tables should be considered fixed if: school/dept prohibits changing arrangement, tables are wired or attached so moving is not easy, or room does not allow for other arrangements.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.seating_tables_moveable) }Seating Tables Moveable
+            - if @classroom.seating_tables_moveable
+              .icon-ok 
+      
+      %hr
+      %i.icon-bullhorn
+      %b 
+      %a{"data-original-title" => "Room contains a sound system to amplify any of its A/V and IT components, such as computer or DVD/VCR.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.sound_amplification) }Sound Amplification
+      - if @classroom.sound_amplification
+        .icon-ok
+  
+      %br  
+      %i.icon-rss
+      %b 
+      %a{"data-original-title" => "Room provides a hardwired ethernet connection to a portion of student seats.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.ethernet_students) }Ethernet Students
+      - if @classroom.ethernet_students
+        .icon-ok
+      
+      %br
+      %i.icon-bolt
+      %b 
+      %a{"data-original-title" => "Room contains power outlets for a portion of student seats.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.power_students) }Power Students
+      - if @classroom.power_students
+        .icon-ok
+      
+      %hr
+      %i.icon-picture
+      %b Writing Surface:
+      %ul
+        %ul
+          %li 
+            %a{"data-original-title" => "Room contains a chalkboard writing surface of any size.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.writing_surface_chalkboard_any) }Writing Surface Chalkboard Any
+            - if @classroom.writing_surface_chalkboard_any
+              .icon-ok
+          %li 
+            %a{"data-original-title" => "Room contains a chalkboard writing surface of over 25 feet.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.writing_surface_chalkboard_25ft) }Writing Surface Chalkboard 25ft
+            - if @classroom.writing_surface_chalkboard_25ft
+              .icon-ok
+          %li 
+            %a{"data-original-title" => "Room contains a whiteboard writing surface of any size.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.writing_surface_whiteboard_any) }Writing Surface Whiteboard Any
+            - if @classroom.writing_surface_whiteboard_any
+              .icon-ok
+          %li 
+            %a{"data-original-title" => "Room contains a whiteboard writing surface of over 25 feet.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.writing_surface_whiteboard_25ft) }Writing Surface Whiteboard 25ft
+            - if @classroom.writing_surface_whiteboard_25ft
+              .icon-ok
+      %hr
+      %i#attribute_computer_lab 
+      -#.icon-desktop
+      %b Computer Classroom:
+      %ul
+        %ul
+          %li 
+            %a{"data-original-title" => "Room contains either PC or MAC computers at each student workstation.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.computer_classroom_any) }Computer Classroom Any
+            - if @classroom.computer_classroom_any
+              .icon-ok
+          %li 
+            %a{"data-original-title" => "Room contains Mac computers at each student workstation.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.computer_classroom_mac) }Computer Classroom Mac
+            - if @classroom.computer_classroom_mac
+              .icon-ok
+          %li 
+            %a{"data-original-title" => "Room contains PC computers at each student workstation.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.computer_classroom_windows) }Computer Classroom Windows
+            - if @classroom.computer_classroom_windows
+              .icon-ok
+      
+    .span4.offset2
+      %h3 Equipment
+      %hr
+      
+      %i#attribute_dvd
+      %b DVD Player:
 
-    $('input:checkbox').not(':checked').closest('#attribute_podium_computer_pc').css({
-      'background' : 'transparent url() no-repeat  100px 10px'      
-    })
-  :javascript
-    $().ready(function() {
-      $('#coda-slider-rooms').codaSlider({
-      autoHeight: true,
-      autoSlide: false,
-      crossLinking: true,
-      externalTriggerSelector: "a.xtrig",
-      firstPanelToLoad: 1,
-      panelTitleSelector: "h2.title",
-      slideEaseDuration: 1000,
-      slideEaseFunction: "easeInOutExpo"
+      %ul
+        %ul
+          %li 
+            %a{"data-original-title" => "Room contains DVD player.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.dvd_player_regular) }Standard
+            - if @classroom.dvd_player_regular
+              .icon-ok
+          %li 
+            %a{"data-original-title" => "Room contains Blu-Ray Disc player.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.dvd_player_blueray) }Blu-Ray
+            - if @classroom.dvd_player_blueray
+              .icon-ok
+      %hr
+
+      %i#attribute_captioning_device
+      %b 
+        %a{"data-original-title" => "Room contains a special device for transcribing audio into displayable captions.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.captioning_device) }Captioning Device
+        - if @classroom.captioning_device
+          .icon-ok
+      
+      %hr
+      %i.icon-laptop
+      %b Podium Computer:
+      %ul
+        %ul
+          
+          %li 
+            %a{"data-original-title" => "Room contains a Mac computer for use by the instructor.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.podium_computer_mac) }Podium Classroom Mac
+            - if @classroom.podium_computer_mac
+              .icon-ok
+          %li 
+            %a{"data-original-title" => "Room contains a PC computer for use by the instructor.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.podium_computer_windows) }Podium Classroom Windows
+            - if @classroom.podium_computer_windows
+              .icon-ok
+          
+      %hr
+      %i#attribute_doc_camera
+      %b 
+        %a{"data-original-title" => "Room contains a specialized camera for the real-time displaying of documents, texts, or small objects.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.document_camera) }Document Camera
+        - if @classroom.document_camera
+          .icon-ok
+      %br
+      %i#attribute_interactive_pen
+      %b 
+        %a{"data-original-title" => "Room contains special digitial pen and writing surface for commenting/editing digital presentation.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.interactive_pen) }Interactive Pen
+        - if @classroom.interactive_pen
+          .icon-ok
+      %br
+      %i#attribute_lecture_capture
+      %b 
+        %a{"data-original-title" => "Room contains a lecture capture device to record instructor, digital presentation, or audio/voice. Must record voice at a minimum.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.lecture_capture) }Lecture Capture
+        - if @classroom.lecture_capture
+          .icon-ok
+      %br
+      %i.icon-phone
+      %b 
+        %a{"data-original-title" => "Room contains a telephone.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.telephone) } Telephone
+        - if @classroom.telephone
+          .icon-ok
+      %br
+      %i#attribute_video_conferencing
+      %b 
+        %a{"data-original-title" => "Room contains a special video conferencing equipment, including camera.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.video_conferencing) }Video Conferencing
+        - if @classroom.video_conferencing
+          .icon-ok
+      %br
+      
+      %hr
+      %i#attribute_projecters
+      %b Projection:
+      %ul
+        %ul
+          -#.icon-film
+          %li 
+            %a{"data-original-title" => "Room contains 16mm film projector.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.projection_16mm_film) }Projection 16mm Film
+            - if @classroom.projection_16mm_film
+              .icon-ok
+          %li 
+            %a{"data-original-title" => "Room contains 35mm film projector.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.projection_35mm_file) }Projection 35mm Film
+            - if @classroom.projection_35mm_file
+              .icon-ok
+          %li 
+            %a{"data-original-title" => "Room contains projector or monitor to digitally display video from any of the room A/V and IT components, such as computer or DVD/VCR.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.projection_digital_data_video) }Projection Digital Data Video
+            - if @classroom.projection_digital_data_video
+              .icon-ok
+          %li 
+            %a{"data-original-title" => "Room contains a traditional slide projector for the display of photographic slides.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.projection_traditional_slide) }Projection Traditional Slide
+            - if @classroom.projection_traditional_slide
+              .icon-ok
+      %hr
+      %h4 Accessibility 
+   
+      Adaptive technologies are provided by request. Please contact the Office of Services for Students with Disabilities to provide adaptive technologies to your classroom. Phone 763-3000 or email <a href="mailto:ssdoffice@umich.edu" target="_blank">ssdoffice@umich.edu</a>
+      
+      %br
+      %br
+      %h4 Notes
+      = @classroom.notes
+      
+      %hr
+      #last_updated
+        Updated:
+        = @classroom.updated_at.strftime "%m-%d-%y %I:%M %p"
+        
+-#.row
+  .span12
+  = simple_form_for(@classroom) do |f|
+    .span4.form-horizontal
+      %h2 Room Design
+      #attribute_student_capacity
+        %a{:href=>"#", :class => "tip2"}
+          %b Student Capacity
+          %span 
+            Number of stations with a corresponding writing or lab surface assigned to students for instruction.  In computer labs, this includes only seats with assigned computers. Excludes instructor station and other seating types without writing surfaces. 
+        = @classroom.student_capacity
+      
+      #attribute_blackout
+        %a{:href=>"#", :class => "tip2"}
+          = f.input :light_control, :disabled => true
+          %span 
+            Room is either windowless or can be darkened with the use of specialized blinds for the purpose of film viewing, high resolution image viewing, etc.  
+
+      #attribute_classroom_layout
+        Layout:
+        %a{:href=>"#", :class => "tip2"}
+          = f.input :layout_platform, :disabled => true
+          %span
+            Room provides a raised platform for the instructor.
+
+        %a{:href=>"#", :class => "tip2"}
+          = f.input :layout_stage, :disabled => true
+          %span
+            Room contains a stage in the front of the room.
+
+        %a{:href=>"#", :class => "tip2"}
+          = f.input :layout_tiered, :disabled => true
+          %span
+            Room contains a tiered or sloped floor.
+
+        #attribute_seating
+          Seating:
+          %a{:href=>"#", :class => "tip2"}
+            = f.input :seating_auditorium, :disabled => true
+            %span 
+              Room contains fixed chairs with tablet writing surface.
+
+          %a{:href=>"#", :class => "tip2"}
+            = f.input :seating_chairs_fixed, :disabled => true
+            %span 
+              Room contains fixed chairs with no table.
+
+          %a{:href=>"#", :class => "tip2"}
+            = f.input :seating_movable_tables_chairs, :disabled => true
+            %span 
+              Room contains movable chairs with table writing surface.
+
+          %a{:href=>"#", :class => "tip2"}
+            = f.input :seating_table_conference, :disabled => true
+            %span
+              Room is set up in a seminar/conference style with seats surrounding large table.
+
+          %a{:href=>"#", :class => "tip2"}
+            = f.input :seating_tables_any, :disabled => true
+            %span 
+              Room contains a table writing surface for students (fixed, movable, or seminar/conference).
+
+          %a{:href=>"#", :class => "tip2"}
+            = f.input :seating_tables_fixed, :disabled => true
+            %span 
+              Room contains fixed table writing surface for students.
+          %a{:href=>"#", :class => "tip2"}
+            = f.input :seating_tables_moveable, :disabled => true
+            %span
+              Room has moveable table writing surface for students. Rooms w/ moveable tables should be considered fixed if: school/dept prohibits changing arrangement, tables are wired or attached so moving is not easy, or room does not allow for other arrangements.    
+            
+        #attribute_sound_amplification
+          %a{:href=>"#", :class => "tip2"}
+            = f.input :sound_amplification, :disabled => true
+            %span 
+              Room contains a sound system to amplify any of its A/V and IT components, such as computer or DVD/VCR. Room contains sound system for the purpose of amplifying the instructor voice through the use of a wired or wireless microphone.
+        #attribute_network
+          %a{:href=>"#", :class => "tip2"}
+            = f.input :ethernet_students, :disabled => true
+            %span 
+              Room provides a hardwired ethernet connection to a portion of student seats.
+        #attribute_power_outlets
+          %a{:href=>"#", :class => "tip2"}
+            = f.input :power_students, :disabled => true
+            %span 
+              Room contains power outlets for a portion of student seats.
+        #attribute_board
+          Writing Surface:
+          %br
+          %br
+          %a{:href=>"#", :class => "tip2"}
+            = f.input :writing_surface_chalkboard_any, :disabled => true
+            %span 
+              Room contains a chalkboard writing surface of any size.
+
+          %a{:href=>"#", :class => "tip2"}
+            = f.input :writing_surface_chalkboard_25ft, :disabled => true
+            %span 
+              Room contains a chalkboard writing surface of over 25 feet.
+
+          %a{:href=>"#", :class => "tip2"}
+            = f.input :writing_surface_whiteboard_any, :disabled => true
+            %span 
+              Room contains a whiteboard writing surface of any size.
+
+          %a{:href=>"#", :class => "tip2"}
+            = f.input :writing_surface_whiteboard_25ft, :disabled => true
+            %span 
+              Room contains a whiteboard writing surface of over 25 feet.
+
+        #attribute_computer_lab
+          Computer Classroom:
+          %a{:href=>"#", :class => "tip2"}  
+            = f.input :computer_classroom_any, :disabled => true
+            %span
+              Room contains any computer for use by the instructor.
+          #attribute_podium_computer_mac
+            %a{:href=>"#", :class => "tip2"}
+              = f.input :computer_classroom_mac, :disabled => true
+              %span
+                Room contains a Mac computer for use by the instructor.
+          #attribute_podium_computer_pc
+            %a{:href=>"#", :class => "tip2"}
+              = f.input :computer_classroom_windows, :disabled => true
+              %span
+                Room contains a PC computer for use by the instructor.
+
+    .span5.form-horizontal
+      %h2 Equipment
+      %hr  
+      
+      #attribute_dvd
+        DVD Player
+        %a{:href=>"#", :class => "tip2"}  
+          = f.input :dvd_player_regular, :label => 'Standard', :disabled => true
+
+          %span 
+            Room contains DVD player.
+        %a{:href=>"#", :class => "tip2"}  
+          = f.input :dvd_player_blueray, :label => 'Blu-ray', :disabled => true
+          %span 
+            Room contains Blue Ray Disc player.
+      #attribute_captioning_device
+        %a{:href=>"#", :class => "tip2"}
+          = f.input :captioning_device, :disabled => true
+          %span
+            Room contains a special device for transcribing audio into displayable captions.
+      #attribute_computer_lab.podium_computer
+        Podium Computer
+        %a{:href=>"#", :class => "tip2"}
+          = f.input :podium_computer_any, :disabled => true
+          %span
+            Room contains any computer for use by the instructor.
+        #attribute_podium_computer_mac
+          %a{:href=>"#", :class => "tip2"}
+            = f.input :podium_computer_mac, :disabled => true
+            %span
+
+              Room contains a Mac computer for use by the instructor.
+        #attribute_podium_computer_pc
+          %a{:href=>"#", :class => "tip2"}
+            = f.input :podium_computer_windows, :disabled => true
+            %span
+              Room contains a PC computer for use by the instructor.
+
+      %br
+      #attribute_doc_camera
+        %a{:href=>"#", :class => "tip2"}
+          = f.input :document_camera, :disabled => true
+          %span
+            Room contains a specialized camera for the real-time displaying of documents, texts, or small objects.
+
+      #attribute_interactive_pen
+        %a{:href=>"#", :class => "tip2"}
+          = f.input :interactive_pen, :disabled => true
+          %span
+            Room contains special digitial pen and writing surface for commenting/editing digital presentation.
+      #attribute_lecture_capture
+        %a{:href=>"#", :class => "tip2"}
+          = f.input :lecture_capture, :disabled => true
+          %span
+            Room contains a lecture capture device to record instructor, digital presentation, or audio/voice. Must record voice at a minimum.
+      #attribute_telephone
+        %a{:href=>"#", :class => "tip2"}
+          = f.input :telephone, :disabled => true
+          %span
+            Room contains a telephone.
+      #attribute_video_conferencing
+        %a{:href=>"#", :class => "tip2"}
+          = f.input :video_conferencing, :disabled => true
+          %span
+            Room contains a special video conferencing equipment, including camera.
+      #attribute_projecters
+        Projection:
+        %a{:href=>"#", :class => "tip2"}
+          = f.input :projection_16mm_film, :disabled => true
+          %span Room contains 16mm film projector.
+        %a{:href=>"#", :class => "tip2"}
+          = f.input :projection_35mm_file, :disabled => true
+          %span Room contains 35mm film projector.
+        %a{:href=>"#", :class => "tip2"}
+          = f.input :projection_digital_data_video, :disabled => true
+          %span Room contains projector or monitor to digitally display video from any of the room A/V and IT components, such as computer or DVD/VCR.
+        %a{:href=>"#", :class => "tip2"}
+          = f.input :projection_traditional_slide, :disabled => true
+          %span
+            Room contains a traditional slide projector for the display of photographic slides.
+
+    #accessibility_section.span-10.prepend-1
+      %h3
+        Accessibility 
+      %p
+        Adaptive technologies are provided by request. Please contact the Office of Services for Students with Disabilities to provide adaptive technologies to your classroom. Phone 763-3000 or email <a href="mailto:ssdoffice@umich.edu" target="_blank">ssdoffice@umich.edu</a>
+      -#
+        #attribute_assisted_listening
+          = f.input :assisted_listening, :disabled => true
+        #attribute_instructor_wheelchair_access
+          = f.input :wheelchair_instructor, :disabled => true
+
+
+
+
+:javascript
+
+  $(document).ready(function() {
+    $('#myTab').click(function(e) {
+    
+      //check if html5 version or panorama exists.
+      $.ajax({
+        url:'/system/videos/panoramas/#{@classroom.facility_code_heprod.upcase}_QTVR_OUT.xml',
+        type:'HEAD',
+        error:
+          function(){
+              $("#pano").insertAfter("<div id='missing_pano'><h2>This room does not have a panorama available</h2></div>")
+            },
+        success:
+          function(){
+            // Check for compatibility with HTML5 panorama
+            if (ggHasHtml5Css3D() || ggHasWebGL()){
+              pano=new pano2vrPlayer("pano");
+              pano.readConfigUrl("/system/videos/panoramas/#{@classroom.facility_code_heprod.upcase}_QTVR_OUT.xml");
+              }
+            // If not, load the .mov version
+            else{
+              $("#pano").replaceWith("<object CLASSID=\"clsid:02BF25D5-8C17-4B23-BC80-D3488ABDDC6B\" width=\"900\" height=\"330\" CODEBASE=\"http://www.apple.com/qtactivex/qtplugin.cab\" class=\"legacy_panorama\"> <param name=\"src\" value=\"/system/videos/panoramas/#{@classroom.facility_code_heprod.upcase}_QTVR.mov\"><param name=\"target\" value=\"myself\" /><param name=\"controller\" value=\"false\"><param name=\"scale\" value=\"tofit\"><param name=\"kioskmode\" value=\"true\"> <embed src=\"/system/videos/panoramas/#{@classroom.facility_code_heprod.upcase}_QTVR.mov\" width=\"900\" height=\"330\" scale=\"tofit\" target=\"myself\"  kioskmode=\"true\" loop=\"false\" controller=\"false\" pluginspage=\"http://www.apple.com/quicktime/\"></embed></object>"
+              );
+              }
+            }
       });
+      
+               
+    });
+  });
+  
+
+
+-#find location on a google map from lat/long in database
+:javascript
+  function initialize() {
+    var latlng = new google.maps.LatLng(#{@classroom.location.latitude.to_s},#{@classroom.location.longitude.to_s});
+    var myOptions = {
+      zoom: 16,
+      center: latlng,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    }
+    var map = new google.maps.Map(document.getElementById("map_canvas"),
+      myOptions);
+      map.panBy(120, -70);
+      
+    var contentString = '<div id="content" style="width: auto; height:90px;" class = "round">'+
+      '<div id="siteNotice" style="max-height: 125px;">'+
+        '</div>'+
+          '<div id="firstHeading" class="firstHeading ></div>'+
+        '<div id="bodyContent">#{link_to image_tag(@building.picture.url(:medium).to_s, :style => "width: 110px; float: left; padding-right: 2em" ), "../classrooms?utf8=✓&search%5Blocation_id_equals%5D=#{@building.id}"} <span style="float: left;"><b>#{@building.name}<br /> #{@building.locatable.address}<br />#{link_to 'All Classrooms',  "../classrooms?utf8=✓&search%5Blocation_id_equals%5D=#{@building.id}"} <br /> #{link_to "Floor Map",  basement}</span></div>'
+        '<div>  </div>'+
+        '</div>';
+    var infowindow = new google.maps.InfoWindow({
+      content: contentString
     });
 
+    var marker = new google.maps.Marker({
+      position: latlng, 
+      map: map,
+      title:"#{@classroom.location.name}"
+    });
 
+    google.maps.event.addListener(marker, 'click', function() {
+      infowindow.open(map,marker);
+    });  
+    infowindow.open(map,marker);  
+  }
+ 
 
-  -#find location on a google map from lat/long in database
-  :javascript
-    function initialize() {
-      var latlng = new google.maps.LatLng(#{@classroom.location.latitude.to_s},#{@classroom.location.longitude.to_s});
-      var myOptions = {
-        zoom: 16,
-        center: latlng,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-      }
-      var map = new google.maps.Map(document.getElementById("map_canvas"),
-        myOptions);
-        map.panBy(120, -70);
-
-      var contentString = '<div id="content" style="width: auto; height:90px;" class = "round">'+
-        '<div id="siteNotice" style="max-height: 125px;">'+
-          '</div>'+
-            '<div id="firstHeading" class="firstHeading ></div>'+
-          '<div id="bodyContent">#{link_to image_tag(@building.picture.url(:medium).to_s, :style => "width: 110px; float: left; padding-right: 2em" ), "../classrooms?utf8=✓&search%5Blocation_id_equals%5D=#{@building.id}"} <span style="float: left;"><b>#{@building.name}<br /> #{@building.locatable.address}<br />#{link_to 'All Classrooms',  "../classrooms?utf8=✓&search%5Blocation_id_equals%5D=#{@building.id}"} <br /> #{link_to "Floor Map",  basement}</span></div>'
-          '<div>  </div>'+
-          '</div>';
-      var infowindow = new google.maps.InfoWindow({
-        content: contentString
-      });
-
-      var marker = new google.maps.Marker({
-        position: latlng, 
-        map: map,
-        title:"#{@classroom.location.name}"
-      });
-
-      google.maps.event.addListener(marker, 'click', function() {
-        infowindow.open(map,marker);
-      });  
-      infowindow.open(map,marker);  
-    }
-
-  - if @classroom.facility_code_heprod && FileTest.exists?(Rails.root + "public/system/videos/panoramas/#{@classroom.facility_code_heprod.upcase}_QTVR_OUT.xml")
-    :javascript
-      // use HTML5 panorama
-      if (ggHasHtml5Css3D() || ggHasWebGL()){
-        pano=new pano2vrPlayer("panorama");
-        pano.readConfigUrl("/system/videos/panoramas/#{@classroom.facility_code_heprod.upcase}_QTVR_OUT.xml");
-        }
-        else{
-        $("#panorama").replaceWith("<object CLASSID=\"clsid:02BF25D5-8C17-4B23-BC80-D3488ABDDC6B\" width=\"900\" height=\"330\" CODEBASE=\"http://www.apple.com/qtactivex/qtplugin.cab\" class=\"legacy_panorama\"> <param name=\"src\" value=\"/system/videos/panoramas/#{@classroom.facility_code_heprod.upcase}_QTVR.mov\"><param name=\"target\" value=\"myself\" /><param name=\"controller\" value=\"false\"><param name=\"scale\" value=\"tofit\"><param name=\"kioskmode\" value=\"true\"> <embed src=\"/system/videos/panoramas/#{@classroom.facility_code_heprod.upcase}_QTVR.mov\" width=\"900\" height=\"330\" scale=\"tofit\" target=\"myself\"  kioskmode=\"true\" loop=\"false\" controller=\"false\" pluginspage=\"http://www.apple.com/quicktime/\"></embed></object>"
-        );
-      }
-
-- else
-  This room is not visible
-  
-  
-:javascript
-$(document).ready(function(){
-    var animateTime = 10,
-        offsetStep = 5,
-        scrollWrapper = $('#wrap');
-
-    //event handling for buttons "left", "right"
-    $('.bttR, .bttL')
-        .mousedown(function() {
-            scrollWrapper.data('loop', true);
-            loopingAnimation($(this), $(this).is('.bttR') );
-        })
-        .bind("mouseup mouseout", function(){
-            scrollWrapper.data('loop', false).stop();
-            $(this).data('scrollLeft', this.scrollLeft);
-        });
-
-    scrollWrapper
-        .mousedown(function(event) {
-            $(this)
-                .data('down', true)
-                .data('x', event.clientX)
-                .data('scrollLeft', this.scrollLeft);
-            return false;
-        })
-        .mouseup(function (event) {
-            $(this).data('down', false);
-        })
-        .mousemove(function (event) {
-            if ($(this).data('down')) {
-                this.scrollLeft = $(this).data('scrollLeft') + $(this).data('x') - event.clientX;
-            }
-        })
-        .mousewheel(function (event, delta) {
-            this.scrollLeft -= (delta * 30);
-        })
-        .css({
-            'overflow' : 'hidden',
-            'cursor' : '-moz-grab'
-        });
-
-    loopingAnimation = function(el, dir){
-        if(scrollWrapper.data('loop')){
-            var sign = (dir) ? offsetStep : -offsetStep;
-            scrollWrapper[0].scrollLeft += sign;
-            setTimeout( function(){ loopingAnimation(el,dir) }, animateTime );
-                                   }
-                        return false;
-        }; 
-})​

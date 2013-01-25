@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121029143856) do
+ActiveRecord::Schema.define(:version => 20130118194330) do
 
   create_table "buildings", :force => true do |t|
     t.string   "building_code_heprod"
@@ -126,6 +126,28 @@ ActiveRecord::Schema.define(:version => 20121029143856) do
   add_index "roles", ["name", "resource_type", "resource_id"], :name => "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], :name => "index_roles_on_name"
 
+  create_table "room_attributes", :force => true do |t|
+    t.integer  "RMRECNBR"
+    t.integer  "CHRSTC"
+    t.string   "CHRSTC_DESCR"
+    t.string   "CHRSTC_DESCRSHORT"
+    t.string   "CHRSTC_DESCR254"
+    t.boolean  "CHRSTC_SCHEDULE"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
+
+  create_table "room_schedule_contacts", :force => true do |t|
+    t.integer  "RMRECNBR"
+    t.string   "RM_SCHD_CNTCT_NAME"
+    t.string   "RM_SCHD_EMAIL"
+    t.string   "RM_SCHD_CNTCT_PHONE"
+    t.string   "RM_DET_URL"
+    t.string   "RM_USAGE_GUIDLNS_URL"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
+  end
+
   create_table "users", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false
     t.string   "encrypted_password",     :limit => 128, :default => "", :null => false
@@ -139,6 +161,7 @@ ActiveRecord::Schema.define(:version => 20121029143856) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

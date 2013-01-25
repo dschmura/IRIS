@@ -1,0 +1,110 @@
+
+
+%h2 Listing classrooms
+.row-fluid
+  #rooms_search
+    #rooms_search_form.span3
+      #rooms_search_results_count
+        = @search.count
+        rooms met your criteria
+      #rooms_search_instructions
+        Narrow your search by selecting your requirements below
+      #rooms_search_instructions_extended
+        Use the fields and checkboxes below to specify attributes such as minimum seating capacity, type of writing surface, and installed equipment. Then, press the Search button at the bottom to list rooms that meet your requirements.
+      
+      = form_for @search, :remote => false, :html => {:class => "form-inline"} do |f|
+    
+        = f.collection_select :location_id_equals, Location.where(:locatable_type => "Building").order("name ASC"), :id, :name, :prompt => "Limit By Building"
+        %br
+        %br
+        = f.label :room_number
+        = f.text_field :facility_code_heprod_contains, :size => 8, :placeholder => "USB2230", :style => "height: 1em; width: 70px;"
+        %br
+
+        = f.label :podium_computer
+        = f.check_box :podium_computer_any_or_podium_computer_mac_or_podium_computer_windows_is_true
+
+        %br
+        = f.label :computer_classroom
+        = f.check_box :computer_classroom_any_or_computer_classroom_mac_or_computer_classroom_windows_is_true
+        %br
+        = f.label "Video Projection"
+        = f.check_box :projection_16mm_film_or_projection_35mm_file_or_projection_digital_data_video_or_projection_traditional_slide_is_true
+
+        %br
+        = f.label "DVD Player"
+        = f.check_box :dvd_player_regular_or_dvd_player_blueray_is_true
+        %br
+        = f.label :sound_amplification
+        = f.check_box :sound_amplification_is_true
+        %br
+        = f.label :document_camera_
+        = f.check_box :document_camera_is_true
+        %br
+        = f.label :lecture_capture
+        = f.check_box :lecture_capture_is_true
+        %br
+        = f.label :video_conferencing
+        = f.check_box :video_conferencing_is_true
+        %br
+        %br
+        
+        = f.text_field :student_capacity_greater_than_or_equal_to, :size => 3, :placeholder => '20', :style => "width: 25px; height: 1.3em;"
+        = f.label "Minimum capacity", :style => "position: relative; bottom: 5px;"
+        %br
+        <input id= "capacity_slider" type="range" min="0" max="500"  step="1" style="width: 100px; margin-left: 50px; position: relative; bottom: 15px;" onchange="printValue('capacity_slider'
+        , 'search_student_capacity_greater_than_or_equal_to')" />
+        
+
+        %br
+        = f.label "Maximum capacity", :style => "position: relative; bottom: 5px;"
+        = f.text_field :student_capacity_less_than_or_equal_to, :size => 3, :placeholder => '250', :style => "width: 25px; height: 1.3em;"
+        %br
+        <input id= "capacity_slider2" type="range" min="0" max="500"  step="1" style="width: 100px; position: relative; bottom: 15px;" onchange="printValue('capacity_slider2'
+        , 'search_student_capacity_less_than_or_equal_to')" />
+        
+        %br
+        %br
+        = f.label "results per page"
+        = select_tag :per_page, options_for_select([15,25,50,100], @per_page.to_i), :style => "width: 60px;" 
+        %br
+        %br
+
+        = f.submit 'Create Search', :class => 'btn btn-mini'
+        %br
+        %br
+        <input type="button" class="btn btn-mini" value="Reset!" ONCLICK="window.location.href='../classrooms'">
+      
+      
+        - if user_signed_in?
+          %br
+          %br
+          = link_to 'New Classroom', new_classroom_path, :class => 'btn btn-mini'
+     
+    #rooms_results
+      = render :partial => 'classroom_results'
+
+
+
+-# Javascript to update value of student capacity text box from slider
+
+:javascript
+  $(".tooltip").tooltip()
+  function showValue(newValue)
+  {
+    document.getElementById("search_student_capacity_greater_than_or_equal_to").innerHTML=newValue;}
+
+  function printValue(sliderID, textbox) {
+              var x = document.getElementById(textbox);
+              var y = document.getElementById(sliderID);
+              x.value = y.value;
+          }
+  window.onload = function() { printValue('slider1', 'rangeValue1'); printValue('slider2', 'rangeValue2'); printValue('slider3', 'rangeValue3'); printValue('slider4', 'rangeValue4'); }
+
+-#toggle the visability of additional search fields and the disclosure triangle's state
+  $('.advanced_search_disclosure_wrapper h4').click(function() { 
+  $("div:contains('advanced_search_disclosure_wrapper')").toggleClass("advanced_search_disclosure_wrapper_active");
+  $('#advanced_search_wrapper').toggle('fast', function(){
+    });
+  });
+

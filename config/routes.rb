@@ -1,5 +1,15 @@
 Iris::Application.routes.draw do
 
+  resources :room_attributes do
+      collection {post :import}
+  end
+
+
+  resources :room_schedule_contacts do
+      collection {post :import}
+  end
+
+
   # Rewrite from old site
   match 'detail.php', :to => 'old_site_redirector#detail'
   match 'index.php', :to => 'old_site_redirector#pages'
@@ -11,6 +21,7 @@ Iris::Application.routes.draw do
   
   resources :classrooms do
     get :search, :on => :collection
+    collection {post :import}
   end
   
   resources :locations

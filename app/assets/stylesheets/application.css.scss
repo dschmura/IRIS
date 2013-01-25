@@ -1,17 +1,41 @@
 /*
- * This is a manifest file that'll automatically include all the stylesheets available in this directory
- * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
- * the top of the compiled file, but it's generally better to create a new file per style scope.
-
- *= require blueprint/screen
- *= require custom
- *= require site_forms
- *= require buildings
- *= require classrooms
- *= require pages
- *= require attribute_icons
- *= require liquid
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
  *= require_self
-
+ *= require_tree .
 */
 
+@import 'font-awesome';
+@mixin rounded-corners($radius: 10px) 
+  {border-radius: $radius;
+  -moz-border-radius: $radius;
+  -webkit-border-radius: $radius;
+}
+
+@mixin transparent($transparency: 0.5, $trans: 50)
+  {zoom: 1;
+  filter: alpha(opacity=$trans);
+  opacity: $transparency;
+}
+
+
+.content {
+  background-color: #fff;
+  @include rounded-corners(6px);
+  box-shadow: 0 1px 2px rgba(0,0,0,.15);
+}
+
+#main_nav{
+  float: right;
+}
+
+i{
+  font-size: 16px;
+}

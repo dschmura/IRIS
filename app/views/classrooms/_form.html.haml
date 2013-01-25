@@ -1,73 +1,73 @@
-= simple_form_for @classroom, :html => {:multipart => true} do |f|
-  = f.error_notification  
-  #building_code  
-    -# = @buildings.find(3).building_short_code
-    %br
-  .inputs  
-    = f.input :room_number, :placeholder => "AudB", :input_html => { :tabindex => '1' }
-    %br
-    = f.input :rmrecnbr, :placeholder => ""
+.row
+  .span5
+    = simple_form_for @classroom, :html => {:multipart => true, :class => 'form-horizontal'} do |f|
+      = f.error_notification   
+      %br
+      .inputs  
+        = f.input :room_number, :placeholder => "AudB", :input_html => { :tabindex => '1' }
+        = f.input :location_id, :collection => Location.where(:locatable_type => "Building").order("name ASC"), :prompt => "What Building is this room in?", :label => "Building"
+
+        = link_to "Add a Building", new_building_path, :style => "position: relative; left: 420px; bottom: 30px;", :target => "_blank"
+
+        = f.input :owner_id, :collection => Owner.order("department_name ASC"), :prompt => "Who owns this space?", :label => "Owner", :label_method => :department_name
+
+        = link_to "Add an Owner", new_owner_path, :style => "position: relative; left: 4680px; bottom: 30px;", :target => "_blank"
+        
+        = f.simple_fields_for :location, :html => {:class => "form-inline "} do |loc|
+          = loc.input :name, :placeholder => "Angell Hall Aud B"
+          = loc.input :latitude, :as => "string"
+          %br
+          %br
+          = loc.input :longitude,  :as => "string"
+          %br
+          %br
+        = f.input :student_capacity,  :as => "string", :placeholder => '0'
+        <input id= "capacity_slider" type="range" min="0" max="1000" value="0" step="1" onchange="printValue('capacity_slider', 'classroom_student_capacity')" />   
+        = f.input :facility_code_heprod, :placeholder => "AHAudB"
+        *Combine the building short code with the room number
+        %br
+        %br
+        %br
+          = f.simple_fields_for :location do |loc|  
+            = loc.input :description, :input_html => { :class => "span4", :rows => 5 }, :placeholder => "Classroom Description (will be displayed in map)"
+        
+
+        #location_image_form.span6
+          -if @classroom.location.picture_file_name != nil
+            = image_tag @classroom.location.picture.url.to_s
+            %p.prepend-4#update_image
+              %b Change the image for this classroom.  
+              %br
+              %br
+              = f.simple_fields_for :location do |loc|
+                -# paperclip method
+                = loc.file_field :picture
+          - else
+            %p
+              %b Upload an image for this classroom.  
+              %br
+              %br
+              = f.simple_fields_for :location do |loc|
+                -# paperclip method
+                = loc.file_field :picture
+  .span5.offset1
     #where_am_i_map
       .input
         %label
           Address:
         %input#addresspicker_map
-        #map
-    = f.input :location_id, :collection => Location.where(:locatable_type => "Building").order("name ASC"), :prompt => "What Building is this room in?", :label => "Building"
-    
-    = link_to "Add a Building", new_building_path, :style => "position: relative; left: 420px; bottom: 30px;", :target => "_blank"
+        #map        
+  
+= simple_form_for @classroom, :html => {:multipart => true, :class => 'form-horizontal'} do |f| 
+  .inputs  
 
-    = f.input :owner_id, :collection => Owner.order("department_name ASC"), :prompt => "Who owns this space?", :label => "Owner", :label_method => :department_name
-        
-    = link_to "Add an Owner", new_owner_path, :style => "position: relative; left: 4680px; bottom: 30px;", :target => "_blank"
-    
-    = f.simple_fields_for :location do |loc|
-      = loc.input :name, :placeholder => "Angell Hall Aud B"
-      = loc.input :latitude, :as => "string"
-      %br
-      %br
-      = loc.input :longitude,  :as => "string"
-      %br
-      %br
-    = f.input :student_capacity,  :as => "string", :placeholder => '0'
-    <input id= "capacity_slider" type="range" min="0" max="1000" value="0" step="1" onchange="printValue('capacity_slider', 'classroom_student_capacity')" />   
-    = f.input :facility_code_heprod, :placeholder => "AHAudB"
-    %br
-      *Combine the building short code with the room number    
-    %br
-    -#= f.input :is_department_space
-    %br
-      = f.simple_fields_for :location do |loc|  
-        = loc.input :description, :placeholder => "Classroom Description (will be displayed in map)"
-        %br
-        = loc.input :visible, :label => "Make this room visible?"
-      %hr.span-23
-      #location_image_form.span-23.last
-        -if @classroom.location.picture_file_name != nil
-          = image_tag @classroom.location.picture.url.to_s
-          %p.prepend-4#update_image
-            %b Change the image for this classroom.  
-            %br
-            %br
-            = f.simple_fields_for :location do |loc|
-              -# paperclip method
-              = loc.file_field :picture
-        - else
-          %p.prepend-4
-            %b Upload an image for this classroom.  
-            %br
-            %br
-            = f.simple_fields_for :location do |loc|
-              -# paperclip method
-              = loc.file_field :picture
-    
-  %hr.span-23.last
+  %hr.span12
     .attributes_disclosure_wrapper
       %h3 Attributes              
       %p (Display additional classroom attributes)
-      #attributes_wrapper.span-23
+      #attributes_wrapper.span12
     
-        #room_design_section.span-10
+        #room_design_section.span5
           #attribute_blackout
             = f.input :light_control
           #attribute_classroom_layout 
@@ -104,7 +104,7 @@
             #attribute_podium_computer_pc
               = f.input :computer_classroom_windows
       
-        #equipment_section.span-10  
+        #equipment_section.span5
           #attribute_dvd
             DVD Player  
             = f.input :dvd_player_regular, :label => 'Standard'
@@ -128,6 +128,7 @@
             = f.input :telephone
           #attribute_video_conferencing
             = f.input :video_conferencing
+          %hr
           #attribute_projecters
             Projection:
             = f.input :projection_16mm_film
@@ -135,9 +136,9 @@
             = f.input :projection_digital_data_video
             = f.input :projection_traditional_slide
     
-        #notes_section.span-12.prepend-1
+        #notes_section
           #attribute_notes
-            = f.input :notes
+            = f.input :notes, :input_html => { :class => "span4", :rows => 5 }
         #accessibility_section.span-10.prepend-1
           %h3
             Accessibility    
@@ -188,7 +189,7 @@
      $('#classroom_location_attributes_name').val(room_number) ;
   $('#classroom_location_id').change( function() {
     var room_name = $('option:selected', this).html();   
-    $('#classroom_location_attributes_name').val(room_name + " " + room_number) ;
+    $('#classroom_location_attributes_name').val(room_number + " " + room_name) ;
   } );
     });
 

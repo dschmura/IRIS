@@ -4,6 +4,11 @@ class ClassroomsController < ApplicationController
   before_filter :authenticate_user!, :except => [:show, :index]
   #before_filter :admin_user, :only => [:new, :create, :edit, :update, :destroy]
 
+  def import
+    Classroom.import(params[:file])
+    redirect_to classrooms_url, notice: "Attributes Imported"
+  end
+
   # GET /classrooms
   # GET /classrooms.xml
   def index    
@@ -12,7 +17,7 @@ class ClassroomsController < ApplicationController
       if params[:per_page]
         @per_page = params[:per_page]
       else
-        @per_page = 10  
+        @per_page = 14  
        end
     @classrooms = @search.paginate(:page => params[:page], :per_page => @per_page).order("student_capacity desc")   # or @search.relation to lazy load in view
     @owners = "Owner"
@@ -37,6 +42,9 @@ class ClassroomsController < ApplicationController
     @classroom_alt = @classroom.location.name + " - " + @classroom.room_number 
     @building = Location.find(@classroom.location_id)
     @owner = Owner.find(@classroom.owner_id)
+    @room_schedule_contact = RoomScheduleContact.find_by_RMRECNBR(@classroom.rmrecnbr)
+    @room_attributes = RoomAttribute.find_all_by_RMRECNBR(@classroom.rmrecnbr)
+    
     @building_image = @building.picture.url(:medium).to_s
     @building_sign_image = @building.building_sign.url(:thumb).to_s
     @search = Classroom.search(params[:search])

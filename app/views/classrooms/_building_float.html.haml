@@ -1,4 +1,4 @@
-#building_float.span-4
+#building_float
 
   %center
     = link_to image_tag(@building_image, :class => "round"), "../classrooms?utf8=✓&search%5Blocation_id_equals%5D=#{@building.id}"
@@ -7,15 +7,18 @@
   %b Building: 
   = link_to @building.name, "../classrooms?utf8=✓&search%5Blocation_id_equals%5D=#{@building.id}"
   %br
+  
   %b Room Name:
-  = @classroom.location.name
+  %a{"data-original-title" => @classroom.location.name, "data-placement" => "right", :href => "#", :rel => "tooltip"} 
+    
+    = truncate(@classroom.location.name, :length => 25)
+ 
   %br
     %b Facility Code:
     = @classroom.facility_code_heprod  
 
   %b Student Capacity  
   = @classroom.student_capacity  
-  %br
   %br
   - if @owner.id == 1
     %em
@@ -38,13 +41,10 @@
 
 
   %br
-  - if user_signed_in?
+  - if can? :update, @classroom
     %b
       = link_to 'Edit this room', edit_classroom_path
-    %br
-      This room's visibility is set to:
-      %b 
-        = @classroom.location.visible
+    
 
   -#= form_for @search do |f| 
 

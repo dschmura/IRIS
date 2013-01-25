@@ -1,22 +1,24 @@
 %h1 
   = @page_title
 
-%table
-  %tr
-    -#%th Building Code (heprod)
-    %th Code
-    %th Name
-    %th Address
-    %th Address2
-    %th City
-    %th State
-    %th Zip
-    %th Description
-    - if user_signed_in?
-      %th
-      %th
-      %th
+%table.table.table-striped
 
+  %thead
+    %tr
+      -#%th Building Code (heprod)
+      %th Code
+      %th Name
+      %th Address
+      %th Address2
+      %th City
+      %th State
+      %th Zip
+      %th Description
+      - if user_signed_in?
+        %th
+        %th
+        %th
+  %tbody
   - @buildings.each do |building|
     %tr
       %td= link_to building.building_short_code, building
