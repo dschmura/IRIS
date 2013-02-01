@@ -33,6 +33,7 @@ $(document).ready(function(){
 /*menu handler. Sets current link to active in nav bars in header and footer for current page.*/
 $(function(){
   function stripTrailingSlash(str) {
+    
     if(str.substr(-1) == '/') {
       return str.substr(0, str.length - 1);
     }
@@ -47,9 +48,15 @@ $(function(){
 
     if (activePage == currentPage){
       $(this).parent().addClass('active'); 
-    } 
+    }
+   
+     
   });
 });
+
+
+
+
 
 //= require_tree .
 //= require_self

@@ -1,50 +1,51 @@
 #contact_sheet
-  %b Scheduling Department Name:
-  -#= @owner.department_name
-  %a{"data-original-title" => @room_schedule_contact.RM_SCHD_CNTCT_NAME, "data-placement" => "right", :href => "#", :rel => "tooltip"} 
+  
+  #support_info
+    %h4 Support Information
+    %b Supporting Department:
+    %a{"data-original-title" => @owner.department_name, "data-placement" => "right", :href => "#", :rel => "tooltip"} 
+      = truncate(@owner.department_name, :length => 30)
+
+    %br  
+    %b Support Contact:
+    %a{"data-original-title" => "Full Name:" + @owner.department_name, "data-placement" => "right", :href => "#", :rel => "tooltip"} 
+      = truncate(@owner.department_name, :length => 30)
+    = link_to @owner.contact_email, "mailto:"+@owner.contact_email
+  
+    %br
+    %b Support Contact Phone:
+    = @owner.contact_phone
     
-    = truncate(@room_schedule_contact.RM_SCHD_CNTCT_NAME, :length => 30)
+  #scheduling_info
+    %h4 Scheduling Information
+
+    %b Department:
+    -#= @owner.department_name
+    %a{"data-original-title" => @room_schedule_contact.RM_SCHD_CNTCT_NAME, "data-placement" => "right", :href => "#", :rel => "tooltip"} 
     
-  %br
-  %br
-  %b Supporting Department Name:
-  %a{"data-original-title" => @owner.department_name, "data-placement" => "right", :href => "#", :rel => "tooltip"} 
-    = truncate(@owner.department_name, :length => 30)
+      = truncate(@room_schedule_contact.RM_SCHD_CNTCT_NAME, :length => 30)
+    %br
+    %b Contact Phone:
+    = @room_schedule_contact.RM_SCHD_CNTCT_PHONE  
+    %br
+    %b Room Schedule:
+    = link_to "View Room Schedule", "https://heprod.dsc.umich.edu/services/facilitycalendar?facilityid=#{@classroom.facility_code_heprod }", :target => "_blank"
+  
+
+ 
+
+  
+
+  
+  #additional_contact_info
     
-  %br
-  %br  
-  %b Support Contact:
-  %a{"data-original-title" => "Full Name:" + @owner.department_name, "data-placement" => "right", :href => "#", :rel => "tooltip"} 
-    = truncate(@owner.department_name, :length => 30)
-  -#= @owner.department_name
-  -#%a{"data-original-title" => "Full Name:" + @room_schedule_contact.RM_SCHD_CNTCT_NAME, "data-placement" => "right", :href => "#", :rel => "tooltip"} 
-    -#= truncate(@room_schedule_contact.RM_SCHD_CNTCT_NAME, :length => 26)
-  = link_to @owner.contact_email, "mailto:"+@owner.contact_email
-  
-  -#= link_to @room_schedule_contact.RM_SCHD_EMAIL, "mailto:"+@room_schedule_contact.RM_SCHD_EMAIL
-  
-  %br
-  %br
-  %b Contact Phone:
-  = @owner.contact_phone
-  -#= @room_schedule_contact.RM_SCHD_CNTCT_PHONE
-  %br
-  %br
-  %b Room Schedule:
-  = link_to "View Room Schedule", "https://heprod.dsc.umich.edu/services/facilitycalendar?facilityid=#{@classroom.facility_code_heprod }", :target => "_blank"
-  
-  
-  %br
-  %br
-  %b Room Usage Guidelines: 
-  - if @room_schedule_contact.RM_USAGE_GUIDLNS_URL?
-    = link_to "View Room Usage Guidelines",@room_schedule_contact.RM_USAGE_GUIDLNS_URL , :target => "_blank"
-  -else
-    None Available.  
-  %br
-  %br
-  %b Floor Map: 
-  #{link_to @classroom.location.name,  basement}
-  
-  
+    %b Room Usage Guidelines: 
+    - if @room_schedule_contact.RM_USAGE_GUIDLNS_URL?
+      = link_to "View Room Usage Guidelines",@room_schedule_contact.RM_USAGE_GUIDLNS_URL , :target => "_blank"
+    -else
+      None Available.  
+    %br
+    %br
+    %b Floor Map: 
+    #{link_to @classroom.location.name,  basement}
   

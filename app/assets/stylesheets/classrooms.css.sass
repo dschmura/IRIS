@@ -15,7 +15,7 @@
 select
   #search_location_id_equals
   width: 90%
-  height: 2em
+  height: 10%
   
 #rooms_search
   clear: both
@@ -123,13 +123,13 @@ select
 #room_number
   /*@include rounded-corners(11px)
   @include transparent($transparency: 0.7, $trans: 70)
-  @include rounded-corners(11px)
+  @include rounded-corners(6px)
   visibility: visible
-  width: 180px
+  width: 300px
   
   background: #999999
   position: absolute
-  left: 72%
+  left: 68%
   top: 90px
   float: right
   z-index: 1000
@@ -143,10 +143,6 @@ select
 #technician_required
   color: #800000
   font-weight: bold
-
-#contact_sheet
-  margin-top: 3em
-  
 
 #main_image  
   display: block
@@ -216,14 +212,38 @@ select
 .classroom_top
   background: #DDD7AF
   max-height: 400px
-  min-width: 105%
-  width: 105%
+  
   overflow: inline
   border-bottom: 1px solid #D4CF9F
   .tab-content
     z-index: 500
-    background: #3E424D
     
+#help_tab
+  float: left
+  background: #758FC2
+  
+#scheduling_info
+  margin-top: 1em
+  margin-right: 1em
+  float: left
+  background: #c9bf98
+  padding: 1em
+  width: 45%
+  @include rounded-corners(6px)
+
+#support_info
+  background: #b1b491
+  padding: 1em
+  width: 45%
+  @include rounded-corners(6px)
+
+#additional_contact_info
+  float: left
+  background: #b1b491
+  padding: 1em
+  width: 45%
+  @include rounded-corners(6px)
+  
 
 .control-group.boolean.optional
   margin-bottom: 0px
@@ -231,34 +251,35 @@ select
 .tabbable#classroomTabs
   background: #fff
   @include transparent($transparency: 0.8, $trans: 80)
-  @include rounded-corners(15px)
+  /*@include rounded-corners(15px)
   position: relative
   left: 60% 
   overflow: hidden
   bottom: 11px
   width: 305px
   z-index: 7000
- 
-
+  
+  
+#contact_sheet
+  
 
 #contactme
-  background: #E6E6E6
-  padding-left: 2em
-  padding-top: 2em
-  margin-bottom: -2em
   background-image: -webkit-gradient(linear, left top, left bottom, from(#FFF), to(#9EA8C2), color-stop(0.5, #E6E6E6))
-#pano
+  height: 360px
   
-  width: 640px
-  height: 400px
+#pano
+  width: 105%
+  height: 360px
 #missing_pano
   
 
 #map_canvas
-  width: 600px
+  
+  min-height: 400px
 
 #map img 
   max-width: none
+  min-height: 400px
   		
 #building_float
   font-size: 90%
