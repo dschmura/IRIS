@@ -7,6 +7,7 @@
     %th Contact name
     %th Contact phone
     %th Contact email
+    %th URL
     %th Notes
     - if user_signed_in?
       %th
@@ -20,6 +21,7 @@
       %td= owner.contact_name
       %td= owner.contact_phone
       %td= owner.contact_email
+      %td= owner.url
       %td= owner.notes
       - if user_signed_in?
         %td= link_to 'Show', owner

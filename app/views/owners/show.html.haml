@@ -16,6 +16,12 @@
   %b Contact email:
   = @owner.contact_email
 %p
+  %b URL:
+  - if @owner.url?
+    = link_to @owner.url, @owner.url  
+  - else
+    None available
+%p
   %b Notes:
   = @owner.notes
 

@@ -54,19 +54,14 @@
         %br
         %br
         
-        = f.text_field :student_capacity_greater_than_or_equal_to, :size => 3, :placeholder => '20', :style => "width: 25px; height: 1.3em;"
-        = f.label "Minimum capacity", :style => "position: relative; bottom: 5px;"
-        %br
-        <input id= "capacity_slider" type="range" min="0" max="500"  step="1" style="width: 100px; margin-left: 50px; position: relative; bottom: 15px;" onchange="printValue('capacity_slider'
-        , 'search_student_capacity_greater_than_or_equal_to')" />
+        %label{:for => "amount"} Student Capacity
+        %br 
         
+        = f.text_field :student_capacity_greater_than_or_equal_to, :size => 3, :placeholder => '30', :style => "width: 25px; height: 0.8em; float: left;", :id => "my_min"
+        #slider-range
+    
+        = f.text_field :student_capacity_less_than_or_equal_to, :size => 3, :placeholder => '250', :style => "width: 25px; height: 0.8em;",:id => "my_max"
 
-        %br
-        = f.label "Maximum capacity", :style => "position: relative; bottom: 5px;"
-        = f.text_field :student_capacity_less_than_or_equal_to, :size => 3, :placeholder => '250', :style => "width: 25px; height: 1.3em;"
-        %br
-        <input id= "capacity_slider2" type="range" min="0" max="500"  step="1" style="width: 100px; position: relative; bottom: 15px;" onchange="printValue('capacity_slider2'
-        , 'search_student_capacity_less_than_or_equal_to')" />
         
         %br
         %br
@@ -79,9 +74,7 @@
         %br
         %br
         <input type="button" class="btn btn-mini" value="Reset!" ONCLICK="window.location.href='../classrooms'">
-      
-      
-        
+              
         - if can? :update, @classroom
           %br
           %br
@@ -118,13 +111,11 @@
 -# Javascript to update value of student capacity text box from slider
 :javascript
   $('#myModal').modal({show: false}))
-:javascript
-  
+:javascript 
   $(".tooltip").tooltip()
   function showValue(newValue)
   {
     document.getElementById("search_student_capacity_greater_than_or_equal_to").innerHTML=newValue;}
-
   function printValue(sliderID, textbox) {
               var x = document.getElementById(textbox);
               var y = document.getElementById(sliderID);
@@ -133,9 +124,25 @@
   window.onload = function() { printValue('slider1', 'rangeValue1'); printValue('slider2', 'rangeValue2'); printValue('slider3', 'rangeValue3'); printValue('slider4', 'rangeValue4'); }
 
 -#toggle the visability of additional search fields and the disclosure triangle's state
-  $('.advanced_search_disclosure_wrapper h4').click(function() { 
-  $("div:contains('advanced_search_disclosure_wrapper')").toggleClass("advanced_search_disclosure_wrapper_active");
+  $('.advanced_search_disclosure_wrapper h4').click(function() {   $("div:contains('advanced_search_disclosure_wrapper')").toggleClass("advanced_search_disclosure_wrapper_active");
   $('#advanced_search_wrapper').toggle('fast', function(){
     });
   });
 
+:javascript
+  $(function() {
+    $( "#slider-range" ).slider({
+      range: true,
+      min: 0,
+      max: 500,
+      values: [ 30, 300 ],
+      slide: function( event, ui ) {
+        
+        $( "#my_min" ).val(ui.values[ 0 ]); // Display and selected the min Price
+        $( "#my_max" ).val(ui.values[ 1 ]); // Display and selected the max Price
+        
+      }
+ 
+    });
+    
+  });

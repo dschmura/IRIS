@@ -93,8 +93,12 @@ new_home/Rackham2.jpg: new_home/Rackham2-09761e10c45715dbdc3da31622e6c18d.jpg
 new_home/Rackham2/index.jpg: new_home/Rackham2-09761e10c45715dbdc3da31622e6c18d.jpg
 new_home/clements.jpg: new_home/clements-a227d645ad0a12391588e5ed7003ce60.jpg
 new_home/clements/index.jpg: new_home/clements-a227d645ad0a12391588e5ed7003ce60.jpg
+new_home/clements2.jpg: new_home/clements2-f6730cb38788fce359423dfafc226b6f.jpg
+new_home/clements2/index.jpg: new_home/clements2-f6730cb38788fce359423dfafc226b6f.jpg
 new_home/cube.jpg: new_home/cube-c1f08e082c4d0719eb8732d7da6ba54a.jpg
 new_home/cube/index.jpg: new_home/cube-c1f08e082c4d0719eb8732d7da6ba54a.jpg
+new_home/hatcher.jpg: new_home/hatcher-41ed9e107a88c29f2323036c37874c2d.jpg
+new_home/hatcher/index.jpg: new_home/hatcher-41ed9e107a88c29f2323036c37874c2d.jpg
 new_home/law_quad.jpg: new_home/law_quad-759a7e42f0405065dd832d2db12514c4.jpg
 new_home/law_quad/index.jpg: new_home/law_quad-759a7e42f0405065dd832d2db12514c4.jpg
 new_home/law_quad2.jpg: new_home/law_quad2-4ada564f7539346d1ac6b0ebb8bcefbe.jpg
@@ -113,10 +117,10 @@ user_interface_elements/down_arrow.gif: user_interface_elements/down_arrow-c03b1
 user_interface_elements/down_arrow/index.gif: user_interface_elements/down_arrow-c03b14856a808abbfc88b2d3c3dc79fe.gif
 user_interface_elements/up_arrow.gif: user_interface_elements/up_arrow-dcaf74d237f2811c15d1614684194154.gif
 user_interface_elements/up_arrow/index.gif: user_interface_elements/up_arrow-dcaf74d237f2811c15d1614684194154.gif
-application.js: application-09b1fcbb25bc2c6e5283c15fc39a6d18.js
-application/index.js: application-09b1fcbb25bc2c6e5283c15fc39a6d18.js
-application.css: application-c14c09913b4000a0a43f27ad1987f9de.css
-application/index.css: application-c14c09913b4000a0a43f27ad1987f9de.css
+application.js: application-f4cb60bb28ade79a7086b7569ed18255.js
+application/index.js: application-f4cb60bb28ade79a7086b7569ed18255.js
+application.css: application-f86217ccf6f895653c0091bf5272026e.css
+application/index.css: application-f86217ccf6f895653c0091bf5272026e.css
 glyphicons-halflings-white.png: glyphicons-halflings-white-6cccd17a7aed91dbc0157d343c68c0d9.png
 glyphicons-halflings-white/index.png: glyphicons-halflings-white-6cccd17a7aed91dbc0157d343c68c0d9.png
 glyphicons-halflings.png: glyphicons-halflings-2851b489e8c39f8fad44fc10efb99c3e.png

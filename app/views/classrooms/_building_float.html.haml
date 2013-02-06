@@ -3,6 +3,7 @@
   %center
     = link_to image_tag(@building_image, :class => "round"), "../classrooms?utf8=✓&search%5Blocation_id_equals%5D=#{@building.id}"
   %br
+  
   - if @owner.id == 1
     %em
       %b LSA ISS Classroom
@@ -11,6 +12,7 @@
     %em
       %b Departmental Classroom
   %br
+
   %b Building: 
   = link_to @building.name, "../classrooms?utf8=✓&search%5Blocation_id_equals%5D=#{@building.id}"
   %br

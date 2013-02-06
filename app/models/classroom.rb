@@ -158,13 +158,36 @@ class Classroom < ActiveRecord::Base
       if last_rmrecnbr != row["RMRECNBR"]
         this_classroom && this_classroom.save!
         this_classroom = Classroom.find_by_rmrecnbr(row["RMRECNBR"])
-         
+        if this_classroom
+          
+          attributes = ["light_control" , "layout_platform" , "layout_stage" , 
+                      "layout_tiered" , "seating_auditorium" , "seating_chairs_fixed" , 
+                      "seating_movable_tables_chairs" , "seating_table_conference" , 
+                      "seating_tables_any" , "seating_tables_fixed" , "seating_tables_moveable" , 
+                      "sound_amplification" , "sound_amplification" , "ethernet_students" , 
+                      "power_students" , "writing_surface_chalkboard_any" , "writing_surface_chalkboard_25ft" , 
+                      "writing_surface_whiteboard_any" , "writing_surface_whiteboard_25ft" , 
+                      "computer_classroom_any" , "computer_classroom_any" , "computer_classroom_mac" , 
+                      "computer_classroom_windows" , "assisted_listening" , "wheelchair_instructor" , 
+                      "dvd_player_regular" , "dvd_player_blueray" , "captioning_device" , "podium_computer_mac" , 
+                      "podium_computer_windows" , "document_camera" , "interactive_pen" , 
+                      "lecture_capture" , "telephone" , "video_conferencing" , "projection_16mm_film" , 
+                      "projection_35mm_file" , "projection_digital_data_video" , "projection_traditional_slide"]
+                      attributes.each do |attribute|
+                        this_classroom[attribute] = false
+                        this_classroom.save!
+                      end
+                    else
+                    end
+        #zero_attributes(this_classroom)
 
         last_rmrecnbr = row["RMRECNBR"]
       end
       
       if this_classroom
-        logger.info { this_classroom.facility_code_heprod }
+        logger.info { this_classroom.facility_code_heprod }      
+
+                      
       else
         logger.info { "NOT FOUND: #{row["RMRECNBR"]}" }
         next

@@ -1,5 +1,21 @@
 
 
+
+-##image_nav
+  %ul
+    %li.active
+      %a{"data-toggle" => 'tab', :href => '#picture'}
+        Picture
+    %li
+      %a{"data-toggle" => 'tab', :href => '#pano'}
+        Panorama
+    %li
+      %a{"data-toggle" => 'tab', :href => '#map'}
+        Map
+    %li
+      %a{"data-toggle" => 'tab', :href => '#contactme'}
+        Contact    
+        
 .row-fluid.classroom_top.span12
   .span2
     = render :partial => 'building_float'
@@ -7,9 +23,8 @@
     .tab-content
       .tab-pane#picture.active
         = image_tag @classroom.location.picture.url(:show).to_s, :alt => @classroom_alt
-      .tab-pane#pano
-        
-        %h4
+      .tab-pane#pano     
+        %h4#missing_pano
           This room does not have a panorama
       .tab-pane#map
         <div id="map_canvas" style="width:780px; height:400px; overflow:;"> </div>
@@ -30,21 +45,6 @@
     %li
       %a{"data-toggle" => 'tab', :href => '#contactme'}
         Contact
--#
-  #image_nav
-  %ul#myTab
-    %li
-      %a{"data-toggle" => 'tab', :href => '#picture'}
-        Picture
-    %li
-      %a{"data-toggle" => 'tab', :href => '#pano'}
-        Panorama
-    %li
-      %a{"data-toggle" => 'tab', :href => '#map'}
-        Map
-    %li
-      %a{"data-toggle" => 'tab', :href => '#contactme'}
-        Contact  
 
 #room_number
   %h1  
@@ -306,7 +306,8 @@
       %hr
       #last_updated
         Updated:
-        = @classroom.updated_at.strftime "%m-%d-%y %I:%M %p"
+        = @classroom.updated_at.strftime "%I:%M %p %m/%d/%Y "
+
         
 
 
@@ -314,7 +315,7 @@
 
 
 :javascript
-  $('#myCollapsible').collapse('hide')
+
   $(document).ready(function() {
     $('#myTab').click(function(e) {
     
