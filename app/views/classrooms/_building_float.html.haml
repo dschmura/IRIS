@@ -12,12 +12,13 @@
     %em
       %b Departmental Classroom
   %br
+  %br
 
   %b Building: 
   = link_to @building.name, "../classrooms?utf8=✓&search%5Blocation_id_equals%5D=#{@building.id}"
   %br
   
-  %b Room Name:
+  %b Name:
   %a{"data-original-title" => @classroom.location.name, "data-placement" => "right", :href => "#", :rel => "tooltip"} 
     
     = truncate(@classroom.location.name, :length => 25)
@@ -26,7 +27,7 @@
     %b Facility Code:
     = @classroom.facility_code_heprod  
 
-  %b Student Capacity  
+  %b Capacity:  
   = @classroom.student_capacity  
   
 

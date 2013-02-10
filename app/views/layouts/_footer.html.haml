@@ -21,35 +21,29 @@
                
     = link_to footer_logo_um, "http://www.umich.edu", :target => "_blank"
 
-%center
-  %br
-  = link_to "Copyright The Regents of the University of Michigan, 2011", "http://www.umich.edu", :target => '_blank'
+  %center.regents_link
+    %br
+    = link_to "Copyright The Regents of the University of Michigan, 2011", "http://www.umich.edu", :target => '_blank'
 
-  %br
-  - if user_signed_in?
-    .btn-group.dropup
+    %br
+    - if user_signed_in?
+      .btn-group.dropup
 
-      %a{:class => 'btn dropdown-toggle btn-mini', "data-toggle" => 'dropdown', :href => '#'}
-        = current_user.name || current_user.email
-        %span{:class => 'caret'}
-      %ul.dropdown-menu
-        %li
-          = link_to "Profile", edit_user_registration_path
-
-        - if current_user.has_role? :admin
+        %a{:class => 'btn dropdown-toggle btn-mini', "data-toggle" => 'dropdown', :href => '#'}
+          = current_user.name || current_user.email
+          %span{:class => 'caret'}
+        %ul.dropdown-menu
           %li
-            = link_to('Admin', users_path)
-      
-        %li
-          = link_to('Logout', destroy_user_session_path, :method=>'delete')    
+            = link_to "Profile", edit_user_registration_path
+
+          - if current_user.has_role? :admin
+            %li
+              = link_to('Admin', users_path)
     
+          %li
+            = link_to('Logout', destroy_user_session_path, :method=>'delete')    
 
+    - else
+      = link_to "ISS Login", new_user_session_path
 
-
-  - else
-    = link_to "ISS Login", new_user_session_path
-  
-      
-     
-      
 = yield :scripts

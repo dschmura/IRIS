@@ -1,46 +1,68 @@
-#contact_sheet  
-  #support_info
-    %h4 Support Information
-    %b Supporting Department:
-    %a{"data-original-title" => @owner.department_name, "data-placement" => "right", :href => @owner.url, :rel => "tooltip"} 
-      = truncate(@owner.department_name, :length => 30)
+#accordion1.accordion.contact_accordian
+  .accordion-group
+    .accordion-heading
+      %a.accordion-toggle{"data-parent" => "#accordion1", "data-toggle" => "collapse", :href => "#support_info"}
+        .icon-wrench
+        %b Support Information
+    #support_info.accordion-body.collapse{:style => "height: 0px; "}
+      .accordion-inner
+        #support_info
+          
+          %b Supporting Department:
+          %a{"data-original-title" => @owner.department_name, "data-placement" => "right", :href => @owner.url, :rel => "tooltip"} 
+            = truncate(@owner.department_name, :length => 30)
 
-    %br  
-    %b Support Contact:
-    %a{"data-original-title" => "Full Name:" + @owner.department_name, "data-placement" => "right", :href => "#", :rel => "tooltip"} 
-      -#= truncate(@owner.department_name, :length => 30)
-    = link_to @owner.contact_email, "mailto:"+@owner.contact_email
-  
-    %br
-    %b Support Contact Phone:
-    = @owner.contact_phone
-    
-  #scheduling_info
-    %h4 Scheduling Information
+          %br  
+          %b Support Contact:
+          %a{"data-original-title" => "Full Name:" + @owner.department_name, "data-placement" => "right", :href => "#", :rel => "tooltip"} 
+            -#= truncate(@owner.department_name, :length => 30)
+          = link_to @owner.contact_email, "mailto:"+@owner.contact_email
 
-    %b Department:
-    -#= @owner.department_name
-    %a{"data-original-title" => @room_schedule_contact.RM_SCHD_CNTCT_NAME, "data-placement" => "right", :href => "https://heprod.dsc.umich.edu/services/facilitycalendar?facilityid=#{@classroom.facility_code_heprod }", :target => "_blank", :rel => "tooltip"} 
-    
-      = truncate(@room_schedule_contact.RM_SCHD_CNTCT_NAME, :length => 30)
-    %br
-    %b Contact Phone:
-    = @room_schedule_contact.RM_SCHD_CNTCT_PHONE  
-    %br
-    %b Room Schedule:
-    = link_to "View Room Schedule", "https://heprod.dsc.umich.edu/services/facilitycalendar?facilityid=#{@classroom.facility_code_heprod }", :target => "_blank"
+          %br
+          %b Support Contact Phone:
+          = @owner.contact_phone
+  .accordion-group
+    .accordion-heading
+      %a.accordion-toggle{"data-parent" => "#accordion1", "data-toggle" => "collapse", :href => "#scheduling_info"}
+        .icon-calendar
+        %b Scheduling Information
+    #scheduling_info.accordion-body.collapse
+      .accordion-inner
+        #scheduling_info
+
+          %b Department:
+          -#= @owner.department_name
+          %a{"data-original-title" => @room_schedule_contact.RM_SCHD_CNTCT_NAME, "data-placement" => "right", :href => "https://heprod.dsc.umich.edu/services/facilitycalendar?facilityid=#{@classroom.facility_code_heprod }", :target => "_blank", :rel => "tooltip"} 
+
+            = truncate(@room_schedule_contact.RM_SCHD_CNTCT_NAME, :length => 30)
+          %br
+          %b Contact Phone:
+          = @room_schedule_contact.RM_SCHD_CNTCT_PHONE  
+          %br
+          %b Room Schedule:
+          = link_to "View Room Schedule", "https://heprod.dsc.umich.edu/services/facilitycalendar?facilityid=#{@classroom.facility_code_heprod }", :target => "_blank"
+        
+  .accordion-group
+    .accordion-heading
+      %a.accordion-toggle{"data-parent" => "#accordion1", "data-toggle" => "collapse", :href => "#collapseThree"}
+        .icon-info-sign 
+        %b Additional Information
+    #collapseThree.accordion-body.collapse
+      .accordion-inner
+        #additional_contact_info
+          %b Room Usage Guidelines: 
+          - if @room_schedule_contact.RM_USAGE_GUIDLNS_URL?
+            = link_to "View Room Usage Guidelines",@room_schedule_contact.RM_USAGE_GUIDLNS_URL , :target => "_blank"
+          -else
+            None Available.  
+          %br
+
+          %b Floor Map: 
+          #{link_to @classroom.location.name,  basement}
+        
+
   
-  
-  #additional_contact_info
-    %h4 Additional Information
-    
-    %b Room Usage Guidelines: 
-    - if @room_schedule_contact.RM_USAGE_GUIDLNS_URL?
-      = link_to "View Room Usage Guidelines",@room_schedule_contact.RM_USAGE_GUIDLNS_URL , :target => "_blank"
-    -else
-      None Available.  
-    %br
-    
-    %b Floor Map: 
-    #{link_to @classroom.location.name,  basement}
-  
+
+
+
+

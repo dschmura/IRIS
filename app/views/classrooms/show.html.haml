@@ -1,36 +1,25 @@
 
-
-
--##image_nav
-  %ul
-    %li.active
-      %a{"data-toggle" => 'tab', :href => '#picture'}
-        Picture
-    %li
-      %a{"data-toggle" => 'tab', :href => '#pano'}
-        Panorama
-    %li
-      %a{"data-toggle" => 'tab', :href => '#map'}
-        Map
-    %li
-      %a{"data-toggle" => 'tab', :href => '#contactme'}
-        Contact    
         
-.row-fluid.classroom_top.span12
+.row-fluid.classroom_top
   .span2
     = render :partial => 'building_float'
-  .span10
-    .tab-content
-      .tab-pane#picture.active
-        = image_tag @classroom.location.picture.url(:show).to_s, :alt => @classroom_alt
-      .tab-pane#pano     
-        %h4#missing_pano
-          This room does not have a panorama
-      .tab-pane#map
-        <div id="map_canvas" style="width:780px; height:400px; overflow:;"> </div>
-        
-      .tab-pane#contactme
-        = render :partial => 'contact_sheet'
+  .span10.tab-content
+    .tab-pane#picture.active
+      <div style="min-height:300px;  height: 300px; background: url(#{@classroom.location.picture.url(:show).to_s}) no-repeat; background-size: 100%;">
+      -#=image_tag("/images/user_interface_elements/300pxshim.gif")
+      = image_tag @classroom.location.picture.url(:show).to_s, :alt => @classroom_alt
+      </div>
+      
+      -#= image_tag @classroom.location.picture.url(:show).to_s, :alt => @classroom_alt
+      
+    .tab-pane#pano    
+      %h4#missing_pano
+        This room does not have a panorama
+    .tab-pane#map
+      <div id="map_canvas" style="width:780px; height:400px; overflow:;"> </div>
+      
+    .tab-pane#contactme
+      = render :partial => 'contact_sheet'
 .tabbable#classroomTabs
   %ul.nav.nav-tabs#myTab
     %li.active
@@ -51,14 +40,20 @@
     = @classroom.location.name
 
 -if technician_required      
+  %br
+  %br
+  %br
   .row
     .span11.offset1  
       .well.well-small
         #technician_required
           = technician_required
       %br
+-else
+  %br
+  %br
 
-.row  
+.row-fluid  
   #attributes
     .span4.offset1
       
@@ -312,12 +307,12 @@
 
 
 
-
-
 :javascript
 
+
   $(document).ready(function() {
-    $('#myTab').click(function(e) {
+    
+    $('#myTab').click(function() {
     
       //check if html5 version or panorama exists.
       $.ajax({
@@ -325,7 +320,7 @@
         type:'HEAD',
         error:
           function(){
-              $("#pano").insertAfter("<div id='missing_pano'><h2>This room does not have a panorama available</h2></div>")
+              $("#pano").insertAfter("<div id='missing_pano'><h4>This room does not have a panorama available</h4></div>")
             },
         success:
           function(){
@@ -336,8 +331,7 @@
               }
             // If not, load the .mov version
             else{
-              $("#pano").replaceWith("<object CLASSID=\"clsid:02BF25D5-8C17-4B23-BC80-D3488ABDDC6B\" width=\"900\" height=\"330\" CODEBASE=\"http://www.apple.com/qtactivex/qtplugin.cab\" class=\"legacy_panorama\"> <param name=\"src\" value=\"/system/videos/panoramas/#{@classroom.facility_code_heprod.upcase}_QTVR.mov\"><param name=\"target\" value=\"myself\" /><param name=\"controller\" value=\"false\"><param name=\"scale\" value=\"tofit\"><param name=\"kioskmode\" value=\"true\"> <embed src=\"/system/videos/panoramas/#{@classroom.facility_code_heprod.upcase}_QTVR.mov\" width=\"900\" height=\"330\" scale=\"tofit\" target=\"myself\"  kioskmode=\"true\" loop=\"false\" controller=\"false\" pluginspage=\"http://www.apple.com/quicktime/\"></embed></object>"
-              );
+              $("#pano").replaceWith("<object CLASSID=\"clsid:02BF25D5-8C17-4B23-BC80-D3488ABDDC6B\" width=\"900\" height=\"330\" CODEBASE=\"http://www.apple.com/qtactivex/qtplugin.cab\" class=\"legacy_panorama\"> <param name=\"src\" value=\"/system/videos/panoramas/#{@classroom.facility_code_heprod.upcase}_QTVR.mov\"><param name=\"target\" value=\"myself\" /><param name=\"controller\" value=\"false\"><param name=\"scale\" value=\"tofit\"><param name=\"kioskmode\" value=\"true\"> <embed src=\"/system/videos/panoramas/#{@classroom.facility_code_heprod.upcase}_QTVR.mov\" width=\"900\" height=\"330\" scale=\"tofit\" target=\"myself\"  kioskmode=\"true\" loop=\"false\" controller=\"false\" pluginspage=\"http://www.apple.com/quicktime/\"></embed></object>");
               }
             }
       });

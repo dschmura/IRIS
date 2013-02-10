@@ -41,6 +41,7 @@ module Iris
 
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
+    
 
     #config.generators do |g|
     #  g.template_engine :haml
@@ -52,7 +53,7 @@ module Iris
     config.assets.enabled = true
 
     # Version of your assets, change this if you want to expire all your assets
-    config.assets.version = '1.0'
+    config.assets.version = '2.3.7'
 
     #config.assets.precompile += ['application-print.css']
 

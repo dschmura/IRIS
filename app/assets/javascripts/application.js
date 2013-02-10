@@ -10,17 +10,18 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //
-//= require jquery
+
 //= require jquery_ujs
-//= require jquery-ui
+
 
 // Loads all Bootstrap javascripts
 //= require bootstrap
+//= require jquery
+//= require jquery-ui
 //= require pano2vr_player
-//= require qtp_library
-//= require ac_quicktime
 
-//= require html5slider.js
+
+
 
 
 $(document).ready(function(){
@@ -54,10 +55,4 @@ $(function(){
   });
 });
 
-
-
-
-
-//= require_tree .
-//= require_self
 //= require jquery.ui.addresspicker
