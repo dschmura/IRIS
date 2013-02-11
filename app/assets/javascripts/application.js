@@ -12,13 +12,13 @@
 //
 
 
-
+//= require jquery
+//= require jquery-ui
 
 // Loads all Bootstrap javascripts
 //= require bootstrap
 
-//= require jquery
-//= require jquery-ui
+
 //= require pano2vr_player
 
 
