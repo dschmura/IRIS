@@ -12,7 +12,7 @@
     %em
       %b Departmental Classroom
   %br
-  %br
+  
 
   %b Building: 
   = link_to @building.name, "../classrooms?utf8=✓&search%5Blocation_id_equals%5D=#{@building.id}"
@@ -29,15 +29,7 @@
 
   %b Capacity:  
   = @classroom.student_capacity  
-  
 
-
-  -#
-    %br 
-    %br 
-    %b Floor Map: 
-    #{link_to @classroom.location.name,  basement}
-  
   %br
   %br
     = link_to "Back to classrooms list", :back
