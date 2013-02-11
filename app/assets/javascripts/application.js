@@ -11,11 +11,12 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 
-//= require jquery_ujs
+
 
 
 // Loads all Bootstrap javascripts
 //= require bootstrap
+
 //= require jquery
 //= require jquery-ui
 //= require pano2vr_player
