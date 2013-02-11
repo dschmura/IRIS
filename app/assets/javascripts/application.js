@@ -21,7 +21,7 @@
 
 //= require pano2vr_player
 
-
+//= require gmap3.min
 
 
 

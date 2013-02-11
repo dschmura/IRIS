@@ -16,7 +16,7 @@
       %h4#missing_pano
         This room does not have a panorama
     .tab-pane#map
-      <div id="map_canvas" style="width:780px; height:400px; overflow:;"> </div>
+      <div id="map_canvas" style="height:300px; width: 800px "> </div>
       
     .tab-pane#contactme
       = render :partial => 'contact_sheet'
@@ -314,7 +314,7 @@
     
     $('#myTab').click(function() {
     
-      //check if html5 version or panorama exists.
+       //check if html5 version or panorama exists.
       $.ajax({
         url:'/system/videos/panoramas/#{@classroom.facility_code_heprod.upcase}_QTVR_OUT.xml',
         type:'HEAD',
@@ -336,46 +336,33 @@
             }
       });
       
+      
+      -#find location on a google map from lat/long in database
+      $('#map_canvas').height("300px").gmap3({
+        map:{
+          options:{
+            center:[#{@classroom.location.latitude.to_s},#{@classroom.location.longitude.to_s}],
+            zoom:16,
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            mapTypeControl: true,
+            mapTypeControlOptions: {
+              style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
+              },
+            navigationControl: true,
+            scrollwheel: true,
+            streetViewControl: true
+          }
+
+        },
+
+         infowindow:{
+              latLng:[#{@classroom.location.latitude.to_s},#{@classroom.location.longitude.to_s}],
+              options:{
+                content:"#{@classroom.location.name}"
+                }
+              }
+      });
                
     });
   });
   
-
-
--#find location on a google map from lat/long in database
-:javascript
-  function initialize() {
-    var latlng = new google.maps.LatLng(#{@classroom.location.latitude.to_s},#{@classroom.location.longitude.to_s});
-    var myOptions = {
-      zoom: 16,
-      center: latlng,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    }
-    var map = new google.maps.Map(document.getElementById("map_canvas"),
-      myOptions);
-      map.panBy(120, -70);
-      
-    var contentString = '<div id="content" style="width: auto; height:90px;" class = "round">'+
-      '<div id="siteNotice" style="max-height: 125px;">'+
-        '</div>'+
-          '<div id="firstHeading" class="firstHeading ></div>'+
-        '<div id="bodyContent">#{link_to image_tag(@building.picture.url(:medium).to_s, :style => "width: 110px; float: left; padding-right: 2em" ), "../classrooms?utf8=✓&search%5Blocation_id_equals%5D=#{@building.id}"} <span style="float: left;"><b>#{@building.name}<br /> #{@building.locatable.address}<br />#{link_to 'All Classrooms',  "../classrooms?utf8=✓&search%5Blocation_id_equals%5D=#{@building.id}"} <br /> #{link_to "Floor Map",  basement}</span></div>'
-        '<div>  </div>'+
-        '</div>';
-    var infowindow = new google.maps.InfoWindow({
-      content: contentString
-    });
-
-    var marker = new google.maps.Marker({
-      position: latlng, 
-      map: map,
-      title:"#{@classroom.location.name}"
-    });
-
-    google.maps.event.addListener(marker, 'click', function() {
-      infowindow.open(map,marker);
-    });  
-    infowindow.open(map,marker);  
-  }
- 
-
