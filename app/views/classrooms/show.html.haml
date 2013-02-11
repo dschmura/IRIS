@@ -314,7 +314,7 @@
     
     $('#myTab').click(function() {
     
-       //check if html5 version or panorama exists.
+      //check if html5 version or panorama exists.
       $.ajax({
         url:'/system/videos/panoramas/#{@classroom.facility_code_heprod.upcase}_QTVR_OUT.xml',
         type:'HEAD',
@@ -336,9 +336,8 @@
             }
       });
       
-      
-      -#find location on a google map from lat/long in database
       $('#map_canvas').height("300px").gmap3({
+
         map:{
           options:{
             center:[#{@classroom.location.latitude.to_s},#{@classroom.location.longitude.to_s}],
@@ -355,14 +354,52 @@
 
         },
 
+
          infowindow:{
               latLng:[#{@classroom.location.latitude.to_s},#{@classroom.location.longitude.to_s}],
               options:{
                 content:"#{@classroom.location.name}"
                 }
               }
+
       });
                
     });
   });
+  
+
+
+-#find location on a google map from lat/long in database
+:javascript
+  
+  $('#map_canvas').height("300px").gmap3({
+    
+    map:{
+      options:{
+        center:[#{@classroom.location.latitude.to_s},#{@classroom.location.longitude.to_s}],
+        zoom:16,
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        mapTypeControl: true,
+        mapTypeControlOptions: {
+          style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
+          },
+        navigationControl: true,
+        scrollwheel: true,
+        streetViewControl: true
+      }
+      
+    },
+    
+    
+     infowindow:{
+          latLng:[#{@classroom.location.latitude.to_s},#{@classroom.location.longitude.to_s}],
+          options:{
+            content:"#{@classroom.location.name}"
+            }
+          }
+          
+  });
+
+
+  
   
