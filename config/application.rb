@@ -53,7 +53,7 @@ module Iris
     config.assets.enabled = true
 
     # Version of your assets, change this if you want to expire all your assets
-    config.assets.version = '2.3.7'
+    config.assets.version = '2.3.8'
 
     #config.assets.precompile += ['application-print.css']
 
