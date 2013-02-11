@@ -1,6 +1,0 @@
-= form_for(@micropost) do |f|
-  = render 'shared/error_messages', :object => f.object
-  = f.label :Content, :id => 'field_label', :class => 'field_prompt'
-  = f.text_area :content
-  %br
-  = f.submit "Submit", :id => 'actions'
