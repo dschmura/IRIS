@@ -179,7 +179,7 @@ select
   overflow: hidden
   background: #DDD7AF
   /*background: #758FC2
-  width: 106.1% 
+  width: auto 
   max-height: 320px
   min-height: 300px
   
@@ -253,10 +253,15 @@ select
   z-index: 15
 
 #map_canvas 
-  height: 300px
-  min-height: 300px
 
-
+  
+#infowindow_gmap3
+  @include rounded-corners(9px)
+  background: #EBAA1E
+  
+#map img 
+  max-width: none
+  
 
 #building_float
   float: left

@@ -16,7 +16,7 @@
       %h4#missing_pano
         This room does not have a panorama
     .tab-pane#map
-      <div id="map_canvas" style="height:300px; width: 800px "> </div>
+      <div id="map_canvas" > </div>
       
     .tab-pane#contactme
       = render :partial => 'contact_sheet'
@@ -303,7 +303,6 @@
         Updated:
         = @classroom.updated_at.strftime "%I:%M %p %m/%d/%Y "
 
-        
 
 
 
@@ -313,14 +312,22 @@
   $(document).ready(function() {
     
     $('#myTab').click(function() {
-    
+      
+      //resize map so it appears properly within a tab
+      setTimeout(function(){
+        $('#map')
+          .width("100%")
+          .height("300px") 
+          .gmap3({trigger:"resize"});
+      }, 100);
+      
       //check if html5 version or panorama exists.
       $.ajax({
         url:'/system/videos/panoramas/#{@classroom.facility_code_heprod.upcase}_QTVR_OUT.xml',
         type:'HEAD',
         error:
           function(){
-              $("#pano").insertAfter("<div id='missing_pano'><h4>This room does not have a panorama available</h4></div>")
+            $("#pano").insertAfter("<div id='missing_pano'><h4>This room does not have a panorama available</h4></div>")
             },
         success:
           function(){
@@ -329,41 +336,12 @@
               pano=new pano2vrPlayer("pano");
               pano.readConfigUrl("/system/videos/panoramas/#{@classroom.facility_code_heprod.upcase}_QTVR_OUT.xml");
               }
-            // If not, load the .mov version
-            else{
-              $("#pano").replaceWith("<object CLASSID=\"clsid:02BF25D5-8C17-4B23-BC80-D3488ABDDC6B\" width=\"900\" height=\"330\" CODEBASE=\"http://www.apple.com/qtactivex/qtplugin.cab\" class=\"legacy_panorama\"> <param name=\"src\" value=\"/system/videos/panoramas/#{@classroom.facility_code_heprod.upcase}_QTVR.mov\"><param name=\"target\" value=\"myself\" /><param name=\"controller\" value=\"false\"><param name=\"scale\" value=\"tofit\"><param name=\"kioskmode\" value=\"true\"> <embed src=\"/system/videos/panoramas/#{@classroom.facility_code_heprod.upcase}_QTVR.mov\" width=\"900\" height=\"330\" scale=\"tofit\" target=\"myself\"  kioskmode=\"true\" loop=\"false\" controller=\"false\" pluginspage=\"http://www.apple.com/quicktime/\"></embed></object>");
-              }
-            }
-      });
-      
-      $('#map_canvas').height("300px").gmap3({
-
-        map:{
-          options:{
-            center:[#{@classroom.location.latitude.to_s},#{@classroom.location.longitude.to_s}],
-            zoom:16,
-            mapTypeId: google.maps.MapTypeId.ROADMAP,
-            mapTypeControl: true,
-            mapTypeControlOptions: {
-              style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
-              },
-            navigationControl: true,
-            scrollwheel: true,
-            streetViewControl: true
-          }
-
-        },
-
-
-         infowindow:{
-              latLng:[#{@classroom.location.latitude.to_s},#{@classroom.location.longitude.to_s}],
-              options:{
-                content:"#{@classroom.location.name}"
+              // If not, load the .mov version
+              else{
+                $("#pano").replaceWith("<object CLASSID=\"clsid:02BF25D5-8C17-4B23-BC80-D3488ABDDC6B\" width=\"900\" height=\"330\" CODEBASE=\"http://www.apple.com/qtactivex/qtplugin.cab\" class=\"legacy_panorama\"> <param name=\"src\" value=\"/system/videos/panoramas/#{@classroom.facility_code_heprod.upcase}_QTVR.mov\"><param name=\"target\" value=\"myself\" /><param name=\"controller\" value=\"false\"><param name=\"scale\" value=\"tofit\"><param name=\"kioskmode\" value=\"true\"> <embed src=\"/system/videos/panoramas/#{@classroom.facility_code_heprod.upcase}_QTVR.mov\" width=\"900\" height=\"330\" scale=\"tofit\" target=\"myself\"  kioskmode=\"true\" loop=\"false\" controller=\"false\" pluginspage=\"http://www.apple.com/quicktime/\"></embed></object>");
                 }
               }
-
-      });
-               
+        });     
     });
   });
   
@@ -372,33 +350,47 @@
 -#find location on a google map from lat/long in database
 :javascript
   
-  $('#map_canvas').height("300px").gmap3({
-    
+
+  $('#map').height("300px").width("100%").gmap3({
+       
     map:{
       options:{
         center:[#{@classroom.location.latitude.to_s},#{@classroom.location.longitude.to_s}],
-        zoom:16,
+        zoom:15,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
-        mapTypeControl: true,
+        mapTypeControl: false,
         mapTypeControlOptions: {
-          style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
+          style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR
           },
         navigationControl: true,
+        
         scrollwheel: true,
-        streetViewControl: true
-      }
+        streetViewControl: true,
+        panControl: false,
+        panControlOptions: {
+            position: google.maps.ControlPosition.BOTTOM_LEFT
+        },
+      },
       
+           
     },
     
-    
+       
      infowindow:{
+      
           latLng:[#{@classroom.location.latitude.to_s},#{@classroom.location.longitude.to_s}],
           options:{
-            content:"#{@classroom.location.name}"
+            content:" #{@classroom.location.name}  "
+            
             }
           }
-          
+    
+        
   });
+  
+  
+  
+
 
 
   
