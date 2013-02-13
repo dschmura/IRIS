@@ -10,8 +10,10 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem "haml", ">= 3.1.6"
-gem "haml-rails", ">= 0.3.4", :group => :development
+#gem "haml", ">= 3.1.6"
+gem "haml", ">= 4.0.0"
+#gem "haml-rails", ">= 0.3.4", :group => :development
+#gem "haml-rails" , :group => :development
 gem "rspec-rails", ">= 2.10.1", :group => [:development, :test]
 gem "machinist", :group => :test
 gem "factory_girl_rails", ">= 3.3.0", :group => [:development, :test]
