@@ -35,8 +35,8 @@
  */
 @font-face {
   font-family: "FontAwesome";
-  src: url(/assets/fontawesome-webfont.eot);
-  src: url(/assets/fontawesome-webfont.eot?#iefix) format("embedded-opentype"), url(/assets/fontawesome-webfont.woff) format("woff"), url(/assets/fontawesome-webfont.ttf) format("truetype");
+  src: url(/assets/fontawesome-webfont-695074c4166c5338ac4aacc93aee0636.eot);
+  src: url(/assets/fontawesome-webfont.eot?#iefix) format("embedded-opentype"), url(/assets/fontawesome-webfont-12bc3db8f44ff988975c4f8b01fb5df7.woff) format("woff"), url(/assets/fontawesome-webfont-15302f88f20b4b2c52f14e9216e0b7dd.ttf) format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -4307,7 +4307,7 @@ table th[class*="span"],
   *margin-right: .3em;
   line-height: 14px;
   vertical-align: text-top;
-  background-image: url("/assets/glyphicons-halflings.png");
+  background-image: url("/assets/glyphicons-halflings-c9b96a23d435b83960dc51ec225fc5a3.png");
   background-position: 14px 14px;
   background-repeat: no-repeat;
   margin-top: 1px;
@@ -4328,7 +4328,7 @@ table th[class*="span"],
 .dropdown-menu > .active > a > [class*=" icon-"],
 .dropdown-submenu:hover > a > [class^="icon-"],
 .dropdown-submenu:hover > a > [class*=" icon-"] {
-  background-image: url("/assets/glyphicons-halflings-white.png");
+  background-image: url("/assets/glyphicons-halflings-white-5e98f5acbcfbf8a4e5987d90dc5b124c.png");
 }
 
 /* line 48, ../../../../.rbenv/versions/1.9.3-p194/lib/ruby/gems/1.9.1/gems/bootstrap-sass-2.2.2.0/vendor/assets/stylesheets/bootstrap/_sprites.scss */
@@ -10489,7 +10489,7 @@ select {
   overflow: hidden;
   background: #ddd7af;
   /*background: #758FC2 */
-  width: 106.5%;
+  width: 105.3%;
   max-height: 320px;
   min-height: 300px;
 }
@@ -10587,24 +10587,12 @@ select {
   z-index: 15;
 }
 
-/* line 257, ../../app/assets/stylesheets/classrooms.css.sass */
-.tab-content {
-  position: relative;
-  left: 3%;
-}
-
-/* line 261, ../../app/assets/stylesheets/classrooms.css.sass */
-#map {
-  position: relative;
-  left: 3%;
-}
-
-/* line 265, ../../app/assets/stylesheets/classrooms.css.sass */
+/* line 259, ../../app/assets/stylesheets/classrooms.css.sass */
 #map img {
   max-width: none;
 }
 
-/* line 269, ../../app/assets/stylesheets/classrooms.css.sass */
+/* line 263, ../../app/assets/stylesheets/classrooms.css.sass */
 #building_float {
   float: left;
   padding-left: 1em;
@@ -10619,7 +10607,7 @@ select {
   background: #ddd7af;
   overflow: hidden;
 }
-/* line 283, ../../app/assets/stylesheets/classrooms.css.sass */
+/* line 277, ../../app/assets/stylesheets/classrooms.css.sass */
 #building_float img {
   margin-top: 8px;
   position: relative;
@@ -10630,25 +10618,25 @@ select {
   -webkit-border-radius: 9px;
 }
 
-/* line 293, ../../app/assets/stylesheets/classrooms.css.sass */
+/* line 287, ../../app/assets/stylesheets/classrooms.css.sass */
 #last_updated {
   float: right;
   font-size: 85%;
 }
 
 /* Form */
-/* line 309, ../../app/assets/stylesheets/classrooms.css.sass */
+/* line 303, ../../app/assets/stylesheets/classrooms.css.sass */
 #slider-range {
   width: 200px;
 }
 
 /* uislider for double range slider */
-/* line 313, ../../app/assets/stylesheets/classrooms.css.sass */
+/* line 307, ../../app/assets/stylesheets/classrooms.css.sass */
 .ui-slider {
   position: relative;
   text-align: left;
 }
-/* line 316, ../../app/assets/stylesheets/classrooms.css.sass */
+/* line 310, ../../app/assets/stylesheets/classrooms.css.sass */
 .ui-slider .ui-slider-handle {
   position: absolute;
   z-index: 2;
@@ -10656,7 +10644,7 @@ select {
   height: 1.2em;
   cursor: default;
 }
-/* line 322, ../../app/assets/stylesheets/classrooms.css.sass */
+/* line 316, ../../app/assets/stylesheets/classrooms.css.sass */
 .ui-slider .ui-slider-range {
   position: absolute;
   z-index: 1;
@@ -10665,56 +10653,56 @@ select {
   border: 0;
   background-position: 0 0;
 }
-/* line 330, ../../app/assets/stylesheets/classrooms.css.sass */
+/* line 324, ../../app/assets/stylesheets/classrooms.css.sass */
 .ui-slider.ui-state-disabled .ui-slider-handle, .ui-slider.ui-state-disabled .ui-slider-range {
   filter: inherit;
 }
 
 /* For IE8 - See #6727 */
-/* line 335, ../../app/assets/stylesheets/classrooms.css.sass */
+/* line 329, ../../app/assets/stylesheets/classrooms.css.sass */
 .ui-slider-horizontal {
   height: 0.9em;
 }
-/* line 337, ../../app/assets/stylesheets/classrooms.css.sass */
+/* line 331, ../../app/assets/stylesheets/classrooms.css.sass */
 .ui-slider-horizontal .ui-slider-handle {
   top: -0.3em;
   margin-left: -0.6em;
 }
-/* line 340, ../../app/assets/stylesheets/classrooms.css.sass */
+/* line 334, ../../app/assets/stylesheets/classrooms.css.sass */
 .ui-slider-horizontal .ui-slider-range {
   top: 0;
   height: 100%;
 }
-/* line 343, ../../app/assets/stylesheets/classrooms.css.sass */
+/* line 337, ../../app/assets/stylesheets/classrooms.css.sass */
 .ui-slider-horizontal .ui-slider-range-min {
   left: 0;
 }
-/* line 345, ../../app/assets/stylesheets/classrooms.css.sass */
+/* line 339, ../../app/assets/stylesheets/classrooms.css.sass */
 .ui-slider-horizontal .ui-slider-range-max {
   right: 0;
 }
 
-/* line 347, ../../app/assets/stylesheets/classrooms.css.sass */
+/* line 341, ../../app/assets/stylesheets/classrooms.css.sass */
 .ui-slider-vertical {
   width: 0.8em;
   height: 100px;
 }
-/* line 350, ../../app/assets/stylesheets/classrooms.css.sass */
+/* line 344, ../../app/assets/stylesheets/classrooms.css.sass */
 .ui-slider-vertical .ui-slider-handle {
   left: -0.3em;
   margin-left: 0;
   margin-bottom: -0.6em;
 }
-/* line 354, ../../app/assets/stylesheets/classrooms.css.sass */
+/* line 348, ../../app/assets/stylesheets/classrooms.css.sass */
 .ui-slider-vertical .ui-slider-range {
   left: 0;
   width: 100%;
 }
-/* line 357, ../../app/assets/stylesheets/classrooms.css.sass */
+/* line 351, ../../app/assets/stylesheets/classrooms.css.sass */
 .ui-slider-vertical .ui-slider-range-min {
   bottom: 0;
 }
-/* line 359, ../../app/assets/stylesheets/classrooms.css.sass */
+/* line 353, ../../app/assets/stylesheets/classrooms.css.sass */
 .ui-slider-vertical .ui-slider-range-max {
   top: 0;
 }

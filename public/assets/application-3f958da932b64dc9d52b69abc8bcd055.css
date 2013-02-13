@@ -35,8 +35,8 @@
  */
 @font-face {
   font-family: "FontAwesome";
-  src: url(/assets/fontawesome-webfont.eot);
-  src: url(/assets/fontawesome-webfont.eot?#iefix) format("embedded-opentype"), url(/assets/fontawesome-webfont.woff) format("woff"), url(/assets/fontawesome-webfont.ttf) format("truetype");
+  src: url(/assets/fontawesome-webfont-695074c4166c5338ac4aacc93aee0636.eot);
+  src: url(/assets/fontawesome-webfont.eot?#iefix) format("embedded-opentype"), url(/assets/fontawesome-webfont-12bc3db8f44ff988975c4f8b01fb5df7.woff) format("woff"), url(/assets/fontawesome-webfont-15302f88f20b4b2c52f14e9216e0b7dd.ttf) format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -4307,7 +4307,7 @@ table th[class*="span"],
   *margin-right: .3em;
   line-height: 14px;
   vertical-align: text-top;
-  background-image: url("/assets/glyphicons-halflings.png");
+  background-image: url("/assets/glyphicons-halflings-c9b96a23d435b83960dc51ec225fc5a3.png");
   background-position: 14px 14px;
   background-repeat: no-repeat;
   margin-top: 1px;
@@ -4328,7 +4328,7 @@ table th[class*="span"],
 .dropdown-menu > .active > a > [class*=" icon-"],
 .dropdown-submenu:hover > a > [class^="icon-"],
 .dropdown-submenu:hover > a > [class*=" icon-"] {
-  background-image: url("/assets/glyphicons-halflings-white.png");
+  background-image: url("/assets/glyphicons-halflings-white-5e98f5acbcfbf8a4e5987d90dc5b124c.png");
 }
 
 /* line 48, ../../../../.rbenv/versions/1.9.3-p194/lib/ruby/gems/1.9.1/gems/bootstrap-sass-2.2.2.0/vendor/assets/stylesheets/bootstrap/_sprites.scss */
@@ -10262,11 +10262,6 @@ select {
   -webkit-border-radius: 11px;
 }
 
-/* line 26, ../../app/assets/stylesheets/classrooms.css.sass */
-.content .row-fluid.classroom_top {
-  margin: -2em;
-}
-
 /* line 30, ../../app/assets/stylesheets/classrooms.css.sass */
 .content .row-fluid.classroom_top {
   overflow: hidden;
@@ -10489,17 +10484,23 @@ select {
   overflow: hidden;
   background: #ddd7af;
   /*background: #758FC2 */
-  width: 106.5%;
+  width: auto;
   max-height: 320px;
   min-height: 300px;
 }
 
-/* line 188, ../../app/assets/stylesheets/classrooms.css.sass */
+/* line 185, ../../app/assets/stylesheets/classrooms.css.sass */
+.tab-content {
+  position: relative;
+  left: 4%;
+}
+
+/* line 191, ../../app/assets/stylesheets/classrooms.css.sass */
 .control-group.boolean.optional {
   margin-bottom: 0px;
 }
 
-/* line 191, ../../app/assets/stylesheets/classrooms.css.sass */
+/* line 194, ../../app/assets/stylesheets/classrooms.css.sass */
 .tabbable#classroomTabs {
   background: white;
   zoom: 1;
@@ -10513,7 +10514,7 @@ select {
   z-index: 20000;
 }
 
-/* line 202, ../../app/assets/stylesheets/classrooms.css.sass */
+/* line 205, ../../app/assets/stylesheets/classrooms.css.sass */
 #contactme {
   /*background-image: -webkit-gradient(linear, left top, left bottom, from(#f8f5e4), to(#e4debd), color-stop(0.5, #f8f5e4)) */
   margin-left: 2em;
@@ -10522,12 +10523,12 @@ select {
   background: #ddd7af;
 }
 
-/* line 208, ../../app/assets/stylesheets/classrooms.css.sass */
+/* line 211, ../../app/assets/stylesheets/classrooms.css.sass */
 #attributes {
   margin-bottom: 2em;
 }
 
-/* line 212, ../../app/assets/stylesheets/classrooms.css.sass */
+/* line 215, ../../app/assets/stylesheets/classrooms.css.sass */
 .contact_accordian {
   margin-left: 2em;
   position: relative;
@@ -10539,33 +10540,31 @@ select {
   -moz-border-radius: 15px;
   -webkit-border-radius: 15px;
 }
-/* line 221, ../../app/assets/stylesheets/classrooms.css.sass */
+/* line 224, ../../app/assets/stylesheets/classrooms.css.sass */
 .contact_accordian #support_info {
   background: #76a6c9;
 }
-/* line 223, ../../app/assets/stylesheets/classrooms.css.sass */
+/* line 226, ../../app/assets/stylesheets/classrooms.css.sass */
 .contact_accordian #support_info a {
   color: maroon;
 }
-/* line 225, ../../app/assets/stylesheets/classrooms.css.sass */
+/* line 228, ../../app/assets/stylesheets/classrooms.css.sass */
 .contact_accordian #scheduling_info {
   background: #f8f5e4;
 }
-/* line 227, ../../app/assets/stylesheets/classrooms.css.sass */
+/* line 230, ../../app/assets/stylesheets/classrooms.css.sass */
 .contact_accordian #collapseThree {
   background: #e7e8e0;
 }
 
-/* line 231, ../../app/assets/stylesheets/classrooms.css.sass */
+/* line 234, ../../app/assets/stylesheets/classrooms.css.sass */
 #picture {
-  float: left;
-  margin-left: 2em;
   height: 100%;
   max-height: 100%;
   width: 115%;
 }
 
-/* line 239, ../../app/assets/stylesheets/classrooms.css.sass */
+/* line 242, ../../app/assets/stylesheets/classrooms.css.sass */
 #pano {
   min-height: 300px;
   height: 300px;
@@ -10573,38 +10572,40 @@ select {
   margin-left: 1em;
 }
 
-/* line 246, ../../app/assets/stylesheets/classrooms.css.sass */
+/* line 249, ../../app/assets/stylesheets/classrooms.css.sass */
 .legacy_panorama {
   position: relative;
   left: 12px;
   z-index: 15;
 }
 
-/* line 250, ../../app/assets/stylesheets/classrooms.css.sass */
+/* line 253, ../../app/assets/stylesheets/classrooms.css.sass */
 .legacy_panorama {
   position: relative;
   left: 12px;
   z-index: 15;
 }
 
-/* line 257, ../../app/assets/stylesheets/classrooms.css.sass */
-.tab-content {
-  position: relative;
-  left: 3%;
-}
-
-/* line 261, ../../app/assets/stylesheets/classrooms.css.sass */
+/* line 260, ../../app/assets/stylesheets/classrooms.css.sass */
 #map {
   position: relative;
   left: 3%;
 }
 
-/* line 265, ../../app/assets/stylesheets/classrooms.css.sass */
+/* line 264, ../../app/assets/stylesheets/classrooms.css.sass */
+#infowindow_gmap3 {
+  border-radius: 9px;
+  -moz-border-radius: 9px;
+  -webkit-border-radius: 9px;
+  background: #ebaa1e;
+}
+
+/* line 268, ../../app/assets/stylesheets/classrooms.css.sass */
 #map img {
   max-width: none;
 }
 
-/* line 269, ../../app/assets/stylesheets/classrooms.css.sass */
+/* line 272, ../../app/assets/stylesheets/classrooms.css.sass */
 #building_float {
   float: left;
   padding-left: 1em;
@@ -10619,7 +10620,7 @@ select {
   background: #ddd7af;
   overflow: hidden;
 }
-/* line 283, ../../app/assets/stylesheets/classrooms.css.sass */
+/* line 286, ../../app/assets/stylesheets/classrooms.css.sass */
 #building_float img {
   margin-top: 8px;
   position: relative;
@@ -10630,25 +10631,25 @@ select {
   -webkit-border-radius: 9px;
 }
 
-/* line 293, ../../app/assets/stylesheets/classrooms.css.sass */
+/* line 296, ../../app/assets/stylesheets/classrooms.css.sass */
 #last_updated {
   float: right;
   font-size: 85%;
 }
 
 /* Form */
-/* line 309, ../../app/assets/stylesheets/classrooms.css.sass */
+/* line 312, ../../app/assets/stylesheets/classrooms.css.sass */
 #slider-range {
   width: 200px;
 }
 
 /* uislider for double range slider */
-/* line 313, ../../app/assets/stylesheets/classrooms.css.sass */
+/* line 316, ../../app/assets/stylesheets/classrooms.css.sass */
 .ui-slider {
   position: relative;
   text-align: left;
 }
-/* line 316, ../../app/assets/stylesheets/classrooms.css.sass */
+/* line 319, ../../app/assets/stylesheets/classrooms.css.sass */
 .ui-slider .ui-slider-handle {
   position: absolute;
   z-index: 2;
@@ -10656,7 +10657,7 @@ select {
   height: 1.2em;
   cursor: default;
 }
-/* line 322, ../../app/assets/stylesheets/classrooms.css.sass */
+/* line 325, ../../app/assets/stylesheets/classrooms.css.sass */
 .ui-slider .ui-slider-range {
   position: absolute;
   z-index: 1;
@@ -10665,56 +10666,56 @@ select {
   border: 0;
   background-position: 0 0;
 }
-/* line 330, ../../app/assets/stylesheets/classrooms.css.sass */
+/* line 333, ../../app/assets/stylesheets/classrooms.css.sass */
 .ui-slider.ui-state-disabled .ui-slider-handle, .ui-slider.ui-state-disabled .ui-slider-range {
   filter: inherit;
 }
 
 /* For IE8 - See #6727 */
-/* line 335, ../../app/assets/stylesheets/classrooms.css.sass */
+/* line 338, ../../app/assets/stylesheets/classrooms.css.sass */
 .ui-slider-horizontal {
   height: 0.9em;
 }
-/* line 337, ../../app/assets/stylesheets/classrooms.css.sass */
+/* line 340, ../../app/assets/stylesheets/classrooms.css.sass */
 .ui-slider-horizontal .ui-slider-handle {
   top: -0.3em;
   margin-left: -0.6em;
 }
-/* line 340, ../../app/assets/stylesheets/classrooms.css.sass */
+/* line 343, ../../app/assets/stylesheets/classrooms.css.sass */
 .ui-slider-horizontal .ui-slider-range {
   top: 0;
   height: 100%;
 }
-/* line 343, ../../app/assets/stylesheets/classrooms.css.sass */
+/* line 346, ../../app/assets/stylesheets/classrooms.css.sass */
 .ui-slider-horizontal .ui-slider-range-min {
   left: 0;
 }
-/* line 345, ../../app/assets/stylesheets/classrooms.css.sass */
+/* line 348, ../../app/assets/stylesheets/classrooms.css.sass */
 .ui-slider-horizontal .ui-slider-range-max {
   right: 0;
 }
 
-/* line 347, ../../app/assets/stylesheets/classrooms.css.sass */
+/* line 350, ../../app/assets/stylesheets/classrooms.css.sass */
 .ui-slider-vertical {
   width: 0.8em;
   height: 100px;
 }
-/* line 350, ../../app/assets/stylesheets/classrooms.css.sass */
+/* line 353, ../../app/assets/stylesheets/classrooms.css.sass */
 .ui-slider-vertical .ui-slider-handle {
   left: -0.3em;
   margin-left: 0;
   margin-bottom: -0.6em;
 }
-/* line 354, ../../app/assets/stylesheets/classrooms.css.sass */
+/* line 357, ../../app/assets/stylesheets/classrooms.css.sass */
 .ui-slider-vertical .ui-slider-range {
   left: 0;
   width: 100%;
 }
-/* line 357, ../../app/assets/stylesheets/classrooms.css.sass */
+/* line 360, ../../app/assets/stylesheets/classrooms.css.sass */
 .ui-slider-vertical .ui-slider-range-min {
   bottom: 0;
 }
-/* line 359, ../../app/assets/stylesheets/classrooms.css.sass */
+/* line 362, ../../app/assets/stylesheets/classrooms.css.sass */
 .ui-slider-vertical .ui-slider-range-max {
   top: 0;
 }

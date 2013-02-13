@@ -1,3 +1,8 @@
+
+.row.span12
+  #map.gmap3  
+  drag & drop the marker to see the address
+  %hr
 .row
   .span5
     = simple_form_for @classroom, :html => {:multipart => true, :class => 'form-horizontal'} do |f|
@@ -7,7 +12,7 @@
         = f.input :room_number, :placeholder => "AudB", :input_html => { :tabindex => '1' }
         = f.input :location_id, :collection => Location.where(:locatable_type => "Building").order("name ASC"), :prompt => "What Building is this room in?", :label => "Building"
 
-        = link_to "Add a Building", new_building_path, :style => "position: relative; left: 420px; bottom: 30px;", :target => "_blank"
+        = link_to "Add a Building", new_building_path, :style => "position: relative; left: 300px; bottom: 45px;", :target => "_blank"
 
         = f.input :owner_id, :collection => Owner.order("department_name ASC"), :prompt => "Who owns this space?", :label => "Owner", :label_method => :department_name
 
@@ -17,7 +22,7 @@
           = loc.input :name, :placeholder => "Angell Hall Aud B"
           = loc.input :latitude, :as => "string"
           %br
-          %br
+      
           = loc.input :longitude,  :as => "string"
           %br
           %br
@@ -55,8 +60,8 @@
       .input
         %label
           Address:
-        %input#addresspicker_map
-        #map        
+        
+
   
 = simple_form_for @classroom, :html => {:multipart => true, :class => 'form-horizontal'} do |f| 
   .inputs  
@@ -193,22 +198,47 @@
   } );
     });
 
+
+
 :javascript
-  $(window).load(function(){
-    var addresspicker = $( "#addresspicker" ).addresspicker();
-    var addresspickerMap = $( "#addresspicker_map" ).addresspicker({
-      elements: {
-        map:      "#map",
-        lat:      "#classroom_location_attributes_latitude",
-        lng:      "#classroom_location_attributes_longitude",
-        locality: '#locality',
-        country:  '#country'
+ 
+    $("#map").height("300px").width("100%").gmap3({
+      marker:{
+        latLng: [42.27799930039926, -83.73660256217954],
+        options:{
+          draggable:true
+        },
+        events:{
+          dragend: function(marker){
+            $(this).gmap3({
+     
+              getaddress:{
+                latLng:marker.getPosition(),
+                callback:function(results){
+                  var map = $(this).gmap3("get"),
+                    infowindow = $(this).gmap3({get:"infowindow"}),
+                    content = results && results[1] ? results && results[1].formatted_address : "no address";
+                  if (infowindow){
+                    infowindow.open(map, marker);
+                    infowindow.setContent(content);
+                  } else {
+                    $(this).gmap3({
+                      infowindow:{
+                        anchor:marker, 
+                        options:{content: content}
+                      }
+                    });
+                  }
+                }
+              }
+            });
+          }
+        }
+      },
+      map:{
+        options:{
+          zoom: 15
+        }
       }
     });
-    var gmarker = addresspickerMap.addresspicker( "marker");
-    gmarker.setVisible(true);
-    addresspickerMap.addresspicker( "updatePosition");
-
-    });
-
-
+    
