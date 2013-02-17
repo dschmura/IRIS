@@ -6,10 +6,12 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
   gem 'font-awesome-sass-rails'
   gem 'sass-rails', '~> 3.2'
-  gem 'bootstrap-sass', '~> 2.2.2.0'
+  #gem 'bootstrap-sass', '~> 2.2.2.0'
+  gem 'bootstrap-sass', '~> 2.3.0.0'
 end
 
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 #gem "haml", ">= 3.1.6"
 gem "haml", ">= 4.0.0"
 #gem "haml-rails", ">= 0.3.4", :group => :development

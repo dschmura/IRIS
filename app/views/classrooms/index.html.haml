@@ -108,27 +108,17 @@
     = submit_tag "Import"    
 
 
--# Javascript to update value of student capacity text box from slider
+
 :javascript
-  $('#myModal').modal({show: false}))
-:javascript 
-  $(".tooltip").tooltip()
-  function showValue(newValue)
-  {
-    document.getElementById("search_student_capacity_greater_than_or_equal_to").innerHTML=newValue;}
-  function printValue(sliderID, textbox) {
-              var x = document.getElementById(textbox);
-              var y = document.getElementById(sliderID);
-              x.value = y.value;
-          }
-  window.onload = function() { printValue('slider1', 'rangeValue1'); printValue('slider2', 'rangeValue2'); printValue('slider3', 'rangeValue3'); printValue('slider4', 'rangeValue4'); }
+  $('#myModal').modal({show: false})
+
 
 -#toggle the visability of additional search fields and the disclosure triangle's state
   $('.advanced_search_disclosure_wrapper h4').click(function() {   $("div:contains('advanced_search_disclosure_wrapper')").toggleClass("advanced_search_disclosure_wrapper_active");
   $('#advanced_search_wrapper').toggle('fast', function(){
     });
   });
-
+-# Javascript to update value of student capacity text box from slider
 :javascript
   $(function() {
     $( "#slider-range" ).slider({
@@ -137,12 +127,8 @@
       max: 500,
       values: [ 30, 300 ],
       slide: function( event, ui ) {
-        
         $( "#my_min" ).val(ui.values[ 0 ]); // Display and selected the min Price
         $( "#my_max" ).val(ui.values[ 1 ]); // Display and selected the max Price
-        
       }
- 
     });
-    
   });

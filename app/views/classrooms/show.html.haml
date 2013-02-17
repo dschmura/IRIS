@@ -309,10 +309,8 @@
 :javascript
 
 
-  $(document).ready(function() {
-    
-    $('#myTab').click(function() {
-      
+  $(document).ready(function() {    
+    $('#myTab').click(function() {     
       //resize map so it appears properly within a tab
       setTimeout(function(){
         $('#map')
@@ -356,7 +354,7 @@
     map:{
       options:{
         center:[#{@classroom.location.latitude.to_s},#{@classroom.location.longitude.to_s}],
-        zoom:15,
+        zoom:16,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         mapTypeControl: false,
         mapTypeControlOptions: {
@@ -370,21 +368,23 @@
         panControlOptions: {
             position: google.maps.ControlPosition.BOTTOM_LEFT
         },
-      },
-      
-           
+      },           
     },
-    
+
        
      infowindow:{
       
           latLng:[#{@classroom.location.latitude.to_s},#{@classroom.location.longitude.to_s}],
           options:{
-            content:" #{@classroom.location.name}  "
-            
-            }
+            content:'<div> <span style="float: right;  font-size: 11px;  line-height: 1.2em;"><b>#{@building.name}<br /> #{@building.locatable.address}<br /> #{link_to "All Classrooms",  "../classrooms?utf8=✓&search%5Blocation_id_equals%5D=#{@building.id}"}<br /> #{link_to "Floor Map",  basement}</span> </div> '  
+            },
+            events:{
+                   closeclick: function(infowindow){
+                     alert("closing : " + infowindow.getContent());
+                   }
+                 }
           }
-    
+          
         
   });
   

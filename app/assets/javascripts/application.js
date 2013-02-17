@@ -10,26 +10,17 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //
-
-
 //= require jquery
 //= require jquery-ui
-
 // Loads all Bootstrap javascripts
 //= require bootstrap
-
-
 //= require pano2vr_player
-
 //= require gmap3.min
-
-
 
 $(document).ready(function(){
     $('a').tooltip();
     //$('a[href="' + this.location.pathname + '"]').parent().addClass('active');
-    
-    
+
 });
 
 /*menu handler. Sets current link to active in nav bars in header and footer for current page.*/
@@ -52,8 +43,7 @@ $(function(){
       $(this).parent().addClass('active'); 
     }
    
-     
   });
 });
 
-//= require jquery.ui.addresspicker
+
