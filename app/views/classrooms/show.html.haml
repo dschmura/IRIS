@@ -378,11 +378,7 @@
           options:{
             content:'<div> <span style="float: right;  font-size: 11px;  line-height: 1.2em;"><b>#{@building.name}<br /> #{@building.locatable.address}<br /> #{link_to "All Classrooms",  "../classrooms?utf8=✓&search%5Blocation_id_equals%5D=#{@building.id}"}<br /> #{link_to "Floor Map",  basement}</span> </div> '  
             },
-            events:{
-                   closeclick: function(infowindow){
-                     alert("closing : " + infowindow.getContent());
-                   }
-                 }
+            
           }
           
         
