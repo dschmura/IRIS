@@ -11,14 +11,18 @@ class ClassroomsController < ApplicationController
 
   # GET /classrooms
   # GET /classrooms.xml
-  def index    
+  def index
     @page_title = "Classrooms"
     @search = Classroom.search(params[:search])
-      if params[:per_page]
-        @per_page = params[:per_page]
-      else
-        @per_page = 14  
-       end
+    if params[:per_page]
+      @per_page = params[:per_page]
+    else
+      @per_page = 14
+     end
+    if @search.student_capacity_greater_than_or_equal_to.nil?
+      @search.student_capacity_greater_than_or_equal_to = 30
+      @search.student_capacity_less_than_or_equal_to = 250
+    end
     @classrooms = @search.paginate(:page => params[:page], :per_page => @per_page).order("student_capacity desc")   # or @search.relation to lazy load in view
     @owners = "Owner"
     respond_to do |format|
@@ -27,7 +31,7 @@ class ClassroomsController < ApplicationController
       format.js
     end
   end
-  
+
   def search
     @search = Classroom.search(params[:search])
     @classrooms = @search.all   # or @search.relation to lazy load in view
@@ -36,15 +40,15 @@ class ClassroomsController < ApplicationController
   # GET /classrooms/1
   # GET /classrooms/1.xml
   def show
-    #@classroom = Classroom.find(params[:id])  
+    #@classroom = Classroom.find(params[:id])
     @classroom = Classroom.find_by_facility_code_heprod(params[:id].upcase)
     @page_title = @classroom.location.name
-    @classroom_alt = @classroom.location.name + " - " + @classroom.room_number 
+    @classroom_alt = @classroom.location.name + " - " + @classroom.room_number
     @building = Location.find(@classroom.location_id)
     @owner = Owner.find(@classroom.owner_id)
     @room_schedule_contact = RoomScheduleContact.find_by_RMRECNBR(@classroom.rmrecnbr)
     @room_attributes = RoomAttribute.find_all_by_RMRECNBR(@classroom.rmrecnbr)
-    
+
     @building_image = @building.picture.url(:medium).to_s
     @building_sign_image = @building.building_sign.url(:thumb).to_s
     @search = Classroom.search(params[:search])
@@ -78,7 +82,7 @@ class ClassroomsController < ApplicationController
   # GET /classrooms/1/edit
   def edit
     #@location = Location.find(params[:id])
-    
+
     @classroom = Classroom.find_by_facility_code_heprod(params[:id].upcase)
     @location = Location.find(@classroom.location_id)
     @page_title = "Editing Classroom: " + @location.name
@@ -128,12 +132,12 @@ class ClassroomsController < ApplicationController
     end
   end
 
- 
+
   private
   def sort_column
     params[:sort] || "room_number"
   end
-  
+
   def sort_direction
     params[:direction] || "asc"
   end
