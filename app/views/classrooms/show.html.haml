@@ -23,13 +23,13 @@
 .tabbable#classroomTabs
   %ul.nav.nav-tabs#myTab
     %li.active
-      %a{"data-toggle" => 'tab', :href => '#picture'}
+      %a{"data-toggle" => 'tab', :href => '#picture', :id => "#picturetab"}
         Picture
     %li
       %a{"data-toggle" => 'tab', :href => '#pano', :id => "#panotab"}
         Panorama
     %li
-      %a{"data-toggle" => 'tab', :href => '#map'}
+      %a{"data-toggle" => 'tab', :href => '#map', :id => "#maptab"}
         Map
     %li
       %a{"data-toggle" => 'tab', :href => '#contactme'}
@@ -301,24 +301,18 @@
       %hr
       #last_updated
         Updated:
-        = @classroom.updated_at.strftime "%I:%M %p %m/%d/%Y "
+        = @classroom.updated_at.strftime "%I:%M %p %Y-%m-%d "
 
 
 
 
 :javascript
-  $(document).ready(function() {
+
     $('#myTab').click(function(e) {
-      //resize map so it appears properly within a tab
-      setTimeout(function(){
-        $('#map')
-          .width("100%")
-          .height("300px")
-          .gmap3({trigger:"resize"});
-      }, 100);
-
-
-      if (e.target.id == "#panotab") {
+      if (e.target.id == "#picturetab"){
+        
+      }
+      else if (e.target.id == "#panotab") {
         //check if html5 version or panorama exists.
         $.ajax({
           url:'/system/videos/panoramas/#{@classroom.facility_code_heprod.upcase}_QTVR_OUT.xml',
@@ -336,54 +330,45 @@
                 }
                 // If not, load the .mov version
                 else{
-                  $("#pano").replaceWith("<object CLASSID=\"clsid:02BF25D5-8C17-4B23-BC80-D3488ABDDC6B\" width=\"900\" height=\"330\" CODEBASE=\"http://www.apple.com/qtactivex/qtplugin.cab\" class=\"legacy_panorama\"> <param name=\"src\" value=\"/system/videos/panoramas/#{@classroom.facility_code_heprod.upcase}_QTVR.mov\"><param name=\"target\" value=\"myself\" /><param name=\"controller\" value=\"false\"><param name=\"scale\" value=\"tofit\"><param name=\"kioskmode\" value=\"true\"> <embed src=\"/system/videos/panoramas/#{@classroom.facility_code_heprod.upcase}_QTVR.mov\" width=\"900\" height=\"330\" scale=\"tofit\" target=\"myself\"  kioskmode=\"true\" loop=\"false\" controller=\"false\" pluginspage=\"http://www.apple.com/quicktime/\"></embed></object>");
+                  $("#pano").replaceWith("<object CLASSID=\"clsid:02BF25D5-8C17-4B23-BC80-D3488ABDDC6B\" width=\"900\" height=\"300\" class=\"legacy_panorama\" CODEBASE=\"http://www.apple.com/qtactivex/qtplugin.cab\" class=\"legacy_panorama\"> <param name=\"src\" value=\"/system/videos/panoramas/#{@classroom.facility_code_heprod.upcase}_QTVR.mov\"><param name=\"target\" value=\"myself\" /><param name=\"controller\" value=\"false\"><param name=\"scale\" value=\"tofit\"><param name=\"kioskmode\" value=\"true\"> <embed src=\"/system/videos/panoramas/#{@classroom.facility_code_heprod.upcase}_QTVR.mov\" width=\"900\" height=\"330\" scale=\"tofit\" target=\"myself\"  kioskmode=\"true\" loop=\"false\" controller=\"false\" pluginspage=\"http://www.apple.com/quicktime/\"></embed></object>");
                   }
                 }
           });
-        }
-    });
-  });
-
-
-
--#find location on a google map from lat/long in database
-:javascript
-
-
-  $('#map').height("300px").width("100%").gmap3({
-
-    map:{
-      options:{
-        center:[#{@classroom.location.latitude.to_s},#{@classroom.location.longitude.to_s}],
-        zoom:16,
-        mapTypeId: google.maps.MapTypeId.ROADMAP,
-        mapTypeControl: false,
-        mapTypeControlOptions: {
-          style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR
-          },
-        navigationControl: true,
-
-        scrollwheel: true,
-        streetViewControl: true,
-        panControl: false,
-        panControlOptions: {
-            position: google.maps.ControlPosition.BOTTOM_LEFT
-        },
-      },
-    },
-
-
-     infowindow:{
-
-          latLng:[#{@classroom.location.latitude.to_s},#{@classroom.location.longitude.to_s}],
-          options:{
-            content:'<div> <span style="float: right;  font-size: 11px;  line-height: 1.2em;"><b>#{@building.name}<br /> #{@building.locatable.address}<br /> #{link_to "All Classrooms",  "../classrooms?utf8=✓&search%5Blocation_id_equals%5D=#{@building.id}"}<br /> #{link_to "Floor Map",  basement}</span> </div> '
-            },
-
           }
+      else if (e.target.id == "#maptab")
+      {
+        $('#map').height("300px").width("100%").gmap3({
+        
+          map:{
+            
+            options:{
+              center:[#{@classroom.location.latitude.to_s},#{@classroom.location.longitude.to_s}],
+              zoom:16,
+              mapTypeId: google.maps.MapTypeId.ROADMAP,
+              mapTypeControl: false,
+              mapTypeControlOptions: {
+                style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR
+                },
+              navigationControl: true,
+              scrollwheel: true,
+              streetViewControl: true,
+              panControl: false,
+              panControlOptions: {
+                  position: google.maps.ControlPosition.BOTTOM_LEFT
+              },
+            },
+          },
 
-
-  });
+           infowindow:{
+                latLng:[#{@classroom.location.latitude.to_s},#{@classroom.location.longitude.to_s}],
+                options:{
+                  content:'<div style=""><span>#{link_to image_tag(@building_image, :class => "round", :style => "max-width: 100px; float: left; margin-right: 1em;"), "../classrooms?utf8=✓&search%5Blocation_id_equals%5D=#{@building.id}"} </span> <span style="float: right;  font-size: 11px;  line-height: 1.2em;"><b>#{@building.name}<br /> #{@building.locatable.address}<br /> #{link_to "All Classrooms",  "../classrooms?utf8=✓&search%5Blocation_id_equals%5D=#{@building.id}"}<br /> #{link_to "Floor Map",  basement}</span> </div> '
+                  }
+                }
+        });
+          }
+        
+    });
 
 
 

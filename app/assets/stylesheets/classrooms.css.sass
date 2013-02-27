@@ -21,7 +21,9 @@ select
   clear: both
   overflow: hidden
   @include rounded-corners(11px)
-
+.round
+  @include rounded-corners(8px)
+  
 .content
   .row-fluid.classroom_top
     margin: -2em  
@@ -208,13 +210,32 @@ select
 #attributes
   margin-bottom: 2em
 
+#contact_sheet
+  @include rounded-corners(15px)
+  @include transparent($transparency: 0.9, $trans: 90)
+  height: 300px
+  padding: .9em
   
+  padding-left: 1em
+ 
+  background: #e7e8e0
+  font-size: 100%
+  #support_info
+    margin-left: 2em
+  #scheduling_info
+    margin-left: 2em
+  #additional_contact_info
+    margin-left: 2em
+  hr
+    width: 85%
+
+
 .contact_accordian
   margin-left: 2em
   position: relative
-  top: 10px
+  top: 40px
   width: 60%
-  max-width: 500px
+
   background: #fff
   @include rounded-corners(15px)
   
@@ -226,7 +247,24 @@ select
     background: #f8f5e4
   #collapseThree
     background: #e7e8e0
-    
+
+.contact
+  margin-left: 2em
+  position: relative
+  top: 10px
+  width: auto
+  max-width: 500px
+  background: #fff
+  @include rounded-corners(15px)
+  
+  #support_info
+    background: #76a6c9
+    a
+      color: #800000
+  #scheduling_info
+    background: #f8f5e4
+  #collapseThree
+    background: #e7e8e0    
   
 #picture
   
@@ -241,11 +279,9 @@ select
   overflow: hidden
   
 
+
 #missing_pano
-.legacy_panorama
-  position: relative
-  left: 12px
-  z-index: 15
+
 .legacy_panorama
   position: relative
   left: 12px

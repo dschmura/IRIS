@@ -27,14 +27,15 @@
           %br
           %br
         = f.input :student_capacity,  :as => "string", :placeholder => '0'
-        <input id= "capacity_slider" type="range" min="0" max="1000" value="0" step="1" onchange="printValue('capacity_slider', 'classroom_student_capacity')" />   
+        <input id= "capacity_slider" type="range" min="0" max="1000" value="0" step="1" onchange="printValue('capacity_slider', 'classroom_student_capacity')" />  
+         
         = f.input :facility_code_heprod, :placeholder => "AHAudB"
         *Combine the building short code with the room number
         %br
         %br
         %br
           = f.simple_fields_for :location do |loc|  
-            = loc.input :description, :input_html => { :class => "span4", :rows => 5 }, :placeholder => "Classroom Description (will be displayed in map)"
+            = loc.input :description, :input_html => { :class => "span6", :rows => 5 }, :placeholder => "Classroom Description (will be displayed in map)"
         
 
         #location_image_form.span6
@@ -74,7 +75,9 @@
     
         #room_design_section.span5
           #attribute_blackout
+          %i.icon-lightbulb
             = f.input :light_control
+          %hr  
           #attribute_classroom_layout 
             Layout:
             = f.input :layout_platform
@@ -89,12 +92,16 @@
             = f.input :seating_tables_any
             = f.input :seating_tables_fixed
             = f.input :seating_tables_moveable
+          %hr 
+          %i.icon-bullhorn  
           #attribute_sound_amplification
             = f.input :sound_amplification
           #attribute_network
             = f.input :ethernet_students
+          %i.icon-bolt
           #attribute_power_outlets
             = f.input :power_students
+          %hr   
           #attribute_board
             Writing Surface:
             = f.input :writing_surface_chalkboard_any
@@ -114,8 +121,10 @@
             DVD Player  
             = f.input :dvd_player_regular, :label => 'Standard'
             = f.input :dvd_player_blueray, :label => 'Blu-ray'
+          %hr  
           #attribute_captioning_device  
             = f.input :captioning_device
+          %hr  
           #attribute_computer_lab.podium_computer
             Podium Computer
             = f.input :podium_computer_any
@@ -211,14 +220,18 @@
         },
         events:{
           dragend: function(marker){
+          var position=marker.getPosition();
+          var lat=position.lat();
+          var lng=position.lng();
             $(this).gmap3({
+              
      
               getaddress:{
                 latLng:marker.getPosition(),
                 callback:function(results){
                   var map = $(this).gmap3("get"),
                     infowindow = $(this).gmap3({get:"infowindow"}),
-                    content = results && results[1] ? results && results[1].formatted_address : "no address";
+                    content = results && results[1] ? results && results[1].formatted_address  : "no address";
                   if (infowindow){
                     infowindow.open(map, marker);
                     infowindow.setContent(content);

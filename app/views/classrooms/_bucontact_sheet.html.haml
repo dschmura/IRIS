@@ -1,7 +1,7 @@
-
-#contact_sheet
+.contact
   .icon-wrench
   %b Support Information
+
 
   #support_info
   
@@ -19,17 +19,18 @@
     %b Support Contact Phone:
     = @owner.contact_phone
 
-  %hr
   .icon-calendar
   %b Scheduling Information
-
+  
+  %br
+  %br
   #scheduling_info
-
+  
     %b Department:
     -#= @owner.department_name
     %a{"data-original-title" => @room_schedule_contact.RM_SCHD_CNTCT_NAME, "data-placement" => "right", :href => "https://heprod.dsc.umich.edu/services/facilitycalendar?facilityid=#{@classroom.facility_code_heprod }", :target => "_blank", :rel => "tooltip"} 
 
-      = truncate(@room_schedule_contact.RM_SCHD_CNTCT_NAME, :length => 40)
+      = truncate(@room_schedule_contact.RM_SCHD_CNTCT_NAME, :length => 30)
     %br
     %b Contact Phone:
     = @room_schedule_contact.RM_SCHD_CNTCT_PHONE  
@@ -37,10 +38,9 @@
     %b Room Schedule:
     = link_to "View Room Schedule", "https://heprod.dsc.umich.edu/services/facilitycalendar?facilityid=#{@classroom.facility_code_heprod }", :target => "_blank"
 
-  %hr
+
   .icon-info-sign 
   %b Additional Information
-
   #additional_contact_info
     %b Room Usage Guidelines: 
     - if @room_schedule_contact.RM_USAGE_GUIDLNS_URL?
@@ -53,7 +53,7 @@
     #{link_to @classroom.location.name,  basement}
 
 
-
+  
 
 
 
