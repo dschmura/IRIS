@@ -32,7 +32,7 @@
       %a{"data-toggle" => 'tab', :href => '#map', :id => "#maptab"}
         Map
     %li
-      %a{"data-toggle" => 'tab', :href => '#contactme'}
+      %a{"data-toggle" => 'tab', :href => '#contactme', :id => "#contacttab"}
         Contact
 
 #room_number
@@ -368,7 +368,9 @@
                 }
         });
           }
-        
+        else if (e.target.id == "#contacttab"){
+        $("#missing_pano").replaceWith("");
+        }
     });
 
 
