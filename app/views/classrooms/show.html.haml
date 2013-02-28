@@ -310,7 +310,7 @@
 
     $('#myTab').click(function(e) {
       if (e.target.id == "#picturetab"){
-        
+        $("#missing_pano").replaceWith("");
       }
       else if (e.target.id == "#panotab") {
         //check if html5 version or panorama exists.
@@ -337,6 +337,7 @@
           }
       else if (e.target.id == "#maptab")
       {
+        $("#missing_pano").replaceWith("");
         $('#map').height("300px").width("100%").gmap3({
         
           map:{
