@@ -30,8 +30,9 @@
         %td= link_to 'Destroy', classroom, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-mini btn-danger'
 
 %br
+
 %br
-- if @search.count > 0
+- if @search.count > 14
   .apple_pagination.span9.row-fluid
     = will_paginate
 

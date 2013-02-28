@@ -20,8 +20,8 @@ class ClassroomsController < ApplicationController
       @per_page = 14
      end
     if @search.student_capacity_greater_than_or_equal_to.nil?
-      @search.student_capacity_greater_than_or_equal_to = 30
-      @search.student_capacity_less_than_or_equal_to = 250
+      @search.student_capacity_greater_than_or_equal_to = 1
+      @search.student_capacity_less_than_or_equal_to = 500
     end
     @classrooms = @search.paginate(:page => params[:page], :per_page => @per_page).order("student_capacity desc")   # or @search.relation to lazy load in view
     @owners = "Owner"

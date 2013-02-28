@@ -57,7 +57,7 @@
         %label{:for => "amount"} Student Capacity
         %br
 
-        = f.text_field :student_capacity_greater_than_or_equal_to, :size => 3, :placeholder => '30', :style => "width: 25px; height: 0.8em; float: left;", :id => "my_min"
+        = f.text_field :student_capacity_greater_than_or_equal_to, :size => 3, :placeholder => '1', :style => "width: 25px; height: 0.8em; float: left;", :id => "my_min"
         #slider-range
 
         = f.text_field :student_capacity_less_than_or_equal_to, :size => 3, :placeholder => '250', :style => "width: 25px; height: 0.8em;",:id => "my_max"
@@ -125,7 +125,7 @@
       range: true,
       min: 0,
       max: 500,
-      values: [ 30, 300 ],
+      values: [ '#{@search.student_capacity_greater_than_or_equal_to}', '#{@search.student_capacity_less_than_or_equal_to}' ],
       slide: function( event, ui ) {
         $( "#my_min" ).val(ui.values[ 0 ]); // Display and selected the min Price
         $( "#my_max" ).val(ui.values[ 1 ]); // Display and selected the max Price
