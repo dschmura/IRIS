@@ -331,6 +331,7 @@
                 // If not, load the .mov version
                 else{
                   $("#missing_pano").replaceWith("<object CLASSID=\"clsid:02BF25D5-8C17-4B23-BC80-D3488ABDDC6B\" width=\"900\" height=\"280\" class=\"legacy_panorama\" CODEBASE=\"http://www.apple.com/qtactivex/qtplugin.cab\" class=\"legacy_panorama\"> <param name=\"src\" value=\"/system/videos/panoramas/#{@classroom.facility_code_heprod.upcase}_QTVR.mov\"><param name=\"target\" value=\"myself\" /><param name=\"controller\" value=\"false\"><param name=\"scale\" value=\"tofit\"><param name=\"kioskmode\" value=\"true\"> <embed src=\"/system/videos/panoramas/#{@classroom.facility_code_heprod.upcase}_QTVR.mov\" width=\"900\" height=\"280\" scale=\"tofit\" target=\"myself\"  kioskmode=\"true\" loop=\"false\" controller=\"false\" pluginspage=\"http://www.apple.com/quicktime/\"></embed></object>");
+     
                   }
                 }
           });

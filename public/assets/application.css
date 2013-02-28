@@ -10853,33 +10853,34 @@ select {
   min-height: 300px;
   height: 300px;
   overflow: hidden;
+  z-index: 15;
 }
 
-/* line 285, ../../app/assets/stylesheets/classrooms.css.sass */
+/* line 286, ../../app/assets/stylesheets/classrooms.css.sass */
 .legacy_panorama {
   position: relative;
   left: 12px;
   z-index: 15;
 }
 
-/* line 292, ../../app/assets/stylesheets/classrooms.css.sass */
+/* line 293, ../../app/assets/stylesheets/classrooms.css.sass */
 .tab-content {
   position: relative;
   left: 3%;
 }
 
-/* line 296, ../../app/assets/stylesheets/classrooms.css.sass */
+/* line 297, ../../app/assets/stylesheets/classrooms.css.sass */
 #map {
   position: relative;
   left: 3%;
 }
 
-/* line 300, ../../app/assets/stylesheets/classrooms.css.sass */
+/* line 301, ../../app/assets/stylesheets/classrooms.css.sass */
 #map img {
   max-width: none;
 }
 
-/* line 305, ../../app/assets/stylesheets/classrooms.css.sass */
+/* line 306, ../../app/assets/stylesheets/classrooms.css.sass */
 #building_float {
   float: left;
   padding-left: 1em;
@@ -10894,7 +10895,7 @@ select {
   background: #ddd7af;
   overflow: hidden;
 }
-/* line 319, ../../app/assets/stylesheets/classrooms.css.sass */
+/* line 320, ../../app/assets/stylesheets/classrooms.css.sass */
 #building_float img {
   margin-top: 8px;
   position: relative;
@@ -10905,25 +10906,25 @@ select {
   -webkit-border-radius: 9px;
 }
 
-/* line 329, ../../app/assets/stylesheets/classrooms.css.sass */
+/* line 330, ../../app/assets/stylesheets/classrooms.css.sass */
 #last_updated {
   float: right;
   font-size: 85%;
 }
 
 /* Form */
-/* line 345, ../../app/assets/stylesheets/classrooms.css.sass */
+/* line 346, ../../app/assets/stylesheets/classrooms.css.sass */
 #slider-range {
   width: 200px;
 }
 
 /* uislider for double range slider */
-/* line 349, ../../app/assets/stylesheets/classrooms.css.sass */
+/* line 350, ../../app/assets/stylesheets/classrooms.css.sass */
 .ui-slider {
   position: relative;
   text-align: left;
 }
-/* line 352, ../../app/assets/stylesheets/classrooms.css.sass */
+/* line 353, ../../app/assets/stylesheets/classrooms.css.sass */
 .ui-slider .ui-slider-handle {
   position: absolute;
   z-index: 2;
@@ -10931,7 +10932,7 @@ select {
   height: 1.2em;
   cursor: default;
 }
-/* line 358, ../../app/assets/stylesheets/classrooms.css.sass */
+/* line 359, ../../app/assets/stylesheets/classrooms.css.sass */
 .ui-slider .ui-slider-range {
   position: absolute;
   z-index: 1;
@@ -10940,56 +10941,56 @@ select {
   border: 0;
   background-position: 0 0;
 }
-/* line 366, ../../app/assets/stylesheets/classrooms.css.sass */
+/* line 367, ../../app/assets/stylesheets/classrooms.css.sass */
 .ui-slider.ui-state-disabled .ui-slider-handle, .ui-slider.ui-state-disabled .ui-slider-range {
   filter: inherit;
 }
 
 /* For IE8 - See #6727 */
-/* line 371, ../../app/assets/stylesheets/classrooms.css.sass */
+/* line 372, ../../app/assets/stylesheets/classrooms.css.sass */
 .ui-slider-horizontal {
   height: 0.9em;
 }
-/* line 373, ../../app/assets/stylesheets/classrooms.css.sass */
+/* line 374, ../../app/assets/stylesheets/classrooms.css.sass */
 .ui-slider-horizontal .ui-slider-handle {
   top: -0.3em;
   margin-left: -0.6em;
 }
-/* line 376, ../../app/assets/stylesheets/classrooms.css.sass */
+/* line 377, ../../app/assets/stylesheets/classrooms.css.sass */
 .ui-slider-horizontal .ui-slider-range {
   top: 0;
   height: 100%;
 }
-/* line 379, ../../app/assets/stylesheets/classrooms.css.sass */
+/* line 380, ../../app/assets/stylesheets/classrooms.css.sass */
 .ui-slider-horizontal .ui-slider-range-min {
   left: 0;
 }
-/* line 381, ../../app/assets/stylesheets/classrooms.css.sass */
+/* line 382, ../../app/assets/stylesheets/classrooms.css.sass */
 .ui-slider-horizontal .ui-slider-range-max {
   right: 0;
 }
 
-/* line 383, ../../app/assets/stylesheets/classrooms.css.sass */
+/* line 384, ../../app/assets/stylesheets/classrooms.css.sass */
 .ui-slider-vertical {
   width: 0.8em;
   height: 100px;
 }
-/* line 386, ../../app/assets/stylesheets/classrooms.css.sass */
+/* line 387, ../../app/assets/stylesheets/classrooms.css.sass */
 .ui-slider-vertical .ui-slider-handle {
   left: -0.3em;
   margin-left: 0;
   margin-bottom: -0.6em;
 }
-/* line 390, ../../app/assets/stylesheets/classrooms.css.sass */
+/* line 391, ../../app/assets/stylesheets/classrooms.css.sass */
 .ui-slider-vertical .ui-slider-range {
   left: 0;
   width: 100%;
 }
-/* line 393, ../../app/assets/stylesheets/classrooms.css.sass */
+/* line 394, ../../app/assets/stylesheets/classrooms.css.sass */
 .ui-slider-vertical .ui-slider-range-min {
   bottom: 0;
 }
-/* line 395, ../../app/assets/stylesheets/classrooms.css.sass */
+/* line 396, ../../app/assets/stylesheets/classrooms.css.sass */
 .ui-slider-vertical .ui-slider-range-max {
   top: 0;
 }
