@@ -310,7 +310,7 @@
 
     $('#myTab').click(function(e) {
       if (e.target.id == "#picturetab"){
-        
+        $("#pano").insertAfter("<div id='missing_pano'><h4>This room does not have a panorama available</h4></div>")
       }
       else if (e.target.id == "#panotab") {
         //check if html5 version or panorama exists.
