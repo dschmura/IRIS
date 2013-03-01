@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery-ui
+//= require jquery.ui.touch-punch.min
 // Loads all Bootstrap javascripts
 //= require bootstrap
 //= require pano2vr_player
