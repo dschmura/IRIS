@@ -231,7 +231,7 @@
                 callback:function(results){
                   var map = $(this).gmap3("get"),
                     infowindow = $(this).gmap3({get:"infowindow"}),
-                    content = results && results[1] ? results && results[1].formatted_address  : "no address";
+                    content = getPosition();
                   if (infowindow){
                     infowindow.open(map, marker);
                     infowindow.setContent(content);
