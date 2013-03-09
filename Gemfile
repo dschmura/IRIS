@@ -23,7 +23,7 @@ gem "email_spec", ">= 1.2.1", :group => :test
 gem "devise", ">= 2.1.0"
 gem "cancan", ">= 1.6.7"
 gem "rolify", ">= 3.1.0"
-#gem 'bootstrap-sass', '~> 2.0.3'
+
 #gem 'anjlab-bootstrap-rails', '>= 2.1', :require => 'bootstrap-rails'
 
 
