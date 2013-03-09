@@ -42,3 +42,7 @@ gem 'mini_magick'
 gem "meta_search"
 
 gem 'annotate', ">=2.5.0"
+
+group :production do
+  gem 'unicorn'
+end
