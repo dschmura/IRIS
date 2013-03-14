@@ -1,38 +1,68 @@
 
-.row.span12
-  #map.gmap3  
-  drag & drop the marker to see the address
-  %hr
+.row-fluid
+  .span5#edit_classroom_form
+    = simple_form_for @classroom,:html => {:multipart => true, :class => 'form-vertical'} do |f|
+      = f.error_notification
+      .inputs
+        = f.input :room_number, :wrapper => :prepend, :label => false do
+          = content_tag :span, "Room #", :class => "add-on"
+          = f.input_field :room_number, :placeholder => "AudB", :input_html => { :tabindex => '1', :class => 'span1' }
+        
+        = f.input :location_id, :collection => Location.where(:locatable_type => "Building").order("name ASC"), :prompt => "What Building is this room in?", :label => "Building", :input_html => { :class => "span6" }
+        %br
+        = link_to "Add a Building", new_building_path, :style => "position: relative; left: 180px; bottom: 45px;", :target => "_blank"
+        
+        = f.input :owner_id, :collection => Owner.order("department_name ASC"), :prompt => "Who owns this space?", :label => "", :label_method => :department_name, :input_html => { :class => "span8" }
+        = link_to "Add an Owner", new_owner_path, :style => "position: relative; left: 245px; bottom: 30px;", :target => "_blank"
+        = f.simple_fields_for :location, :html => {:class => "form-inline "} do |loc|
+          .search-query
+          = loc.input :name, :wrapper => :prepend, :label => false do
+            = content_tag :span, "Name", :class => "add-on"
+            = loc.input_field :name, :placeholder => "Angell Hall Aud B"
+          = loc.input :latitude, :wrapper => :prepend, :label => false do
+            = content_tag :span, "Lat :", :class => "add-on"
+            = loc.input_field :latitude, :as => "string", :class => "input-medium"
+
+          = loc.input :longitude, :wrapper => :prepend, :label => false do
+            = content_tag :span, "Long:", :class => "add-on"
+            = loc.input_field :longitude, :as => "string", :class => "input-medium"
+
+          = f.input :student_capacity, :wrapper => :prepend, :label => false do
+            = content_tag :span, "Student Capacity:", :class => "add-on "
+            = f.input_field :student_capacity, :as => "string", :class => "span2"
+            
+            
+
+          <input id= "capacity_slider" type="range" min="0" max="1000" value="#{@classroom_student_capacity}" step="1" onchange="printValue('capacity_slider', 'classroom_student_capacity')" />
+
+          %br
+          %br
+          = f.input :facility_code_heprod, :wrapper => :prepend, :label => false do
+            = content_tag :span, "HeProd Code:", :class => "add-on "
+            = f.input_field :facility_code_heprod, :as => "string", :class => "span3", :placeholder => "AHAudB"
+          *Combine the building short code with the room number
+
+  .span7
+    #editmap.gmap3  
+    drag & drop the marker to see the address
+    
+    %br
+    IMAGE UPLOADER HERE 
+    %label Textbox for uploading an image
+    .input-prepend.input-append
+      %span.add-on
+        %i.icon-picture
+      %input{:id => "", :name => "", :type => "text"}
+      %button.btn{:type => "button"} Upload
+%hr
 .row
   .span5
     = simple_form_for @classroom, :html => {:multipart => true, :class => 'form-horizontal'} do |f|
       = f.error_notification   
       %br
       .inputs  
-        = f.input :room_number, :placeholder => "AudB", :input_html => { :tabindex => '1' }
-        = f.input :location_id, :collection => Location.where(:locatable_type => "Building").order("name ASC"), :prompt => "What Building is this room in?", :label => "Building"
-
-        = link_to "Add a Building", new_building_path, :style => "position: relative; left: 300px; bottom: 45px;", :target => "_blank"
-
-        = f.input :owner_id, :collection => Owner.order("department_name ASC"), :prompt => "Who owns this space?", :label => "Owner", :label_method => :department_name
-
-        = link_to "Add an Owner", new_owner_path, :style => "position: relative; left: 4680px; bottom: 30px;", :target => "_blank"
-        
-        = f.simple_fields_for :location, :html => {:class => "form-inline "} do |loc|
-          = loc.input :name, :placeholder => "Angell Hall Aud B"
-          = loc.input :latitude, :as => "string"
-          %br
-      
-          = loc.input :longitude,  :as => "string"
-          %br
-          %br
-        = f.input :student_capacity,  :as => "string", :placeholder => '0'
-        <input id= "capacity_slider" type="range" min="0" max="1000" value="0" step="1" onchange="printValue('capacity_slider', 'classroom_student_capacity')" />  
          
-        = f.input :facility_code_heprod, :placeholder => "AHAudB"
-        *Combine the building short code with the room number
-        %br
-        %br
+
         %br
           = f.simple_fields_for :location do |loc|  
             = loc.input :description, :input_html => { :class => "span6", :rows => 5 }, :placeholder => "Classroom Description (will be displayed in map)"
@@ -56,6 +86,9 @@
               = f.simple_fields_for :location do |loc|
                 -# paperclip method
                 = loc.file_field :picture
+            %br
+            %br    
+          = f.button :submit
   .span5.offset1
     #where_am_i_map
       .input
@@ -212,7 +245,7 @@
 :javascript
   
  
-    $("#map").height("300px").width("100%").gmap3({
+    $("#editmap").height("300px").width("100%").gmap3({
       marker:{
         latLng: [42.27799930039926, -83.73660256217954],
         options:{
