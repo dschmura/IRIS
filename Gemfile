@@ -7,7 +7,8 @@ group :assets do
   gem 'font-awesome-sass-rails'
   gem 'sass-rails', '~> 3.2'
   #gem 'bootstrap-sass', '~> 2.2.2.0'
-  gem 'bootstrap-sass', '~> 2.3.0.1'
+  #gem 'bootstrap-sass', '~> 2.3.0.1'
+  gem 'bootstrap-sass', '~> 2.3.1.0'
   
 end
 
@@ -21,10 +22,12 @@ gem "rspec-rails", ">= 2.10.1", :group => [:development, :test]
 gem "machinist", :group => :test
 gem "factory_girl_rails", ">= 3.3.0", :group => [:development, :test]
 gem "email_spec", ">= 1.2.1", :group => :test
-gem "devise", ">= 2.1.0"
-gem "cancan", ">= 1.6.7"
-gem "rolify", ">= 3.1.0"
-
+#gem "devise", ">= 2.1.0"
+gem "devise", ">= 2.2.3"
+#gem "cancan", ">= 1.6.7"
+gem "cancan", ">= 1.6.9"
+#gem "rolify", ">= 3.1.0"
+gem "rolify", ">= 3.2.0"
 #gem 'anjlab-bootstrap-rails', '>= 2.1', :require => 'bootstrap-rails'
 
 

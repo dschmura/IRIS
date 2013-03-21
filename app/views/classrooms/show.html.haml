@@ -14,7 +14,9 @@
 
     .tab-pane#pano
       %h4#missing_pano
-        This room does not have a panorama
+        %i.icon-spinner.icon-spin
+        Attempting to load panorama
+        
     .tab-pane#map
       <div id="map_canvas" > </div>
 
@@ -176,9 +178,10 @@
             - if @classroom.writing_surface_whiteboard_25ft
               .icon-ok
       %hr
-      %i#attribute_computer_lab
-      -#.icon-desktop
+      %i.icon-desktop
       %b Computer Classroom:
+      
+
       %ul
         %ul
           %li
@@ -319,7 +322,7 @@
           type:'HEAD',
           error:
             function(){
-              $("#pano").insertAfter("<div id='missing_pano'><h4>This room does not have a panorama available</h4></div>")
+              $("#pano").insertAfter("<div id='missing_pano'><h4>Attempting to load panorama</h4></div>")
               },
           success:
             function(){

@@ -1,57 +1,8 @@
-@mixin underline_section($width : 90%)
-  border-bottom: 1px solid #999
-  margin-bottom: 1em
-  width: $width  
-  margin-bottom: 2em
-
-
-/* Bubble with an isoceles triangle
- *------------------------------------------
-
-a.tip2
-  position: relative
-  text-decoration: none
-  color: #000000
-  span
-    display: none
-  &:hover span
-    z-index: 9
-    display: block
-    position: absolute
-    padding: 1em
-    content: attr(title)
-    min-width: 100px
-    text-align: center
-    width: 150px
-    max-width: 200px
-    text-align: left
-    height: auto
-    left: 195px
-    bottom: 45px
-    background: #76a6c9
-    -moz-border-radius: 10px
-    -webkit-border-radius: 10px
-    border-radius: 10px
-    color: #333333
-    font-size: 1em
-    &:after
-      position: absolute
-      display: block
-      content: ""
-      border-color: #76a6c9 transparent transparent transparent
-      border-style: solid
-      border-width: 18px 10px 7px 0px
-      height: 0
-      width: 0
-      position: absolute
-      bottom: -20px
-      left: 5px
       
 #room_design_section
-#attributes
-  h3
-    margin-top: -0.2em
-    margin-bottom: -0.8em
+  label
+    margin-top: -0.5em
+  
 
 #equipment_section
   float: left
@@ -59,15 +10,16 @@ a.tip2
   padding: 1em 1em 1em 3em
   top: 2%
   left: 6%
+  label
+    margin-top: -0.5em
+  
   
 #accessibility_section
   position: relative
   top: -10%
   left: 6% 
 #notes_section
-  float: left
-  position: relative
-  padding: 1em
+
 
 /* Individual Attributes */
 #classroom_attributes_wrapper
@@ -116,35 +68,29 @@ a.tip2
     left: 8em
     z-index: 250000 
 #attribute_blackout
-  overflow: visible
-  /*padding-left: 25px
-  /*background: url(attribute_icons/blackout.png) no-repeat  115px 0%
-  @include underline_section()
+
+
 #attribute_classroom_layout
   
   overflow: visible
   padding-left: 25px
   background: url(attribute_icons/layout.png) no-repeat  0% 0%   
 #attribute_seating
-  
   overflow: visible
   padding-left: 25px
   background: url(attribute_icons/seating.png) no-repeat  0% 0%  
+
 #attribute_sound_amplification
-  overflow: visible
-  padding-left: 25px
+  margin-top: -1em
+
 
 #attribute_network
-  overflow: visible
-  padding-left: 25px
-  background: url(attribute_icons/ethernet.png) no-repeat  80px 0%  
+  margin-top: -1em
 #attribute_power_outlets
-  @include underline_section()
-  overflow: visible
-  padding-left: 25px
+  margin-top: -1em
   /*background: url(attribute_icons/power.png) no-repeat  95px 0%
 #attribute_board
-  @include underline_section()
+  
   overflow: visible
   padding-left: 25px
   background: url(attribute_icons/board_type.png) no-repeat  0% 0%
@@ -182,7 +128,7 @@ a.tip2
   padding-left: 25px
   background: url(attribute_icons/captioning.png) no-repeat  0% 0%
 .podium_computer
-  @include underline_section()
+  
 #attribute_doc_camera
   overflow: visible
   padding-left: 25px
@@ -198,7 +144,7 @@ a.tip2
 #attribute_telephone
   overflow: visible
   padding-left: 30px
-  background: url(attribute_icons/telephone.png) no-repeat  115px 0%
+  background: url(attribute_icons/telephone.png) no-repeat  80px 0%
 #attribute_video_conferencing
   overflow: visible
   padding-left: 30px
@@ -210,14 +156,13 @@ a.tip2
 #attribute_assisted_listening 
   overflow: visible
   padding-left: 25px
-  background: url(attribute_icons/assisted_listening.png) no-repeat 85px 0%
+  background: url(attribute_icons/assisted_listening.png) no-repeat 15px 0%
 #attribute_instructor_wheelchair_access
   overflow: visible
   padding-left: 25px
-  background: url(attribute_icons/accessible.png) no-repeat  60px 0%
+  background: url(attribute_icons/accessible.png) no-repeat  15px 0%
 #attribute_notes
-  label
-    text-align:  left
+
 #location_building_attributes_address, #location_building_attributes_address2
   width: 250px
 #location_building_attributes_city
