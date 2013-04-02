@@ -33,10 +33,11 @@ class Location < ActiveRecord::Base
   #mount_uploader :image, ImageUploader
   
   ## Paperclip method for uploading location images
-  has_attached_file :picture, :styles => { :show => "1200x500#", :medium => "300x300>", :thumb => "100x100>" }, :convert_options => {:show => "-gravity center"}
   
-  has_attached_file :building_sign, :styles => { :show => "600X360#", :medium => "320X200#", :thumb => "160X120#{}" }, :convert_options => {:show => "-gravity center"}
   
+  has_attached_file :picture, :styles => {:show => "1200x500#", :medium => "300x300#", :thumb => "100x100>"}, :convert_options => {:show => "-gravity center"}
+  
+  has_attached_file :building_sign, :styles => { :show => ["1200x500#", :jpg], :medium => ["300x300#", :jpg], :thumb => ["100x100#", :jpg] }, :convert_options => {:show => "-gravity center"}
   belongs_to :locatable, :polymorphic => true
   belongs_to :location_type  
   validates :name,  :presence => true

@@ -64,7 +64,7 @@
               %b Change the image for this classroom.  
               %br
               %br
-              = f.simple_fields_for :location do |loc|
+              = f.simple_fields_for :location, :html => { :multipart => true } do |loc|
                 -# paperclip method
                 = loc.file_field :picture
           - else
