@@ -43,7 +43,8 @@ gem 'kaminari'
 ## Used for uploading and resizing images (Need both paperclip and mini_magick)
 #gem 'paperclip', '~> 2.8.0'
 #gem "paperclip", "~> 3.0"
-gem "paperclip", "~> 3.4.0"
+gem "paperclip", "~> 3.4.1"
+gem "cocaine", "= 0.5.1"
 #gem "cocaine", "=0.3.2"
 #gem "cocaine", "= 0.4"
 #gem "paperclip", "= 3.0.4"

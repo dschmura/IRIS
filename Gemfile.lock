@@ -106,7 +106,7 @@ GEM
       activemodel (>= 3.0.0)
       activerecord (>= 3.0.0)
       activesupport (>= 3.0.0)
-      cocaine (~> 0.5.0)
+      cocaine (~> 0.5.1)
       mime-types
     polyamorous (0.5.0)
       activerecord (~> 3.0)
@@ -194,6 +194,7 @@ DEPENDENCIES
   annotate (>= 2.5.0)
   bootstrap-sass (~> 2.3.1.0)
   cancan (>= 1.6.9)
+  cocaine (= 0.5.1)
   coffee-rails (~> 3.2.1)
   devise (>= 2.2.3)
   email_spec (>= 1.2.1)
@@ -206,7 +207,7 @@ DEPENDENCIES
   machinist
   meta_search
   mini_magick
-  paperclip (~> 3.4.0)
+  paperclip (~> 3.4.1)
   rails (= 3.2.13)
   rolify (>= 3.2.0)
   rspec-rails (>= 2.10.1)
