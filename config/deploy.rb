@@ -12,8 +12,6 @@ set :application,  "iris"
 set :deploy_to,  "/var/www/rooms.lsa.umich.edu/html/#{application}/"
 set :deploy_via, :remote_cache
 set :scm, :git
-#set :repository, "git@bugs.iss.lsa.umich.edu:iris.git"
-#set :repository, "git@bugs.iss.lsa.umich.edu:/IRIS/iris.git"
 set :repository, "git@bitbucket.org:mclassrooms/iris.git"
 set :git_enable_submodules, 1
 set :scm_verbose, true
