@@ -12,6 +12,9 @@
         Use the fields and checkboxes below to specify attributes such as minimum seating capacity, type of writing surface, and installed equipment. Then, press the Search button at the bottom to list rooms that meet your requirements.
 
       = simple_form_for @search, :remote => false, :html => {:class => "form-inline"} do |f|
+        -#= f.collection_select :room_schedule_contact_id_equals, RoomScheduleContact.order("RM_SCHD_CNTCT_NAME ASC"), :id, :RM_SCHD_CNTCT_NAME, :prompt => "Limit By Department"
+          %br
+          %br
         -# =>
           = f.collection_select :location_id_equals, Location.where(:locatable_type => "Building").order("name ASC"), :id, :name, :prompt => "Limit By Scheduler"
           %br
