@@ -40,6 +40,7 @@ Iris::Application.routes.draw do
   match '/about_iss',   :to => 'pages#about_iss'
   match '/help',    :to => 'pages#support'
   match '/support',    :to => 'pages#support'
+  match '/privacy', :to => 'pages#privacy_policy'
   match '/iss_support',    :to => 'pages#iss_support'
   match '/signup',  :to => 'users#new'
 

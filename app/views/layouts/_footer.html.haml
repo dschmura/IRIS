@@ -24,6 +24,7 @@
   %center
     %br
     = link_to "Copyright The Regents of the University of Michigan, 2011", "http://www.umich.edu", :target => '_blank'
+    
 
     %br
     - if user_signed_in?
@@ -38,15 +39,18 @@
 
           - if current_user.has_role? :admin
             %li
-            
               = link_to('Admin', users_path)
                 
     
           %li
             = link_to('Logout', destroy_user_session_path, :method=>'delete')    
 
+      |
+      = link_to "Privacy Policy", privacy_path
     - else
       = link_to "ISS Login", new_user_session_path
+      | 
+      = link_to "Privacy Policy", privacy_path
 
         
    

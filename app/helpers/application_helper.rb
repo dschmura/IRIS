@@ -21,7 +21,7 @@ module ApplicationHelper
                                  :style => "height: 44px; float: left; position: relative; right: 22px; margin: 0px;")
   end
   def footer_logo_um
-   image_tag("UniversityOfMichigan_wordmark.png", :alt => "#{@base_title} LSA Instructional Support Services is part of The University of Michigan",
+   image_tag("UniversityOfMichigan_wordmark.png", :alt => "The University of Michigan Logo",
                                                   :style => "float: right; height: 25px; position: relative; bottom: 35px; right: 8px; ")
   end
 

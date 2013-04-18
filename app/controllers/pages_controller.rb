@@ -28,7 +28,9 @@ class PagesController < ApplicationController
   def event_support
     @page_title="Event Support"
   end
-  
+  def privacy_policy
+    @page_title="Privacy Policy"
+  end
   def support
     @page_title="Support"
   end
