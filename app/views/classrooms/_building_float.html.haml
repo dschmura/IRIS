@@ -2,15 +2,25 @@
 
   %center
     = link_to image_tag(@building_image, :class => "round"), "../classrooms?utf8=✓&search%5Blocation_id_equals%5D=#{@building.id}"
+  
+
+  -#%b Department: 
+    = @classroom.DEPT_GRP.gsub!(/_/, ' ')
+  
   %br
   
   - if @owner.id == 1
     %em
       %b LSA ISS Classroom
 
-  - else
-    %em
-      %b Departmental Classroom
+
+  - else    
+    - if @classroom.DEPT_GRP = 'SCHOOL_DENTISTRY'
+      %em 
+        %b Dental School
+    -else
+      %em
+        %b Departmental Classroom
   %br
   
 
@@ -24,7 +34,7 @@
     = truncate(@classroom.location.name, :length => 25)
  
   %br
-    %b Facility Code:
+    %b Facility ID:
     = @classroom.facility_code_heprod  
 
   %b Capacity:  

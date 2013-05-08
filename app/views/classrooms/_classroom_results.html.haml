@@ -6,12 +6,15 @@
       %th.span5
         -#= sortable "room_number", "Room Number"
         = sort_link @search, :location_name, "Classroom Name", :default_order => :desc
+      
       %th.span2
         -#= sortable "classroom.location.name","Classroom Name"
 
         = sort_link @search, :student_capacity, "Capacity", :default_order => :desc
       %th.span2
         = sort_link @search, :room_number, "Room Number", :default_order => :desc
+      -#%th.span2
+        -#%b Schedule
       - if user_signed_in?
         -#%th
         %th
@@ -21,8 +24,13 @@
     %tr
       %td= link_to (image_tag classroom.location.picture.url(:thumb).to_s, :alt => @classroom_alt,   :class => "classroom_index_thumb round"), classroom
       %td= link_to classroom.location.name, classroom
+      
+    
       %td= classroom.student_capacity      
       %td= link_to classroom.room_number, classroom
+      -#%td
+        -#%i.icon-calendar
+        -#= link_to "Schedule", "https://heprod.dsc.umich.edu/services/facilitycalendar?facilityid=#{classroom.facility_code_heprod }", :target => "_blank"
   
       - if user_signed_in?
         -# %td= link_to 'Show', classroom

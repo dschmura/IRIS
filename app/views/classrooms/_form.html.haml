@@ -13,11 +13,18 @@
         = f.input :room_number, :wrapper => :prepend, :label => false do
           = content_tag :span, "Room #", :class => "add-on"
           = f.input_field :room_number, :placeholder => "AudB", :input_html => { :tabindex => '1', :class => 'span1' }
+          %br
+          %br
+          = content_tag :span, "rmrecnbr", :class => "add-on"
+          = f.input_field :rmrecnbr, :placeholder => "2018729", :input_html => { :tabindex => '2' }
+          
         = f.input :location_id, :collection => Location.where(:locatable_type => "Building").order("name ASC"), :prompt => "What Building is this room in?", :label => "Building", :input_html => { :class => "span6" }
         %br
 
         = link_to "Add a Building", new_building_path, :style => "position: relative; left: 180px; bottom: 45px;", :target => "_blank"
-
+        = f.input :DEPT_GRP, :collection => [['College of LSA','COLLEGE_OF_LSA'], ['School of Dentistry', 'SCHOOL_DENTISTRY']], :label => "Department"
+        %br
+        
         = f.input :owner_id, :collection => Owner.order("department_name ASC"), :prompt => "Who owns this space?", :label => "", :label_method => :department_name, :input_html => { :class => "span8" }
         = link_to "Add an Owner", new_owner_path, :style => "position: relative; left: 245px; bottom: 30px;", :target => "_blank"
         = f.simple_fields_for :location, :html => {:class => "form-inline "} do |loc|

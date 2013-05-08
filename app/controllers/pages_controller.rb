@@ -12,6 +12,9 @@ class PagesController < ApplicationController
   def about
     @page_title="About the MClassrooms site"
   end
+  def dentistry
+    @page_title="Dentistry Demo"
+  end
   
   def about_iss
     @page_title="About Instructional Support Services"

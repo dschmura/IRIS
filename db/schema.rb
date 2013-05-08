@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130205162012) do
+ActiveRecord::Schema.define(:version => 20130422143945) do
 
   create_table "buildings", :force => true do |t|
     t.string   "building_code_heprod"
@@ -77,6 +77,7 @@ ActiveRecord::Schema.define(:version => 20130205162012) do
     t.boolean  "is_department_space",             :default => false
     t.integer  "owner_id",                        :default => 1
     t.integer  "rmrecnbr"
+    t.string   "DEPT_GRP"
   end
 
   create_table "locations", :force => true do |t|

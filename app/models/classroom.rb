@@ -51,6 +51,7 @@
 #  is_department_space             :boolean          default(FALSE)
 #  owner_id                        :integer          default(1)
 #  rmrecnbr                        :integer
+#  DEPT_GRP                        :string(255)
 #
 
 class Classroom < ActiveRecord::Base
@@ -85,9 +86,9 @@ class Classroom < ActiveRecord::Base
   validates :room_number, :presence => true,
                           :length => {:minimum => 1, :maximum => 6}
                                
-  validates :facility_code_heprod,  :presence => true,
-                                    :uniqueness => true,
-                                    :format => {:with => /\A(\D{2,6})+(\d{1,6})+(\z)/i}, :on => :create
+  #validates :facility_code_heprod,  :presence => true,
+  #                                  :uniqueness => true,
+  #                                  :format => {:with => /\A(\D{2,6})+(\d{1,6})+(\z)/i}, :on => :create
                                     
   #validates :rmrecnbr,  :presence => true,
   #                      :uniqueness => true,

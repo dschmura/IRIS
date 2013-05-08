@@ -37,6 +37,7 @@ class ClassroomsController < ApplicationController
     @classrooms = @search.all   # or @search.relation to lazy load in view
   end
 
+
   # GET /classrooms/1
   # GET /classrooms/1.xml
   def show

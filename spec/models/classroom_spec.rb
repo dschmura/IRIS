@@ -51,6 +51,7 @@
 #  is_department_space             :boolean          default(FALSE)
 #  owner_id                        :integer          default(1)
 #  rmrecnbr                        :integer
+#  DEPT_GRP                        :string(255)
 #
 
 require 'spec_helper'
