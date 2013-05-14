@@ -216,10 +216,7 @@
   window.onload = function() 
   { printValue('slider1', 'rangeValue1'); printValue('slider2', 'rangeValue2'); printValue('slider3', 'rangeValue3'); printValue('slider4', 'rangeValue4'); }        
     
-:javascript
-  $().ready(function() {
-    $('#coda-slider-1').codaSlider();
-  });
+
 
 -#toggle the visability of the attributes and the disclosure triangle's state
 :javascript
@@ -245,49 +242,39 @@
 
 :javascript
   
- 
-    $("#editmap").height("300px").width("100%").gmap3({
-       marker:{
-         latLng: [42.27799930039926, -83.73660256217954],
-         options:{
-           draggable:true
-         },
-         events:{
-           dragend: function(marker){
-           var position=marker.getPosition();
-           var lat=position.lat();
-           var lng=position.lng();
-             $(this).gmap3({
-
-
-               getaddress:{
-                 latLng:marker.getPosition(),
-                 callback:function(results){
-                   var map = $(this).gmap3("get"),
-                     infowindow = $(this).gmap3({get:"infowindow"}),
-                     content = results && results[1] ? results && results[1].formatted_address  : "no address";
-                   if (infowindow){
-                     infowindow.open(map, marker);
-                     infowindow.setContent(content);
-                   } else {
-                     $(this).gmap3({
-                       infowindow:{
-                         anchor:marker, 
-                         options:{content: content}
-                       }
-                     });
-                   }
+  $("#editmap").height("400px").width("100%").gmap3({ 
+  map:{                     
+   options:{
+       center:[42.27799930039926, -83.73660256217954],
+       scaleControl: false,
+       zoom: 17
+          }
+        },  
+        
+  marker:{
+        latLng: [42.27799930039926, -83.73660256217954],
+        options:{
+          draggable:true
+                },
+                events:{
+                     dragend: function(map, event){
+                         var myLatLng = event.latLng;
+                         var lat = myLatLng.lat();
+                         var lng = myLatLng.lng();
+                         $('#classroom_location_attributes_latitude').val(lat) ;
+                         $('#classroom_location_attributes_longitude').val(lng) ;
+                         
+                     }
                  }
-               }
-             });
-           }
-         }
-       },
-       map:{
-         options:{
-           zoom: 15
-         }
-       }
-     });
+                
+        }      
+   });
+   
+ 
+
+    
+  
+ 
+    
     
     

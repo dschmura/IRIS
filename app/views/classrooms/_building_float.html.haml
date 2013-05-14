@@ -14,13 +14,12 @@
       %b LSA ISS Classroom
 
 
-  - else    
-    - if @classroom.DEPT_GRP = 'SCHOOL_DENTISTRY'
-      %em 
-        %b Dental School
-    -else
-      %em
-        %b Departmental Classroom
+  -# elsif @classroom.DEPT_GRP = 'SCHOOL_DENTISTRY'
+    -#%em 
+      -#%b Dental School
+  -else
+    %em
+      %b Departmental Classroom
   %br
   
 

@@ -14,7 +14,7 @@
       = simple_form_for @search, :remote => false, :html => {:class => "form-inline"} do |f|
         -#= f.select :DEPT_GRP_equals, [['All Departments',''],['College of LSA','COLLEGE_OF_LSA'], ['School of Dentistry', 'SCHOOL_DENTISTRY']]
         -#%br
-        -#%br
+        %br
         -# =>
           = f.collection_select :location_id_equals, Location.where(:locatable_type => "Building").order("name ASC"), :id, :name, :prompt => "Limit By Scheduler"
           %br
