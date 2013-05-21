@@ -12,8 +12,8 @@
         Use the fields and checkboxes below to specify attributes such as minimum seating capacity, type of writing surface, and installed equipment. Then, press the Search button at the bottom to list rooms that meet your requirements.
 
       = simple_form_for @search, :remote => false, :html => {:class => "form-inline"} do |f|
-        -#= f.select :DEPT_GRP_equals, [['All Departments',''],['College of LSA','COLLEGE_OF_LSA'], ['School of Dentistry', 'SCHOOL_DENTISTRY']]
-        -#%br
+        = f.select :DEPT_GRP_equals, [['All Departments',''],['College of LSA','COLLEGE_OF_LSA'], ['School of Dentistry', 'SCHOOL_DENTISTRY']]
+        %br
         %br
         -# =>
           = f.collection_select :location_id_equals, Location.where(:locatable_type => "Building").order("name ASC"), :id, :name, :prompt => "Limit By Scheduler"

@@ -38,6 +38,10 @@ module ClassroomsHelper
     	  "../maps/ahg.html"
     	when /CHEMA/
     	  "../maps/chema8.html"
+    	when /DENTG/
+    	  "../maps/dentg.html"
+    	when /DENTB/
+    	  "../maps/dentb.html"    
     	when /EHB/
     	  "../maps/ehb.html"
     	when /EQB/

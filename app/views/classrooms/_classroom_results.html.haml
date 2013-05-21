@@ -13,8 +13,8 @@
         = sort_link @search, :student_capacity, "Capacity", :default_order => :desc
       %th.span2
         = sort_link @search, :room_number, "Room Number", :default_order => :desc
-      -#%th.span2
-        -#%b Schedule
+      %th.span2
+        %b Schedule
       - if user_signed_in?
         -#%th
         %th
@@ -28,9 +28,9 @@
     
       %td= classroom.student_capacity      
       %td= link_to classroom.room_number, classroom
-      -#%td
+      %td
         -#%i.icon-calendar
-        -#= link_to "Schedule", "https://heprod.dsc.umich.edu/services/facilitycalendar?facilityid=#{classroom.facility_code_heprod }", :target => "_blank"
+        = link_to "Schedule", "https://heprod.dsc.umich.edu/services/facilitycalendar?facilityid=#{classroom.facility_code_heprod }", :target => "_blank"
   
       - if user_signed_in?
         -# %td= link_to 'Show', classroom
