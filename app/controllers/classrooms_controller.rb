@@ -13,17 +13,20 @@ class ClassroomsController < ApplicationController
   # GET /classrooms.xml
   def index
     @page_title = "Classrooms"
-    @search = Classroom.search(params[:search])
+    @search = Classroom.search(params[:q])
     if params[:per_page]
       @per_page = params[:per_page]
     else
       @per_page = 14
      end
-    if @search.student_capacity_greater_than_or_equal_to.nil?
-      @search.student_capacity_greater_than_or_equal_to = 1
-      @search.student_capacity_less_than_or_equal_to = 500
+    if @search.student_capacity_gteq.nil?
+      @search.student_capacity_gteq = 1
+      @search.student_capacity_lteq = 500
     end
-    @classrooms = @search.paginate(:page => params[:page], :per_page => @per_page).order("student_capacity desc")   # or @search.relation to lazy load in view
+    #@classrooms = @search.paginate(:page => params[:page], :per_page => @per_page).order("student_capacity desc")   # or @search.relation to lazy load in view
+    @classrooms = @search.result.paginate(:page => params[:page], :per_page => @per_page).order("student_capacity desc")   # or @search.relation to lazy load in view
+    
+    #@classrooms = @search
     @owners = "Owner"
     respond_to do |format|
       format.html # index.html.erb
@@ -33,7 +36,7 @@ class ClassroomsController < ApplicationController
   end
 
   def search
-    @search = Classroom.search(params[:search])
+    @search = Classroom.search(params[:q])
     @classrooms = @search.all   # or @search.relation to lazy load in view
   end
 
@@ -58,6 +61,8 @@ class ClassroomsController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @classroom }
+      format.svg  { render :qrcode => "http://rooms.lsa.umich.edu/classrooms/#{@classroom.facility_code_heprod}" }
+      format.png  { render :qrcode => "http://rooms.lsa.umich.edu/classrooms/#{@classroom.facility_code_heprod}" }
     end
   end
 

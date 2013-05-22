@@ -24,6 +24,11 @@ gem "cancan", ">= 1.6.9"
 gem "rolify", ">= 3.2.0"
 #gem 'anjlab-bootstrap-rails', '>= 2.1', :require => 'bootstrap-rails'
 
+# QR-Code generation
+gem 'rqrcode-rails3'
+gem 'mini_magick'
+
+
 gem "simple_form"
 gem 'will_paginate', '~> 3.0'
 gem "therubyracer", :group => :assets, :platform => :ruby
@@ -42,7 +47,8 @@ gem "paperclip", "~> 3.4.1"
 #gem "paperclip"
 
 #gem 'mini_magick'
-gem "meta_search"
+#gem "meta_search"
+gem "ransack"
 gem 'annotate', ">=2.5.0"
 
 group :production do
