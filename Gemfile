@@ -6,11 +6,11 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
   gem 'font-awesome-sass-rails'
   gem 'sass-rails', '~> 3.2'
-  gem 'bootstrap-sass', '~> 2.3.1.0'
-  
+  #gem 'bootstrap-sass', '~> 2.3.1.0'
+  gem 'bootstrap-sass', '~> 2.3.1.2'
 end
 
-gem 'jquery-rails'
+gem 'jquery-rails', '2.2.1'
 gem 'jquery-ui-rails'
 gem "haml", ">= 4.0.0"
 #gem "haml-rails", ">= 0.3.4", :group => :development
@@ -38,7 +38,7 @@ gem 'kaminari'
 ## Used for uploading and resizing images (Need both paperclip and mini_magick)
 #gem 'paperclip', '~> 2.8.0'
 #gem "paperclip", "~> 3.0"
-gem "paperclip", "~> 3.4.1"
+gem "paperclip", "~> 3.4.2"
 #gem "cocaine", "= 0.5.1"
 #gem "cocaine", "=0.3.2"
 #gem "cocaine", "= 0.4"

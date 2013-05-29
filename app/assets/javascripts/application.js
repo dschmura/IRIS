@@ -18,6 +18,7 @@
 //= require pano2vr_player
 //= require gmap3.min
 
+
 $(document).ready(function(){
     $('a').tooltip();
     //$('a[href="' + this.location.pathname + '"]').parent().addClass('active');

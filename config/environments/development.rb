@@ -17,8 +17,8 @@ Iris::Application.configure do
   config.assets.compress = false
 
 
-  Paperclip.options[:command_path] = "/usr/local/bin/"
-
+  #Paperclip.options[:command_path] = "/usr/local/bin/"
+  Paperclip.options[:command_path] = "/opt/local/bin/"
   # Expands the lines which load the assets
   config.assets.debug = true
   
