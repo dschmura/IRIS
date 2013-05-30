@@ -69,7 +69,7 @@ class ClassroomsController < ApplicationController
       format.html # show.html.erb
       format.xml  { render :xml => @classroom }
       format.svg  { render :qrcode => "http://rooms.lsa.umich.edu/classrooms/#{@classroom.facility_code_heprod}" }
-      format.png  { render :qrcode => "http://rooms.lsa.umich.edu/classrooms/#{@classroom.facility_code_heprod}" }
+      format.gif  { render :qrcode => "http://rooms.lsa.umich.edu/classrooms/#{@classroom.facility_code_heprod}" }
     end
   end
 
