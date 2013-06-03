@@ -27,7 +27,7 @@
 
     %b Department:
     -#= @owner.department_name
-    %a{"data-original-title" => @room_schedule_contact.RM_SCHD_CNTCT_NAME, "data-placement" => "right", :href => "https://heprod.dsc.umich.edu/services/facilitycalendar?facilityid=#{@classroom.facility_code_heprod }", :target => "_blank", :rel => "tooltip"} 
+    %a{"data-original-title" => @room_schedule_contact.RM_SCHD_CNTCT_NAME, "data-placement" => "right", :href => "https://csprod.dsc.umich.edu/services/facilitycalendar?facilityid=#{@classroom.facility_code_heprod }", :target => "_blank", :rel => "tooltip"} 
 
       = truncate(@room_schedule_contact.RM_SCHD_CNTCT_NAME, :length => 40)
     %br
