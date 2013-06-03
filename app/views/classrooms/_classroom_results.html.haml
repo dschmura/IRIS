@@ -31,7 +31,7 @@
       %td= link_to classroom.room_number, classroom
       %td
         -#%i.icon-calendar
-        = link_to "Schedule", "https://heprod.dsc.umich.edu/services/facilitycalendar?facilityid=#{classroom.facility_code_heprod }", :target => "_blank"
+        = link_to "Schedule", "https://csprod.dsc.umich.edu/services/facilitycalendar?facilityid=#{classroom.facility_code_heprod }", :target => "_blank"
   
       - if user_signed_in?
         -# %td= link_to 'Show', classroom
