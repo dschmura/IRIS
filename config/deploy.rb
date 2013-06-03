@@ -24,7 +24,7 @@ default_run_options[:pty] = true
 # RECIPE INCLUDES
 # =============================================================================
 
-set :bundle_flags, "--deployment --quiet --binstubs --shebang ruby-local-exec"
+set :bundle_flags, "--deployment --quiet --binstubs --shebang "
 set :rake, "#{release_path}/bin/rake"
 
 namespace :deploy do
