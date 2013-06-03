@@ -32,7 +32,7 @@ gem "simple_form"
 gem 'will_paginate', '~> 3.0'
 gem "therubyracer", :group => :assets, :platform => :ruby
 gem 'will_paginate-bootstrap'
-gem 'kaminari'
+#gem 'kaminari'
 
 ## Used for uploading and resizing images (Need both paperclip and mini_magick)
 
