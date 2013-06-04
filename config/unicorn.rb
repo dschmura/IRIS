@@ -28,3 +28,6 @@ pid "#{shared_path}/pids/unicorn.pid"
 stderr_path "#{shared_path}/log/unicorn.stderr.log"
 stdout_path "#{shared_path}/log/unicorn.stdout.log"
 
+before_exec do |server|
+  ENV['BUNDLE_GEMFILE'] = "#{base_dir}/Gemfile"
+end
