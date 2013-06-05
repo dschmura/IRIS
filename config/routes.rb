@@ -51,6 +51,8 @@ Iris::Application.routes.draw do
   match '/admin', :to => 'pages#admin'
   match '/dentistry', :to => 'pages#dentistry'
   
+  match '/classrooms/:id/seating', :to => 'classrooms#seating'
+  
   #match '/dentistry', :to => 'classrooms#index'
   #match '/dentistry', :to => redirect("http://localhost:3000/classrooms?utf8=✓&search%5BDEPT_GRP_equals%5D=SCHOOL_DENTISTRY"), :as => :dentistry
 

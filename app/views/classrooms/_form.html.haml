@@ -1,5 +1,4 @@
 
-
 = simple_form_for @classroom, :html => {:multipart => true} do |f|
   %pre.prettyprint.linenums.lang-rb
     :preserve
@@ -65,6 +64,8 @@
         %br
         %br
         
+        #maptest
+          This is a test
       
         #location_image_form.span9
           -if @classroom.location.picture_file_name != nil
@@ -84,10 +85,7 @@
               = f.simple_fields_for :location do |loc|
                 -# paperclip method
                 = loc.file_field :picture    
-    
-          
 
- 
     .row.span12
       %h3 Attributes              
  
@@ -188,11 +186,8 @@
           #attribute_assisted_listening
             = f.input :assisted_listening
           #attribute_instructor_wheelchair_access
-            = f.input :wheelchair_instructor
+            = f.input :wheelchair_instructor  
 
-   
-      
-        
     .row
       %hr
       %br
@@ -201,9 +196,8 @@
         = f.button :submit
         |
         = link_to "Cancel", @classroom
-         
-      
-      
+        
+       
 
 :javascript
   function showValue(newValue)
@@ -272,11 +266,23 @@
         }      
    });
    
+   $('#maptest').gmap3({
+     getgeoloc:{
+       callback : function(latLng){
+         if (latLng){
+           $(this).gmap3({
+             marker:{ 
+               latLng:latLng
+             },
+             map:{
+               options:{
+                 zoom: 5
+               }
+             }
+           });
+         }
+       }
+     }
+   });
+   
 
-
-    
-  
- 
-    
-    
-    

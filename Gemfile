@@ -28,6 +28,7 @@ gem "rolify", ">= 3.2.0"
 gem 'rqrcode-rails3'
 gem 'mini_magick'
 
+
 gem "simple_form"
 gem 'will_paginate', '~> 3.0'
 gem "therubyracer", :group => :assets, :platform => :ruby

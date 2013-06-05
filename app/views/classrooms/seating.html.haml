@@ -1,0 +1,26 @@
+
+.row
+  .span6
+    %h2
+      = @page_title
+    %br
+    %h3
+      Feel free to rearrange but,
+    %h2
+      Please put tables and chairs back
+      %br
+      %br
+      .span2
+        = image_tag "../classrooms/#{@classroom.facility_code_heprod}.gif"
+        -#= image_tag "http://rooms.lsa.umich.edu/classrooms/#{@classroom.facility_code_heprod}.gif"
+  .span5
+    #seating_chart
+
+
+
+%br
+%br
+.row
+  .span12
+    = image_tag @classroom.location.picture.url(:show).to_s, :alt => @classroom_alt
+    

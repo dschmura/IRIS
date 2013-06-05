@@ -2,6 +2,8 @@
 
 #image_test
 
+#maptest
+  This is a test
   
 
 %p
@@ -53,3 +55,22 @@ c9bf98
 ffc
 </div>
 
+:javascript
+  $('#maptest').gmap3({
+     getgeoloc:{
+       callback : function(latLng){
+         if (latLng){
+           $(this).gmap3({
+             marker:{ 
+               latLng:latLng
+             },
+             map:{
+               options:{
+                 zoom: 5
+               }
+             }
+           });
+         }
+       }
+     }
+   });

@@ -47,7 +47,28 @@ class ClassroomsController < ApplicationController
     @classrooms = @search.all   # or @search.relation to lazy load in view
   end
 
+  def seating
+    #@classroom = Classroom.find(params[:id])
+    @classroom = Classroom.find_by_facility_code_heprod(params[:id].upcase)
+    @page_title = @classroom.location.name
+    @classroom_alt = @classroom.location.name + " - " + @classroom.room_number
+    @building = Location.find(@classroom.location_id)
+    @owner = Owner.find(@classroom.owner_id)
+    @room_schedule_contact = RoomScheduleContact.find_by_RMRECNBR(@classroom.rmrecnbr)
+    @room_attributes = RoomAttribute.find_all_by_RMRECNBR(@classroom.rmrecnbr)
 
+    @building_image = @building.picture.url(:medium).to_s
+    @building_sign_image = @building.building_sign.url(:thumb).to_s
+    @search = Classroom.search(params[:search])
+    @qrcode = RQRCode::QRCode.new( 'my string to generate', :size => 4, :level => :h )
+    #@classroom_herprod = Building.find(params[:location_id]).building_short_code
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @classroom }
+      format.svg  { render :qrcode => "http://rooms.lsa.umich.edu/classrooms/#{@classroom.facility_code_heprod}" }
+      format.gif  { render :qrcode => "http://rooms.lsa.umich.edu/classrooms/#{@classroom.facility_code_heprod}", :level => :l, :unit => 8 }
+    end
+  end
   # GET /classrooms/1
   # GET /classrooms/1.xml
   def show
@@ -69,7 +90,7 @@ class ClassroomsController < ApplicationController
       format.html # show.html.erb
       format.xml  { render :xml => @classroom }
       format.svg  { render :qrcode => "http://rooms.lsa.umich.edu/classrooms/#{@classroom.facility_code_heprod}" }
-      format.gif  { render :qrcode => "http://rooms.lsa.umich.edu/classrooms/#{@classroom.facility_code_heprod}" }
+      format.gif  { render :qrcode => "http://rooms.lsa.umich.edu/classrooms/#{@classroom.facility_code_heprod}", :level => :l, :unit => 8 }
     end
   end
 
