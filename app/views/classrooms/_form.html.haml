@@ -1,3 +1,5 @@
+#maptest.gmap3
+<button onclick="myFunction()">Find current location</button>
 
 = simple_form_for @classroom, :html => {:multipart => true} do |f|
   %pre.prettyprint.linenums.lang-rb
@@ -64,8 +66,7 @@
         %br
         %br
         
-        #maptest
-          This is a test
+       
       
         #location_image_form.span9
           -if @classroom.location.picture_file_name != nil
@@ -248,7 +249,8 @@
         },  
         
   marker:{
-        latLng: [42.27799930039926, -83.73660256217954],
+  
+        latLng: [#{@classroom.location.latitude}, #{@classroom.location.longitude}],
         options:{
           draggable:true
                 },
@@ -270,16 +272,32 @@
      getgeoloc:{
        callback : function(latLng){
          if (latLng){
+           
            $(this).gmap3({
              marker:{ 
-               latLng:latLng
+               latLng:latLng,
+               options:{
+                 draggable:true
+                       },
+                       events:{
+                            dragend: function(map, event){
+                                var myLatLng = event.latLng;
+                                var lat = myLatLng.lat();
+                                var lng = myLatLng.lng();
+                                $('#classroom_location_attributes_latitude').val(lat) ;
+                                $('#classroom_location_attributes_longitude').val(lng) ;
+
+                            }
+                        }
              },
              map:{
-               options:{
-                 zoom: 5
-               }
-             }
+                options:{
+                  zoom: 17
+                }
+              }
            });
+         } else {
+           $('#test1-result').html('not localised !');
          }
        }
      }

@@ -1,9 +1,17 @@
+
+
+<div id="test1-result"></div>  
+<div id="test1" class="gmap3"></div>
+
+%br
+%br  
+  
+
 %h1 IRIS Development Page
 
 #image_test
 
-#maptest
-  This is a test
+
   
 
 %p
@@ -56,21 +64,28 @@ ffc
 </div>
 
 :javascript
-  $('#maptest').gmap3({
-     getgeoloc:{
-       callback : function(latLng){
-         if (latLng){
-           $(this).gmap3({
-             marker:{ 
-               latLng:latLng
-             },
-             map:{
-               options:{
-                 zoom: 5
+  
+  
+    $('#test1').gmap3({
+      getgeoloc:{
+        callback : function(latLng){
+          if (latLng){
+            
+            $(this).gmap3({
+              marker:{ 
+                latLng:latLng
+              },
+              map:{
+                 options:{
+                   zoom: 15
+                 }
                }
-             }
-           });
-         }
-       }
-     }
-   });
+            });
+          } else {
+            $('#test1-result').html('not localised !');
+          }
+        }
+      }
+    });
+    
+ 
