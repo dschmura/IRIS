@@ -1,7 +1,7 @@
 ## Need to document
 
 class ClassroomsController < ApplicationController
-  before_filter :authenticate_user!, :except => [:show, :index]
+  before_filter :authenticate_user!, :except => [:show, :index, :seating]
   #before_filter :admin_user, :only => [:new, :create, :edit, :update, :destroy]
 
   def import
