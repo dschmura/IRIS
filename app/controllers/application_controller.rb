@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
 
   def redirect_https        
     @ip = request.remote_ip     
-    redirect_to :protocol => "https://" unless (request.ssl? || @ip.match(/141.211.|67.194.|35.1.|141.212.|141.213.|141.214.|141.215.|127.0.0.1/))
+    redirect_to :protocol => "https://" unless (request.ssl? || @ip.match(/141.211.|67.194.|35.1.|141.212.|141.213.|141.214.|141.215.|192.168.1.|127.0.0.1/))
     return true
   end
       before_filter :redirect_https
