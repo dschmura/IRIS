@@ -232,6 +232,7 @@
             %a{"data-original-title" => "Room contains a Mac computer for use by the instructor.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.podium_computer_mac) }Podium Classroom Mac
             - if @classroom.podium_computer_mac
               .icon-ok
+              
           %li
             %a{"data-original-title" => "Room contains a PC computer for use by the instructor.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.podium_computer_windows) }Podium Classroom Windows
             - if @classroom.podium_computer_windows
@@ -277,6 +278,7 @@
           -#.icon-film
           %li
             %a{"data-original-title" => "Room contains 16mm film projector.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.projection_16mm_film) }Projection 16mm Film
+              
             - if @classroom.projection_16mm_film
               .icon-ok
           %li
