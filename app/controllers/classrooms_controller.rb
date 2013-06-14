@@ -49,7 +49,7 @@ class ClassroomsController < ApplicationController
 
   def seating
     #@classroom = Classroom.find(params[:id])
-    @classroom = Classroom.find_by_facility_code_heprod(params[:id].upcase)
+    @classroom = find_classroom
     @page_title = @classroom.location.name
     @classroom_alt = @classroom.location.name + " - " + @classroom.room_number
     @building = Location.find(@classroom.location_id)
@@ -73,7 +73,7 @@ class ClassroomsController < ApplicationController
   # GET /classrooms/1.xml
   def show
     #@classroom = Classroom.find(params[:id])
-    @classroom = Classroom.find_by_facility_code_heprod(params[:id].upcase)
+    @classroom = find_classroom
     @page_title = @classroom.location.name
     @classroom_alt = @classroom.location.name + " - " + @classroom.room_number
     @building = Location.find(@classroom.location_id)
@@ -117,7 +117,7 @@ class ClassroomsController < ApplicationController
   def edit
     #@location = Location.find(params[:id])
 
-    @classroom = Classroom.find_by_facility_code_heprod(params[:id].upcase)
+    @classroom = find_classroom
     @location = Location.find(@classroom.location_id)
     @page_title = "Editing Classroom: " + @location.name
   end
@@ -142,7 +142,7 @@ class ClassroomsController < ApplicationController
   # PUT /classrooms/1
   # PUT /classrooms/1.xml
   def update
-    @classroom = Classroom.find_by_facility_code_heprod(params[:id].upcase)
+    @classroom = find_classroom
 
     respond_to do |format|
       if @classroom.update_attributes(params[:classroom])
@@ -164,6 +164,10 @@ class ClassroomsController < ApplicationController
       format.html { redirect_to :back }
       format.xml  { head :ok }
     end
+  end
+  
+  def find_classroom  
+    Classroom.find_by_facility_code_heprod(params[:id].upcase)
   end
 
 
