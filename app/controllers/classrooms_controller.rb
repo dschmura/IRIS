@@ -55,12 +55,12 @@ class ClassroomsController < ApplicationController
     @building = Location.find(@classroom.location_id)
     @owner = Owner.find(@classroom.owner_id)
     @room_schedule_contact = RoomScheduleContact.find_by_RMRECNBR(@classroom.rmrecnbr)
-    @room_attributes = RoomAttribute.find_all_by_RMRECNBR(@classroom.rmrecnbr)
+    #@room_attributes = RoomAttribute.find_all_by_RMRECNBR(@classroom.rmrecnbr)
 
     @building_image = @building.picture.url(:medium).to_s
     @building_sign_image = @building.building_sign.url(:thumb).to_s
     @search = Classroom.search(params[:search])
-    @qrcode = RQRCode::QRCode.new( 'my string to generate', :size => 4, :level => :h )
+    
     #@classroom_herprod = Building.find(params[:location_id]).building_short_code
     respond_to do |format|
       format.html # show.html.erb
@@ -79,7 +79,7 @@ class ClassroomsController < ApplicationController
     @building = Location.find(@classroom.location_id)
     @owner = Owner.find(@classroom.owner_id)
     @room_schedule_contact = RoomScheduleContact.find_by_RMRECNBR(@classroom.rmrecnbr)
-    @room_attributes = RoomAttribute.find_all_by_RMRECNBR(@classroom.rmrecnbr)
+    #@room_attributes = RoomAttribute.find_all_by_RMRECNBR(@classroom.rmrecnbr)
 
     @building_image = @building.picture.url(:medium).to_s
     @building_sign_image = @building.building_sign.url(:thumb).to_s
@@ -91,6 +91,7 @@ class ClassroomsController < ApplicationController
       format.xml  { render :xml => @classroom }
       format.svg  { render :qrcode => "http://rooms.lsa.umich.edu/classrooms/#{@classroom.facility_code_heprod}" }
       format.gif  { render :qrcode => "http://rooms.lsa.umich.edu/classrooms/#{@classroom.facility_code_heprod}", :level => :l, :unit => 8 }
+      format.png  { render :qrcode => "http://rooms.lsa.umich.edu/classrooms/#{@classroom.facility_code_heprod}", :level => :l, :unit => 8 }
     end
   end
 
@@ -116,7 +117,6 @@ class ClassroomsController < ApplicationController
   # GET /classrooms/1/edit
   def edit
     #@location = Location.find(params[:id])
-
     @classroom = find_classroom
     @location = Location.find(@classroom.location_id)
     @page_title = "Editing Classroom: " + @location.name
