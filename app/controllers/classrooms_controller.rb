@@ -166,12 +166,14 @@ class ClassroomsController < ApplicationController
     end
   end
   
-  def find_classroom  
-    Classroom.find_by_facility_code_heprod(params[:id].upcase)
-  end
+  
 
 
   private
+  def find_classroom  
+    Classroom.find_by_facility_code_heprod(params[:id].upcase)
+  end
+  
   def sort_column
     params[:sort] || "room_number"
   end
