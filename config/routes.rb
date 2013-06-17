@@ -49,11 +49,11 @@ Iris::Application.routes.draw do
   match '/faq', :to => 'pages#faq'
   match '/events', :to => 'pages#event_support'
   match '/admin', :to => 'pages#admin'
-  match '/dentistry', :to => 'pages#dentistry'
+  #match '/dentistry', :to => 'pages#dentistry'
   
   match '/classrooms/:id/seating', :to => 'classrooms#seating'
   
-  #match '/dentistry', :to => 'classrooms#index'
+  #match '/dentistry' => redirect("http://rooms.lsa.umich.edu/classrooms?utf8=✓&q%5BDEPT_GRP_eq%5D=SCHOOL_DENTISTRY")
   #match '/dentistry', :to => redirect("http://localhost:3000/classrooms?utf8=✓&search%5BDEPT_GRP_equals%5D=SCHOOL_DENTISTRY"), :as => :dentistry
 
 

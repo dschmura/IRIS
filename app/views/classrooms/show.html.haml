@@ -57,7 +57,7 @@
 
 .row-fluid
   #attributes
-    .span4.offset1
+    .span5.offset1
 
       %h3 Room Design
 
@@ -189,15 +189,17 @@
             - if @classroom.computer_classroom_any
               .icon-ok
           %li
+            %i.icon-apple
             %a{"data-original-title" => "Room contains Mac computers at each student workstation.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.computer_classroom_mac) }Computer Classroom Mac
             - if @classroom.computer_classroom_mac
               .icon-ok
           %li
+            %i.icon-windows
             %a{"data-original-title" => "Room contains PC computers at each student workstation.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.computer_classroom_windows) }Computer Classroom Windows
             - if @classroom.computer_classroom_windows
               .icon-ok
 
-    .span4.offset2
+    .span5.offset1
       %h3 Equipment
       %hr
 
@@ -224,16 +226,19 @@
 
       %hr
       %i.icon-laptop
+      
       %b Podium Computer:
       %ul
         %ul
 
           %li
+            %i.icon-apple
             %a{"data-original-title" => "Room contains a Mac computer for use by the instructor.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.podium_computer_mac) }Podium Classroom Mac
             - if @classroom.podium_computer_mac
               .icon-ok
               
           %li
+            %i.icon-windows
             %a{"data-original-title" => "Room contains a PC computer for use by the instructor.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.podium_computer_windows) }Podium Classroom Windows
             - if @classroom.podium_computer_windows
               .icon-ok
@@ -245,7 +250,7 @@
         - if @classroom.document_camera
           .icon-ok
       %br
-      %i#attribute_interactive_pen
+      %i.icon-edit
       %b
         %a{"data-original-title" => "Room contains special digitial pen and writing surface for commenting/editing digital presentation.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.interactive_pen) }Interactive Pen
         - if @classroom.interactive_pen

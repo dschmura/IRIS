@@ -166,7 +166,6 @@ class ClassroomsController < ApplicationController
     end
   end
   
-  
 
 
   private
