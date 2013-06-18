@@ -8,7 +8,8 @@ group :assets do
   gem 'font-awesome-rails'
   gem 'sass-rails', '~> 3.2'
   #gem 'bootstrap-sass', '~> 2.3.1.0'
-  gem 'bootstrap-sass', '~> 2.3.1.2'
+  #gem 'bootstrap-sass', '~> 2.3.1.2'
+  gem 'bootstrap-sass', '~> 2.3.2.0'
 end
 
 gem 'jquery-rails', '2.2.1'
