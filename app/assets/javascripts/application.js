@@ -17,6 +17,7 @@
 //= require bootstrap
 //= require pano2vr_player
 //= require gmap3.min
+//= require swfobject
 
 
 $(document).ready(function(){
