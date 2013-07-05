@@ -376,7 +376,7 @@
       else if (e.target.id == "#maptab")
       {
         $("#pano").replaceWith("");
-        $('#map').height("300px").width("100%").gmap3({
+        $('#map').height("300px").width("97%").gmap3({
         
           map:{
             
@@ -388,9 +388,13 @@
               mapTypeControlOptions: {
                 style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR
                 },
-              navigationControl: true,
-              scrollwheel: true,
-              streetViewControl: true,
+              navigationControl: false,
+              scrollwheel: false,
+              zoomControl: true,
+              zoomControlOptions: {
+                  style: google.maps.ZoomControlStyle.DEFAULT
+                },
+              streetViewControl: false,
               panControl: false,
               panControlOptions: {
                   position: google.maps.ControlPosition.BOTTOM_LEFT
