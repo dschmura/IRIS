@@ -64,6 +64,7 @@ class ClassroomsController < ApplicationController
     #@classroom_herprod = Building.find(params[:location_id]).building_short_code
     respond_to do |format|
       format.html # show.html.erb
+      format.png  { render :qrcode => "http://rooms.lsa.umich.edu/classrooms/#{@classroom.facility_code_heprod}", :level => :l, :unit => 8 }
       
     end
   end
