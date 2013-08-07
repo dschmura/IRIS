@@ -17,6 +17,10 @@ class ApplicationController < ActionController::Base
   end
       before_filter :redirect_https
 
+  rescue_from CanCan::AccessDenied do |exception|
+      redirect_to root_url, :alert => exception.message
+    end
+
   private  
     def mobile_device?  
       request.user_agent =~ /Mobile|webOS/  

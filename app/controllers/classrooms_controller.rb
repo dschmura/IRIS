@@ -14,6 +14,7 @@ class ClassroomsController < ApplicationController
   # GET /classrooms.xml
   def index
     @page_title = "Classrooms"
+    
     @search = Classroom.search(params[:q])
     if params[:per_page]
       @per_page = params[:per_page]
@@ -24,8 +25,10 @@ class ClassroomsController < ApplicationController
       @dept_group = "SET"
     else
       @dept_group = "not set"
-      
     end
+    
+    
+    
     if @search.student_capacity_gteq.nil?
       @search.student_capacity_gteq = 1
       @search.student_capacity_lteq = 500
@@ -64,7 +67,8 @@ class ClassroomsController < ApplicationController
     #@classroom_herprod = Building.find(params[:location_id]).building_short_code
     respond_to do |format|
       format.html # show.html.erb
-      format.png  { render :qrcode => "http://rooms.lsa.umich.edu/classrooms/#{@classroom.facility_code_heprod}", :level => :l, :unit => 8 }
+      format.
+      png  { render :qrcode => "http://rooms.lsa.umich.edu/classrooms/#{@classroom.facility_code_heprod}", :level => :l, :unit => 8 }
       
     end
   end
@@ -163,6 +167,7 @@ class ClassroomsController < ApplicationController
 
 
   private
+
   def find_classroom  
     Classroom.find_by_facility_code_heprod(params[:id].upcase)
   end
