@@ -9,7 +9,7 @@ group :assets do
   gem 'sass-rails', '~> 3.2'
   #gem 'bootstrap-sass', '~> 2.3.1.0'
   #gem 'bootstrap-sass', '~> 2.3.1.2'
-  gem 'bootstrap-sass', '~> 2.3.2.1'
+  gem 'bootstrap-sass', '2.3.2.1'
   
   #gem 'sass-rails',   '~> 3.2.3'
   #gem 'bootstrap-sass', :git => 'git://github.com/intridea/bootstrap-sass.git', :branch => '3.0.0-wip'
@@ -18,8 +18,6 @@ end
 gem 'jquery-rails', '2.2.1'
 gem 'jquery-ui-rails'
 gem "haml", ">= 4.0.0"
-#gem "haml-rails", ">= 0.3.4", :group => :development
-#gem "haml-rails" , :group => :development
 gem "rspec-rails", ">= 2.10.1", :group => [:development, :test]
 gem "machinist", :group => :test
 gem "factory_girl_rails", ">= 3.3.0", :group => [:development, :test]
