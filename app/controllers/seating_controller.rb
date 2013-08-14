@@ -1,4 +1,4 @@
-class SeatingController < ApplicationController::Base
+class SeatingController < ApplicationController
 
   def seating
    
