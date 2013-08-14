@@ -20,7 +20,7 @@ class SeatingController < ApplicationController::Base
         format.html # show.html.erb
         format.
         png  { render :qrcode => "http://rooms.lsa.umich.edu/classrooms/#{@classroom.facility_code_heprod}", :level => :l, :unit => 8 }
-    
+    end
   end
   private
 

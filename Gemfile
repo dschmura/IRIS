@@ -47,5 +47,5 @@ gem "ransack"
 gem 'annotate', ">=2.5.0"
 
 group :production do
-  gem 'unicorn', '=4.6.2'
+  gem 'unicorn'
 end
