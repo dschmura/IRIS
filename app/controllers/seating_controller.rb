@@ -1,6 +1,6 @@
 class SeatingController < ApplicationController
 
-  def seating
+  def show
    
       #@classroom = Classroom.find(params[:id])
       @classroom = Classroom.find_by_facility_code_heprod(params[:id].upcase)
