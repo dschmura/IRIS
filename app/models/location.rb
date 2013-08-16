@@ -35,7 +35,7 @@ class Location < ActiveRecord::Base
   ## Paperclip method for uploading location images
   
   
-  has_attached_file :picture, :styles => {:show => "1200x500#", :medium => "300x300#", :thumb => "100x100>"}, :convert_options => {:show => "-gravity center"}
+  has_attached_file :picture, :styles => {:show => "1200x300#", :medium => "300x300#", :thumb => "100x100>"}, :convert_options => {:show => "-gravity center"}
   
   has_attached_file :building_sign, :styles => { :show => ["1200x500#", :jpg], :medium => ["300x300#", :jpg], :thumb => ["100x100#", :jpg] }, :convert_options => {:show => "-gravity center"}
   belongs_to :locatable, :polymorphic => true
