@@ -9,12 +9,10 @@
   
   %br
   
-  - if @owner.id == 1
+  - if  @classroom.DEPT_GRP == 'COLLEGE_OF_LSA'
     %em
       %b LSA ISS Classroom
-
-
-  - elsif @classroom.DEPT_GRP = 'SCHOOL_DENTISTRY'
+  - elsif @classroom.DEPT_GRP == 'SCHOOL_DENTISTRY'
     %em 
       %b Dental School
   -else
