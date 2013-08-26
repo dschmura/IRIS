@@ -61,6 +61,8 @@ class Classroom < ActiveRecord::Base
   has_one :owner, :as => :ownable
   has_one :room_schedule_contact
   has_many :room_attributes
+  #scope :visible, lambda { |visible| where(:visible => 'true') unless user.has_role? :admin }
+  scope :visible, lambda { includes(:location).where("locations.visible = ?", true)}
   
   accepts_nested_attributes_for :location, :allow_destroy => true  
   validates_presence_of :location_id
@@ -95,7 +97,9 @@ class Classroom < ActiveRecord::Base
   #                      :numericality => true,
   #                      :length => { :is => 7 }
                       
+  
 
+  
   #Makes for links on the site more SEO friendly
   def to_param
     "#{facility_code_heprod.upcase.gsub(/[^[:alnum:]]/,'-')}".gsub(/-{2,}/,'-')

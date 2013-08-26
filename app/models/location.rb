@@ -48,4 +48,12 @@ class Location < ActiveRecord::Base
   validates :longitude, :presence => true,
                         :length => {:within => 9..18},
                         :numericality => true
+                        
+                        
+  #scope :visible, lambda { |visible| where(:visible => 'true') unless user.has_role? :admin }
+  #scope :visible, lambda { |visible| where(:visible => 'true')  }
+  #scope :is_visible, lambda{ |visible| where(visible: visible)  }
+  #scope :visible, -> { where(visible: true) }
+
+                        
 end
