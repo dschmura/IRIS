@@ -128,8 +128,8 @@ class ClassroomsController < ApplicationController
 
     respond_to do |format|
       if @classroom.save
-        format.html { redirect_to(@classroom, :notice => 'Classroom was successfully created.') }
-        format.xml  { render :xml => @classroom, :status => :created, :location => @classroom }
+        format.html { redirect_to(classrooms_path, :notice => "The #{@classroom.facility_code_heprod} Classroom was successfully created.") }
+        format.xml  { render :xml => classrooms_path, :status => :created, :location => @classroom }
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @classroom.errors, :status => :unprocessable_entity }
@@ -156,7 +156,7 @@ class ClassroomsController < ApplicationController
   # DELETE /classrooms/1
   # DELETE /classrooms/1.xml
   def destroy
-    @classroom = Classroom.find_by_facility_code_heprod(params[:id].upcase)
+    @classroom = Classroom.find_by_facility_code_heprod(params[:facility_code_heprod].upcase)
     @classroom.destroy
     respond_to do |format|
       format.html { redirect_to :back }
