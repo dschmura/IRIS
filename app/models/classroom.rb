@@ -55,14 +55,19 @@
 #
 
 class Classroom < ActiveRecord::Base
-  
+  resourcify
   has_one :location, :as => :locatable
   has_one :building
   has_one :owner, :as => :ownable
   has_one :room_schedule_contact
   has_many :room_attributes
   #scope :visible, lambda { |visible| where(:visible => 'true') unless user.has_role? :admin }
-  scope :visible, lambda { includes(:location).where("locations.visible = ?", true)}
+  
+  scope :visible, lambda { includes(:location).where("locations.visible = ?", true )    }
+  
+
+
+  
   
   accepts_nested_attributes_for :location, :allow_destroy => true  
   validates_presence_of :location_id
