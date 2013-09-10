@@ -8,10 +8,14 @@
     = @classroom.DEPT_GRP.gsub!(/_/, ' ')
   
   %br
-  
+
   - if  @classroom.DEPT_GRP == 'COLLEGE_OF_LSA'
-    %em
-      %b LSA ISS Classroom
+    -if @classroom.owner_id == 1
+      %em
+        %b LSA ISS Classroom
+    -else
+      %em
+        %b Departmental Classroom    
   - elsif @classroom.DEPT_GRP == 'SCHOOL_DENTISTRY'
     %em 
       %b Dental School
