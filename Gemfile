@@ -24,7 +24,7 @@ gem "rspec-rails", ">= 2.10.1", :group => [:development, :test]
 gem "machinist", :group => :test
 gem "factory_girl_rails", ">= 3.3.0", :group => [:development, :test]
 gem "email_spec", ">= 1.2.1", :group => :test
-gem "devise", ">= 2.2.3"
+gem "devise", "3.0.3"
 gem "cancan", ">= 1.6.9"
 gem "rolify", ">= 3.2.0"
 
