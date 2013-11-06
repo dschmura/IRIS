@@ -31,7 +31,7 @@ Iris::Application.configure do
   # In production, Apache or nginx will already do this
   config.serve_static_assets = true
   
-  
+  GA.tracker = "UA-45475553-1"
   Paperclip.options[:command_path] = "/usr/bin/"
 
   # Enable serving of images, stylesheets, and javascripts from an asset server
