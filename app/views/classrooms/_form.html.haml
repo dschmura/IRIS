@@ -1,5 +1,3 @@
-#maptest.gmap3
-<button onclick="myFunction()">Find current location</button>
 
 = simple_form_for @classroom, :html => {:multipart => true} do |f|
   %pre.prettyprint.linenums.lang-rb
@@ -60,32 +58,32 @@
             = loc.input :visible, :input_html => {:class => 'form-horizontal'}
             = loc.input :description, :input_html => { :class => "span12", :rows => 5 }, :placeholder => "Classroom Description (will be displayed in map)"   
         
-      .span6.offset1
-        #editmap.gmap3  
-        drag & drop the marker to see the address
-        %br
-        %br
+      
         
        
       
-        #location_image_form.span9
-          -if @classroom.location.picture_file_name != nil
-            = image_tag @classroom.location.picture.url.to_s
-            %p.prepend-4#update_image
-              %b Change the image for this classroom.  
-              %br
-              %br
-              = f.simple_fields_for :location, :html => { :multipart => true } do |loc|
-                -# paperclip method
-                = loc.file_field :picture
-          - else
-            %p
-              %b Upload an image for this classroom.  
-              %br
-              %br
-              = f.simple_fields_for :location do |loc|
-                -# paperclip method
-                = loc.file_field :picture    
+      #location_image_form.span6
+        -if @classroom.location.picture_file_name != nil
+          = image_tag @classroom.location.picture.url.to_s
+          %p.prepend-4#update_image
+            %b Change the image for this classroom.  
+            %br
+            %br
+            = f.simple_fields_for :location, :html => { :multipart => true } do |loc|
+              -# paperclip method
+              = loc.file_field :picture
+        - else
+          %p
+            %b Upload an image for this classroom.  
+            %br
+            %br
+            = f.simple_fields_for :location do |loc|
+              -# paperclip method
+              = loc.file_field :picture 
+        #maptest.gmap3
+        
+        -#<button onclick="myFunction()">Find current location</button>
+        drag & drop the marker to update latitude & longitude         
 
     .row.span12
       %h3 Attributes              
@@ -201,100 +199,71 @@
        
 
 :javascript
-  function showValue(newValue)
-  {
-    document.getElementById("classroom_student_capacity").innerHTML=newValue;}
+  function showValue(newValue) {
+    document.getElementById("classroom_student_capacity").innerHTML = newValue;
+  }
 
   function printValue(sliderID, textbox) {
-              var x = document.getElementById(textbox);
-              var y = document.getElementById(sliderID);
-              x.value = y.value;
-          }
-  window.onload = function() 
-  { printValue('slider1', 'rangeValue1'); printValue('slider2', 'rangeValue2'); printValue('slider3', 'rangeValue3'); printValue('slider4', 'rangeValue4'); }        
+    var x = document.getElementById(textbox);
+    var y = document.getElementById(sliderID);
+    x.value = y.value;
+  }
+  window.onload = function () {
+    printValue('slider1', 'rangeValue1');
+    printValue('slider2', 'rangeValue2');
+    printValue('slider3', 'rangeValue3');
+    printValue('slider4', 'rangeValue4');
+  }    
     
 
 
 -#toggle the visability of the attributes and the disclosure triangle's state
 :javascript
-  $('.attributes_disclosure_wrapper h3').click(function() { 
-  $("div:contains('attributes_disclosure_wrapper')").toggleClass("attributes_disclosure_wrapper_active");
-  $('#attributes_wrapper').toggle('fast', function(){
-    });
+  $('.attributes_disclosure_wrapper h3').click(function () {
+    $("div:contains('attributes_disclosure_wrapper')").toggleClass("attributes_disclosure_wrapper_active");
+    $('#attributes_wrapper').toggle('fast', function () {});
   });
 
 -# Auto update HeProd with building code and room number
 :javascript
-  $('#classroom_room_number').keyup( function(){
+  $('#classroom_room_number').keyup(function () {
     var room_number = $('input#classroom_room_number').val()
-     $('#classroom_facility_code_heprod').val(room_number) ;
-     $('#classroom_location_attributes_name').val(room_number) ;
-  $('#classroom_location_id').change( function() {
-    var room_name = $('option:selected', this).html();   
-    $('#classroom_location_attributes_name').val(room_number + " " + room_name) ;
-  } );
+    $('#classroom_facility_code_heprod').val(room_number);
+    $('#classroom_location_attributes_name').val(room_number);
+    $('#classroom_location_id').change(function () {
+      var room_name = $('option:selected', this).html();
+      $('#classroom_location_attributes_name').val(room_number + " " + room_name);
     });
+  });
 
 
 
 :javascript
-  
-  $("#editmap").height("400px").width("100%").gmap3({ 
-  map:{                     
-   options:{
-       center:[42.27799930039926, -83.73660256217954],
-       scaleControl: false,
-       zoom: 17
-          }
-        },  
-        
-  marker:{
-  
-        latLng: [#{@classroom.location.latitude}, #{@classroom.location.longitude}],
-        options:{
-          draggable:true
-                },
-                events:{
-                     dragend: function(map, event){
-                         var myLatLng = event.latLng;
-                         var lat = myLatLng.lat();
-                         var lng = myLatLng.lng();
-                         $('#classroom_location_attributes_latitude').val(lat) ;
-                         $('#classroom_location_attributes_longitude').val(lng) ;
-                         
-                     }
-                 }
-                
-        }      
-   });
-   
    $('#maptest').gmap3({
-     getgeoloc:{
-       callback : function(latLng){
-         if (latLng){
-           
+     getgeoloc: {
+       callback: function (latLng) {
+         if (latLng) {
            $(this).gmap3({
-             marker:{ 
-               latLng:latLng,
-               options:{
-                 draggable:true
-                       },
-                       events:{
-                            dragend: function(map, event){
-                                var myLatLng = event.latLng;
-                                var lat = myLatLng.lat();
-                                var lng = myLatLng.lng();
-                                $('#classroom_location_attributes_latitude').val(lat) ;
-                                $('#classroom_location_attributes_longitude').val(lng) ;
-
-                            }
-                        }
+             marker: {
+               latLng: latLng,
+               options: {
+                 draggable: true
+               },
+               events: {
+                 dragend: function (map, event) {
+                   var myLatLng = event.latLng;
+                   var lat = myLatLng.lat();
+                   var lng = myLatLng.lng();
+                   $('#classroom_location_attributes_latitude').val(lat);
+                   $('#classroom_location_attributes_longitude').val(lng);
+                 }
+               }
              },
-             map:{
-                options:{
-                  zoom: 17
-                }
-              }
+             map: {
+               options: {
+                 zoom: 17
+               }
+             }
            });
          } else {
            $('#test1-result').html('not localised !');
