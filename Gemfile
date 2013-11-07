@@ -18,7 +18,7 @@ group :assets do
   #gem 'bootstrap-sass', :git => 'git://github.com/intridea/bootstrap-sass.git', :branch => '3.0.0-wip'
 end
 
-gem 'google-analytics-rails'
+
 
 gem 'jquery-rails', '2.2.1'
 gem 'jquery-ui-rails'

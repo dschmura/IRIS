@@ -66,7 +66,6 @@ GEM
       railties (>= 3.0.0)
     font-awesome-rails (4.0.1.0)
       railties (>= 3.2, < 5.0)
-    google-analytics-rails (0.0.4)
     haml (4.0.3)
       tilt
     hike (1.2.3)
@@ -195,7 +194,6 @@ DEPENDENCIES
   email_spec (>= 1.2.1)
   factory_girl_rails (>= 3.3.0)
   font-awesome-rails
-  google-analytics-rails
   haml (>= 4.0.0)
   jquery-rails (= 2.2.1)
   jquery-ui-rails
