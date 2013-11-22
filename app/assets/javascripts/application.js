@@ -14,11 +14,10 @@
 //= require jquery-ui
 //= require jquery.ui.touch-punch.min
 // Loads all Bootstrap javascripts
-//= require bootstrap
+//= require twitter/bootstrap
 //= require pano2vr_player
 //= require gmap3.min
 //= require swfobject
-
 
 $(document).ready(function(){
     $('a').tooltip();

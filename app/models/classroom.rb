@@ -58,7 +58,7 @@ class Classroom < ActiveRecord::Base
   resourcify
   has_one :location, :as => :locatable
   has_one :building
-  has_one :owner, :as => :ownable
+  has_one :owner
   has_one :room_schedule_contact
   has_many :room_attributes
   #scope :visible, lambda { |visible| where(:visible => 'true') unless user.has_role? :admin }
@@ -208,9 +208,7 @@ class Classroom < ActiveRecord::Base
       end
       
       if this_classroom
-        logger.info { this_classroom.facility_code_heprod }      
-
-                      
+        logger.info { this_classroom.facility_code_heprod }                     
       else
         logger.info { "NOT FOUND: #{row["RMRECNBR"]}" }
         next

@@ -57,7 +57,7 @@ class ClassroomsController < ApplicationController
     @classroom_alt = @classroom.location.name + " - " + @classroom.room_number
     @building = find_building(@classroom.location_id)
     @owner = Owner.find(@classroom.owner_id)
-    @room_schedule_contact = RoomScheduleContact.find_by_RMRECNBR(@classroom.rmrecnbr)
+    @room_schedule_contact = RoomScheduleContact.find_by_rmrecnbr(@classroom.rmrecnbr)
     #@room_attributes = RoomAttribute.find_all_by_RMRECNBR(@classroom.rmrecnbr)
 
     @building_image = @building.picture.url(:medium).to_s
@@ -77,11 +77,12 @@ class ClassroomsController < ApplicationController
   def show
     #@classroom = Classroom.find(params[:id])
     @classroom = find_classroom
+    
     @page_title = @classroom.location.name
     @classroom_alt = @classroom.location.name + " - " + @classroom.room_number
     @building = find_building(@classroom.location_id)
     @owner = Owner.find(@classroom.owner_id)
-    @room_schedule_contact = RoomScheduleContact.find_by_RMRECNBR(@classroom.rmrecnbr)
+    @room_schedule_contact = RoomScheduleContact.find_by_rmrecnbr(@classroom.rmrecnbr)
     @building_image = @building.picture.url(:medium).to_s
     @building_sign_image = @building.building_sign.url(:thumb).to_s
     @search = Classroom.search(params[:search])
@@ -169,7 +170,10 @@ class ClassroomsController < ApplicationController
   private
 
   def find_classroom  
-    Classroom.find_by_facility_code_heprod(params[:id].upcase)
+    #Classroom.find_by_facility_code_heprod(params[:id].upcase)
+
+    Classroom.find_by facility_code_heprod:(params[:id].upcase)
+    #Classroom.includes(:owner).find_by facility_code_heprod:(params[:id].upcase).references(:owner)
   end
   
   def find_building location_id    

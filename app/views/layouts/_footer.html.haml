@@ -1,12 +1,17 @@
+
 %footer
-  %nav.navbar
-    .navbar-inner
-      
+  %nav
+    .navbar
+      %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", type: "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
       
       = link_to footer_logo, about_iss_path
-      .center
-        %ul.nav
-        
+      .navbar-collapse.collapse
+        %ul.nav.navbar-nav.center-block
+    
           %li
             = link_to "Home", root_path
           %li
@@ -18,19 +23,19 @@
           %li
             = link_to "Support", support_path
 
-               
+             
     = link_to footer_logo_um, "http://www.umich.edu", :target => "_blank"
 
-  %center
-    %br
+
+  %br
     = link_to "Copyright The Regents of the University of Michigan, 2011", "http://www.umich.edu", :target => '_blank'
-    
+
 
     %br
     - if user_signed_in?
       .btn-group.dropup
 
-        %a{:class => 'btn dropdown-toggle btn-mini', "data-toggle" => 'dropdown', :href => '#'}
+        %a{:class => 'btn btn-default btn-xs  dropdown-toggle', "data-toggle" => 'dropdown', :href => '#'}
           = current_user.name || current_user.email
           %span{:class => 'caret'}
         %ul.dropdown-menu
@@ -42,11 +47,11 @@
             %li
               %i.fa.fa-cogs
                 = link_to('Admin', users_path)
-                
-    
+          
+
           %li
             %i.fa.fa-sign-out
-              = link_to('Logout', destroy_user_session_path, :method=>'delete')    
+              = link_to('Logout', destroy_user_session_path, method: :delete)    
 
       |
       = link_to "Privacy Policy", privacy_path

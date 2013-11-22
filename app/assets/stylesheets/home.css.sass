@@ -6,6 +6,12 @@
   -moz-border-radius: $radius
   -webkit-border-radius: $radius
   
+@mixin transparent($transparency: 0.5, $trans: 50)
+  zoom: 1
+  filter: alpha(opacity=$trans)
+  opacity: $transparency
+
+  
 #homeCarousel
   .carousel-inner
     padding: 0
@@ -30,13 +36,14 @@
       margin-bottom: 2em
       width: 22%
       min-height: 20px
+      height: 50px
       min-width: 175px
       margin-left: 2%
       padding: 0.3em
       background-color: #979170
       background-image: -webkit-gradient(linear, left top, left bottom, from(#979170), to(#979170), color-stop(0.5, #80805A))    
       display: block
-      @include rounded-corners($radius: 15px) 
+      @include rounded-corners($radius: 12px) 
       a
         padding: 5% 0 5% 0
         text-decoration: none
@@ -48,7 +55,10 @@
         
       &:hover     
         background-color: #6188D5
-        background-image: -webkit-gradient(linear, left top, left bottom, from(#6188D5), to(#BBC8E1), color-stop(0.5, #BBC8E1))
+        background-image: -webkit-gradient(linear, left top, left bottom, from(#6188D5), to(#6188D5), color-stop(0.5, #6188D5))
+        @include transparent(0.8, $trans: 80)
+        
+        //background-image: -webkit-gradient(linear, left top, left bottom, from(#6188D5), to(#BBC8E1), color-stop(0.5, #BBC8E1))
 
 .content
   .row-fluid

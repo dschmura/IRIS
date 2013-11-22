@@ -9,18 +9,18 @@
 # from scratch. The latter is a flawed and unsustainable approach (the more migrations
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
-# It's strongly recommended to check this file into your version control system.
+# It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130422143945) do
+ActiveRecord::Schema.define(version: 20131111144530) do
 
-  create_table "buildings", :force => true do |t|
+  create_table "buildings", force: true do |t|
     t.string   "building_code_heprod"
     t.integer  "location_id"
     t.string   "address"
     t.string   "address2"
-    t.string   "city",                 :default => "Ann Arbor"
-    t.string   "state",                :default => "Mi"
-    t.string   "zip",                  :default => "48109"
+    t.string   "city",                 default: "Ann Arbor"
+    t.string   "state",                default: "Mi"
+    t.string   "zip",                  default: "48109"
     t.text     "description"
     t.text     "history"
     t.datetime "created_at"
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(:version => 20130422143945) do
     t.string   "building_short_code"
   end
 
-  create_table "classrooms", :force => true do |t|
+  create_table "classrooms", force: true do |t|
     t.string   "room_number"
     t.string   "facility_code_heprod"
     t.integer  "student_capacity"
@@ -74,15 +74,15 @@ ActiveRecord::Schema.define(:version => 20130422143945) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "location_id"
-    t.boolean  "is_department_space",             :default => false
-    t.integer  "owner_id",                        :default => 1
+    t.boolean  "is_department_space",             default: false
+    t.integer  "owner_id",                        default: 1
     t.integer  "rmrecnbr"
     t.string   "DEPT_GRP"
   end
 
-  create_table "locations", :force => true do |t|
-    t.float    "latitude",                   :limit => 255
-    t.float    "longitude",                  :limit => 255
+  create_table "locations", force: true do |t|
+    t.float    "latitude",                   limit: 255
+    t.float    "longitude",                  limit: 255
     t.string   "name"
     t.text     "description"
     t.datetime "created_at"
@@ -100,63 +100,63 @@ ActiveRecord::Schema.define(:version => 20130422143945) do
     t.string   "building_sign_content_type"
     t.integer  "building_sign_file_size"
     t.datetime "building_sign_updated_at"
-    t.boolean  "visible",                                   :default => true
+    t.boolean  "visible",                                default: true
   end
 
-  add_index "locations", ["locatable_id", "locatable_type"], :name => "index_locations_on_locatable_id_and_locatable_type"
+  add_index "locations", ["locatable_id", "locatable_type"], name: "index_locations_on_locatable_id_and_locatable_type"
 
-  create_table "owners", :force => true do |t|
+  create_table "owners", force: true do |t|
     t.string   "department_name"
     t.string   "facility_id"
     t.string   "contact_name"
     t.string   "contact_phone"
     t.string   "contact_email"
     t.text     "notes"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.string   "url"
   end
 
-  create_table "roles", :force => true do |t|
+  create_table "roles", force: true do |t|
     t.string   "name"
     t.integer  "resource_id"
     t.string   "resource_type"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
-  add_index "roles", ["name", "resource_type", "resource_id"], :name => "index_roles_on_name_and_resource_type_and_resource_id"
-  add_index "roles", ["name"], :name => "index_roles_on_name"
+  add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
+  add_index "roles", ["name"], name: "index_roles_on_name"
 
-  create_table "room_attributes", :force => true do |t|
+  create_table "room_attributes", force: true do |t|
     t.integer  "RMRECNBR"
     t.integer  "CHRSTC"
     t.string   "CHRSTC_DESCR"
     t.string   "CHRSTC_DESCRSHORT"
     t.string   "CHRSTC_DESCR254"
     t.boolean  "CHRSTC_SCHEDULE"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
-  create_table "room_schedule_contacts", :force => true do |t|
-    t.integer  "RMRECNBR"
-    t.string   "RM_SCHD_CNTCT_NAME"
-    t.string   "RM_SCHD_EMAIL"
-    t.string   "RM_SCHD_CNTCT_PHONE"
-    t.string   "RM_DET_URL"
-    t.string   "RM_USAGE_GUIDLNS_URL"
-    t.datetime "created_at",           :null => false
-    t.datetime "updated_at",           :null => false
+  create_table "room_schedule_contacts", force: true do |t|
+    t.integer  "rmrecnbr"
+    t.string   "rm_schd_cntct_name"
+    t.string   "rm_schd_email"
+    t.string   "rm_schd_cntct_phone"
+    t.string   "rm_det_url"
+    t.string   "rm_usage_guidlns_url"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
-  create_table "users", :force => true do |t|
-    t.string   "email",                                 :default => "", :null => false
-    t.string   "encrypted_password",     :limit => 128, :default => "", :null => false
+  create_table "users", force: true do |t|
+    t.string   "email",                              default: "", null: false
+    t.string   "encrypted_password",     limit: 128, default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                         :default => 0
+    t.integer  "sign_in_count",                      default: 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -166,14 +166,14 @@ ActiveRecord::Schema.define(:version => 20130422143945) do
     t.string   "name"
   end
 
-  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
-  add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
-  create_table "users_roles", :id => false, :force => true do |t|
+  create_table "users_roles", id: false, force: true do |t|
     t.integer "user_id"
     t.integer "role_id"
   end
 
-  add_index "users_roles", ["user_id", "role_id"], :name => "index_users_roles_on_user_id_and_role_id"
+  add_index "users_roles", ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id"
 
 end

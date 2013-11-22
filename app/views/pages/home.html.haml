@@ -1,9 +1,13 @@
 .row-fluid
   #homeCarousel.carousel.slide
+    %ol.carousel-indicators
+      %li.active{"data-slide-to" => "0", "data-target" => "#homeCarousel"}
+      %li{"data-slide-to" => "1", "data-target" => "#homeCarousel"}
+      %li{"data-slide-to" => "2", "data-target" => "#homeCarousel"}
 
     .carousel-inner
       .active.item
-        = link_to image_tag("BorrowedUofMPics/League_Fountain.jpg", :alt => "Michigan League Fountain", :title => "Michigan League Fountain"), root_path
+        = link_to image_tag("BorrowedUofMPics/League_Fountain.jpg", :alt => "Michigan League Fountain", :title => "Michigan League Fountain" ), root_path
         
         
         -# = link_to image_tag("BorrowedUofMPics/LawQuad.jpg", :alt => "Law Quad",  :title => "LawQuad"), root_path
@@ -15,10 +19,10 @@
         = link_to image_tag("new_home/RackhamB.jpg", :alt => "Rackham",  :title => "Rackham Graduate School"), root_path
         -#= link_to image_tag("new_home/clements.jpg", :alt => "Rackham",  :title => "LawQuad"), root_path
     -# Carousel nav
-    %a{:class => "carousel-control left", :href => "#homeCarousel", 'data-slide' => "prev" }
-      &lsaquo;
-    %a{:class => "carousel-control right", :href => "#homeCarousel", 'data-slide' => "next" }  
-      &rsaquo; 
+    %a{:class => "left carousel-control", :href => "#homeCarousel", 'data-slide' => "prev" }
+      %span.glyphicon.glyphicon-chevron-left 
+    %a{:class => "right carousel-control", :href => "#homeCarousel", 'data-slide' => "next" }  
+      %span.glyphicon.glyphicon-chevron-right 
 
 
 
@@ -35,6 +39,10 @@
 
       %li
         = link_to 'Search Classrooms', classrooms_url, :class => "button"
+
+
+
+    
 
 
 -# Carosel

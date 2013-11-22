@@ -2,4 +2,4 @@
 
 require ::File.expand_path('../config/environment',  __FILE__)
 run Iris::Application
-require 'bootstrap-sass'
+#require 'bootstrap-sass'

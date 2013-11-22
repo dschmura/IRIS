@@ -8,27 +8,28 @@
       = notification
   %legend Edit Classroom
   .inputs
-    .row-fluid.form-vertical
-      .span5#edit_classroom_form
+    .row.form-inline
+      
+      .col-md-5#edit_classroom_form
 
         = f.input :room_number, :wrapper => :prepend, :label => false do
           = content_tag :span, "Room #", :class => "add-on"
-          = f.input_field :room_number, :placeholder => "AudB", :input_html => { :tabindex => '1', :class => 'span1' }
+          = f.input_field :room_number, :placeholder => "AudB", :input_html => { :tabindex => '1', :class => 'col-md-1' }
           %br
           %br
           = content_tag :span, "rmrecnbr", :class => "add-on"
           = f.input_field :rmrecnbr, :placeholder => "2018729", :input_html => { :tabindex => '2' }
           
-        = f.input :location_id, :collection => Location.where(:locatable_type => "Building").order("name ASC"), :prompt => "What Building is this room in?", :label => "Building", :input_html => { :class => "span6" }
+        = f.input :location_id, :collection => Location.where(:locatable_type => "Building").order("name ASC"), :prompt => "What Building is this room in?", :label => "Building", :input_html => { :class => "col-md-6" }
         %br
 
-        = link_to "Add a Building", new_building_path, :style => "position: relative; left: 180px; bottom: 45px;", :target => "_blank"
+        = link_to "Add a Building", new_building_path, :style => "position: relative; left: 180px; bottom: 55px;", :target => "_blank"
         = f.input :DEPT_GRP, :collection => [['College of LSA','COLLEGE_OF_LSA'], ['School of Dentistry', 'SCHOOL_DENTISTRY']], :label => "Department"
         %br
         
-        = f.input :owner_id, :collection => Owner.order("department_name ASC"), :prompt => "Who owns this space?", :label => "", :label_method => :department_name, :input_html => { :class => "span8" }
+        = f.input :owner_id, :collection => Owner.order("department_name ASC"), :prompt => "Who owns this space?", :label => "", :label_method => :department_name, :input_html => { :class => "col-md-8" }
         = link_to "Add an Owner", new_owner_path, :style => "position: relative; left: 245px; bottom: 30px;", :target => "_blank"
-        = f.simple_fields_for :location, :html => {:class => "form-inline "} do |loc|
+        = f.simple_fields_for :location, :html => {:class => "form "} do |loc|
           .search-query
           = loc.input :name, :wrapper => :prepend, :label => false do
             = content_tag :span, "Name", :class => "add-on"
@@ -43,29 +44,29 @@
 
           = f.input :student_capacity, :wrapper => :prepend, :label => false do
             = content_tag :span, "Student Capacity:", :class => "add-on "
-            = f.input_field :student_capacity, :as => "string", :class => "span2" 
+            = f.input_field :student_capacity, :as => "string", :class => "col-md-2" 
           <input id= "capacity_slider" type="range" min="0" max="1000" value="#{@classroom_student_capacity}" step="1" onchange="printValue('capacity_slider', 'classroom_student_capacity')" />
           %br
           %br
           = f.input :facility_code_heprod, :wrapper => :prepend, :label => false do
             = content_tag :span, "HeProd Code:", :class => "add-on "
-            = f.input_field :facility_code_heprod, :as => "string", :class => "span3", :placeholder => "AHAudB"
+            = f.input_field :facility_code_heprod, :as => "string", :class => "col-md-3", :placeholder => "AHAudB"
           *Combine the building short code with the room number
           
           %br
           %br
           = f.simple_fields_for :location do |loc|
-            = loc.input :visible, :input_html => {:class => 'form-horizontal'}
-            = loc.input :description, :input_html => { :class => "span12", :rows => 5 }, :placeholder => "Classroom Description (will be displayed in map)"   
+            = loc.input :visible, :input_html => {:class => 'form-'}
+            = loc.input :description, :input_html => { :class => "col-md-12", :rows => 5 }, :placeholder => "Classroom Description (will be displayed in map)"   
         
       
         
        
       
-      #location_image_form.span6
+      #location_image_form.col-md-6
         -if @classroom.location.picture_file_name != nil
           = image_tag @classroom.location.picture.url.to_s
-          %p.prepend-4#update_image
+          %p.col-md-offset-4#update_image
             %b Change the image for this classroom.  
             %br
             %br
@@ -85,12 +86,12 @@
         -#<button onclick="myFunction()">Find current location</button>
         drag & drop the marker to update latitude & longitude         
 
-    .row.span12
+    .row.col-md-12
       %h3 Attributes              
  
-    #attributes_wrapper.span12
+    #attributes_wrapper.col-md-12
 
-      #room_design_section.span5.form-horizontal
+      #room_design_section.col-md-5.form-horizontal
         #attribute_blackout
         %i.fa.fa-lightbulb
           = f.input :light_control
@@ -139,7 +140,7 @@
           #attribute_podium_computer_pc
             = f.input :computer_classroom_windows
 
-      #equipment_section.span5.form-horizontal
+      #equipment_section.col-md-5.form-horizontal
         #attribute_dvd
           DVD Player  
           = f.input :dvd_player_regular, :label => 'Standard'

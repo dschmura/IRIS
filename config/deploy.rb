@@ -5,9 +5,9 @@ load 'deploy/assets'
 # GENERAL SETTINGS
 # =============================================================================
 
-role :web, "mason.lsa.umich.edu"
-role :app, "mason.lsa.umich.edu"
-role :db,  "mason.lsa.umich.edu", :primary => true
+role :web, "dewey.lsa.umich.edu"
+role :app, "dewey.lsa.umich.edu"
+role :db,  "dewey.lsa.umich.edu", :primary => true
 set :application,  "iris"
 set :deploy_to,  "/var/www/rooms.lsa.umich.edu/html/#{application}/"
 set :deploy_via, :remote_cache
@@ -19,7 +19,7 @@ set :use_sudo, true
 set :user, "iris"
 set :ssh_options, { :forward_agent => true }
 default_run_options[:pty] = true
-
+ssh_options[:forward_agent] = true
 # =============================================================================
 # RECIPE INCLUDES
 # =============================================================================
@@ -55,8 +55,7 @@ namespace :deploy do
   # Link in database config
   after "deploy:update_code", :link_production_db
   after "deploy:link_production_db", :link_production_db_config
-  after "deploy:create_symlink", :fix_file_permissions
-  after "deploy:setup", :setup_fix_file_permissions
+
 
 end
 
@@ -69,16 +68,3 @@ task :link_production_db_config do
 end
 
 
-# Run at the end of deployment
-task :fix_file_permissions, :roles => [ :app, :db, :web ] do
-  run "chmod -R g-w #{release_path}"
-  run "chmod g+w #{release_path}/db #{release_path}/db/*.sqlite3"
-  run "chmod -R g+w #{release_path}/tmp"
-  run "sudo chmod -R 775 #{release_path}/public/system/"
-  run "sudo chown -R unicorn #{release_path}/tmp;"
-end
-
-# Run after the end of "cap deploy:setup"
-task :setup_fix_file_permissions, :roles => [ :app, :db, :web ] do
-  run "chmod g-w #{deploy_to} #{deploy_to}/releases #{deploy_to}/shared"
-end

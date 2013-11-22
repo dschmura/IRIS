@@ -2,19 +2,19 @@
 %table.results_table.table-striped
   %thead
     %tr
-      %th.span1 
+      %th.col-md-1.col-sm-1.col-xs-1 
         
-      %th.span5
+      %th.col-md-5.col-sm-5.col-xs-5 
         -#= sortable "room_number", "Room Number"
         = sort_link @search, :location_name, "Classroom Name", :default_order => :desc
       
-      %th.span2
+      %th.col-md-2.hidden-xs
         -#= sortable "classroom.location.name","Classroom Name"
 
         = sort_link @search, :student_capacity, "Capacity", :default_order => :desc
-      %th.span2
+      %th.col-md-2.hidden-xs
         = sort_link @search, :room_number, "Room Number", :default_order => :desc
-      %th.span2
+      %th.col-md-2
         %b Schedule
       - if user_signed_in?
         -#%th
@@ -23,26 +23,26 @@
   %tbody
   - @classrooms.each do |classroom|
     %tr
-      %td= link_to (image_tag classroom.location.picture.url(:thumb).to_s, :alt => @classroom_alt,   :class => "classroom_index_thumb round"), classroom
+      %td= link_to (image_tag classroom.location.picture.url(:thumb).to_s, :alt => @classroom_alt,   :class => "classroom_index_thumb img-thumbnail"), classroom
       %td= link_to classroom.location.name, classroom
       
     
-      %td= classroom.student_capacity      
-      %td= link_to classroom.room_number, classroom
+      %td.hidden-xs= classroom.student_capacity      
+      %td.hidden-xs= link_to classroom.room_number, classroom
       %td
         -#%i.fa.fa-calendar
         = link_to "Schedule", "https://csprod.dsc.umich.edu/services/facilitycalendar?facilityid=#{classroom.facility_code_heprod }", :target => "_blank"
   
       - if user_signed_in?
         -# %td= link_to 'Show', classroom
-        %td= link_to 'Edit', edit_classroom_path(classroom), :class => 'btn btn-mini'
-        %td= link_to 'Destroy', classroom, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-mini btn-danger'
+        %td= link_to 'Edit', edit_classroom_path(classroom), :class => 'btn btn-xs'
+        %td= link_to 'Destroy', classroom, data: { confirm: 'Are you sure?' } , :method => :delete, :class => 'btn btn-xs btn-danger'
 
 %br
 
 %br
 - if @search.result.count > 14
-  .apple_pagination.span9.row-fluid
+  .apple_pagination.col-md-9.row
     = will_paginate
 
 = javascript_include_tag 'jquery_ujs'

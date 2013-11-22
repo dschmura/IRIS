@@ -31,6 +31,7 @@ Iris::Application.configure do
   # In production, Apache or nginx will already do this
   config.serve_static_assets = true
   
+  config.eager_load = true
 
   Paperclip.options[:command_path] = "/usr/bin/"
 

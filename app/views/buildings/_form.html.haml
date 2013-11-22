@@ -53,13 +53,13 @@
   %br
   %hr
   = f.input :building_code_heprod , :placeholder => 'Building Code'  
-  #where_am_i_map
+  #maptest
     .input
       %label
         Address:
       %input#addresspicker_map
       #map
-  #lat_long_form  
+  .form-group  
     = f.simple_fields_for :location do |loc|
       = loc.input :latitude, :as => "string", :label => "Latitude"
     
@@ -97,4 +97,36 @@
 
     });
 
-
+:javascript
+   $('#maptest').gmap3({
+     getgeoloc: {
+       callback: function (latLng) {
+         if (latLng) {
+           $(this).gmap3({
+             marker: {
+               latLng: latLng,
+               options: {
+                 draggable: true
+               },
+               events: {
+                 dragend: function (map, event) {
+                   var myLatLng = event.latLng;
+                   var lat = myLatLng.lat();
+                   var lng = myLatLng.lng();
+                   $('#classroom_location_attributes_latitude').val(lat);
+                   $('#classroom_location_attributes_longitude').val(lng);
+                 }
+               }
+             },
+             map: {
+               options: {
+                 zoom: 17
+               }
+             }
+           });
+         } else {
+           $('#test1-result').html('not localised !');
+         }
+       }
+     }
+   });

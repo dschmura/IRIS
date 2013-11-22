@@ -22,11 +22,11 @@ class RoomScheduleContact < ActiveRecord::Base
   
   # Setup accessible (or protected) attributes for your model
 
-  attr_accessible :RMRECNBR, :RM_SCHD_CNTCT_NAME, :RM_SCHD_EMAIL, :RM_SCHD_CNTCT_PHONE, :RM_USAGE_GUIDLNS_URL
+  attr_accessible :rmrecnbr, :rm_schd_cntct_name, :rm_schd_email, :rm_schd_cntct_phone, :rm_usage_guidlns_url
   
   def self.import(file)
     CSV.foreach(file.path, headers: true) do |row|
-      roomschedulecontact = find_by_RMRECNBR(row["RMRECNBR"]) || new
+      roomschedulecontact = find_by_rmrecnbr(row["RMRECNBR"]) || new
       roomschedulecontact.attributes = row.to_hash.slice(*accessible_attributes)
       roomschedulecontact.save!
     

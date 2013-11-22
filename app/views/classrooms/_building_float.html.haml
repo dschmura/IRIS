@@ -1,11 +1,7 @@
 #building_float
 
-  %center
-    = link_to image_tag(@building_image, :class => "round"), "../classrooms?utf8=✓&q%5Blocation_id_eq%5D=#{@building.id}"
-  
 
-  -#%b Department: 
-    = @classroom.DEPT_GRP.gsub!(/_/, ' ')
+  = link_to image_tag(@building_image, :class => "round"), "../classrooms?utf8=✓&q%5Blocation_id_eq%5D=#{@building.id}"
   
   %br
 
@@ -29,10 +25,8 @@
   = link_to @building.name, "../classrooms?utf8=✓&q%5Blocation_id_eq%5D=#{@building.id}"
   %br
   
-  %b Name:
-  %a{"data-original-title" => @classroom.location.name, "data-placement" => "right", :href => "#", :rel => "tooltip"} 
-    
-    = truncate(@classroom.location.name, :length => 25)
+  %b Name: 
+  = truncate(@classroom.location.name, :length => 25)
  
   %br
     %b Facility ID:

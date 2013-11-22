@@ -21,16 +21,23 @@ select
 #rooms_search
   clear: both
   overflow: hidden
-  @include rounded-corners(11px)
+  
 .round
   @include rounded-corners(8px)
   
 .content
-  .row-fluid.classroom_top
+  .row.classroom_top
     margin: -2em
+  .classroom_listing
+    margin: -1em
+    margin-right: -0.9em
+    margin-bottom: -28px
+    
+    h2
+    margin-top: -2em
       
 .content
-  .row-fluid.classroom_top
+  .row.classroom_top
     border-radius: 8px 8px 0px 0px
     -moz-border-radius: 8px 8px 0px 0px
     -webkit-border-radius: 8px 8px 0px 0px
@@ -66,12 +73,12 @@ select
   display: none
 
 #rooms_results
-  margin: 0 0 0 -1%
-  padding-left: 1%
+  margin: 0 0 0 -5%
+  
   min-height: 675px
   height: 100%
   background-color: #f8f5e4
-  border-left: 1px solid #999
+  
 
 #number_of_results_selector
   float: right
@@ -104,11 +111,8 @@ select
     color: #191919
     &:hover    
   ul
-    ul
-      margin-left: 10px
-      
-      li
-        list-style-type: none
+    li
+      list-style-type: none
 
 #rooms_search_form
   min-width: 200px
@@ -127,16 +131,13 @@ select
   @include transparent($transparency: 0.5, $trans: 50)
   
 #room_number
-  /*@include rounded-corners(11px)
   @include transparent($transparency: 0.8, $trans: 80)
   @include rounded-corners(6px)
   visibility: visible
   background: #7D96B3
   position: absolute
-  right: 5%
-  
-  top: 100px
-  
+  right: 11%
+  top: 100px 
   max-width: 225px
   z-index: 1000
   h1
@@ -151,31 +152,13 @@ select
   font-weight: bold
   max-width: 95%
 
-#panorama
-  width: 100%
-  height: 400px
-  display: block
   
-  object 
-    position: relative
-    bottom: 15px
-#pano
-  border-radius: 8px 8px 0px 0px
-  -moz-border-radius: 8px 8px 0px 0px
-  -webkit-border-radius: 8px 8px 0px 0px
-  @include rounded-corners(15px)
-
-
 
 .legacy_panorama
   position: relative
   left: 12px
   z-index: 15
 
-#classroom_thumb
-  float: left
-  width: 200px
-  @include rounded-corners(15px)
 
 .classroom_index_thumb
   max-height: 50px
@@ -184,28 +167,15 @@ select
   margin-left: 0.5em
   margin-right: 1em
 
-/* Edit
-#capacity_slider
-  position: relative
-  left: 2%
-  max-width: 200px
-
-  /* layout
-
-
   
-.row-fluid.classroom_top
+.row.classroom_top
   overflow: hidden
   background: #DDD7AF
   /*background: #758FC2
-  width: 106.5% 
-
   max-height: 320px
   min-height: 300px
   /*box-shadow: 0px 5px 5px  #B3B3B3
   
-
-
 .control-group.boolean.optional
   margin-bottom: 0px
   
@@ -214,87 +184,35 @@ select
   @include transparent($transparency: 0.8, $trans: 80)
   /*@include rounded-corners(15px)
   position: absolute
-  top: 335px
-  left: 57%
-
- 
+  top: 342px
+  left: 57% 
   z-index: 20000
 
-
-  
-  
-#contactme
-  /*background-image: -webkit-gradient(linear, left top, left bottom, from(#f8f5e4), to(#e4debd), color-stop(0.5, #f8f5e4))
-  margin-left: 2em
-  min-height: 280px
-  height: 300px
-  background: #DDD7AF
 #attributes
   margin-bottom: 2em
 
 #contact_sheet
-  @include rounded-corners(15px)
-  @include transparent($transparency: 0.9, $trans: 90)
   height: 300px
+  position: absolute
+  left: 250px
   padding: .9em
-  
-  padding-left: 1em
- 
   background: #e7e8e0
-  font-size: 100%
+  font-size: 90%
   #support_info
-    margin-left: 2em
+    margin-left: 5em
   #scheduling_info
     margin-left: 2em
   #additional_contact_info
     margin-left: 2em
   hr
     width: 85%
+    font: normal normal normal 0.8em Arial, sans-serif
 
-
-.contact_accordian
-  margin-left: 2em
-  position: relative
-  top: 40px
-  width: 60%
-
-  background: #fff
-  @include rounded-corners(15px)
-  
-  #support_info
-    background: #76a6c9
-    a
-      color: #800000
-  #scheduling_info
-    background: #f8f5e4
-  #collapseThree
-    background: #e7e8e0
-
-.contact
-  margin-left: 2em
-  position: relative
-  top: 10px
-  width: auto
-  max-width: 500px
-  background: #fff
-  @include rounded-corners(15px)
-  
-  #support_info
-    background: #76a6c9
-    a
-      color: #800000
-  #scheduling_info
-    background: #f8f5e4
-  #collapseThree
-    background: #e7e8e0    
-  
 #picture
-  
   height: 100%
   max-height: 100% 
   width: 115%
   
-    
 #pano
   min-height: 300px
   height: 300px
@@ -305,23 +223,10 @@ select
   max-width: 100px
   margin-left: 2em
 
-#missing_pano
-
 .legacy_panorama
   position: relative
   left: 12px
   z-index: 15
-
-#map_canvas 
-
-.tab-content
-  position: relative
-  left: 3%  
-
-#map
-  position: relative
-  right: 3%
-  float: right
 
 #map img 
   max-width: none
@@ -333,38 +238,29 @@ select
     max-width: none
 #edit_classroom_form
   position: relative
-  
 
 #building_float
   position: relative
   float: left
-  padding-left: 1em
+  padding-right: 1em
   font-size: 90%
   z-index: 120000
-  overflow: scroll
   display: hidden
   max-height: 300px
   height: 300px
-  
   max-width: 150px
   min-width: 150px
   background: #DDD7AF  
   overflow: hidden
   img
     margin-top: 8px
-    position: relative
+    position: relative  
+    width: 100%
     
-    right: 10px
-    width: 80%
-    @include rounded-corners(9px)
-
-
-
 #last_updated
   float: right
   font-size: 85%  
 /* Form
-
 
 %select
   #classroom_location_id
@@ -374,7 +270,6 @@ select
 %textarea
   #classroom_location_attributes_description
   max-height: 100px
-
 
 #slider-range
   width: 200px

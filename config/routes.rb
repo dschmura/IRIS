@@ -11,8 +11,8 @@ Iris::Application.routes.draw do
 
 
   # Rewrite from old site
-  match 'detail.php', :to => 'old_site_redirector#detail'
-  match 'index.php', :to => 'old_site_redirector#pages'
+  match 'detail.php', :to => 'old_site_redirector#detail', via: :get
+  match 'index.php', :to => 'old_site_redirector#pages', via: :get
   
   resources :owners
   devise_for :users
@@ -36,23 +36,23 @@ Iris::Application.routes.draw do
 #Pages Routes
   root :to => "pages#home"
 
-  match '/contact', :to => 'pages#contact'
-  match '/about',   :to => 'pages#about'
-  match '/about_iss',   :to => 'pages#about_iss'
-  match '/help',    :to => 'pages#support'
-  match '/support',    :to => 'pages#support'
-  match '/privacy', :to => 'pages#privacy_policy'
-  match '/iss_support',    :to => 'pages#iss_support'
-  match '/signup',  :to => 'users#new'
+  match '/contact', :to => 'pages#contact', via: :get
+  match '/about',   :to => 'pages#about', via: :get
+  match '/about_iss',   :to => 'pages#about_iss', via: :get
+  match '/help',    :to => 'pages#support', via: :get
+  match '/support',    :to => 'pages#support', via: :get
+  match '/privacy', :to => 'pages#privacy_policy', via: :get
+  match '/iss_support',    :to => 'pages#iss_support', via: :get
+  match '/signup',  :to => 'users#new', via: :get
 
-  match '/development', :to => 'pages#development'
-  match '/room', :to => 'pages#room'
-  match '/faq', :to => 'pages#faq'
-  match '/events', :to => 'pages#event_support'
-  match '/admin', :to => 'pages#admin'
+  match '/development', :to => 'pages#development', via: :get
+  match '/room', :to => 'pages#room', via: :get
+  match '/faq', :to => 'pages#faq', via: :get
+  match '/events', :to => 'pages#event_support', via: :get
+  match '/admin', :to => 'pages#admin', via: :get
   #match '/dentistry', :to => 'pages#dentistry'
   
-  match '/classrooms/:id/seating', :to => 'classrooms#seating'
+  match '/classrooms/:id/seating', :to => 'classrooms#seating', via: :get
   
   #match '/dentistry' => redirect("http://rooms.lsa.umich.edu/classrooms?utf8=✓&q%5BDEPT_GRP_eq%5D=SCHOOL_DENTISTRY")
   #match '/dentistry', :to => redirect("http://localhost:3000/classrooms?utf8=✓&search%5BDEPT_GRP_equals%5D=SCHOOL_DENTISTRY"), :as => :dentistry

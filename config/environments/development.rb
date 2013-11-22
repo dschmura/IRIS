@@ -7,7 +7,7 @@ Iris::Application.configure do
   config.cache_classes = false
 
   # Log error messages when you accidentally call methods on nil.
-  config.whiny_nils = true
+  #config.whiny_nils = false
 
   # Show full error reports and disable caching
   config.consider_all_requests_local       = true
@@ -16,7 +16,8 @@ Iris::Application.configure do
   # Do not compress assets
   config.assets.compress = false
 
-
+  config.eager_load = false
+  
   #Paperclip.options[:command_path] = "/usr/local/bin/"
   Paperclip.options[:command_path] = "/opt/local/bin/"
   # Expands the lines which load the assets

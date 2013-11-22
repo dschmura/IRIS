@@ -20,12 +20,10 @@
     = yield(:head)
   %body
     
-
-    .container-fluid
+    .container
       
       = render 'layouts/header'
 
-    
       .content#content
         = render 'layouts/messages'
         = yield
