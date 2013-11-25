@@ -27,9 +27,9 @@
 
     %b Department:
     -#= @owner.department_name
-    %a{"data-original-title" => @room_schedule_contact.rm_schd_cntct_name, "data-placement" => "right", :href => "https://csprod.dsc.umich.edu/services/facilitycalendar?facilityid=#{@classroom.facility_code_heprod }", :target => "_blank", :rel => "tooltip"} 
+    -#%a{"data-original-title" => @room_schedule_contact.rm_schd_cntct_name, "data-placement" => "right", :href => "https://csprod.dsc.umich.edu/services/facilitycalendar?facilityid=#{@classroom.facility_code_heprod }", :target => "_blank", :rel => "tooltip"} 
 
-      = truncate(@room_schedule_contact.rm_schd_cntct_name, :length => 40)
+    -#  = truncate(@room_schedule_contact.rm_schd_cntct_name, :length => 40)
     %br
     %b Contact Phone:
     = @room_schedule_contact.rm_schd_cntct_phone  
