@@ -82,7 +82,7 @@ class ClassroomsController < ApplicationController
     @classroom_alt = @classroom.location.name + " - " + @classroom.room_number
     @building = find_building(@classroom.location_id)
     @owner = Owner.find(@classroom.owner_id)
-    @room_schedule_contact = RoomScheduleContact.find_by_rmrecnbr(@classroom.rmrecnbr)
+    @room_schedule_contact = RoomScheduleContact.find_by rmrecnbr:(@classroom.rmrecnbr)
     @building_image = @building.picture.url(:medium).to_s
     @building_sign_image = @building.building_sign.url(:thumb).to_s
     @search = Classroom.search(params[:search])
