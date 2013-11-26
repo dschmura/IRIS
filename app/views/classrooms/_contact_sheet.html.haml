@@ -1,5 +1,5 @@
 
-#contact_sheet.pull-left
+#contact_sheet
   .fa.fa-wrench
   %b Support Information
 
@@ -27,12 +27,12 @@
 
     %b Department:
     -#= @owner.department_name
-    -#%a{"data-original-title" => @room_schedule_contact.rm_schd_cntct_name, "data-placement" => "right", :href => "https://csprod.dsc.umich.edu/services/facilitycalendar?facilityid=#{@classroom.facility_code_heprod }", :target => "_blank", :rel => "tooltip"} 
+    %a{"data-original-title" => @room_schedule_contact.rm_schd_cntct_name, "data-placement" => "right", :href => "https://csprod.dsc.umich.edu/services/facilitycalendar?facilityid=#{@classroom.facility_code_heprod }", :target => "_blank", :rel => "tooltip"} 
 
-    -#  = truncate(@room_schedule_contact.rm_schd_cntct_name, :length => 40)
+      = truncate(@room_schedule_contact.rm_schd_cntct_name, :length => 40)
     %br
     %b Contact Phone:
-    -# = @room_schedule_contact.rm_schd_cntct_phone  
+    = @room_schedule_contact.rm_schd_cntct_phone  
     %br
     %b Room Schedule:
     = link_to "View Room Schedule", "https://csprod.dsc.umich.edu/services/facilitycalendar?facilityid=#{@classroom.facility_code_heprod }", :target => "_blank"
@@ -44,7 +44,7 @@
   #additional_contact_info
     %b Room Usage Guidelines: 
     
-    -#- if @room_schedule_contact.rm_usage_guidlns_url?
+    - if @room_schedule_contact.rm_usage_guidlns_url?
       = link_to "View Room Usage Guidelines",@room_schedule_contact.rm_usage_guidlns_url , :target => "_blank"
     -else
       None Available.  
