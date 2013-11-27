@@ -46,7 +46,7 @@ select
 
     .tab-content
       padding-left: 25px
-    
+
 
 #carousel-nav
   float: left
@@ -141,6 +141,7 @@ select
   max-width: 225px
   z-index: 1000
   h1
+    margin-top: 0.5em
     padding-left: 5px
     padding-right: 2px
     font-size: 1.1em
@@ -152,7 +153,11 @@ select
   font-weight: bold
   max-width: 95%
 
-  
+#left
+  background-color: red
+
+#right
+  background-color: grey
 
 .legacy_panorama
   position: relative
@@ -169,6 +174,7 @@ select
 
   
 .row.classroom_top
+  display: block
   overflow: hidden
   background: #DDD7AF
   /*background: #758FC2
@@ -185,39 +191,51 @@ select
   /*@include rounded-corners(15px)
   position: absolute
   top: 342px
-  left: 57% 
+  right: 12% 
   z-index: 20000
 
 #attributes
   margin-bottom: 2em
 
 #contact_sheet
-  height: 300px
-  position: absolute
-  left: 250px
+  height: 300px  
   padding: .9em
   background: #e7e8e0
+  
   font-size: 90%
-  width: 72%
+  
   #support_info
-    margin-left: 5em
+    margin-left: 2em
   #scheduling_info
     margin-left: 2em
   #additional_contact_info
     margin-left: 2em
+    
   hr
     width: 85%
+    margin-bottom: 1em
     font: normal normal normal 0.8em Arial, sans-serif
+
+#contact_me
+  background: #e7e8e0
+  height: 300px
 
 #picture
   height: 100%
   max-height: 100% 
-  width: 115%
+  width: auto
+  background-color: #eee
+  height: 300px
+  
+
+.tab-pane  
+  margin-left: -15px
+  margin-right: -30px
   
 #pano
   min-height: 300px
   height: 300px
-  overflow: hidden
+
   z-index: 15
   
 #capacity_slider
@@ -229,10 +247,12 @@ select
   left: 12px
   z-index: 15
 
-#map img 
-  max-width: none
-
-
+#map 
+  height: 300px
+  min-height: 300px
+  max-height: 300px
+  img 
+    max-width: none
 
 #editmap
   position: relative
@@ -243,22 +263,24 @@ select
   position: relative
 
 #building_float
-  position: relative
-  float: left
-  padding-right: 1em
+  
+  //margin: -2.3em
+  //margin-left: -0.5em
+  
   font-size: 90%
   z-index: 120000
   display: hidden
   max-height: 300px
   height: 300px
-  max-width: 150px
-  min-width: 150px
+
   background: #DDD7AF  
   overflow: hidden
   img
     margin-top: 8px
     position: relative  
     width: 100%
+
+
     
 #last_updated
   float: right

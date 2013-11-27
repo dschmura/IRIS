@@ -21,6 +21,20 @@ module ClassroomsHelper
    end
   end
   
+  def departmental_room?
+    if  @classroom.DEPT_GRP == 'COLLEGE_OF_LSA'
+      if @classroom.owner_id == 1
+        "LSA ISS Classroom"
+      else
+        "Departmental Classroom"
+      end
+    elsif @classroom.DEPT_GRP == 'SCHOOL_DENTISTRY'
+      'Dental School'
+    else
+      'Departmental Classroom'
+    end
+  
+  end
   
   def basement
     # Buildings with basements or other weird floors

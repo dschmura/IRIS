@@ -1,16 +1,13 @@
 
-.row.classroom_top
-  .col-md-2
-    = render :partial => 'building_float'
-  .tab-content
-    .tab-pane#picture.active
-      //<div style="min-height:300px;  height: 300px;">
-      -#=image_tag("/images/user_interface_elements/300pxshim.gif")
-      -#= image_tag @classroom.location.picture.url(:show).to_s, :alt => @classroom_alt
-      //</div>
-      %div{ :style => %(background:url("#{@classroom.location.picture.url(:show).to_s}") no-repeat center; min-height: 300px;) }
 
-      -#= image_tag @classroom.location.picture.url(:show).to_s, :alt => @classroom_alt
+
+.row.classroom_top
+  .col-md-2.col-sm-2.col-xs-1
+    = render :partial => 'building_float'
+  .tab-content.col-md-10.col-sm-10.col-xs.11
+    .tab-pane#picture.active
+
+      %div{ :style => %(background:url("#{@classroom.location.picture.url(:show).to_s}") no-repeat center; min-height: 300px;) }
 
     .tab-pane#pano
       %h4#missing_pano
@@ -20,7 +17,7 @@
     .tab-pane#map
       <div id="map_canvas" > </div>
 
-    .tab-pane#contactme
+    .tab-pane#contact_me
       = render :partial => 'contact_sheet'
 .tabbable#classroomTabs
   %ul.nav.nav-tabs#myTab
@@ -34,12 +31,11 @@
       %a{"data-toggle" => 'tab', :href => '#map', :id => "#maptab"}
         Map
     %li
-      %a{"data-toggle" => 'tab', :href => '#contactme', :id => "#contacttab"}
+      %a{"data-toggle" => 'tab', :href => '#contact_me', :id => "#contacttab"}
         Contact
 
 #room_number
   %h1
-    
     = @classroom.location.name
 
 -if technician_required
@@ -316,8 +312,9 @@
 :javascript
 
     $('#myTab').click(function(e) {
+      
       if (e.target.id == "#picturetab"){
-        $("#missing_pano").replaceWith("");
+        
       }
       else if (e.target.id == "#panotab") {
         //check if html5 version or panorama exists.
@@ -373,8 +370,8 @@
           }
       else if (e.target.id == "#maptab")
       {
-        $("#pano").replaceWith("");
-        $('#map').height("300px").width("85%").gmap3({
+        
+        $('#map').height("300px").width("106%").gmap3({
         
           map:{
             
@@ -406,12 +403,20 @@
                   content:'<div style=""><col-md->#{link_to image_tag(@building_image, :class => "round", :style => "max-width: 100px; float: left; margin-right: 1em;"), "../classrooms?utf8=✓&search%5Blocation_id_equals%5D=#{@building.id}"} </col-md-> <col-md- style="float: right;  font-size: 11px;  line-height: 1.2em;"><b>#{@building.name}<br /> #{@building.locatable.address}<br /> #{link_to "All Classrooms",  "../classrooms?utf8=✓&search%5Blocation_id_equals%5D=#{@building.id}"}<br /> #{link_to "Floor Map",  basement}</col-md-> </div> '
                   }
                 }
+                
         });
+        
           }
         else if (e.target.id == "#contacttab"){
-        $("#missing_pano").replaceWith("");
+       
+        
         }
+        google.maps.event.addListener(map, "idle", function(){
+        	google.maps.event.trigger(map, 'resize'); 
+        });
     });
+ 
+
 
 
 
