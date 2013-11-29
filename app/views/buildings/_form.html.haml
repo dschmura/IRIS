@@ -1,4 +1,4 @@
-= simple_form_for @building, :html => {:multipart => true, :class => 'form-inline'} do |f|
+= simple_form_for @building, :html => {:multipart => true} do |f|
   -if @building.errors.any?
     #error_explanation
       %h2= "#{pluralize(@building.errors.count, "error")} prohibited this location from being saved:"

@@ -85,23 +85,32 @@
           - if can? :update, @classroom
             %br
             %br
-            %a{"data-toggle" => "modal", :href => "#myModal", :role => "button", :style => "color:#800000; font-weight: bold;"} Admin
-            #myModal.modal.hide.fade
-              .modal-header
-                %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
-                %h3 Administrative Functions
-              .modal-body
-                = link_to 'New Classroom', new_classroom_path, :class => 'btn btn-mini'
-                %br
-                %hr
-                Import Attributes
-                = form_tag import_classrooms_path, multipart: true do
-                  =file_field_tag :file
-                  %br
-                  = submit_tag "Import"
-
-              .modal-footer
-                %a.btn.btn-mini{"data-dismiss" => "modal", :href => "#"} Close
+            / Button trigger modal
+            %button.btn.btn-primary.btn-lg{"data-target" => "#myModal", "data-toggle" => "modal"}
+              Admin
+            / Modal
+            #myModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", role: "dialog", tabindex: "-1"}
+              .modal-dialog
+                .modal-content
+                  .modal-header
+                    %h3 Administrative Functions
+                    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+                    %h4#myModalLabel.modal-title 
+                  .modal-body
+                    = link_to 'New Classroom', new_classroom_path, :class => 'btn btn-mini'
+                    %br
+                    %hr
+                    Import Attributes
+                    = form_tag import_classrooms_path, multipart: true do
+                      =file_field_tag :file
+                      %br
+                      = submit_tag "Import"
+                  .modal-footer
+                    %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
+                    %button.btn.btn-primary{type: "button"} Save changes
+            
+            
+      
 
 
 
