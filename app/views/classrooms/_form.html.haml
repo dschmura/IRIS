@@ -1,3 +1,10 @@
+= form_for @classroom, :html => {multipart: true} do |f|
+
+  
+  .inputs
+    = check_box_tag(:light_control)
+    = label_tag(:light_control)
+    
 
 = simple_form_for @classroom, :html => {:multipart => true} do |f|
   %pre.prettyprint.linenums.lang-rb

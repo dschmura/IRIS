@@ -71,7 +71,7 @@ gem "paperclip", "~> 3.4.2"
 
 #gem "meta_search"
 gem "ransack"
-gem 'annotate', ">=2.5.0"
+gem 'annotate', ">=2.6.0"
 
 group :production do
   gem 'unicorn'
