@@ -182,6 +182,7 @@
       %ul
       
         %li
+          %i.fa.fa-power-off
           %a{"data-original-title" => "Room contains either PC or MAC computers at each student workstation.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.computer_classroom_any) }Computer Classroom Any
           - if @classroom.computer_classroom_any
             .fa.fa-check
@@ -263,7 +264,7 @@
         - if @classroom.telephone
           .fa.fa-check
       %br
-      %i#attribute_video_conferencing
+      %i.fa.fa-comments-o
       %b
         %a{"data-original-title" => "Room contains a special video conferencing equipment, including camera.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.video_conferencing) }Video Conferencing
         - if @classroom.video_conferencing
@@ -293,9 +294,10 @@
           - if @classroom.projection_traditional_slide
             .fa.fa-check
       %hr
-      %h4 Accessibility
+      %h4.fa.fa-wheelchair 
+        Accessibility
 
-      Adaptive technologies are provided by request. Please contact the Office of Services for Students with Disabilities to provide adaptive technologies to your classroom. Phone 763-3000 or email <a href="mailto:ssdoffice@umich.edu" target="_blank">ssdoffice@umich.edu</a>
+      %p Adaptive technologies are provided by request. Please contact the Office of Services for Students with Disabilities to provide adaptive technologies to your classroom. Phone 763-3000 or email <a href="mailto:ssdoffice@umich.edu" target="_blank">ssdoffice@umich.edu</a>
 
       %br
       %br
