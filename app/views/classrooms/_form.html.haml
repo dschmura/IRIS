@@ -1,234 +1,321 @@
+
+
 = form_for @classroom, :html => {multipart: true, class: 'classroom_form'} do |f|
-
-  %h3 Attributes
-  .inputs
-    .col-md-6
-      %i.fa.fa-lightbulb-o
-      %a{"data-original-title" => "Room is either windowless or can be darkened with the use of specialized blinds for the purpose of film viewing, high resolution image viewing, etc.", "data-placement" => "right", :href => "#", :rel => "tooltip"} 
-        = label_tag(:light_control)
-      = check_box_tag(:light_control)
+  .row  
+    .col-md-5
+      .input-group.input-group-sm.col-md-7
+        %span.input-group-addon Room #
+        = f.text_field :room_number, :placeholder => "AudB", class: "form-control classroom_room_number", :input_html => { :tabindex => '1' }
     
+      %br
+      %br
     
-      #attribute_classroom_layout
-        %b Layout:
-        %ul
-          %li
-            %a{"data-original-title" => "Room provides a raised platform for the instructor.", "data-placement" => "right", :href => "#", :rel => "tooltip"}
-              = label_tag(:layout_platform)
-            = check_box_tag(:layout_platform)
-          %li
-            %a{"data-original-title" => "Room contains a stage in the front of the room.", "data-placement" => "right", :href => "#", :rel => "tooltip"}
-              = label_tag(:layout_stage)
-            = check_box_tag(:layout_stage)
-          %li
-            %a{"data-original-title" => "Room contains a stage in the front of the room.", "data-placement" => "right", :href => "#", :rel => "tooltip"}   
-              = label_tag(:layout_tiered)
-            = check_box_tag(:layout_tiered)
-      %hr      
-      #attribute_seating
-        %b Seating:
-        %ul
-          %li
-            %a{"data-original-title" => "Room contains fixed chairs with tablet writing surface.", "data-placement" => "right", :href => "#", :rel => "tooltip"} 
-              = label_tag(:seating_auditorium)
-            = check_box_tag(:seating_auditorium)
-          %li
-            %a{"data-original-title" => "Room contains fixed chairs with no tablet.", "data-placement" => "right", :href => "#", :rel => "tooltip"}
-              = label_tag(:seating_chairs_fixed)
-            = check_box_tag(:seating_chairs_fixed)
-          %li
-            %a{"data-original-title" => "Room contains movable chairs with tablet writing surface.", "data-placement" => "right", :href => "#", :rel => "tooltip"}
-              = label_tag(:seating_movable_tables_chairs)
-            = check_box_tag(:seating_movable_tables_chairs)
-          %li
-            %a{"data-original-title" => "Room is set up in a seminar/conference style with seats surrounding large table.", "data-placement" => "right", :href => "#", :rel => "tooltip"}
-              = label_tag(:seating_table_conference)
-            = check_box_tag(:seating_table_conference)
-          %li
-            %a{"data-original-title" => "Room contains a table writing surface for students (fixed, movable, or seminar/conference).", "data-placement" => "right", :href => "#", :rel => "tooltip"}
-              = label_tag(:seating_tables_any)
-            = check_box_tag(:seating_tables_any)
-          %li
-            %a{"data-original-title" => "Room contains fixed table writing surface for students.", "data-placement" => "right", :href => "#", :rel => "tooltip"}
-              = label_tag(:seating_tables_fixed)
-            = check_box_tag(:seating_tables_fixed)
-          %li
-            %a{"data-original-title" => "Room has moveable table writing surface for students. Rooms w/ moveable tables should be considered fixed if: school/dept prohibits changing arrangement, tables are wired or attached so moving is not easy, or room does not allow for other arrangements.", "data-placement" => "right", :href => "#", :rel => "tooltip"}
-              = label_tag(:seating_tables_moveable)
-            = check_box_tag(:seating_tables_moveable)
-      
-      %hr
-      %ul
-        %li
-          %i.fa.fa-bullhorn
-          %a{"data-original-title" => "Room contains a sound system to amplify any of its A/V and IT components, such as computer or DVD/VCR.", "data-placement" => "right", :href => "#", :rel => "tooltip"}   
-            = label_tag(:sound_amplification)
-          = check_box_tag(:sound_amplification)
-        %li
-          %i.fa.fa-exchange
-          %a{"data-original-title" => "Room provides a hardwired ethernet connection to a portion of student seats.", "data-placement" => "right", :href => "#", :rel => "tooltip"}
-            = label_tag(:ethernet_students)
-          = check_box_tag(:ethernet_students)
-        %li
-          %i.fa.fa-bolt
-          %a{"data-original-title" => "Room contains power outlets for a portion of student seats.", "data-placement" => "right", :href => "#", :rel => "tooltip"}
-            = label_tag(:power_students)
-          = check_box_tag(:power_students)
-
-
-      %hr
-      %i.fa.fa-picture-o
-        %b Writing Surface:
-      %ul
-        %li
-          %a{"data-original-title" => "Room contains a chalkboard writing surface of any size.", "data-placement" => "right", :href => "#", :rel => "tooltip"}
-            = label_tag(:writing_surface_chalkboard_any)
-          = check_box_tag(:writing_surface_chalkboard_any)
-        %li
-          %a{"data-original-title" => "Room contains a chalkboard writing surface of over 25 feet.", "data-placement" => "right", :href => "#", :rel => "tooltip"}
-            = label_tag(:writing_surface_chalkboard_25ft)
-          = check_box_tag(:writing_surface_chalkboard_25ft)
-        %li
-          %a{"data-original-title" => "Room contains a whiteboard writing surface of any size.", "data-placement" => "right", :href => "#", :rel => "tooltip"}
-            = label_tag(:writing_surface_whiteboard_any)
-          = check_box_tag(:writing_surface_whiteboard_any)
-        %li
-          %a{"data-original-title" => "Room contains a whiteboard writing surface of over 25 feet.", "data-placement" => "right", :href => "#", :rel => "tooltip"}
-            = label_tag(:writing_surface_whiteboard_25ft)
-          = check_box_tag(:writing_surface_whiteboard_25ft)
-    
-      %hr
-
-      %i.fa.fa-desktop
-      Computer Classroom:
-      %ul
-      
-        %li
-          %i.fa.fa-power-off
-          %a{"data-original-title" => "Room contains either PC or MAC computers at each student workstation.", "data-placement" => "right", :href => "#", :rel => "tooltip"}
-            = label_tag(:computer_classroom_any)
-          = check_box_tag(:computer_classroom_any)
-        %li
-          %i.fa.fa-apple
-          %a{"data-original-title" => "Room contains Mac computers at each student workstation.", "data-placement" => "right", :href => "#", :rel => "tooltip"}
-            = label_tag(:computer_classroom_mac)
-          = check_box_tag(:computer_classroom_mac)
-        %li
-          %i.fa.fa-windows
-          %a{"data-original-title" => "Room contains PC computers at each student workstation.", "data-placement" => "right", :href => "#", :rel => "tooltip"}
-            = label_tag(:computer_classroom_windows)
-          = check_box_tag(:computer_classroom_windows)
+      .input-group.input-group-sm.col-md-7
+        %span.input-group-addon rmrecnbr
+        = f.text_field :rmrecnbr, :placeholder => "2018729", class: "form-control", :input_html => { :tabindex => '2' }  
   
-    .col-md-6
-      #attribute_dvd
-        DVD Player
-        %br
-        %a{"data-original-title" => "Room contains DVD player.", "data-placement" => "right", :href => "#", :rel => "tooltip"}
-          = label_tag(:dvd_player_regular, 'Regular')
-        = check_box_tag(:dvd_player_regular)
-        %br
-        %a{"data-original-title" => "Room contains Blu-Ray Disc player.", "data-placement" => "right", :href => "#", :rel => "tooltip"}
-          = label_tag(:dvd_player_blueray, 'Blu-Ray')
-        = check_box_tag(:dvd_player_blueray)
+      %br
+      %br
+
+      = fields_for @classroom.location, :html => {multipart: true, class: 'classroom_form'} do |loc|
+        .input-group.input-group-sm.col-md-8
+          %span.input-group-addon Name:
+          = loc.text_field :name, placeholder: "Angell Hall AudB", class: "form-control classroom_location_attributes_name", id: ""
+     
+      %br 
+      %br
+      .row
+        .sr-only
+          = label_tag(:location_id, "Building")
+        = f.collection_select:location_id, @locations.order(:name), :id, :name,   {:prompt => "What Building is this room in?"}, {:class => "form-control input-sm ", style: "width: 60%;"}
+      = link_to "Add a building", new_building_path, :style => "position: relative; left: 70%; bottom: 23px;", :target => "_blank"
+  
+      %br
+    
+      .sr-only
+        = label_tag(:DEPT_GRP, "Department")
+      = f.select:DEPT_GRP, options_for_select([['College of LSA','COLLEGE_OF_LSA'], ['School of Dentistry', 'SCHOOL_DENTISTRY']]),{:prompt => "Department?"},class: "form-control input-sm ", style: "width: 40%;"
+  
+      %br
+      .rows
+        .sr-only
+          = label_tag(:department_name, "Owner")
+        = f.collection_select:owner_id, @owners.order(:department_name), :id, :department_name,   {prompt: "Who owns this space?"}, {class:"form-control input-sm ", style: "width: 65%;"}
+      = link_to "Add an Owner", new_owner_path, style: "position: relative; left: 70%; bottom: 23px;", :target => "_blank"
+  
+      .row
+      .input-group.input-group-sm.col-md-7
+        %span.input-group-addon Student Capacity:
+        = f.text_field :student_capacity, :placeholder => "", class: "form-control "
+      <input id= "capacity_slider" type="range" min="0" max="1000" value="#{@classroom_student_capacity}" step="1" onchange="printValue('capacity_slider', 'classroom_student_capacity')" />
+    
+      %br
+      %br
+      .input-group.input-group-sm.col-md-8
+        %span.input-group-addon HeProdCode:
+        = f.text_field :facility_code_heprod, :placeholder => "AHAudB", class: "form-control ", id: "classroom_facility_code_heprod"
+      %br
+      *Combine the building short code with the room number
+    .col-md-7
+    
+      %br
+      %br    
+      #maptest.gmap3
+      drag & drop the marker to update latitude & longitude
+    
+        
+      = fields_for @classroom.location, :html => {multipart: true, class: 'classroom_form'} do |loc|
+        .input-group.input-group-sm.col-md-6
+          %span.input-group-addon Lat: 
+          = loc.text_field :latitude,  class: "form-control classroom_location_attributes_latitude", id: "disabledInput", disabled: true
+        .input-group.input-group-sm.col-md-6
+          %span.input-group-addon Long:
+          = loc.text_field :longitude,  class: "form-control classroom_location_attributes_longitude", id: "disabledInput", disabled: true
+
+  .row
+    %h3.clearfix Attributes
+    .inputs
+      .col-md-6
+        %i.fa.fa-lightbulb-o
+        %a{"data-original-title" => "Room is either windowless or can be darkened with the use of specialized blinds for the purpose of film viewing, high resolution image viewing, etc.", "data-placement" => "right", :href => "#", :rel => "tooltip"} 
+          = label_tag(:light_control)
+        = check_box_tag(:light_control)
+    
+    
+        #attribute_classroom_layout
+          %b Layout:
+          %ul
+            %li
+              %a{"data-original-title" => "Room provides a raised platform for the instructor.", "data-placement" => "right", :href => "#", :rel => "tooltip"}
+                = label_tag(:layout_platform)
+              = check_box_tag(:layout_platform)
+            %li
+              %a{"data-original-title" => "Room contains a stage in the front of the room.", "data-placement" => "right", :href => "#", :rel => "tooltip"}
+                = label_tag(:layout_stage)
+              = check_box_tag(:layout_stage)
+            %li
+              %a{"data-original-title" => "Room contains a stage in the front of the room.", "data-placement" => "right", :href => "#", :rel => "tooltip"}   
+                = label_tag(:layout_tiered)
+              = check_box_tag(:layout_tiered)
+        %hr      
+        #attribute_seating
+          %b Seating:
+          %ul
+            %li
+              %a{"data-original-title" => "Room contains fixed chairs with tablet writing surface.", "data-placement" => "right", :href => "#", :rel => "tooltip"} 
+                = label_tag(:seating_auditorium)
+              = check_box_tag(:seating_auditorium)
+            %li
+              %a{"data-original-title" => "Room contains fixed chairs with no tablet.", "data-placement" => "right", :href => "#", :rel => "tooltip"}
+                = label_tag(:seating_chairs_fixed)
+              = check_box_tag(:seating_chairs_fixed)
+            %li
+              %a{"data-original-title" => "Room contains movable chairs with tablet writing surface.", "data-placement" => "right", :href => "#", :rel => "tooltip"}
+                = label_tag(:seating_movable_tables_chairs)
+              = check_box_tag(:seating_movable_tables_chairs)
+            %li
+              %a{"data-original-title" => "Room is set up in a seminar/conference style with seats surrounding large table.", "data-placement" => "right", :href => "#", :rel => "tooltip"}
+                = label_tag(:seating_table_conference)
+              = check_box_tag(:seating_table_conference)
+            %li
+              %a{"data-original-title" => "Room contains a table writing surface for students (fixed, movable, or seminar/conference).", "data-placement" => "right", :href => "#", :rel => "tooltip"}
+                = label_tag(:seating_tables_any)
+              = check_box_tag(:seating_tables_any)
+            %li
+              %a{"data-original-title" => "Room contains fixed table writing surface for students.", "data-placement" => "right", :href => "#", :rel => "tooltip"}
+                = label_tag(:seating_tables_fixed)
+              = check_box_tag(:seating_tables_fixed)
+            %li
+              %a{"data-original-title" => "Room has moveable table writing surface for students. Rooms w/ moveable tables should be considered fixed if: school/dept prohibits changing arrangement, tables are wired or attached so moving is not easy, or room does not allow for other arrangements.", "data-placement" => "right", :href => "#", :rel => "tooltip"}
+                = label_tag(:seating_tables_moveable)
+              = check_box_tag(:seating_tables_moveable)
       
-      %hr
-      #attribute_captioning_device 
-        %a{"data-original-title" => "Room contains a special device for transcribing audio into displayable captions.", "data-placement" => "right", :href => "#", :rel => "tooltip"}
-          = label_tag(:captioning_device)
-        = check_box_tag(:captioning_device)
+        %hr
+        %ul
+          %li
+            %i.fa.fa-bullhorn
+            %a{"data-original-title" => "Room contains a sound system to amplify any of its A/V and IT components, such as computer or DVD/VCR.", "data-placement" => "right", :href => "#", :rel => "tooltip"}   
+              = label_tag(:sound_amplification)
+            = check_box_tag(:sound_amplification)
+          %li
+            %i.fa.fa-exchange
+            %a{"data-original-title" => "Room provides a hardwired ethernet connection to a portion of student seats.", "data-placement" => "right", :href => "#", :rel => "tooltip"}
+              = label_tag(:ethernet_students)
+            = check_box_tag(:ethernet_students)
+          %li
+            %i.fa.fa-bolt
+            %a{"data-original-title" => "Room contains power outlets for a portion of student seats.", "data-placement" => "right", :href => "#", :rel => "tooltip"}
+              = label_tag(:power_students)
+            = check_box_tag(:power_students)
+
+
+        %hr
+        %i.fa.fa-picture-o
+          %b Writing Surface:
+        %ul
+          %li
+            %a{"data-original-title" => "Room contains a chalkboard writing surface of any size.", "data-placement" => "right", :href => "#", :rel => "tooltip"}
+              = label_tag(:writing_surface_chalkboard_any)
+            = check_box_tag(:writing_surface_chalkboard_any)
+          %li
+            %a{"data-original-title" => "Room contains a chalkboard writing surface of over 25 feet.", "data-placement" => "right", :href => "#", :rel => "tooltip"}
+              = label_tag(:writing_surface_chalkboard_25ft)
+            = check_box_tag(:writing_surface_chalkboard_25ft)
+          %li
+            %a{"data-original-title" => "Room contains a whiteboard writing surface of any size.", "data-placement" => "right", :href => "#", :rel => "tooltip"}
+              = label_tag(:writing_surface_whiteboard_any)
+            = check_box_tag(:writing_surface_whiteboard_any)
+          %li
+            %a{"data-original-title" => "Room contains a whiteboard writing surface of over 25 feet.", "data-placement" => "right", :href => "#", :rel => "tooltip"}
+              = label_tag(:writing_surface_whiteboard_25ft)
+            = check_box_tag(:writing_surface_whiteboard_25ft)
+    
+        %hr
+
+        %i.fa.fa-desktop
+        Computer Classroom:
+        %ul
       
-      %hr  
-      %i.fa.fa-laptop
-      Podium Classroom:
-      %ul
+          %li
+            %i.fa.fa-power-off
+            %a{"data-original-title" => "Room contains either PC or MAC computers at each student workstation.", "data-placement" => "right", :href => "#", :rel => "tooltip"}
+              = label_tag(:computer_classroom_any)
+            = check_box_tag(:computer_classroom_any)
+          %li
+            %i.fa.fa-apple
+            %a{"data-original-title" => "Room contains Mac computers at each student workstation.", "data-placement" => "right", :href => "#", :rel => "tooltip"}
+              = label_tag(:computer_classroom_mac)
+            = check_box_tag(:computer_classroom_mac)
+          %li
+            %i.fa.fa-windows
+            %a{"data-original-title" => "Room contains PC computers at each student workstation.", "data-placement" => "right", :href => "#", :rel => "tooltip"}
+              = label_tag(:computer_classroom_windows)
+            = check_box_tag(:computer_classroom_windows)
+  
+      .col-md-6
+        #attribute_dvd
+          DVD Player
+          %br
+          %a{"data-original-title" => "Room contains DVD player.", "data-placement" => "right", :href => "#", :rel => "tooltip"}
+            = label_tag(:dvd_player_regular, 'Regular')
+          = check_box_tag(:dvd_player_regular)
+          %br
+          %a{"data-original-title" => "Room contains Blu-Ray Disc player.", "data-placement" => "right", :href => "#", :rel => "tooltip"}
+            = label_tag(:dvd_player_blueray, 'Blu-Ray')
+          = check_box_tag(:dvd_player_blueray)
       
-        %li
-          %i.fa.fa-power-off
-          %a{"data-original-title" => "Room contains a Mac computer for use by the instructor.", "data-placement" => "right", :href => "#", :rel => "tooltip"}
-            = label_tag(:podium_computer_any)
-          = check_box_tag(:podium_computer_any)
-        %li
-          %i.fa.fa-apple
-          %a{"data-original-title" => "Room contains a PC computer for use by the instructor.", "data-placement" => "right", :href => "#", :rel => "tooltip"}
-            = label_tag(:podium_computer_mac)
-          = check_box_tag(:podium_computer_mac)
-        %li
-          %i.fa.fa-windows
-          %a{"data-original-title" => "Room contains a specialized camera for the real-time displaying of documents, texts, or small objects.", "data-placement" => "right", :href => "#", :rel => "tooltip"}
-            = label_tag(:podium_computer_windows)
-          = check_box_tag(:podium_computer_windows)
-      %hr
+        %hr
+        #attribute_captioning_device 
+          %a{"data-original-title" => "Room contains a special device for transcribing audio into displayable captions.", "data-placement" => "right", :href => "#", :rel => "tooltip"}
+            = label_tag(:captioning_device)
+          = check_box_tag(:captioning_device)
+      
+        %hr  
+        %i.fa.fa-laptop
+        Podium Classroom:
+        %ul
+      
+          %li
+            %i.fa.fa-power-off
+            %a{"data-original-title" => "Room contains a Mac computer for use by the instructor.", "data-placement" => "right", :href => "#", :rel => "tooltip"}
+              = label_tag(:podium_computer_any)
+            = check_box_tag(:podium_computer_any)
+          %li
+            %i.fa.fa-apple
+            %a{"data-original-title" => "Room contains a PC computer for use by the instructor.", "data-placement" => "right", :href => "#", :rel => "tooltip"}
+              = label_tag(:podium_computer_mac)
+            = check_box_tag(:podium_computer_mac)
+          %li
+            %i.fa.fa-windows
+            %a{"data-original-title" => "Room contains a specialized camera for the real-time displaying of documents, texts, or small objects.", "data-placement" => "right", :href => "#", :rel => "tooltip"}
+              = label_tag(:podium_computer_windows)
+            = check_box_tag(:podium_computer_windows)
+        %hr
       
       
  
       
-      %i#attribute_doc_camera
-      %b
-        %a{"data-original-title" => "Room contains a specialized camera for the real-time displaying of documents, texts, or small objects.", "data-placement" => "right", :href => "#", :rel => "tooltip"}  
-          = label_tag(:document_camera)
-      = check_box_tag(:document_camera, class: 'checkbox')
-      %br
-      %i.fa.fa-edit
-      %b
-        %a{"data-original-title" => "Room contains special digitial pen and writing surface for commenting/editing digital presentation.", "data-placement" => "right", :href => "#", :rel => "tooltip"}
-          = label_tag(:interactive_pen)  
-      = check_box_tag(:interactive_pen)
-      %br
-      %i#attribute_lecture_capture
-      %b
-        %a{"data-original-title" => "Room contains a lecture capture device to record instructor, digital presentation, or audio/voice. Must record voice at a minimum.", "data-placement" => "right", :href => "#", :rel => "tooltip"}
-          = label_tag(:lecture_capture)
-      = check_box_tag(:lecture_capture)
-      %br
-      %i.fa.fa-phone
-      %b
-        %a{"data-original-title" => "Room contains a telephone.", "data-placement" => "right", :href => "#", :rel => "tooltip"}
-          = label_tag(:telephone)
-      = check_box_tag(:telephone)
-      %br
-      %i.fa.fa-comments-o
-      %b
-        %a{"data-original-title" => "Room contains a special video conferencing equipment, including camera.", "data-placement" => "right", :href => "#", :rel => "tooltip"}
-          = label_tag(:video_conferencing)
-      = check_box_tag(:video_conferencing)
+        %i#attribute_doc_camera
+        %b
+          %a{"data-original-title" => "Room contains a specialized camera for the real-time displaying of documents, texts, or small objects.", "data-placement" => "right", :href => "#", :rel => "tooltip"}  
+            = label_tag(:document_camera)
+        = check_box_tag(:document_camera, class: 'checkbox')
+        %br
+        %i.fa.fa-edit
+        %b
+          %a{"data-original-title" => "Room contains special digitial pen and writing surface for commenting/editing digital presentation.", "data-placement" => "right", :href => "#", :rel => "tooltip"}
+            = label_tag(:interactive_pen)  
+        = check_box_tag(:interactive_pen)
+        %br
+        %i#attribute_lecture_capture
+        %b
+          %a{"data-original-title" => "Room contains a lecture capture device to record instructor, digital presentation, or audio/voice. Must record voice at a minimum.", "data-placement" => "right", :href => "#", :rel => "tooltip"}
+            = label_tag(:lecture_capture)
+        = check_box_tag(:lecture_capture)
+        %br
+        %i.fa.fa-phone
+        %b
+          %a{"data-original-title" => "Room contains a telephone.", "data-placement" => "right", :href => "#", :rel => "tooltip"}
+            = label_tag(:telephone)
+        = check_box_tag(:telephone)
+        %br
+        %i.fa.fa-comments-o
+        %b
+          %a{"data-original-title" => "Room contains a special video conferencing equipment, including camera.", "data-placement" => "right", :href => "#", :rel => "tooltip"}
+            = label_tag(:video_conferencing)
+        = check_box_tag(:video_conferencing)
 
 
-      %hr
-      #attribute_projecters
-        Projection:
-        %ul
-          %li
-            %a{"data-original-title" => "Room contains 16mm film projector.", "data-placement" => "right", :href => "#", :rel => "tooltip"}
-              = label_tag(:projection_16mm_film)
-            = check_box_tag(:projection_16mm_film)
-          %li
-            %a{"data-original-title" => "Room contains 35mm film projector.", "data-placement" => "right", :href => "#", :rel => "tooltip"}
-              = label_tag(:projection_35mm_file)
-            = check_box_tag(:projection_35mm_file)
-          %li
-            %a{"data-original-title" => "Room contains projector or monitor to digitally display video from any of the room A/V and IT components, such as computer or DVD/VCR.", "data-placement" => "right", :href => "#", :rel => "tooltip"}
-              = label_tag(:projection_digital_data_video)
-            = check_box_tag(:projection_digital_data_video)
-          %li
-            %a{"data-original-title" => "Room contains a traditional slide projector for the display of photographic slides.", "data-placement" => "right", :href => "#", :rel => "tooltip"}
-              = label_tag(:projection_traditional_slide)
-            = check_box_tag(:projection_traditional_slide)
+        %hr
+        #attribute_projecters
+          Projection:
+          %ul
+            %li
+              %a{"data-original-title" => "Room contains 16mm film projector.", "data-placement" => "right", :href => "#", :rel => "tooltip"}
+                = label_tag(:projection_16mm_film)
+              = check_box_tag(:projection_16mm_film)
+            %li
+              %a{"data-original-title" => "Room contains 35mm film projector.", "data-placement" => "right", :href => "#", :rel => "tooltip"}
+                = label_tag(:projection_35mm_file)
+              = check_box_tag(:projection_35mm_file)
+            %li
+              %a{"data-original-title" => "Room contains projector or monitor to digitally display video from any of the room A/V and IT components, such as computer or DVD/VCR.", "data-placement" => "right", :href => "#", :rel => "tooltip"}
+                = label_tag(:projection_digital_data_video)
+              = check_box_tag(:projection_digital_data_video)
+            %li
+              %a{"data-original-title" => "Room contains a traditional slide projector for the display of photographic slides.", "data-placement" => "right", :href => "#", :rel => "tooltip"}
+                = label_tag(:projection_traditional_slide)
+              = check_box_tag(:projection_traditional_slide)
     
-    %hr
-    %h4
-      Accessibility
-    %br
-    %i.fa.fa-headphones
-      %a{"data-original-title" => "Room contains a special device for broadcasting audio to the hearing impaired.", "data-placement" => "right", :href => "#", :rel => "tooltip"}
-        = label_tag(:assisted_listening)
-      = check_box_tag(:assisted_listening)
-    %br  
-    %i.fa.fa-wheelchair 
-      %a{"data-original-title" => "Room provides wheelchair access to instructor area.", "data-placement" => "right", :href => "#", :rel => "tooltip"}
-        = label_tag(:wheelchair_instructor)
-      = check_box_tag(:wheelchair_instructor)
+      %hr
+      %h4
+        Accessibility
+      %br
+      %i.fa.fa-headphones
+        %a{"data-original-title" => "Room contains a special device for broadcasting audio to the hearing impaired.", "data-placement" => "right", :href => "#", :rel => "tooltip"}
+          = label_tag(:assisted_listening)
+        = check_box_tag(:assisted_listening)
+      %br  
+      %i.fa.fa-wheelchair 
+        %a{"data-original-title" => "Room provides wheelchair access to instructor area.", "data-placement" => "right", :href => "#", :rel => "tooltip"}
+          = label_tag(:wheelchair_instructor)
         
+        = check_box_tag(:wheelchair_instructor)
+    
+      %hr
+      %br
+      = fields_for :location do |loc|
+        = label_tag(:description)
+      
+      
+        = text_area_tag(:description, nil, columns: 30, rows: 2, class: "form-control")
 
+    %br
+    %br
+    .actions     
+      = f.button :submit
+      |
+      = link_to "Cancel", @classroom
 %hr
 OLD FORM BELOW
 %hr    
@@ -246,53 +333,9 @@ OLD FORM BELOW
       
       .col-md-5#edit_classroom_form
 
-        = f.input :room_number, :wrapper => :prepend, :label => false do
-          = content_tag :span, "Room #", :class => "add-on"
-          = f.input_field :room_number, :placeholder => "AudB", :input_html => { :tabindex => '1', :class => 'col-md-1' }
-          %br
-          %br
-          = content_tag :span, "rmrecnbr", :class => "add-on"
-          = f.input_field :rmrecnbr, :placeholder => "2018729", :input_html => { :tabindex => '2' }
-          
-        = f.input :location_id, :collection => Location.where(:locatable_type => "Building").order("name ASC"), :prompt => "What Building is this room in?", :label => "Building", :input_html => { :class => "col-md-6" }
-        %br
-
-        = link_to "Add a Building", new_building_path, :style => "position: relative; left: 180px; bottom: 55px;", :target => "_blank"
-        = f.input :DEPT_GRP, :collection => [['College of LSA','COLLEGE_OF_LSA'], ['School of Dentistry', 'SCHOOL_DENTISTRY']], :label => "Department"
-        %br
         
-        = f.input :owner_id, :collection => Owner.order("department_name ASC"), :prompt => "Who owns this space?", :label => "", :label_method => :department_name, :input_html => { :class => "col-md-8" }
-        = link_to "Add an Owner", new_owner_path, :style => "position: relative; left: 245px; bottom: 30px;", :target => "_blank"
-        = f.simple_fields_for :location, :html => {:class => "form "} do |loc|
-          .search-query
-          = loc.input :name, :wrapper => :prepend, :label => false do
-            = content_tag :span, "Name", :class => "add-on"
-            = loc.input_field :name, :placeholder => "Angell Hall Aud B"
-          = loc.input :latitude, :wrapper => :prepend, :label => false do
-            = content_tag :span, "Lat :", :class => "add-on"
-            = loc.input_field :latitude, :as => "string", :class => "input-medium"
-
-          = loc.input :longitude, :wrapper => :prepend, :label => false do
-            = content_tag :span, "Long:", :class => "add-on"
-            = loc.input_field :longitude, :as => "string", :class => "input-medium"
-
-          = f.input :student_capacity, :wrapper => :prepend, :label => false do
-            = content_tag :span, "Student Capacity:", :class => "add-on "
-            = f.input_field :student_capacity, :as => "string", :class => "col-md-2" 
-          <input id= "capacity_slider" type="range" min="0" max="1000" value="#{@classroom_student_capacity}" step="1" onchange="printValue('capacity_slider', 'classroom_student_capacity')" />
-          %br
-          %br
-          = f.input :facility_code_heprod, :wrapper => :prepend, :label => false do
-            = content_tag :span, "HeProd Code:", :class => "add-on "
-            = f.input_field :facility_code_heprod, :as => "string", :class => "col-md-3", :placeholder => "AHAudB"
-          *Combine the building short code with the room number
-          
-          %br
-          %br
-          = f.simple_fields_for :location do |loc|
-            = loc.input :visible, :input_html => {:class => 'form-'}
-            = loc.input :description, :input_html => { :class => "col-md-12", :rows => 5 }, :placeholder => "Classroom Description (will be displayed in map)"   
         
+
     %hr
         
        
@@ -315,121 +358,10 @@ OLD FORM BELOW
             = f.simple_fields_for :location do |loc|
               -# paperclip method
               = loc.file_field :picture 
-        #maptest.gmap3
-        
-        -#<button onclick="myFunction()">Find current location</button>
-        drag & drop the marker to update latitude & longitude         
+      
 
-    .row.col-md-12
-      %h3 Attributes              
- 
-    #attributes_wrapper.col-md-12
+    
 
-      #room_design_section.col-md-5.form-horizontal
-        #attribute_blackout
-        %i.fa.fa-lightbulb
-          = f.input :light_control
-        %hr  
-        #attribute_classroom_layout 
-          Layout:
-          = f.input :layout_platform
-          = f.input :layout_stage
-          = f.input :layout_tiered
-        #attribute_seating
-          Seating:
-          = f.input :seating_auditorium
-          = f.input :seating_chairs_fixed
-          = f.input :seating_movable_tables_chairs
-          = f.input :seating_table_conference
-          = f.input :seating_tables_any
-          = f.input :seating_tables_fixed
-          = f.input :seating_tables_moveable
-        %hr 
-        %i.fa.fa-bullhorn  
-        #attribute_sound_amplification
-          = f.input :sound_amplification
-        %i.fa.fa-exchange
-        #attribute_network
-          = f.input :ethernet_students
-        %i.fa.fa-bolt
-        #attribute_power_outlets
-          = f.input :power_students
-        %hr   
-        #attribute_board
-          Writing Surface:
-          = f.input :writing_surface_chalkboard_any
-          = f.input :writing_surface_chalkboard_25ft
-          = f.input :writing_surface_whiteboard_any
-          = f.input :writing_surface_whiteboard_25ft
-          %i.fa.fa-desktop
-          %b 
-            Podium Computer
-            %br
-            %br
-          #attribute_computer_lab
-          Computer Classroom:
-          = f.input :computer_classroom_any
-          #attribute_podium_computer_mac
-            = f.input :computer_classroom_mac
-          #attribute_podium_computer_pc
-            = f.input :computer_classroom_windows
-
-      #equipment_section.col-md-5.form-horizontal
-        #attribute_dvd
-          DVD Player  
-          = f.input :dvd_player_regular, :label => 'Standard'
-          = f.input :dvd_player_blueray, :label => 'Blu-ray'
-        %hr  
-        #attribute_captioning_device  
-          = f.input :captioning_device
-        %hr  
-        %i.fa.fa-laptop
-        %b 
-          Podium Computer
-          %br
-          %br
-          = f.input :podium_computer_any
-          #attribute_podium_computer_mac
-            = f.input :podium_computer_mac
-          #attribute_podium_computer_pc
-            = f.input :podium_computer_windows
-        #attribute_doc_camera  
-          = f.input :document_camera
-        #attribute_interactive_pen
-          = f.input :interactive_pen
-        #attribute_lecture_capture
-          = f.input :lecture_capture
-        #attribute_telephone
-          = f.input :telephone
-        #attribute_video_conferencing
-          = f.input :video_conferencing
-        %hr
-        #attribute_projecters
-          Projection:
-          = f.input :projection_16mm_film
-          = f.input :projection_35mm_file
-          = f.input :projection_digital_data_video
-          = f.input :projection_traditional_slide
-
-        #notes_section
-          #attribute_notes
-            = f.input :notes, :input_html => {  :rows => 5 }
-        #accessibility_section
-          %h3
-            Accessibility    
-          #attribute_assisted_listening
-            = f.input :assisted_listening
-          #attribute_instructor_wheelchair_access
-            = f.input :wheelchair_instructor  
-
-    .row
-      %hr
-      %br
-      %br
-      .actions     
-        = f.button :submit
-        |
-        = link_to "Cancel", @classroom
         
        
 
@@ -461,13 +393,13 @@ OLD FORM BELOW
 
 -# Auto update HeProd with building code and room number
 :javascript
-  $('#classroom_room_number').keyup(function () {
+  $('.classroom_room_number').keyup(function () {
     var room_number = $('input#classroom_room_number').val()
-    $('#classroom_facility_code_heprod').val(room_number);
-    $('#classroom_location_attributes_name').val(room_number);
-    $('#classroom_location_id').change(function () {
+    $('.classroom_facility_code_heprod').val(room_number);
+    $('.classroom_location_attributes_name').val(room_number);
+    $('.classroom_location_id').change(function () {
       var room_name = $('option:selected', this).html();
-      $('#classroom_location_attributes_name').val(room_number + " " + room_name);
+      $('.classroom_location_attributes_name').val(room_number + " " + room_name);
     });
   });
 
@@ -489,8 +421,8 @@ OLD FORM BELOW
                    var myLatLng = event.latLng;
                    var lat = myLatLng.lat();
                    var lng = myLatLng.lng();
-                   $('#classroom_location_attributes_latitude').val(lat);
-                   $('#classroom_location_attributes_longitude').val(lng);
+                   $('.classroom_location_attributes_latitude').val(lat);
+                   $('.classroom_location_attributes_longitude').val(lng);
                  }
                }
              },

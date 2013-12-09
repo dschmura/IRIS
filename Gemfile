@@ -15,7 +15,7 @@ group :doc do
 end
 
 gem "haml"
-gem 'anjlab-bootstrap-rails', '~> 3.0.2.0', :require => 'bootstrap-rails'
+gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails'
 
 
 gem 'font-awesome-rails'
