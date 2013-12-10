@@ -56,10 +56,7 @@
         = f.text_field :facility_code_heprod, :placeholder => "AHAudB", class: "form-control ", id: "classroom_facility_code_heprod"
       %br
       *Combine the building short code with the room number
-    .col-md-7
-    
-      %br
-      %br    
+    .col-md-7  
       #maptest.gmap3
       drag & drop the marker to update latitude & longitude
     
@@ -71,6 +68,27 @@
         .input-group.input-group-sm.col-md-6
           %span.input-group-addon Long:
           = loc.text_field :longitude,  class: "form-control classroom_location_attributes_longitude", id: "disabledInput", disabled: true
+    
+    %br
+    %br      
+    #location_image_form
+      -if @classroom.location.picture_file_name != nil
+        = image_tag @classroom.location.picture.url.to_s, class: "img-rounded "
+        %p.col-md-offset-4#update_image
+          %b Change the image for this classroom.  
+          %br
+          %br
+          = fields_for @classroom.location, :html => {multipart: true, class: 'classroom_form'} do |loc|
+            -# paperclip method
+            = loc.file_field :picture
+      - else
+        %p
+          %b Upload an image for this classroom.  
+          %br
+          %br
+          = fields_for :location do |loc|
+            -# paperclip method
+            = loc.file_field :picture      
 
   .row
     %h3.clearfix Attributes
@@ -340,24 +358,7 @@ OLD FORM BELOW
         
        
       
-      #location_image_form.col-md-6
-        -if @classroom.location.picture_file_name != nil
-          = image_tag @classroom.location.picture.url.to_s
-          %p.col-md-offset-4#update_image
-            %b Change the image for this classroom.  
-            %br
-            %br
-            = f.simple_fields_for :location, :html => { :multipart => true } do |loc|
-              -# paperclip method
-              = loc.file_field :picture
-        - else
-          %p
-            %b Upload an image for this classroom.  
-            %br
-            %br
-            = f.simple_fields_for :location do |loc|
-              -# paperclip method
-              = loc.file_field :picture 
+      
       
 
     

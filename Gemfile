@@ -58,8 +58,8 @@ gem "rolify", ">= 3.2.0"
 gem 'rqrcode-rails3'
 gem 'mini_magick'
 
-#gem 'capistrano', '2.15.5'
-gem 'capistrano'
+gem 'capistrano', '2.15.5'
+#gem 'capistrano'
 gem "simple_form"
 gem 'will_paginate', '~> 3.0.5'
 gem "therubyracer", :group => :assets, :platform => :ruby
