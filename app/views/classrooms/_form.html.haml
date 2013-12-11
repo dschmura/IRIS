@@ -1,5 +1,5 @@
 
-
+%container
 = form_for @classroom, :html => {multipart: true, class: 'classroom_form'} do |f|
   .row  
     .col-md-5
@@ -27,7 +27,7 @@
       .row
         .sr-only
           = label_tag(:location_id, "Building")
-        = f.collection_select:location_id, @locations.order(:name), :id, :name,   {:prompt => "What Building is this room in?"}, {:class => "form-control input-sm ", style: "width: 60%;"}
+        = f.collection_select:location_id, @locations.order(:name), :id, :name,   {:prompt => "What Building is this room in?"}, {:class => "form-control input-sm classroom_location_id", style: "width: 60%;"}
       = link_to "Add a building", new_building_path, :style => "position: relative; left: 70%; bottom: 23px;", :target => "_blank"
   
       %br
@@ -58,6 +58,7 @@
       *Combine the building short code with the room number
     .col-md-7  
       #maptest.gmap3
+      %br
       drag & drop the marker to update latitude & longitude
     
         
@@ -70,25 +71,25 @@
           = loc.text_field :longitude,  class: "form-control classroom_location_attributes_longitude", id: "disabledInput", disabled: true
     
     %br
-    %br      
-    #location_image_form
-      -if @classroom.location.picture_file_name != nil
-        = image_tag @classroom.location.picture.url.to_s, class: "img-rounded "
-        %p.col-md-offset-4#update_image
-          %b Change the image for this classroom.  
-          %br
-          %br
-          = fields_for @classroom.location, :html => {multipart: true, class: 'classroom_form'} do |loc|
-            -# paperclip method
-            = loc.file_field :picture
-      - else
-        %p
-          %b Upload an image for this classroom.  
-          %br
-          %br
-          = fields_for :location do |loc|
-            -# paperclip method
-            = loc.file_field :picture      
+    %br
+    %br
+    -if @classroom.location.picture_file_name != nil
+      = image_tag @classroom.location.picture.url.to_s, class: "img-rounded col-md-5 "
+      %p
+        %b Change the image for this classroom.  
+      %p
+        = fields_for @classroom.location, :html => {multipart: true, class: 'classroom_form'} do |loc|
+          -# paperclip method
+          = loc.file_field :picture
+    - else
+      %p
+        %b Upload an image for this classroom.  
+        %br
+        %br
+        = fields_for :location do |loc|
+          -# paperclip method
+          = loc.file_field :picture   
+   
 
   .row
     %h3.clearfix Attributes
