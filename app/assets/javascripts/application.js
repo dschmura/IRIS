@@ -10,6 +10,7 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //
+//= require analytics.js.coffee
 //= require jquery
 //= require jquery-ui
 //= require jquery.ui.touch-punch.min
@@ -18,7 +19,7 @@
 //= require pano2vr_player
 //= require gmap3.min
 //= require swfobject
-//= require analytics
+
 
 $(document).ready(function(){
     $('a').tooltip();
