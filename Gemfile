@@ -68,7 +68,7 @@ gem 'will_paginate-bootstrap'
 
 ## Used for uploading and resizing images (Need both paperclip and mini_magick)
 
-gem "paperclip", "~> 3.4.2"
+gem "paperclip", "3.5.1"
 
 #gem "meta_search"
 gem "ransack"
