@@ -129,8 +129,6 @@ GEM
     rdoc (3.12.2)
       json (~> 1.4)
     ref (1.0.5)
-    respond-rails (1.0.1)
-      railties (>= 3.1.0)
     rolify (3.2.0)
     rqrcode (0.4.2)
     rqrcode-rails3 (0.1.7)
@@ -203,7 +201,6 @@ DEPENDENCIES
   protected_attributes
   rails (= 4.0.2)
   ransack
-  respond-rails (~> 1.0)
   rolify (>= 3.2.0)
   rqrcode-rails3
   sass-rails (~> 4.0.0)
