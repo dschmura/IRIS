@@ -65,9 +65,6 @@ class Classroom < ActiveRecord::Base
   
   scope :visible, lambda { includes(:location).where("locations.visible = ?", true )    }
   
-
-
-  
   
   accepts_nested_attributes_for :location, :allow_destroy => true  
   validates_presence_of :location_id
