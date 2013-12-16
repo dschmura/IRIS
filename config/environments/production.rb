@@ -38,8 +38,7 @@ Iris::Application.configure do
   # Enable serving of images, stylesheets, and javascripts from an asset server
   # config.action_controller.asset_host = "http://assets.example.com"
   
-  ## set up respond.js for support of IE 8
-  config.assets.precompile += %w( modernizr.js respond.js respond-proxy.html respond.proxy.js )
+
   
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
