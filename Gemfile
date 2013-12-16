@@ -22,6 +22,9 @@ gem 'font-awesome-rails'
 
 gem 'protected_attributes'
 
+##Gem for supporting IE 8
+gem "respond-rails", "~> 1.0"
+
 ###
 
 group :assets do
