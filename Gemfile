@@ -17,6 +17,7 @@ end
 gem "haml"
 gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails'
 
+gem 'google-analytics-rails'
 
 gem 'font-awesome-rails'
 
