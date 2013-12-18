@@ -16,7 +16,7 @@ Iris::Application.configure do
   # Do not compress assets
   config.assets.compress = false
 
-  GA.tracker = "UA-45475553-1"
+  
   config.eager_load = false
   
   #Paperclip.options[:command_path] = "/usr/local/bin/"

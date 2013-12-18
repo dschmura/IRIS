@@ -62,7 +62,6 @@ GEM
     execjs (2.0.2)
     font-awesome-rails (4.0.3.0)
       railties (>= 3.2, < 5.0)
-    google-analytics-rails (0.0.4)
     haml (4.0.4)
       tilt
     highline (1.6.20)
@@ -193,7 +192,6 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   devise (= 3.0.3)
   font-awesome-rails
-  google-analytics-rails
   haml
   jbuilder (~> 1.2)
   jquery-rails (~> 2.3.0)
