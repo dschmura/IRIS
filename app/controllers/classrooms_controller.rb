@@ -129,7 +129,8 @@ class ClassroomsController < ApplicationController
   def create
     #@building_code = Location.find(params[:classroom][:location_id])
     @classroom = Classroom.new(params[:classroom])
-
+    @locations = Location.where(:locatable_type => "Building").order("name ASC")
+    @owners = find_owners
     respond_to do |format|
       if @classroom.save
         format.html { redirect_to(classrooms_path, :notice => "The #{@classroom.facility_code_heprod} Classroom was successfully created.") }
