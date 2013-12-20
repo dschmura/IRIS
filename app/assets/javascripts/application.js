@@ -12,7 +12,7 @@
 //
 //= require respond
 //= require jquery
-
+//= require modernizr
 // Loads all Bootstrap javascripts
 //= require twitter/bootstrap
 //= require bootstrap-slider

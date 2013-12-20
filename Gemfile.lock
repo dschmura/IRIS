@@ -83,6 +83,7 @@ GEM
     mini_magick (3.7.0)
       subexec (~> 0.2.1)
     minitest (4.7.5)
+    modernizr-rails (2.7.0)
     multi_json (1.8.2)
     net-scp (1.1.2)
       net-ssh (>= 2.6.5)
@@ -194,6 +195,7 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   mini_magick
+  modernizr-rails
   paperclip (= 3.5.1)
   protected_attributes
   rails (= 4.0.2)

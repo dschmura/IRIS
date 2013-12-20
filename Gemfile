@@ -23,7 +23,7 @@ gem 'font-awesome-rails'
 
 gem 'protected_attributes'
 
-
+gem 'modernizr-rails'
 
 ##gem 'jquery-rails', '2.2.1'
 gem "jquery-rails"

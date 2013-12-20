@@ -112,6 +112,7 @@
 }
 .slider-handle {
   position: absolute;
+ 
   width: 20px;
   height: 20px;
   background-color: #0e90d2;
@@ -132,7 +133,6 @@
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
   border-radius: 20px;
-
 }
 .slider-handle.triangle {
   background: transparent none;
