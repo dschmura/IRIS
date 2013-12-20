@@ -12,10 +12,10 @@
 //
 //= require respond
 //= require jquery
-//= require jquery-ui
-//= require jquery.ui.touch-punch.min
+
 // Loads all Bootstrap javascripts
 //= require twitter/bootstrap
+//= require bootstrap-slider
 //= require pano2vr_player
 //= require gmap3.min
 //= require swfobject

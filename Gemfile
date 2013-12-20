@@ -23,31 +23,11 @@ gem 'font-awesome-rails'
 
 gem 'protected_attributes'
 
-##Gem for supporting IE 8
-#gem "respond-rails", "~> 1.0"
-
-###
-
-group :assets do
-  ##gem 'coffee-rails', '~> 3.2.1'
-  ##gem 'uglifier', '>= 1.0.3'
-  #gem 'font-awesome-sass-rails'
-  
-  ##gem 'sass-rails', '~> 3.2'
-  #gem 'bootstrap-sass', '~> 2.3.1.0'
-  #gem 'bootstrap-sass', '~> 2.3.1.2'
-  #gem 'bootstrap-sass', '2.3.2.1'
-  #gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
-                                #:github => 'anjlab/bootstrap-rails'
-  #gem 'sass-rails',   '~> 3.2.3'
-  #gem 'bootstrap-sass', :git => 'git://github.com/intridea/bootstrap-sass.git', :branch => '3.0.0-wip'
-end
-
 
 
 ##gem 'jquery-rails', '2.2.1'
-gem "jquery-rails", "~> 2.3.0"
-gem 'jquery-ui-rails'
+gem "jquery-rails"
+
 ##gem "haml", ">= 4.0.0"
 ###gem "rspec-rails", ">= 2.10.1", :group => [:development, :test]
 ###gem "machinist", :group => :test

@@ -1,3 +1,4 @@
+
 .classroom_listing
   %h2 Listing classrooms
   .row
@@ -60,8 +61,10 @@
             %br
 
             = f.text_field :student_capacity_gteq, :size => 3, :placeholder => '1', :style => "width: 34px;  float: left;", :id => "my_min"
-            #slider-range
-
+            
+            %input#slider-range.slider.slider-horizontal{"data-slider-max" => "500", "data-slider-min" => "1", "data-slider-orientation" => "horizontal", "data-slider-selection" => "after", "data-slider-step" => "1", "data-slider-tooltip" => "show", "data-slider-value" => [@search.student_capacity_gteq, @search.student_capacity_lteq], name: "q2", type: "text"}
+              
+            
             = f.text_field :student_capacity_lteq, :size => 3, :placeholder => '250', :style => "width: 34px; ",:id => "my_max"
 
 
@@ -131,6 +134,7 @@
 
 
 
+
 :javascript
   $('#myModal').modal({show: false})
 
@@ -140,17 +144,11 @@
   $('#advanced_search_wrapper').toggle('fast', function(){
     });
   });
--# Javascript to update value of student capacity text box from slider
+
 :javascript
-  $(document).ready(function(){
-    $( "#slider-range" ).slider({
-      range: true,
-      min: 0,
-      max: 500,
-      values: [ '#{@search.student_capacity_gteq}', '#{@search.student_capacity_lteq}' ],
-      slide: function( event, ui ) {
-        $( "#my_min" ).val(ui.values[ 0 ]); // Display and selected the min Price
-        $( "#my_max" ).val(ui.values[ 1 ]); // Display and selected the max Price
-      }
-    });
+  $('.slider').slider().on('slide', function(ev){
+    $('#my_min').val(ev.value[0]);
+    $('#my_max').val(ev.value[1]);
   });
+  
+    
