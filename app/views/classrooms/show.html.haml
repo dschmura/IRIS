@@ -319,6 +319,7 @@
         
       }
       else if (e.target.id == "#panotab") {
+      
         //check if html5 version or panorama exists.
         $.ajax({
           url:'/system/videos/panoramas/#{@classroom.facility_code_heprod.upcase}_QTVR_OUT.xml',
@@ -350,10 +351,12 @@
           				"1200", "500",
           				"9.0.0", "", 
           				flashvars, params, attributes);
+                  
 
           		} else 
           		// check for CSS3 3D transformations and WebGL
           		if (ggHasHtml5Css3D() || ggHasWebGL()) {
+                
 
           			// create the panorama player with the container
           			pano=new pano2vrPlayer("pano");
