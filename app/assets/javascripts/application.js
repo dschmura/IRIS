@@ -10,6 +10,7 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //
+//= require analytics
 //= require respond
 //= require jquery
 //= require modernizr
@@ -19,7 +20,7 @@
 //= require pano2vr_player
 //= require gmap3.min
 //= require swfobject
-//= require analytics
+
 
 $(document).ready(function(){
     $('a').tooltip();
