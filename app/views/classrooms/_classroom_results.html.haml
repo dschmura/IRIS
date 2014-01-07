@@ -15,6 +15,7 @@
       %th.col-md-2.hidden-xs
         = sort_link @search, :room_number, "Room Number", :default_order => :desc
       %th.col-md-2
+      
         %b Schedule
       - if user_signed_in?
         -#%th
@@ -31,13 +32,22 @@
       %td.hidden-xs= link_to classroom.room_number, classroom
       %td
         -#%i.fa.fa-calendar
+        
+          %a{"data-original-title" => "Room is either windowless or can be darkened with the use of specialized blinds for the purpose of film viewing, high resolution image viewing, etc.", "data-placement" => "right", :href => "#", :rel => "tooltip"}
+            %i.fa.fa-calendar
+          %a{"data-original-title" => "Room is either windowless or can be darkened with the use of specialized blinds for the purpose of film viewing, high resolution image viewing, etc.", "data-placement" => "right", :href => "#", :rel => "tooltip"}
+            %i.fa.fa-comment-o 
+            %a{"data-original-title" => "Room is either windowless or can be darkened with the use of specialized blinds for the purpose of film viewing, high resolution image viewing, etc.", "data-placement" => "right", :href => "#", :rel => "tooltip"}
+              %i.fa.fa-qrcode
         = link_to "Schedule", "https://csprod.dsc.umich.edu/services/facilitycalendar?facilityid=#{classroom.facility_code_heprod }", :target => "_blank"
   
       - if user_signed_in?
-        -# %td= link_to 'Show', classroom
-        %td= link_to 'Edit', edit_classroom_path(classroom), :class => 'btn btn-xs'
-        %td= link_to 'Destroy', classroom, data: { confirm: 'Are you sure?' } , :method => :delete, :class => 'btn btn-xs btn-danger'
-
+        - if current_user.has_role? :admin
+          -# %td= link_to 'Show', classroom
+          %td= link_to 'Edit', edit_classroom_path(classroom), :class => 'btn btn-xs'
+          %td= link_to 'Destroy', classroom, data: { confirm: 'Are you sure?' } , :method => :delete, :class => 'btn btn-xs btn-danger'
+        - else
+          
 %br
 
 %br
