@@ -41,7 +41,7 @@
         %ul.dropdown-menu
           %li
             %i.fa.fa-user
-              = link_to "Profile", edit_user_registration_path
+              = link_to "Profile", edit_user_path(current_user.id)
 
           - if current_user.has_role? :admin
             %li

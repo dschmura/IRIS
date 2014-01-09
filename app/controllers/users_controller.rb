@@ -10,6 +10,11 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
   
+  # GET /classrooms/1/edit
+  def edit
+    @user = User.find(params[:id])
+  end
+  
   def update
     authorize! :update, @user, :message => 'Not authorized as an administrator.'
     @user = User.find(params[:id])
@@ -21,8 +26,9 @@ class UsersController < ApplicationController
   end
     
   def destroy
-    authorize! :destroy, @user, :message => 'Not authorized as an administrator.'
     user = User.find(params[:id])
+    authorize! :destroy, @user, :message => 'Not authorized as an administrator.'
+    
     unless user == current_user
       user.destroy
       redirect_to users_path, :notice => "User deleted."
