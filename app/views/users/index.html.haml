@@ -21,6 +21,7 @@
         %td
           %a.btn.btn-mini{"data-toggle" => "modal", :href => "#role-options-#{user.id}", :type => "button"} Change role
           = render user
-        %td= link_to("Delete user",  user_registration_path(user), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'btn btn-xs btn-danger') unless user == current_user
+        %td= link_to("Delete user",  user, :data => { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-xs btn-danger') unless user == current_user
 
-        
+
+       

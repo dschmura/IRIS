@@ -27,12 +27,14 @@
 
       = f.fields_for :location do |loc|
         .input-group.input-group-sm.col-md-12
+
+          
           %span.input-group-addon Name:
           = loc.text_field :name, placeholder: "Angell Hall AudB", class: "form-control classroom_location_attributes_name", id: ""
      
       %br 
       %br
-      .row
+
         .sr-only
           = label_tag(:location_id, "Building")
         = f.collection_select:location_id, @locations.order(:name), :id, :name,   {:prompt => "What Building is this room in?"}, {:class => "form-control input-sm classroom_location_id", style: "width: 60%;"}
@@ -70,6 +72,13 @@
         = f.text_field :facility_code_heprod, :placeholder => "AHAudB", class: "form-control ", id: "classroom_facility_code_heprod"
       .row
       *Combine the building short code with the room number
+      %br
+      %br
+      = f.fields_for :location do |loc|
+        .input-group
+          %div
+            = label_tag(:visible)
+            = loc.check_box(:visible)
     .col-md-7 
       #classroom_image_form
         -if @classroom.location.picture_file_name != nil

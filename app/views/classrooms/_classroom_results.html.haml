@@ -15,7 +15,7 @@
       %th.col-md-2.hidden-xs
         = sort_link @search, :room_number, "Room Number", :default_order => :desc
       %th.col-md-2
-      
+        -#%b Details
         %b Schedule
       - if user_signed_in?
         -#%th
@@ -30,15 +30,17 @@
     
       %td.hidden-xs= classroom.student_capacity      
       %td.hidden-xs= link_to classroom.room_number, classroom
-      %td
-        -#%i.fa.fa-calendar
+      %td.classroom_index_icons
         
-          %a{"data-original-title" => "Room is either windowless or can be darkened with the use of specialized blinds for the purpose of film viewing, high resolution image viewing, etc.", "data-placement" => "right", :href => "#", :rel => "tooltip"}
+        -#
+          %a{"data-original-title" => "Room Schedule: Login required", "data-placement" => "right", href: "https://csprod.dsc.umich.edu/services/facilitycalendar?facilityid=#{classroom.facility_code_heprod }", target: "_blank", rel: "tooltip"}
             %i.fa.fa-calendar
-          %a{"data-original-title" => "Room is either windowless or can be darkened with the use of specialized blinds for the purpose of film viewing, high resolution image viewing, etc.", "data-placement" => "right", :href => "#", :rel => "tooltip"}
-            %i.fa.fa-comment-o 
-            %a{"data-original-title" => "Room is either windowless or can be darkened with the use of specialized blinds for the purpose of film viewing, high resolution image viewing, etc.", "data-placement" => "right", :href => "#", :rel => "tooltip"}
-              %i.fa.fa-qrcode
+          %a{"data-original-title" => "Room Contact Information",  "data-placement" => "right", href: "classrooms/#{classroom.facility_code_heprod }#contact_me", rel:"tooltip"}
+            -#%i.fa.fa-comment-o 
+            %i.fa.fa-phone
+            %a{"data-original-title" => "Seating Arrangement for the room", "data-placement" => "right", href: "classrooms/#{classroom.facility_code_heprod }/seating", rel: "tooltip"}
+              -#%i.fa.fa-qrcode
+              %i.fa.fa-align-center
         = link_to "Schedule", "https://csprod.dsc.umich.edu/services/facilitycalendar?facilityid=#{classroom.facility_code_heprod }", :target => "_blank"
   
       - if user_signed_in?
