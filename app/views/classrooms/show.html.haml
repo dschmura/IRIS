@@ -86,7 +86,8 @@
       -#%i#attribute_classroom_layout
       -#%i.fa.fa-th
       %i.fa.fa-align-center
-      %b Layout:
+      %a{"data-original-title" => "Seating Arrangement for the room", "data-placement" => "right", href: "./#{@classroom.facility_code_heprod}/seating", rel: "tooltip"}
+        %b Layout:
       %br
 
       %ul
@@ -342,7 +343,7 @@
           success:
             function(){
               
-              if (swfobject.hasFlashPlayerVersion("9.0.0")) {
+              if (swfobject.hasFlashPlayerVersion("9")) {
           			var flashvars = {};
           			var params = {};
           			params.quality = "high";
@@ -360,7 +361,7 @@
           			swfobject.embedSWF(
           				"/system/videos/panoramas/pano2vr_player.swf", "missing_pano", 
           				"1200", "500",
-          				"9.0.0", "", 
+          				"9", "", 
           				flashvars, params, attributes);
                   
 
@@ -431,8 +432,20 @@
         	google.maps.event.trigger(map, 'resize'); 
         });
     });
- 
+  
+  // Allows direct links to specific tabs
+  $(function() {
+    // Javascript to enable link to tab
+    var url = document.location.toString();
+    if (url.match('#')) {
+      $('.nav-tabs a[href=#'+url.split('#')[1]+']').tab('show') ;
+    }
 
+    // Change hash for page-reload
+    $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
+      window.location.hash = e.target.hash;
+    });
+  });
 
 
 

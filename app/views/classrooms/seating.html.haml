@@ -52,9 +52,15 @@
       Student Capacity:
       = @classroom.student_capacity
   
-    %h3
+    -#%h3
       Feel free to rearrange but,
       Please put tables and chairs back
+    %h3
+      Please return the furniture to this arrangement when finished.
+      If you have the first class of the day and want a different
+      arrangement, please contact LSA-ISS.
+    %br
+    %br
 
     = link_to (image_tag "../classrooms/#{@classroom.facility_code_heprod}.png" , class: "col-md-9"), @classroom
   

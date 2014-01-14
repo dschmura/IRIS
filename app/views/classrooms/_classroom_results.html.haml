@@ -4,7 +4,7 @@
     %tr
       %th.col-md-1.col-sm-1.col-xs-1 
         
-      %th.col-md-5.col-sm-5.col-xs-5 
+      %th.col-md-4.col-sm-4.col-xs-4 
         -#= sortable "room_number", "Room Number"
         = sort_link @search, :location_name, "Classroom Name", :default_order => :desc
       
@@ -13,10 +13,10 @@
 
         = sort_link @search, :student_capacity, "Capacity", :default_order => :desc
       %th.col-md-2.hidden-xs
-        = sort_link @search, :room_number, "Room Number", :default_order => :desc
+        = sort_link @search, :facility_code_heprod , "Room Number", :default_order => :desc
       %th.col-md-2
-        -#%b Details
-        %b Schedule
+        %b Details
+        -#%b Schedule
       - if user_signed_in?
         -#%th
         %th
@@ -25,23 +25,25 @@
   - @classrooms.each do |classroom|
     %tr
       %td= link_to (image_tag classroom.location.picture.url(:thumb).to_s, :alt => @classroom_alt,   :class => "classroom_index_thumb img-thumbnail"), classroom
-      %td= link_to classroom.location.name, classroom
+      %td
+        %a{"data-original-title" => classroom.location.name, "data-placement" => "right", :href => "classrooms/#{classroom.facility_code_heprod}", :rel => "tooltip"} 
+          = truncate(classroom.location.name, :length => 30)
       
     
       %td.hidden-xs= classroom.student_capacity      
-      %td.hidden-xs= link_to classroom.room_number, classroom
+      %td.hidden-xs= link_to classroom.facility_code_heprod , classroom
       %td.classroom_index_icons
         
         -#
-          %a{"data-original-title" => "Room Schedule: Login required", "data-placement" => "right", href: "https://csprod.dsc.umich.edu/services/facilitycalendar?facilityid=#{classroom.facility_code_heprod }", target: "_blank", rel: "tooltip"}
-            %i.fa.fa-calendar
-          %a{"data-original-title" => "Room Contact Information",  "data-placement" => "right", href: "classrooms/#{classroom.facility_code_heprod }#contact_me", rel:"tooltip"}
-            -#%i.fa.fa-comment-o 
-            %i.fa.fa-phone
-            %a{"data-original-title" => "Seating Arrangement for the room", "data-placement" => "right", href: "classrooms/#{classroom.facility_code_heprod }/seating", rel: "tooltip"}
-              -#%i.fa.fa-qrcode
-              %i.fa.fa-align-center
-        = link_to "Schedule", "https://csprod.dsc.umich.edu/services/facilitycalendar?facilityid=#{classroom.facility_code_heprod }", :target => "_blank"
+        %a{"data-original-title" => "Room Schedule: Login required", "data-placement" => "right", href: "https://csprod.dsc.umich.edu/services/facilitycalendar?facilityid=#{classroom.facility_code_heprod }", target: "_blank", rel: "tooltip"}
+          %i.fa.fa-calendar
+        %a{"data-original-title" => "Room Contact Information",  "data-placement" => "right", href: "classrooms/#{classroom.facility_code_heprod }#contact_me", rel:"tooltip"}
+          -#%i.fa.fa-comment-o 
+          %i.fa.fa-phone
+          %a{"data-original-title" => "Seating Arrangement for the room", "data-placement" => "right", href: "classrooms/#{classroom.facility_code_heprod }/seating", rel: "tooltip"}
+            -#%i.fa.fa-qrcode
+            %i.fa.fa-align-center
+      -#= link_to "Schedule", "https://csprod.dsc.umich.edu/services/facilitycalendar?facilityid=#{classroom.facility_code_heprod }", :target => "_blank"
   
       - if user_signed_in?
         - if current_user.has_role? :admin

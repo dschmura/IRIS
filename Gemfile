@@ -36,7 +36,7 @@ gem "jquery-rails"
 gem "devise", "3.0.3"
 gem "cancan", ">= 1.6.9"
 gem "rolify", ">= 3.2.0"
-
+gem 'newrelic_rpm'
 
 # QR-Code generation
 gem 'rqrcode-rails3'
