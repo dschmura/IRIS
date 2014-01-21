@@ -5,9 +5,9 @@ load 'deploy/assets'
 # GENERAL SETTINGS
 # =============================================================================
 
-role :web, "mason.lsa.umich.edu"
-role :app, "mason.lsa.umich.edu"
-role :db,  "mason.lsa.umich.edu", :primary => true
+role :web, "dewey.lsa.umich.edu"
+role :app, "dewey.lsa.umich.edu"
+role :db,  "dewey.lsa.umich.edu", :primary => true
 set :application,  "iris"
 set :deploy_to,  "/var/www/rooms.lsa.umich.edu/html/#{application}/"
 set :deploy_via, :remote_cache
