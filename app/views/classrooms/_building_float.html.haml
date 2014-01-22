@@ -12,8 +12,11 @@
   = truncate(@classroom.location.name, :length => 25)
 
   %br
+    
     %b Facility ID:
-    = @classroom.facility_code_heprod  
+    %a{"data-original-title" => "Load the image for this room.", "data-placement" => "right", :href => "#{@classroom.location.picture.url(:show).to_s}", :rel => "tooltip", style: "color: black;"}
+      = @classroom.facility_code_heprod
+      
 
   %b Capacity:  
   = @classroom.student_capacity  
