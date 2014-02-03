@@ -45,30 +45,42 @@ module ClassroomsHelper
     # HH (G)
     # MH (G)
     # MLB (B)
+
     $basement = @classroom.facility_code_heprod 
+    prefix = "../maps/"
+    suffix = ".html"
     case $basement 
       # Angell Hall floors G or Auds point to ahg
     	when (/AHG|AHA|AHB|AHC|AHD/) 
-    	  "../maps/ahg.html"
+    	  "ahg"
     	when /CHEMA/
-    	  "../maps/chema8.html"
+    	  "chema8"
     	when /DENTG/
-    	  "../maps/dentg.html"
+    	  "/dentg"
     	when /DENTB/
-    	  "../maps/dentb.html"    
+    	  "dentb"    
     	when /EHB/
-    	  "../maps/ehb.html"
+    	  "ehb"
     	when /EQB/
-    	  "../maps/eqb.html"
+    	  "eqb"
     	when /HHG/
-    	  "../maps/hhg.html"  
+    	  "hhg"  
     	when /MHG/
-    	  "../maps/mhg.html"
+    	  "mhg"
     	when /MLBB/
-        "../maps/mlbb.html"  
+        "mlbb"  
     	else
-    	  "../maps/" + @classroom.facility_code_heprod.scan(/(\D+)+(\d)/).join.downcase + ".html"
+    	  "" + @classroom.facility_code_heprod.scan(/(\D+)+(\d)/).join.downcase 
     	end
+      
+     
+
+  end
+
+  def floor_map
+   
+    #floor_map = basement
+    floor_map = basement.split(".")[0] + ".jpg"
   end
 
 end

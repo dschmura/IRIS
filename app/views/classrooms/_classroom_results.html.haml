@@ -43,6 +43,7 @@
           %a{"data-original-title" => "Seating Arrangement for the room", "data-placement" => "right", href: "classrooms/#{classroom.facility_code_heprod }/seating", rel: "tooltip"}
             -#%i.fa.fa-qrcode
             %i.fa.fa-align-center
+
       -#= link_to "Schedule", "https://csprod.dsc.umich.edu/services/facilitycalendar?facilityid=#{classroom.facility_code_heprod }", :target => "_blank"
   
       - if user_signed_in?

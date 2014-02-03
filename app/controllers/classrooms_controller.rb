@@ -91,6 +91,12 @@ class ClassroomsController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.png  { render :qrcode => "http://rooms.lsa.umich.edu/classrooms/#{@classroom.facility_code_heprod}", :level => :l, :unit => 8 }
+      format.pdf do
+       pdf = ClassroomPdf.new(@classroom)
+        
+        send_data pdf.render, type: "application/pdf",
+                              disposition: "inline"
+      end
     end
   end
 

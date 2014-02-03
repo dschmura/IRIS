@@ -42,6 +42,10 @@ gem 'newrelic_rpm'
 gem 'rqrcode-rails3'
 gem 'mini_magick'
 
+gem 'prawn'
+gem 'prawn-qrcode'
+#gem 'prawnto'
+
 gem 'capistrano', '2.15.5'
 #gem 'capistrano'
 gem "simple_form"

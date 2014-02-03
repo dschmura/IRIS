@@ -15,8 +15,9 @@
     = render :partial => 'building_float'
   .tab-content.col-md-10.col-sm-10.col-xs.11
     .tab-pane#picture.active
-
-      %div{ :style => %(background:url("#{@classroom.location.picture.url(:show).to_s}") no-repeat center; min-height: 300px;) }
+      %a{"data-original-title" => "Load the image for this room.", "data-placement" => "bottom", :href => "#{@classroom.location.picture.url(:show).to_s}", target: '_blank', :rel => "tooltip", style: "color: black;"}
+        %div{ :style => %(background:url("#{@classroom.location.picture.url(:show).to_s}") no-repeat center; min-height: 300px;) }
+        
 
     .tab-pane#pano
       %h4#missing_pano
@@ -86,7 +87,7 @@
       -#%i#attribute_classroom_layout
       -#%i.fa.fa-th
       %i.fa.fa-align-center
-      %a{"data-original-title" => "Seating Arrangement for the room", "data-placement" => "right", href: "./#{@classroom.facility_code_heprod}/seating", rel: "tooltip"}
+      %a{"data-original-title" => "Seating Arrangement for the room", "data-placement" => "right", href: "./#{@classroom.facility_code_heprod}.pdf", rel: "tooltip"}
         %b Layout:
       %br
 

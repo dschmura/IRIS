@@ -1,7 +1,7 @@
 :css
   @media print{
     @page {size: auto; margin: auto;}
-      .content{
+      .content_bu{
           
           -webkit-transform: rotate(-90deg) scale(1.3, 1.3) translateX(-170px);
           -moz-transform: rotate(90deg);
@@ -17,6 +17,15 @@
           content: "";
         }
       
+        
+        #classroom_qr_code{
+          width: 200px;
+          max-width: 200px;
+        }
+        #classroom_image{
+          width: 500px;
+          max-width: 500px;
+        }
         #back_to_classroom_link{
           display: none;
         }
@@ -28,8 +37,17 @@
         }
         #seating_chart img{
           max-height: 40%;
+          width: 550px;
+          max-width: 550px;
           }
      
+      }
+
+:css
+  @media print{
+      a:link:after, a:visited:after {
+        content: "";
+      }
       }
 :css
   #back_to_classroom_link{
@@ -57,12 +75,11 @@
       Please put tables and chairs back
     %h3
       Please return the furniture to this arrangement when finished.
-      If you have the first class of the day and want a different
-      arrangement, please contact LSA-ISS.
+ 
     %br
     %br
 
-    = link_to (image_tag "../classrooms/#{@classroom.facility_code_heprod}.png" , class: "col-md-9"), @classroom
+    = link_to (image_tag "../classrooms/#{@classroom.facility_code_heprod}.png" , class: "col-md-9", id: "classroom_qr_code"), @classroom
   
     #back_to_classroom_link
       = link_to @page_title, @classroom
