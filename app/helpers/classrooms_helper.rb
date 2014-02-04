@@ -52,7 +52,7 @@ module ClassroomsHelper
     case $basement 
       # Angell Hall floors G or Auds point to ahg
     	when (/AHG|AHA|AHB|AHC|AHD/) 
-    	  "ahg"
+    	  "ah"
     	when /CHEMA/
     	  "chema8"
     	when /DENTG/
@@ -78,8 +78,6 @@ module ClassroomsHelper
   end
 
   def floor_map
-   
-    #floor_map = basement
     floor_map = basement.split(".")[0] + ".jpg"
   end
 
