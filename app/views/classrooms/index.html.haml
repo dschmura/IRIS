@@ -86,8 +86,8 @@
               %br
               %br
               / Button trigger modal
-              %button.btn.btn-primary.btn-lg{"data-target" => "#myModal", "data-toggle" => "modal"}
-                Admin
+              %buttonbtn.btn-primary.btn-lg{"data-target" => "#myModal", "data-toggle" => "modal", type: "button"} Admin
+
               / Modal
               #myModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", role: "dialog", tabindex: "-1"}
                 .modal-dialog
@@ -126,11 +126,7 @@
       =file_field_tag :file
       %br
       = submit_tag "Import"
-      
-    
-
-:javascript
-  $('#myModal').modal({show: false})
+  
 
 
 -#toggle the visability of additional search fields and the disclosure triangle's state

@@ -15,7 +15,8 @@ group :doc do
 end
 
 gem "haml"
-gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails'
+#gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails'
+gem 'bootstrap-sass', '~> 3.1.0'
 
 #gem 'google-analytics-rails'
 

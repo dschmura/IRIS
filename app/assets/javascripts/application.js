@@ -15,7 +15,8 @@
 //= require respond
 //= require modernizr
 // Loads all Bootstrap javascripts
-//= require twitter/bootstrap
+
+//= require bootstrap
 //= require bootstrap-slider
 //= require pano2vr_player
 //= require gmap3.min
