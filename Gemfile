@@ -43,8 +43,8 @@ gem 'newrelic_rpm'
 gem 'rqrcode-rails3'
 gem 'mini_magick'
 
-#gem 'prawn'
-gem 'prawn', '1.0.0.rc2'
+gem 'prawn'
+#gem 'prawn', '1.0.0.rc2'
 gem 'prawn-qrcode'
 #gem 'prawnto'
 
