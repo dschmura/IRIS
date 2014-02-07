@@ -217,7 +217,7 @@ DEPENDENCIES
   modernizr-rails
   newrelic_rpm
   paperclip (= 3.5.1)
-  prawn (= 1.0.0.rc2)
+  prawn
   prawn-qrcode
   protected_attributes
   rails (= 4.0.2)
