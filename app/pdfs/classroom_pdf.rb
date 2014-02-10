@@ -11,7 +11,7 @@ class ClassroomPdf < Prawn::Document
     classroom_floor_map
     classroom_seating_chart
     logos
-    stroke_axis(step_length: 25)
+    #stroke_axis(step_length: 25)
     #stroke_circle [0, 0], 10
     classroom_name
     classroom_capacity
