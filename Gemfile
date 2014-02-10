@@ -23,17 +23,8 @@ gem 'bootstrap-sass', '~> 3.1.0'
 gem 'font-awesome-rails'
 
 gem 'protected_attributes'
-
 gem 'modernizr-rails'
-
-##gem 'jquery-rails', '2.2.1'
 gem "jquery-rails"
-
-##gem "haml", ">= 4.0.0"
-###gem "rspec-rails", ">= 2.10.1", :group => [:development, :test]
-###gem "machinist", :group => :test
-###gem "factory_girl_rails", ">= 3.3.0", :group => [:development, :test]
-###gem "email_spec", ">= 1.2.1", :group => :test
 gem "devise", "3.0.3"
 gem "cancan", ">= 1.6.9"
 gem "rolify", ">= 3.2.0"
