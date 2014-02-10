@@ -110,9 +110,8 @@ GEM
     polyamorous (0.6.4)
       activerecord (>= 3.0)
     polyglot (0.3.3)
-    prawn (1.0.0.rc2)
-      afm
-      pdf-reader (>= 0.9.0, < 2.0)
+    prawn (0.14.0)
+      pdf-reader (~> 1.2)
       ruby-rc4
       ttfunk (~> 1.0.3)
     prawn-qrcode (0.2.1)
