@@ -16,7 +16,7 @@ end
 
 gem "haml"
 #gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails'
-gem 'bootstrap-sass', '~> 3.1.0'
+gem 'bootstrap-sass', '~> 3.1.1'
 
 #gem 'google-analytics-rails'
 
