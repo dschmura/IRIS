@@ -75,20 +75,22 @@
             %br
             %br
             
-            
-            = f.submit 'Create Search', :class => 'btn btn-lg btn-default'
-              
+  
+            = button_tag(type: 'submit', class: "btn btn-lg btn-default") do
+              %span.fa.fa-search
+              Search  
             %br
             %br
-
-            
-            <input type="Reset" class="btn btn-xs btn-danger name="Reset" value="Reset" />
-
+      
+            = button_tag(type: 'reset', class: "btn  btn-xs btn-danger", value: "Reset") do
+              %span.fa.fa-refresh
+              Reset
             - if can? :update, @classroom
               %br
               %br
               / Button trigger modal
               %buttonbtn.btn-primary.btn-lg{"data-target" => "#myModal", "data-toggle" => "modal", type: "button"} Admin
+              
 
               / Modal
               #myModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", role: "dialog", tabindex: "-1"}

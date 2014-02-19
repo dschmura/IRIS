@@ -33,6 +33,7 @@ gem 'newrelic_rpm'
 # QR-Code generation
 gem 'rqrcode-rails3'
 gem 'mini_magick'
+#gem 'mail_form'
 
 gem 'prawn'
 #gem 'prawn', '1.0.0.rc2'
