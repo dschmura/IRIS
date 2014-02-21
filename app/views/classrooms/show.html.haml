@@ -30,6 +30,7 @@
 
     .tab-pane#contact_me
       = render :partial => 'contact_sheet'
+  
 .tabbable#classroomTabs
   -#%ul.nav.nav-tabs#myTab
     %li.active
@@ -44,11 +45,12 @@
     %li
       %a{"data-toggle" => 'tab', :href => '#contact_me', :id => "#contacttab"}
         Contact
-  .btn-group#myTab
-    %button.btn.btn-default{type: "button", "data-toggle" => 'tab',:href => '#picture', :id => "#picturetab" } Picture
-    %button.btn.btn-default{type: "button", "data-toggle" => 'tab', :href => '#pano', :id => "#panotab"} Panorama
-    %button.btn.btn-default{type: "button", "data-toggle" => 'tab', :href => '#map', :id => "#maptab"} Map
-    %button.btn.btn-default{type: "button", "data-toggle" => 'tab', :href => '#contact_me', :id => "#contacttab"} Contact    
+  .btn-group.btn-group-justified#myTab
+    %a.btn.btn-default{type: "button", "data-toggle" => 'tab',:href => '#picture', :id => "#picturetab" } 
+      Picture
+    %a.btn.btn-default{type: "button", "data-toggle" => 'tab', :href => '#pano', :id => "#panotab"} Panorama
+    %a.btn.btn-default{type: "button", "data-toggle" => 'tab', :href => '#map', :id => "#maptab"} Map
+    %a.btn.btn-default{type: "button", "data-toggle" => 'tab', :href => '#contact_me', :id => "#contacttab"} Contact    
 
 #room_number
   %h1
@@ -328,7 +330,6 @@
       #last_updated
         Updated:
         = @classroom.updated_at.strftime "%I:%M %p %Y-%m-%d "
-
 
 
 :javascript
