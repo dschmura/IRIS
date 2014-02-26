@@ -2,7 +2,7 @@ class ClassroomPdf < Prawn::Document
   include ClassroomsHelper
   def initialize(classroom)
     super(top_margin: 70, page_layout: :landscape)
-    define_grid(:columns => 11, :rows => 4)
+
     @classroom = classroom 
     @owner = Owner.find(@classroom.owner_id)
     
@@ -33,7 +33,9 @@ class ClassroomPdf < Prawn::Document
     end
   end
   def logos
-      image "#{Rails.root}/app/assets/images/MClassrooms_Logo.png", fit: [200, 200], at: [75, 70]
+      #image "#{Rails.root}/app/assets/images/MClassrooms_Logo.png", fit: [200, 200], at: [75, 70]
+      image "#{Rails.root}/app/assets/images/logoBlockM_univers.png", fit: [250, 200], at: [75, 70]
+      
   end
   
   def classroom_url
@@ -66,7 +68,7 @@ class ClassroomPdf < Prawn::Document
   def classroom_seating_chart 
     
     if File.exist?("#{Rails.root}/app/assets/images/seating/#{@classroom.facility_code_heprod}_chairs.png")   
-    image "#{Rails.root}/app/assets/images/seating/#{@classroom.facility_code_heprod}_chairs.png", :fit => [330, 425], at:[400, 475]
+    image "#{Rails.root}/app/assets/images/seating/#{@classroom.facility_code_heprod}_chairs.png", :fit => [330, 425], at:[375, 475]
   
     end
   end
@@ -95,7 +97,7 @@ class ClassroomPdf < Prawn::Document
   def classroom_instructions
 
     
-    text_box "Please return the furniture to this arrangment when finished.", at: [400, 50], width: 300, align: :center, size: 14, style: :bold
+    text_box "Please return the furniture to this arrangment when finished.", at: [400, 37], width: 300, align: :center, size: 14, style: :bold
   end
 
   def facility_code_heprod

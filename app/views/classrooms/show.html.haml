@@ -353,7 +353,10 @@
           
           function(){
             
-            if (swfobject.hasFlashPlayerVersion("9")) {
+            if (swfobject.hasFlashPlayerVersion("9")) 
+            {
+            
+              
         			var flashvars = {};
         			var params = {};
         			params.quality = "high";
@@ -367,24 +370,30 @@
         			attributes.align = "middle";
   			
         			flashvars.panoxml="/system/videos/panoramas/#{@classroom.facility_code_heprod.upcase}_QTVR_OUT.xml";
+              
         			params.base=".";
         			swfobject.embedSWF(
         				"/system/videos/panoramas/pano2vr_player.swf", "missing_pano", 
         				"1200", "500",
         				"9", "", 
         				flashvars, params, attributes);
+                
+          
           
 
         		} else 
         		// check for CSS3 3D transformations and WebGL
         		if (ggHasHtml5Css3D() || ggHasWebGL()) {
-        
+              
 
         			// create the panorama player with the container
         			pano=new pano2vrPlayer("pano");
-        			pano.readConfigUrl("/system/videos/panoramas/#{@classroom.facility_code_heprod.upcase}_QTVR_OUT.xml");
+        			pano.readConfigUrl("/system/videos/panoramas/#{@classroom.facility_code_heprod.upcase}_QTVR_OUT.xml");          
+    
         			// hide the URL bar on the iPhone
         			hideUrlBar();
+              
+              
         		}
       
       
