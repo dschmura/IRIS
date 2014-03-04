@@ -20,7 +20,7 @@ Iris::Application.routes.draw do
   resources :users
   
   resources :classrooms do
-    resources :seating, except: :index
+    
     get :search, :on => :collection
     collection {post :import}
   end

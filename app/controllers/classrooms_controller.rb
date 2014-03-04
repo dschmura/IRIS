@@ -50,28 +50,7 @@ class ClassroomsController < ApplicationController
     @classrooms = @search.all   # or @search.relation to lazy load in view
   end
 
-  def seating
-    #@classroom = Classroom.find(params[:id])
-    @classroom = find_classroom
-    @page_title = @classroom.location.name
-    @classroom_alt = @classroom.location.name + " - " + @classroom.room_number
-    @building = find_building(@classroom.location_id)
-    @owner = Owner.find(@classroom.owner_id)
-    @room_schedule_contact = RoomScheduleContact.find_by_rmrecnbr(@classroom.rmrecnbr)
-    #@room_attributes = RoomAttribute.find_all_by_RMRECNBR(@classroom.rmrecnbr)
-
-    @building_image = @building.picture.url(:medium).to_s
-    @building_sign_image = @building.building_sign.url(:thumb).to_s
-    @search = Classroom.search(params[:search])
-    
-    #@classroom_herprod = Building.find(params[:location_id]).building_short_code
-    respond_to do |format|
-      format.html # show.html.erb
-      format.
-      png  { render :qrcode => "http://rooms.lsa.umich.edu/classrooms/#{@classroom.facility_code_heprod}", :level => :l, :unit => 8 }
-      
-    end
-  end
+  
   # GET /classrooms/1
   # GET /classrooms/1.xml
   def show
