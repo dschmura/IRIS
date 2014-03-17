@@ -89,7 +89,7 @@ class ClassroomPdf < Prawn::Document
   def classroom_qr_code
     y_position = cursor + 10
     bounding_box([0, 75], :width => 125) do
-      qrcode = "http://rooms.lsa.umich.edu/classrooms/#{@classroom.student_capacity}"
+      qrcode = "http://rooms.lsa.umich.edu/classrooms/#{@classroom.facility_code_heprod}"
       print_qr_code(qrcode, :extent=>85, stroke: false)
     end
   end
