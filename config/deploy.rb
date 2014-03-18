@@ -32,7 +32,7 @@ namespace :deploy do
   %w[start stop restart].each do |command|
     desc "#{command} unicorn"
     task command, roles: :app do
-      run "#{sudo} /etc/init.d/unicorn-#{application} #{command}"
+      run "#{sudo} -i /etc/init.d/unicorn-#{application} #{command}"
     end
   end
 
@@ -74,8 +74,8 @@ task :fix_file_permissions, :roles => [ :app, :db, :web ] do
   run "chmod -R g-w #{release_path}"
   run "chmod g+w #{release_path}/db #{release_path}/db/*.sqlite3"
   run "chmod -R g+w #{release_path}/tmp"
-  run "sudo chmod -R 775 #{release_path}/public/system/"
-  run "sudo chown -R unicorn #{release_path}/tmp;"
+  run "sudo -i chmod -R 775 #{release_path}/public/system/"
+  run "sudo -i chown -R unicorn #{release_path}/tmp;"
 end
 
 # Run after the end of "cap deploy:setup"

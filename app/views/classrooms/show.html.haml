@@ -11,6 +11,7 @@
   });
 
 
+
 .row.classroom_top
   .col-md-2.col-sm-2.col-xs-1
     = render :partial => 'building_float'
@@ -45,12 +46,19 @@
     %li
       %a{"data-toggle" => 'tab', :href => '#contact_me', :id => "#contacttab"}
         Contact
-  .btn-group.btn-group-justified#myTab
-    %a.btn.btn-default{type: "button", "data-toggle" => 'tab',:href => '#picture', :id => "#picturetab" } 
-      Picture
-    %a.btn.btn-default{type: "button", "data-toggle" => 'tab', :href => '#pano', :id => "#panotab"} Panorama
-    %a.btn.btn-default{type: "button", "data-toggle" => 'tab', :href => '#map', :id => "#maptab"} Map
-    %a.btn.btn-default{type: "button", "data-toggle" => 'tab', :href => '#contact_me', :id => "#contacttab"} Contact    
+  %nav.navbar{role: "navigation"}
+    %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", type: "button"}
+      %span.sr-only Toggle navigation
+      %span.icon-bar
+      %span.icon-bar
+      %span.icon-bar
+    .btn-group.btn-group-justified#myTab
+    
+      %a.btn.btn-default{type: "button", "data-toggle" => 'tab',:href => '#picture', :id => "#picturetab" } 
+        Picture
+      %a.btn.btn-default{type: "button", "data-toggle" => 'tab', :href => '#pano', :id => "#panotab"} Panorama
+      %a.btn.btn-default{type: "button", "data-toggle" => 'tab', :href => '#map', :id => "#maptab"} Map
+      %a.btn.btn-default{type: "button", "data-toggle" => 'tab', :href => '#contact_me', :id => "#contacttab"} Contact    
 
 #room_number
   %h1
