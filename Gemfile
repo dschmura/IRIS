@@ -21,6 +21,7 @@ gem 'bootstrap-sass', '~> 3.1.1'
 #gem 'google-analytics-rails'
 
 gem 'font-awesome-rails'
+gem 'jquery-fileupload-rails'
 
 gem 'protected_attributes'
 gem 'modernizr-rails'

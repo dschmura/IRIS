@@ -27,8 +27,6 @@
 
 class Location < ActiveRecord::Base
 
-  ## CarrierWave Method
-  #mount_uploader :image, ImageUploader
   
   ## Paperclip method for uploading location images
   has_attached_file :picture, :styles => {:show => "1200x300#", :medium => "300x300#", :thumb => "100x100>"}, :convert_options => {:show => "-gravity center"}

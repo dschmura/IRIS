@@ -14,12 +14,21 @@
 
 //= require respond
 //= require modernizr
-// Loads all Bootstrap javascripts
 
+// LOADS ALL BOOTSTRAP JAVASCRIPTS
 //= require bootstrap
 //= require bootstrap-slider
+
+// JQUERY TO SUPPORT MULTI_FILE UPLOADING FOR PANORAMAS
+//= require jquery-fileupload/basic
+//= require jquery-fileupload/vendor/tmpl
+
+// PANORAMA PLAYER
 //= require pano2vr_player
+
+// GOOGLE MAP LIBRARIES FOR SELECTING AND DISPLAYING LOCATION
 //= require gmap3.min
+
 //= require swfobject
 //= require analytics
 
