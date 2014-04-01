@@ -10,8 +10,8 @@ worker_processes 8
 # user "unprivileged_user", "unprivileged_group"
 user "unicorn", "unicorn"
 
-base_dir = "/var/www/rooms.lsa.umich.edu/html/iris/current"
-shared_path = "/var/www/rooms.lsa.umich.edu/html/iris/shared"
+base_dir = "/var/www/html/iris/current"
+shared_path = "/var/www/html/iris/shared"
 
 # Help ensure your application will always spawn in the symlinked
 # "current" directory that Capistrano sets up.
