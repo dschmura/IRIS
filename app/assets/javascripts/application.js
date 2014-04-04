@@ -18,6 +18,7 @@
 // LOADS ALL BOOTSTRAP JAVASCRIPTS
 //= require bootstrap
 //= require bootstrap-slider
+//= require bootstrap-accessibility.min
 
 // JQUERY TO SUPPORT MULTI_FILE UPLOADING FOR PANORAMAS
 //= require jquery-fileupload/basic
