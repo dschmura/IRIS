@@ -347,6 +347,8 @@
           = label_tag(:wheelchair_instructor)
         
         = f.check_box(:wheelchair_instructor)
+        
+      
     
       %hr
       %br
@@ -355,7 +357,8 @@
       
       
         = text_area_tag(:description, nil, columns: 30, rows: 2, class: "form-control")
-
+      = label_tag(:notes)
+      = f.text_field(:notes, columns: 30, rows: 4, class: "form-control")  
     %br
     %br
     .actions     
