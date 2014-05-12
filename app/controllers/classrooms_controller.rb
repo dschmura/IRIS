@@ -14,7 +14,7 @@ class ClassroomsController < ApplicationController
   # GET /classrooms.xml
   def index
     @page_title = "Classrooms"
-    
+
     @search = Classroom.visible.search(params[:q])
     if params[:per_page]
       @per_page = params[:per_page]

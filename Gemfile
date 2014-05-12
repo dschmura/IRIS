@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 ##gem 'rails', '3.2.14'
-gem 'rails', '4.1.0'
+gem 'rails', '4.0.0'
 gem 'sqlite3'
 gem 'sass-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
@@ -27,7 +27,7 @@ gem 'protected_attributes'
 gem 'modernizr-rails'
 gem "jquery-rails"
 gem "devise", "3.0.3"
-gem "cancan", ">= 1.6.9"
+gem "cancan", "1.6.9"
 gem "rolify", ">= 3.2.0"
 gem 'newrelic_rpm'
 
@@ -55,6 +55,8 @@ gem "paperclip", "3.5.1"
 
 #gem "meta_search"
 gem "ransack"
+#gem "ransack", github: "activerecord-hackery/ransack", branch: "rails-4.1"
+#gem "polyamorous", github: "activerecord-hackery/polyamorous"
 gem 'annotate', ">=2.6.0"
 
 group :production do

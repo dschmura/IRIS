@@ -17,8 +17,8 @@
     = render :partial => 'building_float'
   .tab-content.col-md-10.col-sm-10.col-xs.11
     .tab-pane#picture.active
-      %a{"data-original-title" => "Load the image for this room.", "data-placement" => "bottom", :href => "#{@classroom.location.picture.url(:show).to_s}", target: '_blank', :rel => "tooltip", style: "color: black;"}
-        %div{ :style => %(background:url("#{@classroom.location.picture.url(:show).to_s}") no-repeat center; min-height: 300px;) }
+      %a{"data-original-title" => "Load the image for this room.", "data-placement" => "bottom", :href => classroom_image, target: '_blank', :rel => "tooltip", style: "color: black;"}
+        %div{ :style => %(background:url("#{classroom_image}") no-repeat center; min-height: 300px;) }
         
 
     .tab-pane#pano

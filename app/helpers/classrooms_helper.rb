@@ -13,6 +13,11 @@ module ClassroomsHelper
     end
   end
   
+  def classroom_image
+    @classroom.location.picture.url(:show).to_s
+    
+  end
+  
   def attribute_true?(condition)
    if condition   
     'attribute_true'

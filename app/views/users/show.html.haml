@@ -2,4 +2,5 @@
   User: #{@user.name}
 %p
   Email: #{@user.email if @user.email}
+  = link_to "Change your password", edit_user_registration_path
   
