@@ -19,9 +19,10 @@
         %td= user.roles.first.name.titleize unless user.roles.first.nil?
         
         %td
-          %a.btn.btn-mini{"data-toggle" => "modal", :href => "#role-options-#{user.id}", :type => "button"} Change role
+          %a.btn.btn-mini{"data-target" => "#myModal", "data-toggle" => "modal", :href => "#role-options-#{user.id}", :type => "button"} Change role
           = render user
         %td= link_to("Delete user",  user, :data => { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-xs btn-danger') unless user == current_user
 
 
-= javascript_include_tag 'jquery_ujs'       
+= javascript_include_tag 'jquery_ujs'
+
