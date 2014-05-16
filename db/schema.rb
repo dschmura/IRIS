@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131111144530) do
+ActiveRecord::Schema.define(version: 20140516133856) do
+
+  create_table "assets", force: true do |t|
+    t.integer  "location_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "panorama_asset_file_name"
+    t.string   "panorama_asset_content_type"
+    t.integer  "panorama_asset_file_size"
+    t.datetime "panorama_asset_updated_at"
+  end
 
   create_table "buildings", force: true do |t|
     t.string   "building_code_heprod"
@@ -78,6 +88,7 @@ ActiveRecord::Schema.define(version: 20131111144530) do
     t.integer  "owner_id",                        default: 1
     t.integer  "rmrecnbr"
     t.string   "DEPT_GRP"
+    t.boolean  "sound_amplification_voice"
   end
 
   create_table "locations", force: true do |t|

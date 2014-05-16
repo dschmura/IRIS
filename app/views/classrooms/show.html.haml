@@ -163,10 +163,18 @@
             .fa.fa-check
 
       %hr
-      %i.fa.fa-bullhorn
+
+      %i.fa.fa-volume-up
       %b
-      %a{"data-original-title" => "Room contains a sound system to amplify any of its A/V and IT components, such as computer or DVD/VCR.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.sound_amplification) }Sound Amplification
+      %a{"data-original-title" => "Room contains a sound system to amplify any of its A/V and IT components, such as computer or DVD/VCR.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.sound_amplification) }Sound Amplification: Program
       - if @classroom.sound_amplification
+        .fa.fa-check
+
+      %br
+      %i.fa.fa-microphone
+      %b
+      %a{"data-original-title" => "Room contains sound system for the purpose of amplifying the instructor voice through the use of a wired or wireless microphone.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.sound_amplification_voice) }Sound Amplification: Voice
+      - if @classroom.sound_amplification_voice
         .fa.fa-check
 
       %br

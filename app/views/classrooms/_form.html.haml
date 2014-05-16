@@ -179,10 +179,15 @@
         %hr
         %ul
           %li
-            %i.fa.fa-bullhorn
+            %i.fa.fa-volume-up
             %a{"data-original-title" => "Room contains a sound system to amplify any of its A/V and IT components, such as computer or DVD/VCR.", "data-placement" => "right", :href => "#", :rel => "tooltip"}   
               = label_tag(:sound_amplification)
             = f.check_box(:sound_amplification)
+          %li
+            %i.fa.fa-microphone
+            %a{"data-original-title" => "Room contains sound system for the purpose of amplifying the instructor voice through the use of a wired or wireless microphone.", "data-placement" => "right", :href => "#", :rel => "tooltip"}
+              = label_tag(:sound_amplification_voice)
+            = f.check_box(:sound_amplification_voice)
           %li
             %i.fa.fa-exchange
             %a{"data-original-title" => "Room provides a hardwired ethernet connection to a portion of student seats.", "data-placement" => "right", :href => "#", :rel => "tooltip"}

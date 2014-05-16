@@ -143,7 +143,7 @@ class Classroom < ActiveRecord::Base
       "TablesFix" => :seating_tables_fixed,
       "TablesMov" => :seating_tables_moveable,
       "SoundPrgrm" => :sound_amplification,
-      "SoundVoice" => :sound_amplification,
+      "SoundVoice" => :sound_amplification_voice,
       "EthrStud" => :ethernet_students,
       "PowerStud" => :power_students,
       "Chkbrd" => :writing_surface_chalkboard_any,
