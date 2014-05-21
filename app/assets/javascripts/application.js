@@ -33,6 +33,9 @@
 //= require swfobject
 //= require analytics
 
+// Makes tabs collapsable
+//= require bootstrap-tabdrop
+
 $(document).ready(function(){
     $('a').tooltip();
     //$('a[href="' + this.location.pathname + '"]').parent().addClass('active');

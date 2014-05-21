@@ -55,6 +55,7 @@ namespace :deploy do
 
   # Link in database config
   after "deploy:update_code", :link_production_db
+  after "deploy:update_code", "deploy:migrate"
   after "deploy:link_production_db", :link_production_db_config
   after "deploy:create_symlink", :fix_file_permissions
   after "deploy:setup", :setup_fix_file_permissions

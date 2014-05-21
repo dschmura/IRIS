@@ -33,7 +33,7 @@
       = render :partial => 'contact_sheet'
   
 .tabbable#classroomTabs
-  -#%ul.nav.nav-tabs#myTab
+  %ul.nav.nav-tabs#myTab
     %li.active
       %a{"data-toggle" => 'tab', :href => '#picture', :id => "#picturetab"}
         Picture
@@ -46,19 +46,19 @@
     %li
       %a{"data-toggle" => 'tab', :href => '#contact_me', :id => "#contacttab"}
         Contact
-  %nav.navbar{role: "navigation"}
+  -#%nav.navbar{role: "navigation"}
     %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", type: "button"}
       %span.sr-only Toggle navigation
       %span.icon-bar
       %span.icon-bar
       %span.icon-bar
     .btn-group.btn-group-justified#myTab
-    
-      %a.btn.btn-default{type: "button", "data-toggle" => 'tab',:href => '#picture', :id => "#picturetab" } 
+
+      %a.btn.btn-default{type: "button", "data-toggle" => 'tab',:href => '#picture', :id => "#picturetab" }
         Picture
       %a.btn.btn-default{type: "button", "data-toggle" => 'tab', :href => '#pano', :id => "#panotab"} Panorama
       %a.btn.btn-default{type: "button", "data-toggle" => 'tab', :href => '#map', :id => "#maptab"} Map
-      %a.btn.btn-default{type: "button", "data-toggle" => 'tab', :href => '#contact_me', :id => "#contacttab"} Contact    
+      %a.btn.btn-default{type: "button", "data-toggle" => 'tab', :href => '#contact_me', :id => "#contacttab"} Contact
 
 #room_number
   %h1
@@ -349,6 +349,7 @@
 
 
 :javascript
+    $('.nav-pills, .nav-tabs').tabdrop()
 
     $('#myTab').click(function(e) { 
       if (e.target.id == "#picturetab"){
