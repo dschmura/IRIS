@@ -15,7 +15,7 @@ class ClassroomsController < ApplicationController
   def index
     @page_title = "Classrooms"
 
-    @search = Classroom.visible.search(params[:q])
+    @search = Classroom.search(params[:q])
     if params[:per_page]
       @per_page = params[:per_page]
     else
