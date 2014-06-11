@@ -392,38 +392,128 @@
 
 
 :javascript
-   $('#maptest').gmap3({
-     getgeoloc: {
-       callback: function (latLng) {
-         if (latLng) {
-           $(this).gmap3({
-             marker: {
-               latLng: latLng,
-               options: {
-                 draggable: true
+
+  $(document).ready(function(){
+    // If there is a latitude already, display the map without geolocation using the
+    // existing lat/long
+    if($('.classroom_location_attributes_latitude').val().length !=0)
+    {
+     //alert("There is latitude.");
+     $('#maptest').gmap3({
+     marker: {
+              latLng: [#{@classroom.location.latitude.to_s},#{@classroom.location.longitude.to_s}],
+              options: {
+                draggable: true,
+              },
+              events: {
+                dragend: function (map, event) {
+                  var myLatLng = event.latLng;
+                  var lat = myLatLng.lat();
+                  var lng = myLatLng.lng();
+                  $('.classroom_location_attributes_latitude').val(lat);
+                  $('.classroom_location_attributes_longitude').val(lng);
+
+                }
+               }
+              },
+     map:{
+
+           options:{
+             center:[#{@classroom.location.latitude.to_s},#{@classroom.location.longitude.to_s}],
+             zoom:16,
+             mapTypeControl: true,
+             mapTypeControlOptions: {
+               style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
+             },
+             navigationControl: true,
+             scrollwheel: true,
+             streetViewControl: true
+           }
+         }
+       });
+
+
+    }
+    else
+    {
+    // If there the latitude does not exist
+     $('#maptest').gmap3({
+       getgeoloc: {
+         callback: function (latLng) {
+           //check to see if geolocation
+           if (latLng) {
+             $(this).gmap3({
+               marker: {
+                 latLng: latLng,
+                 options: {
+                   draggable: true,
+
+
+                 },
+                 events: {
+                   dragend: function (map, event) {
+                     var myLatLng = event.latLng;
+                     var lat = myLatLng.lat();
+                     var lng = myLatLng.lng();
+                     $('.classroom_location_attributes_latitude').val(lat);
+                     $('.classroom_location_attributes_longitude').val(lng);
+
+                   }
+                 }
                },
-               events: {
-                 dragend: function (map, event) {
-                   var myLatLng = event.latLng;
-                   var lat = myLatLng.lat();
-                   var lng = myLatLng.lng();
-                   $('.classroom_location_attributes_latitude').val(lat);
-                   $('.classroom_location_attributes_longitude').val(lng);
+               map: {
+                 options: {
+                   zoom: 17
+
                  }
                }
-             },
-             map: {
-               options: {
-                 zoom: 17
-               }
-             }
-           });
-         } else {
-           $('#test1-result').html('not localised !');
+             });
+           } else {
+           // if no geolocation display the map centered on the diag.
+              alert("Please drap the map marker to select the location");
+             $('#maptest').gmap3({
+                  marker: {
+                             latLng: [42.277092, -83.738212],
+                               options: {
+                                 draggable: true,
+                               },
+                               events: {
+                                 dragend: function (map, event) {
+
+                                   var myLatLng = event.latLng;
+                                   var lat = myLatLng.lat();
+                                   var lng = myLatLng.lng();
+                                   $('.classroom_location_attributes_latitude').val(lat);
+                                   $('.classroom_location_attributes_longitude').val(lng);
+
+
+
+                               },
+                             },
+                           },
+                  map:{
+
+                        options:{
+                          center:[42.277092, -83.738212],
+                          zoom:16,
+                          mapTypeControl: true,
+                          mapTypeControlOptions: {
+                            style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
+                          },
+                          navigationControl: true,
+                          scrollwheel: true,
+                          streetViewControl: true
+                        }
+                      }
+                    });
+
+           }
          }
        }
-     }
-   });
+
+     });
+    }
+  });
    
 :javascript
   $('.slider').slider().on('slide', function(ev){
