@@ -3,7 +3,7 @@ class BuildingsController < ApplicationController
   before_filter :authenticate_user!, :except => [:show, :index]
 
   def index
-    @buildings = Building.paginate(:page => params[:page], :per_page => 10)
+    @buildings = Building.paginate(:page => params[:page], :per_page => 100)
     @page_title = "Buildings"
   end
 
