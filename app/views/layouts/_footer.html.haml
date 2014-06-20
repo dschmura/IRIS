@@ -43,7 +43,7 @@
             %i.fa.fa-user
               = link_to "Profile", edit_user_path(current_user.id)
 
-          - if current_user.has_role? :admin
+          - if current_user.admin?
             %li
               %i.fa.fa-cogs
                 = link_to('Admin', users_path)
@@ -51,7 +51,7 @@
 
           %li
             %i.fa.fa-sign-out
-              = link_to('Logout', destroy_user_session_path, method: :delete)
+              = link_to 'Sign out', destroy_user_session_path, :method=>'delete'
 
       |
       = link_to "Privacy Policy", privacy_path
@@ -59,6 +59,9 @@
       = link_to "ISS Login", new_user_session_path
       | 
       = link_to "Privacy Policy", privacy_path
+
+
+
 
 
         

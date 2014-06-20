@@ -1,5 +1,6 @@
 Iris::Application.routes.draw do
-
+  devise_for :users
+  resources :users
   resources :room_attributes do
       collection {post :import}
   end
@@ -15,9 +16,8 @@ Iris::Application.routes.draw do
   match 'index.php', :to => 'old_site_redirector#pages', via: :get
   
   resources :owners
-  devise_for :users
-  
-  resources :users
+
+
   
   resources :classrooms do
     

@@ -44,14 +44,11 @@
             -#%i.fa.fa-qrcode
             %i.fa.fa-align-center
 
-      -#= link_to "Schedule", "https://csprod.dsc.umich.edu/services/facilitycalendar?facilityid=#{classroom.facility_code_heprod }", :target => "_blank"
-  
+
       - if user_signed_in?
-        - if current_user.has_role? :admin
-          -# %td= link_to 'Show', classroom
-          %td= link_to 'Edit', edit_classroom_path(classroom), :class => 'btn btn-xs'
-          %td= link_to 'Destroy', classroom, data: { confirm: 'Are you sure?' } , :method => :delete, :class => 'btn btn-xs btn-danger'
-        - else
+        %td= link_to 'Edit', edit_classroom_path(classroom), :class => 'btn btn-xs'
+        %td= link_to 'Destroy', classroom, data: { confirm: 'Are you sure?' } , :method => :delete, :class => 'btn btn-xs btn-danger'
+
           
 %br
 

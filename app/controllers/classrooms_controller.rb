@@ -131,6 +131,7 @@ class ClassroomsController < ApplicationController
   # PUT /classrooms/1.xml
   def update
     @classroom = find_classroom
+    authorize @classroom
 
     respond_to do |format|
       if @classroom.update_attributes(params[:classroom])

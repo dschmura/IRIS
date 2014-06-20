@@ -1,13 +1,21 @@
 class BuildingsController < ApplicationController
   ## We are going to check authentication before accessing anything but show and index
-  before_filter :authenticate_user!, :except => [:show, :index]
+  #before_filter :authenticate_user!, :except => [:show, :create]
+
+    after_action :verify_authorized, except: [ :show, :index]
+
+
 
   def index
+
     @buildings = Building.paginate(:page => params[:page], :per_page => 100)
+
+    ##authorize @buildings
     @page_title = "Buildings"
   end
 
-  def show   
+  def show
+
     @building = Building.find(params[:id])
     @page_title = @building.location.name
     @building_image = "buildings/" + @building.building_code_heprod + ".jpg"
@@ -15,7 +23,8 @@ class BuildingsController < ApplicationController
 
 
   def new
-    @building = Building.new 
+    @building = Building.new
+    authorize @building
     @building.location = Location.new
     #@building.location.assets.build
     @page_title = "Add a New Building"
@@ -24,6 +33,7 @@ class BuildingsController < ApplicationController
   def edit
     @location = Location.find(params[:id])
     @building = Building.find(params[:id])
+    authorize @building
     @page_title = "Editing Building: " + Location.find(params[:id]).name
   end
 
@@ -50,4 +60,5 @@ class BuildingsController < ApplicationController
     @building.destroy
     redirect_to buildings_path, :flash => {:success => "Building destroyed."}
   end
+
 end

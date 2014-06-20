@@ -183,46 +183,48 @@
             = button_tag(type: 'reset', class: "btn  btn-xs btn-danger reset_button", value: "Reset") do
               %span.fa.fa-refresh
               Reset
-            - if can? :update, @classroom
-              %br
-              %br
-              / Button trigger modal
-              %buttonbtn.btn-primary.btn-lg{"data-target" => "#myModal", "data-toggle" => "modal", type: "button"} Admin
+            -#- if policy(@classroom).update?
+            -#- if user_signed_in?
+              - if policy(@classroom).update?
+                %br
+                %br
+                / Button trigger modal
+                %buttonbtn.btn-primary.btn-lg{"data-target" => "#myModal", "data-toggle" => "modal", type: "button"} Admin
 
 
-              / Modal
-              #myModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", role: "dialog", tabindex: "-1"}
-                .modal-dialog
-                  .modal-content
-                    .modal-header
-                      %h3 Administrative Functions
-                      %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
-                      %h4#myModalLabel.modal-title
-                    .modal-body
-                      = link_to 'New Classroom', new_classroom_path, :class => 'btn btn-mini'
-                      %br
-                      %hr
-                      -#Import Attributes
-                        = form_tag import_classrooms_path, multipart: true do
-                          =file_field_tag :file
-                          %br
-                          = submit_tag "Import"
-
+                / Modal
+                #myModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", role: "dialog", tabindex: "-1"}
+                  .modal-dialog
+                    .modal-content
+                      .modal-header
+                        %h3 Administrative Functions
+                        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+                        %h4#myModalLabel.modal-title
+                      .modal-body
+                        = link_to 'New Classroom', new_classroom_path, :class => 'btn btn-mini'
+                        %br
                         %hr
-                        Set Visible
-                        = form_tag import_classrooms_path, multipart: true do
-                          =text_field_tag :file
-                          %br
-                          = submit_tag "Import"
-                    .modal-footer
-                      %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
-                      %button.btn.btn-primary{type: "button"} Save changes
+                        -#Import Attributes
+                          = form_tag import_classrooms_path, multipart: true do
+                            =file_field_tag :file
+                            %br
+                            = submit_tag "Import"
+
+                          %hr
+                          Set Visible
+                          = form_tag import_classrooms_path, multipart: true do
+                            =text_field_tag :file
+                            %br
+                            = submit_tag "Import"
+                      .modal-footer
+                        %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
+                        %button.btn.btn-primary{type: "button"} Save changes
 
                       
 
       #rooms_results
         = render :partial => 'classroom_results'
-  - if can? :update, @classroom
+  -#- if can? :update, @classroom
     Import Attributes
     = form_tag import_classrooms_path, multipart: true do
       =file_field_tag :file

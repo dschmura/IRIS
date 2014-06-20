@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140516133856) do
+ActiveRecord::Schema.define(version: 20140616153257) do
 
   create_table "assets", force: true do |t|
     t.integer  "location_id"
@@ -128,17 +128,6 @@ ActiveRecord::Schema.define(version: 20140516133856) do
     t.string   "url"
   end
 
-  create_table "roles", force: true do |t|
-    t.string   "name"
-    t.integer  "resource_id"
-    t.string   "resource_type"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-  end
-
-  add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
-  add_index "roles", ["name"], name: "index_roles_on_name"
-
   create_table "room_attributes", force: true do |t|
     t.integer  "RMRECNBR"
     t.integer  "CHRSTC"
@@ -175,6 +164,7 @@ ActiveRecord::Schema.define(version: 20140516133856) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
+    t.integer  "role"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

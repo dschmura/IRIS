@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   skip_filter :redirect_https
+
   def home
     @page_title="Home"
 
