@@ -14,7 +14,7 @@ class ClassroomsController < ApplicationController
   # GET /classrooms.xml
   def index
     @page_title = "Classrooms"
-
+    @classrooms = ClassroomPolicy::Scope.new(current_user, Classroom).resolve
     @search = Classroom.search(params[:q])
     if params[:per_page]
       @per_page = params[:per_page]

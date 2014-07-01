@@ -35,6 +35,16 @@ class ClassroomPolicy
     false
   end
 
+  class Scope < Struct.new(:current_user, :model)
+    def resolve
+      return false if @current_user.nil?
+      if current_user.admin?
+        model.all
+      else
+        model.where(light_control: :true)
+      end
+    end
+  end
   def scope
     Pundit.policy_scope!(current_user, record.class)
   end
