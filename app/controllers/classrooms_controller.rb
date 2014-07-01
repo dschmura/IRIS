@@ -33,10 +33,8 @@ class ClassroomsController < ApplicationController
       @search.student_capacity_gteq = 1
       @search.student_capacity_lteq = 500
     end
-    #@classrooms = @search.paginate(:page => params[:page], :per_page => @per_page).order("student_capacity desc")   # or @search.relation to lazy load in view
     @classrooms = @search.result.paginate(:page => params[:page], :per_page => @per_page).order("student_capacity desc")   # or @search.relation to lazy load in view
-    
-    #@classrooms = @search
+
     @owners = "Owner"
     respond_to do |format|
       format.html # index.html.erb
@@ -46,7 +44,7 @@ class ClassroomsController < ApplicationController
   end
 
   def search
-    @search = Classroom.search(params[:q])
+    @search = policy_scope(Classroom).search(params[:q])
     @classrooms = @search.all   # or @search.relation to lazy load in view
   end
 
@@ -56,7 +54,7 @@ class ClassroomsController < ApplicationController
   def show
     #@classroom = Classroom.find(params[:id])
     @classroom = find_classroom
-    
+
     @page_title = @classroom.location.name
     @classroom_alt = @classroom.location.name + " - " + @classroom.room_number
     @building = find_building(@classroom.location_id)
@@ -131,7 +129,7 @@ class ClassroomsController < ApplicationController
   # PUT /classrooms/1.xml
   def update
     @classroom = find_classroom
-    authorize @classroom
+
 
     respond_to do |format|
       if @classroom.update_attributes(params[:classroom])

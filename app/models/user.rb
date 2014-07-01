@@ -19,13 +19,10 @@
 #
 
 class User < ActiveRecord::Base
-  
-  #rolify
   # Include default devise modules. Others available are:
-  # :token_authenticatable, :encryptable, :confirmable, :registerable, :lockable, :timeoutable and :omniauthable
+  # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-
   enum role: [:user, :vip, :admin]
   after_initialize :set_default_role, :if => :new_record?
 
@@ -33,8 +30,4 @@ class User < ActiveRecord::Base
     self.role ||= :user
   end
 
-  # Setup accessible (or protected) attributes for your model
-  attr_accessible :role_ids, :as => :admin
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :role
 end
-

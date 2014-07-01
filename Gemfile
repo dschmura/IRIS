@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
-##gem 'rails', '3.2.14'
-gem 'rails', '4.1.0'
+
+gem 'rails', '4.1.1'
 gem 'sqlite3'
 gem 'sass-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
@@ -15,7 +15,7 @@ end
 
 gem "haml"
 #gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails'
-gem 'bootstrap-sass', '~> 3.1.1'
+gem 'bootstrap-sass'
 
 #gem 'google-analytics-rails'
 
@@ -39,7 +39,6 @@ gem 'mini_magick'
 gem 'prawn'
 #gem 'prawn', '1.0.0.rc2'
 gem 'prawn-qrcode'
-#gem 'prawnto'
 
 gem 'capistrano', '2.15.5'
 #gem 'capistrano'

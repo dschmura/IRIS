@@ -35,8 +35,9 @@
     = @building.history
 
   - if user_signed_in?
-    = link_to 'Edit', edit_building_path(@building)
-    \|
+    - if current_user.admin?
+      = link_to 'Edit', edit_building_path(@building)
+      \|
   = link_to 'List', buildings_path
     
 #building_image.round

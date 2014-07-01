@@ -1,13 +1,14 @@
 class ClassroomPolicy
-  attr_reader :user, :record
+  attr_reader :current_user, :model
 
-  def initialize(user, record)
-    @user = user
-    @record = record
+  def initialize(current_user, model)
+    @current_user = current_user
+    @user = model
   end
 
   def index?
-    false
+    @classrooms = policy_scope(Classroom)
+
   end
 
   def show?
@@ -15,7 +16,7 @@ class ClassroomPolicy
   end
 
   def create?
-    user.admin?
+    current_user.admin?
   end
 
   def new?
@@ -23,7 +24,7 @@ class ClassroomPolicy
   end
 
   def update?
-    user.admin?
+    current_user.admin?
   end
 
   def edit?
@@ -35,7 +36,7 @@ class ClassroomPolicy
   end
 
   def scope
-    Pundit.policy_scope!(user, record.class)
+    Pundit.policy_scope!(current_user, record.class)
   end
 end
 

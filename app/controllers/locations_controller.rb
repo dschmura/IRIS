@@ -1,6 +1,7 @@
 class LocationsController < ApplicationController
   ## We are going to check authentication before accessing anything but show or index
-  before_filter :authenticate_user!, :except => [:show, :index]
+  before_filter :authenticate_user!
+
   
   def index
     @locatable = find_locatable

@@ -46,8 +46,9 @@
 
 
       - if user_signed_in?
-        %td= link_to 'Edit', edit_classroom_path(classroom), :class => 'btn btn-xs'
-        %td= link_to 'Destroy', classroom, data: { confirm: 'Are you sure?' } , :method => :delete, :class => 'btn btn-xs btn-danger'
+        - if current_user.admin?
+          %td= link_to 'Edit', edit_classroom_path(classroom), :class => 'btn btn-xs'
+          %td= link_to 'Destroy', classroom, data: { confirm: 'Are you sure?' } , :method => :delete, :class => 'btn btn-xs btn-danger'
 
           
 %br

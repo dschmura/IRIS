@@ -30,12 +30,15 @@
       %td= building.zip
       %td= building.description
       - if user_signed_in?
-        %td= link_to 'Show', building
-        %td= link_to 'Edit', edit_building_path(building)      
-        %td= link_to 'Destroy', building, :confirm => 'Are you sure?', :method => :delete
+        - if current_user.admin?
+          %td= link_to 'Show', building
+          %td= link_to 'Edit', edit_building_path(building)
+          %td= link_to 'Destroy', building, :confirm => 'Are you sure?', :method => :delete
 %br
 = will_paginate
 - if user_signed_in?
-  = link_to 'New Building', new_building_path
+  - if current_user.admin?
+
+    = link_to 'New Building', new_building_path
 
 
