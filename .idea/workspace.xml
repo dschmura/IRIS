@@ -6,16 +6,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="447fd448-312a-4d99-95b7-9de99c2f095b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/images/seating/MH1339_chairs.png" afterPath="$PROJECT_DIR$/app/assets/images/seating/MH1339_chairs.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/images/seating/MH1359_chairs.png" afterPath="$PROJECT_DIR$/app/assets/images/seating/MH1359_chairs.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/images/seating/MH1436_chairs.png" afterPath="$PROJECT_DIR$/app/assets/images/seating/MH1436_chairs.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/images/seating/MH1448_chairs.png" afterPath="$PROJECT_DIR$/app/assets/images/seating/MH1448_chairs.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/images/seating/MH2330_chairs.png" afterPath="$PROJECT_DIR$/app/assets/images/seating/MH2330_chairs.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/images/seating/MH2333_chairs.png" afterPath="$PROJECT_DIR$/app/assets/images/seating/MH2333_chairs.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/images/seating/MH2347_chairs.png" afterPath="$PROJECT_DIR$/app/assets/images/seating/MH2347_chairs.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/images/seating/MH2353_chairs.png" afterPath="$PROJECT_DIR$/app/assets/images/seating/MH2353_chairs.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iris.iml" afterPath="$PROJECT_DIR$/iris.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="iris.iws" />
@@ -28,7 +21,7 @@
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/iris@Development__iris.coverage" NAME="Development: iris Coverage Results" MODIFIED="1404245220054" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="iris" />
+    <SUITE FILE_PATH="coverage/iris@Development__iris.coverage" NAME="Development: iris Coverage Results" MODIFIED="1404326075686" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="iris" />
     <SUITE FILE_PATH="coverage/iris@Production__iris.coverage" NAME="Production: iris Coverage Results" MODIFIED="1402580504470" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="iris" />
   </component>
   <component name="CreatePatchCommitExecutor">
@@ -93,11 +86,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="deploy.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="deploy.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/deploy.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.23263328" vertical-offset="0" max-vertical-offset="1472">
-              <caret line="9" column="18" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1472">
+              <caret line="35" column="68" selection-start-line="35" selection-start-column="68" selection-end-line="35" selection-end-column="68" />
               <folding />
             </state>
           </provider>
@@ -163,11 +156,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Gemfile" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Gemfile" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Gemfile">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1088">
-              <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+            <state vertical-scroll-proportion="0.3279483" vertical-offset="469" max-vertical-offset="1088">
+              <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -244,9 +237,9 @@
         <option value="$PROJECT_DIR$/app/views/classrooms/index.html.haml" />
         <option value="$PROJECT_DIR$/app/policies/classroom_policy.rb" />
         <option value="$PROJECT_DIR$/app/controllers/classrooms_controller.rb" />
-        <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/app/controllers/locations_controller.rb" />
         <option value="$PROJECT_DIR$/config/deploy.rb" />
+        <option value="$PROJECT_DIR$/Gemfile" />
       </list>
     </option>
   </component>
@@ -887,12 +880,12 @@
       <workItem from="1403629171121" duration="12360000" />
       <workItem from="1404131785708" duration="1099000" />
       <workItem from="1404178918750" duration="3972000" />
-      <workItem from="1404241200746" duration="4094000" />
+      <workItem from="1404241200746" duration="4730000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="169283000" />
+    <option name="totallyTimeSpent" value="169919000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -1312,14 +1305,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Gemfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1088">
-          <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/users_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="84" max-vertical-offset="704">
@@ -1349,8 +1334,16 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.23263328" vertical-offset="0" max-vertical-offset="1472">
-          <caret line="9" column="18" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1472">
+          <caret line="35" column="68" selection-start-line="35" selection-start-column="68" selection-end-line="35" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gemfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3279483" vertical-offset="469" max-vertical-offset="1088">
+          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="26" />
           <folding />
         </state>
       </provider>
