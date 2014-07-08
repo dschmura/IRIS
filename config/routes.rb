@@ -1,6 +1,6 @@
 Iris::Application.routes.draw do
-  devise_for :users
-  resources :users
+
+
   resources :room_attributes do
       collection {post :import}
   end
@@ -49,6 +49,7 @@ Iris::Application.routes.draw do
   match '/faq', :to => 'pages#faq', via: :get
   match '/events', :to => 'pages#event_support', via: :get
   match '/admin', :to => 'pages#admin', via: :get
-
+  devise_for :users
+  resources :users
 
 end
