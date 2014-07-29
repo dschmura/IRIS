@@ -1,5 +1,5 @@
 %h1 Listing Locations
-= @locatable
+
     
 %table
   %tr
@@ -7,6 +7,7 @@
     %th Latitude
     %th Longitude
     %th Description
+    %th Visibility?
     - if user_signed_in?
       %th
       %th
@@ -18,6 +19,7 @@
       %td= location.latitude
       %td= location.longitude
       %td= location.description
+      %td= location.visible
       - if user_signed_in?
         %td= link_to 'Show', location
         %td= link_to 'Edit', edit_location_path(location)

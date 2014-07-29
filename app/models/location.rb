@@ -26,11 +26,9 @@
 #
 
 class Location < ActiveRecord::Base
-
-  
+  scope :visible, -> { where(visible: true) }
   ## Paperclip method for uploading location images
   has_attached_file :picture, :styles => {:show => "1200x300#", :medium => "300x300#", :thumb => "100x100>"}, :convert_options => {:show => "-gravity center"}
-  
   has_attached_file :building_sign, :styles => { :show => ["1200x500#", :jpg], :medium => ["300x300#", :jpg], :thumb => ["100x100#", :jpg] }, :convert_options => {:show => "-gravity center"}
   belongs_to :locatable, :polymorphic => true
   belongs_to :location_type  
@@ -43,13 +41,4 @@ class Location < ActiveRecord::Base
                         :length => {:within => 9..18},
                         :numericality => true
 
-
-
-          
-                        
-  #scope :visible, lambda { |visible| where(:visible => 'true') unless user.has_role? :admin }
-  #scope :visible, lambda { |visible| where(:visible => 'true')  }
-  #scope :is_visible, lambda{ |visible| where(visible: visible)  }
-  #scope :visible, -> { where(visible: true) }
-                        
 end

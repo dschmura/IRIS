@@ -1,15 +1,12 @@
 Iris::Application.routes.draw do
 
-
   resources :room_attributes do
       collection {post :import}
   end
 
-
   resources :room_schedule_contacts do
       collection {post :import}
   end
-
 
   # Rewrite from old site
   match 'detail.php', :to => 'old_site_redirector#detail', via: :get
@@ -17,25 +14,15 @@ Iris::Application.routes.draw do
   
   resources :owners
 
-
-  
   resources :classrooms do
-    
     get :search, :on => :collection
     collection {post :import}
   end
   
   resources :locations
-  resources :buildings, :has_one => :location 
-  
-#Sign in Routes
-  #resources :sessions, :only => [:new, :create, :destroy]
-  #match '/signin', :to => 'sessions#new'
-  #match '/signout', :to => 'sessions#destroy'
+  resources :buildings, :has_one => :location
   
 #Pages Routes
-  root :to => "pages#home"
-
   match '/contact', :to => 'pages#contact', via: :get
   match '/about',   :to => 'pages#about', via: :get
   match '/about_iss',   :to => 'pages#about_iss', via: :get
@@ -49,6 +36,8 @@ Iris::Application.routes.draw do
   match '/faq', :to => 'pages#faq', via: :get
   match '/events', :to => 'pages#event_support', via: :get
   match '/admin', :to => 'pages#admin', via: :get
+
+  root :to => "pages#home"
   devise_for :users
   resources :users
 

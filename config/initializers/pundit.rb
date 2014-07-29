@@ -13,11 +13,16 @@ module PunditHelper
   private
 
   def user_not_authorized
-    #flash[:alert] = "Access denied. Please log in to continue"
-    flash[:alert] = "You are not able to #{params[:action]} this #{params[:controller].singularize}. Please log in to continue"
-    redirect_to (request.referrer || new_user_session_path)
+    flash[:alert] = "Access denied."
+    redirect_to (request.referrer || root_path)
   end
 
+  #def user_not_authorized
+  #  #flash[:alert] = "Access denied. Please log in to continue"
+  #  flash[:alert] = "You are not able to #{params[:action]} this #{params[:controller].singularize}. Please log in to continue"
+  #  redirect_to (request.referrer || new_user_session_path)
+  #end
+#
 end
 
 ApplicationController.send :include, PunditHelper

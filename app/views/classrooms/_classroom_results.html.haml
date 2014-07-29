@@ -7,9 +7,12 @@
       %th.col-md-4.col-sm-4.col-xs-4 
         -#= sortable "room_number", "Room Number"
         = sort_link @search, :location_name, "Classroom Name", :default_order => :desc
-      
+
+
+      -#%th.col-md-2.hidden-xs
+        Visible?
+
       %th.col-md-2.hidden-xs
-        -#= sortable "classroom.location.name","Classroom Name"
 
         = sort_link @search, :student_capacity, "Capacity", :default_order => :desc
       %th.col-md-2.hidden-xs
@@ -29,7 +32,9 @@
         %a{"data-original-title" => classroom.location.name, "data-placement" => "right", :href => "classrooms/#{classroom.facility_code_heprod}", :rel => "tooltip"} 
           = truncate(classroom.location.name, :length => 30)
       
-    
+
+      -#%td.hidden-xs= classroom.location.visible?
+
       %td.hidden-xs= classroom.student_capacity      
       %td.hidden-xs= link_to classroom.facility_code_heprod , classroom
       %td.classroom_index_icons

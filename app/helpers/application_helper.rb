@@ -29,4 +29,17 @@ module ApplicationHelper
     image_tag("Open_For_Business_Sign.png", :alt => "We are open for change.  Please contribute your feedback.", :class => 'construction')
   end
 
+  def user_status
+
+    if user_signed_in?
+      @user_status = current_user.email, current_user.role
+
+    else current_user.nil?
+      @user_status = "Nil"
+      end
+
+  end
+
+
+
 end

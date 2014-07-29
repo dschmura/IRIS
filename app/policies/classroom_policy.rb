@@ -41,7 +41,7 @@ class ClassroomPolicy
       if current_user.admin?
         model.all
       else
-        model.where(light_control: :true)
+        model.where(light_control: :false)
       end
     end
   end

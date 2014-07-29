@@ -1,14 +1,11 @@
-
-
-
 .classroom_listing
-  %h2 Listing classrooms
 
+  %h2 Listing classrooms
   .row
     #rooms_search
       #rooms_search_form.col-md-3.col-sm-3.col-xs-3
         #rooms_search_results_count
-          = @search.result.count
+          = @search_count
           rooms met your criteria
         #rooms_search_instructions
           Narrow your search by selecting your requirements below
@@ -131,4 +128,3 @@
   });
   $('.reset_button').click(function() { $('#classroom_search')[0].reset() })
 
-    

@@ -4,36 +4,47 @@ class ClassroomsController < ApplicationController
   before_filter :authenticate_user!, :except => [:show, :index, :seating]
   #before_filter :admin_user, :only => [:new, :create, :edit, :update, :destroy]
 
+
   def import
     Classroom.import(params[:file])
     redirect_to classrooms_url, notice: "Attributes Imported"
   end
 
-
   # GET /classrooms
   # GET /classrooms.xml
   def index
     @page_title = "Classrooms"
-    @classrooms = ClassroomPolicy::Scope.new(current_user, Classroom).resolve
-    @search = Classroom.search(params[:q])
+    @search = Classroom.search(params[:q] )
     if params[:per_page]
       @per_page = params[:per_page]
     else
       @per_page = 14
      end
-    if params[:DEPT_GRP] 
+    if params[:DEPT_GRP]
       @dept_group = "SET"
     else
       @dept_group = "not set"
     end
-    
-    
-    
+
     if @search.student_capacity_gteq.nil?
       @search.student_capacity_gteq = 1
       @search.student_capacity_lteq = 500
     end
-    @classrooms = @search.result.paginate(:page => params[:page], :per_page => @per_page).order("student_capacity desc")   # or @search.relation to lazy load in view
+    matching_classrooms = @search.result.includes(:location)
+    filtered_classrooms = matching_classrooms.select { |classroom| classroom.location.visible }
+    if user_signed_in?
+      filtered_classrooms = matching_classrooms
+    else
+      filtered_classrooms = matching_classrooms.select { |classroom| classroom.location.visible }
+    end
+    @classrooms = filtered_classrooms.paginate(page: params[:page], per_page: @per_page)
+    @search_count = filtered_classrooms.count
+
+    if user_signed_in?
+      @locations = Location.all.paginate(:page => params[:page], :per_page => 15)
+    else
+      @locations = Location.visible.where(visible: true).paginate(:page => params[:page], :per_page => 15)
+    end
 
     @owners = "Owner"
     respond_to do |format|

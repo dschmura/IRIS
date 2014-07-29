@@ -62,8 +62,8 @@ class Classroom < ActiveRecord::Base
   has_one :room_schedule_contact
   has_many :room_attributes
 
-  
-  scope :visible, lambda { includes(:location).where("locations.visible = ?", true )    }
+  #scope :visible, -> { where('locations_visible = ?', true) }
+
 
 
   accepts_nested_attributes_for :location, :allow_destroy => true  

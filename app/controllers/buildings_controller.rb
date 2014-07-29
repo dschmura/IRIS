@@ -1,22 +1,24 @@
 class BuildingsController < ApplicationController
   ## We are going to check authentication before accessing anything but show and index
-  #before_filter :authenticate_user!, :except => [:show, :create]
+  before_filter :authenticate_user!, :except => [:index, :show]
 
-    after_action :verify_authorized, except: [ :show, :index]
+  #after_action :verify_authorized, except: [:index]
 
 
 
   def index
 
-    @buildings = Building.paginate(:page => params[:page], :per_page => 100)
+    #@buildings = Building.paginate(:page => params[:page], :per_page => 100)
+    @buildings = BuildingPolicy::Scope.new(current_user, Building).resolve.paginate(:page => params[:page], :per_page => 15)
+    #@buildings.paginate(:page => params[:page], :per_page => 100)
 
-    ##authorize @buildings
     @page_title = "Buildings"
   end
 
   def show
 
     @building = Building.find(params[:id])
+
     @page_title = @building.location.name
     @building_image = "buildings/" + @building.building_code_heprod + ".jpg"
   end

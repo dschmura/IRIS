@@ -16,6 +16,10 @@
   %b Abstract:
   = @location.description
 
+%p
+  %b Visible?:
+  = @location.visible
+
 -#= gmaps("markers" => {"data" => @gmap_coordinates}, "map_options" => { "zoom" => 18, "auto_adjust" => true, "auto_zoom" => false})
 
 - if user_signed_in?
@@ -23,4 +27,5 @@
     = link_to 'Edit', edit_location_path(@location)
     \|
 = link_to 'List', locations_path
+
 

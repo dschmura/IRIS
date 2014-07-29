@@ -11,7 +11,7 @@
       = link_to footer_logo, about_iss_path
       .navbar-collapse.collapse
         %ul.nav.navbar-nav.center-block
-    
+
           %li
             = link_to "Home", root_path
           %li
@@ -23,14 +23,10 @@
           %li
             = link_to "Support", support_path
 
-             
     = link_to footer_logo_um, "http://www.umich.edu", :target => "_blank"
-
 
   %br
     = link_to "Copyright The Regents of the University of Michigan, 2011", "http://www.umich.edu", :target => '_blank'
-
-
     %br
     - if user_signed_in?
       .btn-group.dropup
@@ -47,8 +43,6 @@
             %li
               %i.fa.fa-cogs
                 = link_to('Admin', users_path)
-
-
           %li
             %i.fa.fa-sign-out
               = link_to 'Sign out', destroy_user_session_path, :method=>'delete'
@@ -59,14 +53,6 @@
       = link_to "ISS Login", new_user_session_path
       | 
       = link_to "Privacy Policy", privacy_path
-
-
-
-
-
-        
-  
-      
 
 
 = yield :scripts

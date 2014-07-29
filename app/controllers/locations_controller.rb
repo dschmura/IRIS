@@ -1,18 +1,24 @@
 class LocationsController < ApplicationController
   ## We are going to check authentication before accessing anything but show or index
   before_filter :authenticate_user!
-
+  #after_action :verify_authorized, except: [  :edit, :index, :update]
   
   def index
-    @locatable = find_locatable
-    @locations = Location.paginate(:page => params[:page], :per_page => 10)
+    #@locatable = find_locatable
+    #@locations = Location.paginate(:page => params[:page], :per_page => 10)
     @page_title = "Locations"
-
+    #@locations = LocationPolicy::Scope.new(current_user, Location).resolve.paginate(:page => params[:page], :per_page => 15)
+    if user_signed_in?
+      @locations = Location.all.paginate(:page => params[:page], :per_page => 15)
+    else
+      @locations = Location.visible.where(visible: true).paginate(:page => params[:page], :per_page => 15)
+    end
   end
   
   def show
     @location = Location.find(params[:id])
     @page_title = @location.name
+
   end
 
   def new

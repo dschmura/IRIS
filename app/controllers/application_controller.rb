@@ -1,14 +1,23 @@
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
+
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
+
+  #This is required to use will_paginate with the classrooms_controller index method to filter on visible
+  require 'will_paginate/array'
 
   protected
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) << :name
     devise_parameter_sanitizer.for(:account_update) << :name
+  end
+
+  # devise provides current_user if a user has logged in, otherwise set it to guest so Pundit doesn't puke.
+  def pundit_user
+    current_user || "guest"
   end
 
 

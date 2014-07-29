@@ -8,6 +8,7 @@
       -#%th Building Code (heprod)
       %th Code
       %th Name
+      %th Visible?
       %th Address
       %th Address2
       %th City
@@ -23,6 +24,7 @@
     %tr
       %td= link_to building.building_short_code, building
       %td= link_to building.location.name, building
+      %td= building.location.visible
       %td= building.address
       %td= building.address2
       %td= building.city
