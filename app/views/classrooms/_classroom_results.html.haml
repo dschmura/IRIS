@@ -9,8 +9,10 @@
         = sort_link @search, :location_name, "Classroom Name", :default_order => :desc
 
 
-      -#%th.col-md-2.hidden-xs
-        Visible?
+      - if user_signed_in?
+        - if current_user.admin?
+          %th.col-md-2.hidden-xs
+            gVisible?
 
       %th.col-md-2.hidden-xs
 
@@ -32,8 +34,9 @@
         %a{"data-original-title" => classroom.location.name, "data-placement" => "right", :href => "classrooms/#{classroom.facility_code_heprod}", :rel => "tooltip"} 
           = truncate(classroom.location.name, :length => 30)
       
-
-      -#%td.hidden-xs= classroom.location.visible?
+      - if user_signed_in?
+        - if current_user.admin?
+          %td.hidden-xs= classroom.location.visible?
 
       %td.hidden-xs= classroom.student_capacity      
       %td.hidden-xs= link_to classroom.facility_code_heprod , classroom
