@@ -105,16 +105,21 @@
       %br
         
       = f.fields_for :location, :html => {multipart: true, class: 'classroom_form'} do |loc|
-        .input-group.input-group-sm.col-md-6
+        .input-group.input-group-sm.col-md-6.hidden
           %span.input-group-addon Lat: 
-          = loc.text_field :latitude,  class: "form-control classroom_location_attributes_latitude", id: "disabledInput", disabled: true
+          = loc.text_field :latitude,  class: "form-control classroom_location_attributes_latitude", id: "disabledInput"
         %br
          
-        .input-group.input-group-sm.col-md-6
+        .input-group.input-group-sm.col-md-6.hidden
           %span.input-group-addon Long:
-          = loc.text_field :longitude,  class: "form-control  classroom_location_attributes_longitude", id: "disabledInput", disabled: true
-    
-
+          = loc.text_field :longitude,  class: "form-control  classroom_location_attributes_longitude", id: "disabledInput"
+        %b
+          Latitude:
+          %span#classroom_location_attributes_latitude_text
+        %br
+        %b
+          Longitude
+          %span#classroom_location_attributes_longitude_text
   %hr       
    
 
@@ -371,10 +376,6 @@
       |
       = link_to "Cancel", @classroom
       
-       
-
-
-
 
 
 -# Auto update HeProd with building code and room number
@@ -390,7 +391,6 @@
   });
 
 
-
 :javascript
 
   $(document).ready(function(){
@@ -399,6 +399,8 @@
     if($('.classroom_location_attributes_latitude').val().length !=0)
     {
      //alert("There is latitude.");
+     $('#classroom_location_attributes_latitude_text').html(#{@classroom.location.latitude.to_s})
+     $('#classroom_location_attributes_longitude_text').html(#{@classroom.location.longitude.to_s})
      $('#maptest').gmap3({
      marker: {
               latLng: [#{@classroom.location.latitude.to_s},#{@classroom.location.longitude.to_s}],
@@ -412,6 +414,8 @@
                   var lng = myLatLng.lng();
                   $('.classroom_location_attributes_latitude').val(lat);
                   $('.classroom_location_attributes_longitude').val(lng);
+                  $('#classroom_location_attributes_latitude_text').html(lat)
+                  $('#classroom_location_attributes_longitude_text').html(lng)
 
                 }
                }
@@ -457,7 +461,8 @@
                      var lng = myLatLng.lng();
                      $('.classroom_location_attributes_latitude').val(lat);
                      $('.classroom_location_attributes_longitude').val(lng);
-
+                     $('#classroom_location_attributes_latitude_text').html(lat)
+                     $('#classroom_location_attributes_longitude_text').html(lng)
                    }
                  }
                },
@@ -485,7 +490,8 @@
                                    var lng = myLatLng.lng();
                                    $('.classroom_location_attributes_latitude').val(lat);
                                    $('.classroom_location_attributes_longitude').val(lng);
-
+                                   $('#classroom_location_attributes_latitude_text').html(lat)
+                                   $('#classroom_location_attributes_longitude_text').html(lng)
 
 
                                },

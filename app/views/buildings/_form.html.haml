@@ -96,14 +96,23 @@
             %p.clearfix
             [ drag & drop the marker to update latitude & longitude
 
-            .input-group.input-group-sm.col-md-5
+            .input-group.input-group-sm.col-md-5.hidden
               %span.input-group-addon Lat:
-              = loc.text_field :latitude,  class: "form-control building_location_attributes_latitude", id: "disabledInput building_location_attributes_latitude", disabled: true
+              = loc.text_field :latitude,  class: "form-control building_location_attributes_latitude", id: " building_location_attributes_latitude"
             %br
 
-            .input-group.input-group-sm.col-md-5
+
+            .input-group.input-group-sm.col-md-5.hidden
               %span.input-group-addon Long:
-              = loc.text_field :longitude,  class: "form-control  building_location_attributes_longitude", id: "disabledInput", disabled: true
+              = loc.text_field :longitude,  class: "form-control  building_location_attributes_longitude", id: ""
+
+            %b
+              Latitude:
+              %span#building_location_attributes_latitude_text
+            %br
+            %b
+              Longitude
+              %span#building_location_attributes_longitude_text
 
 
 
@@ -116,12 +125,13 @@
 
 
 :javascript
-
   $(document).ready(function(){
     // If there is a latitude already, display the map without geolocation using the
     // existing lat/long
     if($('.building_location_attributes_latitude').val().length !=0)
     {
+      $('#building_location_attributes_latitude_text').html(#{@building.location.latitude.to_s})
+      $('#building_location_attributes_longitude_text').html(#{@building.location.longitude.to_s})
      //alert("There is latitude.");
      $('#maptest').gmap3({
      marker: {
@@ -136,6 +146,8 @@
                   var lng = myLatLng.lng();
                   $('.building_location_attributes_latitude').val(lat);
                   $('.building_location_attributes_longitude').val(lng);
+                  $('#building_location_attributes_latitude_text').html(lat)
+                  $('#building_location_attributes_longitude_text').html(lng)
 
                 }
                }
@@ -182,6 +194,9 @@
                      $('.building_location_attributes_latitude').val(lat);
                      $('.building_location_attributes_longitude').val(lng);
 
+                     $('#building_location_attributes_latitude_text').html(lat)
+                     $('#building_location_attributes_longitude_text').html(lng)
+
                    }
                  }
                },
@@ -209,6 +224,8 @@
                                    var lng = myLatLng.lng();
                                    $('.building_location_attributes_latitude').val(lat);
                                    $('.building_location_attributes_longitude').val(lng);
+                                   $('#building_location_attributes_latitude_text').html(lat)
+                                   $('#building_location_attributes_longitude_text').html(lng)
 
 
 

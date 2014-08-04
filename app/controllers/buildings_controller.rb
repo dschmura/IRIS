@@ -26,7 +26,7 @@ class BuildingsController < ApplicationController
 
   def new
     @building = Building.new
-    authorize @building
+
     @building.location = Location.new
     #@building.location.assets.build
     @page_title = "Add a New Building"
@@ -35,7 +35,7 @@ class BuildingsController < ApplicationController
   def edit
     @location = Location.find(params[:id])
     @building = Building.find(params[:id])
-    authorize @building
+
     @page_title = "Editing Building: " + Location.find(params[:id]).name
   end
 
