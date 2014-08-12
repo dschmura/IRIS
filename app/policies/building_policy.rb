@@ -29,11 +29,9 @@ class BuildingPolicy
     def resolve
       #return false if @current_user.nil?
       if current_user.nil?
-        #model.where(locations.visible => :true)
+        model.where(locations.visible => :true)
 
-        #model.all
-        #model.where(light_control: :false)
-        model.where(building_code_heprod: "1000154")
+        #model.where(building_code_heprod: "1000154")
       else
         if current_user.admin?
           model.all

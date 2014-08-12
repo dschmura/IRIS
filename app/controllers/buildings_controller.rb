@@ -8,9 +8,18 @@ class BuildingsController < ApplicationController
 
   def index
 
-    #@buildings = Building.paginate(:page => params[:page], :per_page => 100)
-    @buildings = BuildingPolicy::Scope.new(current_user, Building).resolve.paginate(:page => params[:page], :per_page => 15)
+    @buildings = Building
+    #@buildings = BuildingPolicy::Scope.new(current_user, Building).resolve.paginate(:page => params[:page], :per_page => 15)
     #@buildings.paginate(:page => params[:page], :per_page => 100)
+
+    matching_locations = @buildings.includes(:location)
+    filtered_locations = matching_locations.select { |loc| loc.location.visible }
+    if user_signed_in?
+      filtered_locations = matching_locations
+    else
+      filtered_locations = matching_locations.select { |loc| loc.location.visible }
+    end
+    @buildings = filtered_locations.paginate(page: params[:page], per_page: @per_page)
 
     @page_title = "Buildings"
   end
@@ -20,7 +29,12 @@ class BuildingsController < ApplicationController
     @building = Building.find(params[:id])
 
     @page_title = @building.location.name
-    @building_image = "buildings/" + @building.building_code_heprod + ".jpg"
+    #@building_image = "buildings/" + @building.building_code_heprod + ".jpg"
+    unless @building.location.visible? || user_signed_in?
+      redirect_to users_path, :notice => "Must be authorized to see that building."
+      return
+      end
+
   end
 
 

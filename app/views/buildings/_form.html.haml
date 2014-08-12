@@ -13,7 +13,11 @@
         %span.input-group-addon Name:
         = f.fields_for :location do |loc|
           = loc.text_field :name, :placeholder => 'Angell Hall', class: "form-control"
-      %br
+        %br
+
+    = f.fields_for :location do |loc|
+      = label_tag(:visible)
+      = loc.check_box :visible
 
       .input-group.input-group-sm.col-md-5
         %span.input-group-addon Building Short Code:
