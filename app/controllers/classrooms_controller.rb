@@ -65,12 +65,10 @@ class ClassroomsController < ApplicationController
   def show
     #@classroom = Classroom.find(params[:id])
     @classroom = find_classroom
-   unless @classroom.location.visible? || user_signed_in?
-   redirect_to users_path, :notice => "Must be authorized to see that room."
-   return
-
-
-   end
+    unless @classroom.location.visible? || user_signed_in?
+      redirect_to users_path, :notice => "Must be authorized to see that room."
+      return
+    end
 
     @page_title = @classroom.location.name
     @classroom_alt = @classroom.location.name + " - " + @classroom.room_number
