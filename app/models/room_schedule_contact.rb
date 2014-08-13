@@ -22,7 +22,9 @@ class RoomScheduleContact < ActiveRecord::Base
   
   # Setup accessible (or protected) attributes for your model
 
-  attr_accessible :rmrecnbr, :rm_schd_cntct_name, :rm_schd_email, :rm_schd_cntct_phone, :rm_usage_guidlns_url
+  attr_accessible :rmrecnbr, :rm_schd_cntct_name, :rm_schd_email, :rm_schd_cntct_phone, :rm_usage_guidlns_url,
+                  :RM_SPPT_DEPTID, :RM_SPPT_DEPT_DESCR, :RM_SPPT_CNTCT_EMAIL, :RM_SPPT_CNTCT_PHONE, :RM_SPPT_CNTCT_URL
+
   
   def self.import(file)
     CSV.foreach(file.path, headers: true) do |row|
@@ -32,6 +34,6 @@ class RoomScheduleContact < ActiveRecord::Base
     
     end
     
-  end
-  
+
+
 end

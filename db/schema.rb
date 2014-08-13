@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140616153257) do
+ActiveRecord::Schema.define(version: 20140812195853) do
 
   create_table "assets", force: true do |t|
     t.integer  "location_id"
@@ -148,6 +148,11 @@ ActiveRecord::Schema.define(version: 20140616153257) do
     t.string   "rm_usage_guidlns_url"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
+    t.string   "RM_SPPT_DEPTID"
+    t.string   "RM_SPPT_DEPT_DESCR"
+    t.string   "RM_SPPT_CNTCT_EMAIL"
+    t.string   "RM_SPPT_CNTCT_PHONE"
+    t.string   "RM_SPPT_CNTCT_URL"
   end
 
   create_table "users", force: true do |t|
