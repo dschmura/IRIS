@@ -35,5 +35,5 @@ class RoomScheduleContact < ActiveRecord::Base
     end
     
 
-
+  end
 end
