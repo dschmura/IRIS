@@ -5,15 +5,16 @@
 
   #support_info
 
+
     %b Supporting Department:
     %a{"data-original-title" => @room_schedule_contact.RM_SPPT_DEPT_DESCR, "data-placement" => "right", :href => @owner.url, :rel => "tooltip"}
       = truncate(@room_schedule_contact.RM_SPPT_DEPT_DESCR, :length => 30)
 
     %br
     %b Support Contact:
-    %a{"data-original-title" => "Full Name:" + @room_schedule_contact.RM_SPPT_DEPT_DESCR, "data-placement" => "right", :href => "#", :rel => "tooltip"}
+    %a{"data-original-title" => "Full Name:" + @room_schedule_contact.RM_SPPT_DEPT_DESCR.to_s, "data-placement" => "right", :href => "#", :rel => "tooltip"}
       -#= truncate(@owner.department_name, :length => 30)
-    = link_to @room_schedule_contact.RM_SPPT_CNTCT_EMAIL, "mailto:"+@room_schedule_contact.RM_SPPT_CNTCT_EMAIL
+    = link_to @room_schedule_contact.RM_SPPT_CNTCT_EMAIL.to_s, "mailto:"+@room_schedule_contact.RM_SPPT_CNTCT_EMAIL.to_s
 
     %br
     %b Support Contact Phone:
