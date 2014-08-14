@@ -4,20 +4,20 @@
   %b Support Information
 
   #support_info
-  
-    %b Supporting Department:
-    %a{"data-original-title" => @owner.department_name, "data-placement" => "right", :href => @owner.url, :rel => "tooltip"} 
-      = truncate(@owner.department_name, :length => 30)
 
-    %br  
+    %b Supporting Department:
+    %a{"data-original-title" => @room_schedule_contact.RM_SPPT_DEPT_DESCR, "data-placement" => "right", :href => @owner.url, :rel => "tooltip"}
+      = truncate(@room_schedule_contact.RM_SPPT_DEPT_DESCR, :length => 30)
+
+    %br
     %b Support Contact:
-    %a{"data-original-title" => "Full Name:" + @owner.department_name, "data-placement" => "right", :href => "#", :rel => "tooltip"} 
+    %a{"data-original-title" => "Full Name:" + @room_schedule_contact.RM_SPPT_DEPT_DESCR, "data-placement" => "right", :href => "#", :rel => "tooltip"}
       -#= truncate(@owner.department_name, :length => 30)
-    = link_to @owner.contact_email, "mailto:"+@owner.contact_email
+    = link_to @room_schedule_contact.RM_SPPT_CNTCT_EMAIL, "mailto:"+@room_schedule_contact.RM_SPPT_CNTCT_EMAIL
 
     %br
     %b Support Contact Phone:
-    = @owner.contact_phone
+    = @room_schedule_contact.RM_SPPT_CNTCT_PHONE
 
   %hr
   .fa.fa-calendar
