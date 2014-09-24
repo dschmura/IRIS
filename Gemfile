@@ -53,7 +53,7 @@ gem 'will_paginate-bootstrap'
 gem "paperclip", "3.5.1"
 
 #gem "meta_search"
-gem "ransack"
+gem "ransack", "1.3.0"
 #gem "ransack", github: "activerecord-hackery/ransack", branch: "rails-4.1"
 #gem "polyamorous", github: "activerecord-hackery/polyamorous"
 gem 'annotate', ">=2.6.0"
