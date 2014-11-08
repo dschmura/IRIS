@@ -13,7 +13,7 @@ end
 
 module Iris
   class Application < Rails::Application
-    
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
@@ -41,7 +41,7 @@ module Iris
 
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
-    
+
     config.active_record.whitelist_attributes = false
 
     #config.generators do |g|
@@ -54,7 +54,7 @@ module Iris
     config.assets.enabled = true
 
     # Version of your assets, change this if you want to expire all your assets
-    config.assets.version = '2.4.2'
+    config.assets.version = '2.5.0'
 
     #config.assets.precompile += ['application-print.css']
 
