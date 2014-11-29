@@ -1,17 +1,17 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-@mixin rounded-corners($radius: 10px) 
+@mixin rounded-corners($radius: 10px)
   border-radius: $radius
   -moz-border-radius: $radius
   -webkit-border-radius: $radius
-  
+
 @mixin transparent($transparency: 0.5, $trans: 50)
   zoom: 1
   filter: alpha(opacity=$trans)
   opacity: $transparency
 
-  
+
 #homeCarousel
   .carousel-inner
     padding: 0
@@ -23,11 +23,14 @@
       min-width: 1200px
       width: 1500px
       overflow: hidden
+  .carousel-control
+    top: 125px
+
 
 #main_features
   clear: both
   margin-top: 1em
-  text-align: center 
+  text-align: center
   ul
     text-align: center
     li
@@ -41,23 +44,23 @@
       margin-left: 2%
       padding: 0.3em
       background-color: #979170
-      background-image: -webkit-gradient(linear, left top, left bottom, from(#979170), to(#979170), color-stop(0.5, #80805A))    
+      background-image: -webkit-gradient(linear, left top, left bottom, from(#979170), to(#979170), color-stop(0.5, #80805A))
       display: block
-      @include rounded-corners($radius: 12px) 
+      @include rounded-corners($radius: 12px)
       a
         padding: 5% 0 5% 0
         text-decoration: none
         height: 20px
         text-align: center
         color: #fff
-        font-size: 140%       
+        font-size: 140%
         display: block
-        
-      &:hover     
+
+      &:hover
         background-color: #6188D5
         background-image: -webkit-gradient(linear, left top, left bottom, from(#6188D5), to(#6188D5), color-stop(0.5, #6188D5))
         @include transparent(0.8, $trans: 80)
-        
+
         //background-image: -webkit-gradient(linear, left top, left bottom, from(#6188D5), to(#BBC8E1), color-stop(0.5, #BBC8E1))
 
 .content

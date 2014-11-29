@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.1.6'
 gem 'sqlite3'
-gem 'sass-rails', '~> 4.0.0'
+
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 
@@ -16,8 +16,9 @@ end
 
 
 gem "haml"
-#gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails'
-gem 'bootstrap-sass', '~> 3.3.0'
+gem 'bootstrap-sass', '~> 3.3.1'
+gem 'sass-rails', '~> 4.0.0'
+gem 'autoprefixer-rails'
 
 #gem 'google-analytics-rails'
 
@@ -36,10 +37,9 @@ gem 'newrelic_rpm'
 # QR-Code generation
 gem 'rqrcode-rails3'
 gem 'mini_magick'
-#gem 'mail_form'
+
 
 gem 'prawn'
-#gem 'prawn', '1.0.0.rc2'
 gem 'prawn-qrcode'
 
 gem 'capistrano', '2.15.5'
