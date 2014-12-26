@@ -8,35 +8,27 @@ class PagesController < ApplicationController
   def contact
     @page_title="Contact Us"
   end
-  
+
   def about
     @page_title="About the MClassrooms site"
-
-   # if current_user.nil?
-   #   redirect_to :back, :alert => "Access denied, not logged in."
-   # else
-   #   unless current_user.admin?
-   #     redirect_to :faq, :alert => "Access denied, not admin"
-   #   end
-   # end
-#
   end
+
   def dentistry
     @page_title="Dentistry Demo"
   end
-  
+
   def about_iss
     @page_title="About Instructional Support Services"
   end
-  
+
   def faq
     @page_title="Frequently Asked Questions"
   end
-  
+
   def iss_support
     @page_title="ISS Support"
   end
-  
+
   def event_support
     @page_title="Event Support"
   end
@@ -56,5 +48,4 @@ class PagesController < ApplicationController
   def admin
     @page_title="Administration Jump Page"
   end
-
 end

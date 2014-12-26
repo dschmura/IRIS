@@ -5,13 +5,14 @@ module ApplicationHelper
   # The base_title gets joined with the @page_title
   def page_title
     base_title = "University of Michigan Classrooms"
-    @base_title = base_title
     if @page_title.nil?
-      base_title
+      "#{params[:controller].capitalize} - #{params[:action].capitalize} | " + base_title
     else
-      "#{@page_title}  | #{@base_title}"
+      "#{@page_title} | #{base_title}"
     end
   end
+
+
 
   def logo
     image_tag("MClassrooms_Logo.png", :alt => "University of Michigan Logo", :class => "round", style: "width: 200px; position:absolute; top: 4px;")
