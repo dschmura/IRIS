@@ -30,16 +30,16 @@ Iris::Application.configure do
   # Disable Rails's static asset server
   # In production, Apache or nginx will already do this
   config.serve_static_assets = false
-  
+
   config.eager_load = true
 
   Paperclip.options[:command_path] = "/usr/bin/"
 
   # Enable serving of images, stylesheets, and javascripts from an asset server
   # config.action_controller.asset_host = "http://assets.example.com"
-  
- 
-  
+
+
+
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
 
@@ -54,8 +54,8 @@ Iris::Application.configure do
   config.active_support.deprecation = :notify
 
   # Compress JavaScripts and CSS
-  # config.assets.compress = true
-  config.assets.compress = false
+  config.assets.compress = true
+  #config.assets.compress = false
 
   # Don't fallback to assets pipeline if a precompiled asset is missed
   config.assets.compile = true
