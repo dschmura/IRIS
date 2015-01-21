@@ -59,7 +59,7 @@ module ClassroomsHelper
     	when (/AHG|AHA|AHB|AHC|AHD/)
     	  "ah"
     	when /CHEMA/
-    	  "chemaa"
+    	  "chema"
     	when /DENTG/
     	  "/dentg"
     	when /DENTB/
