@@ -31,17 +31,10 @@ GEM
       activerecord (>= 2.3.0)
       rake (>= 0.8.7)
     arel (5.0.1.20140414130214)
-<<<<<<< HEAD
     autoprefixer-rails (5.1.7)
       execjs
       json
     bcrypt (3.1.10)
-=======
-    autoprefixer-rails (5.0.0.2)
-      execjs
-      json
-    bcrypt (3.1.9)
->>>>>>> d50c3c1374446f6aec55900c75e074a21b75a5d5
     bootstrap-sass (3.3.3)
       autoprefixer-rails (>= 5.0.0.1)
       sass (>= 3.2.19)
@@ -71,11 +64,7 @@ GEM
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
     erubis (2.7.0)
-<<<<<<< HEAD
     execjs (2.3.0)
-=======
-    execjs (2.2.2)
->>>>>>> d50c3c1374446f6aec55900c75e074a21b75a5d5
     font-awesome-rails (4.3.0.0)
       railties (>= 3.2, < 5.0)
     haml (4.0.6)
