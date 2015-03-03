@@ -32,6 +32,9 @@ class Location < ActiveRecord::Base
   has_attached_file :building_sign, :styles => { :show => ["1200x500#", :jpg], :medium => ["300x300#", :jpg], :thumb => ["100x100#", :jpg] }, :convert_options => {:show => "-gravity center"}
   belongs_to :locatable, :polymorphic => true
   belongs_to :location_type
+
+  validates_attachment_content_type :picture, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
+  validates_attachment_content_type :building_sign, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
   validates :name,  :presence => true
 
   validates :latitude, :presence => true,
