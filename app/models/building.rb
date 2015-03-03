@@ -23,21 +23,21 @@ class Building < ActiveRecord::Base
   has_one :location, :as => :locatable
 
   accepts_nested_attributes_for :location, :allow_destroy => true
-  
-  
+
+
   validates :building_short_code, :presence => true
-                                
-                                  
+
+
 
   validates_presence_of :address, :city, :state, :zip
-  
+
   validates_uniqueness_of :address
-  
+
   #Makes for links on the site more SEO friendly
   def to_param
     "#{id}-#{location.name.downcase.gsub(/[^[:alnum:]]/,'-')}".gsub(/-{2,}/,'-')
    end
-  
+
 end
-  
+
 

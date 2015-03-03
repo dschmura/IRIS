@@ -11,17 +11,17 @@ Iris::Application.routes.draw do
   # Rewrite from old site
   match 'detail.php', :to => 'old_site_redirector#detail', via: :get
   match 'index.php', :to => 'old_site_redirector#pages', via: :get
-  
+
   resources :owners
 
   resources :classrooms do
     get :search, :on => :collection
     collection {post :import}
   end
-  
+
   resources :locations
   resources :buildings, :has_one => :location
-  
+
 #Pages Routes
   match '/contact', :to => 'pages#contact', via: :get
   match '/about',   :to => 'pages#about', via: :get

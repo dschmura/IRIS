@@ -37,17 +37,17 @@
       %br
       .input-group.input-group-sm.col-md-4
         %span.input-group-addon City:
-        = f.text_field :city,  :placeholder => "Ann Arbor", :input_html => { :value => 'Ann Arbor',:size => 25 }, class: "form-control"
+        = f.text_field :city,  :placeholder => "Ann Arbor", :input_html => { value: 'Ann Arbor',:size => 25 }, class: "form-control"
 
       %br
       .input-group.input-group-sm.col-md-3
         %span.input-group-addon State:
-        = f.text_field :state,  :placeholder => "MI", :input_html => { :value => 'MI',:size => 3 }, class: "form-control"
+        = f.text_field :state,  :placeholder => "MI", :input_html => { value: 'MI',:size => 3 }, class: "form-control"
 
       %br
       .input-group.input-group-sm.col-md-3
         %span.input-group-addon ZIP:
-        = f.text_field :zip,  :placeholder => "48109-1234", :input_html => { :value => '48109', :size => 10 }, class: "form-control", :size => 10
+        = f.text_field :zip,  :placeholder => "48109-1234", :input_html => { value: '48109', :size => 10 }, class: "form-control", :size => 10
       %br
       = f.fields_for :location  do |loc|
         %span.col-md-10
@@ -105,7 +105,6 @@
               = loc.text_field :latitude,  class: "form-control building_location_attributes_latitude", id: " building_location_attributes_latitude"
             %br
 
-
             .input-group.input-group-sm.col-md-5.hidden
               %span.input-group-addon Long:
               = loc.text_field :longitude,  class: "form-control  building_location_attributes_longitude", id: ""
@@ -118,15 +117,12 @@
               Longitude
               %span#building_location_attributes_longitude_text
 
-
-
   %hr
   .row
     .actions
       = f.button :submit
       |
       = link_to "Cancel", @building
-
 
 :javascript
   $(document).ready(function(){
@@ -171,8 +167,6 @@
            }
          }
        });
-
-
     }
     else
     {
@@ -187,8 +181,6 @@
                  latLng: latLng,
                  options: {
                    draggable: true,
-
-
                  },
                  events: {
                    dragend: function (map, event) {

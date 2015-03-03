@@ -59,12 +59,12 @@ class ClassroomsController < ApplicationController
     @classrooms = @search.all   # or @search.relation to lazy load in view
   end
 
-  
+
   # GET /classrooms/1
   # GET /classrooms/1.xml
   def show
-    #@classroom = Classroom.find(params[:id])
-    @classroom = find_classroom
+    @classroom = Classroom.includes(:location).find_by facility_code_heprod:(params[:id].upcase)
+    #@classroom = find_classroom
     unless @classroom.location.visible? || user_signed_in?
       redirect_to users_path, :notice => "Must be authorized to see that room."
       return
@@ -73,6 +73,7 @@ class ClassroomsController < ApplicationController
     @page_title = @classroom.location.name
     @classroom_alt = @classroom.location.name + " - " + @classroom.room_number
     @building = find_building(@classroom.location_id)
+    #@building = location.building
     @owner = Owner.find(@classroom.owner_id)
     @room_schedule_contact = RoomScheduleContact.find_by rmrecnbr:(@classroom.rmrecnbr)
     @building_image = @building.picture.url(:medium).to_s
@@ -85,22 +86,21 @@ class ClassroomsController < ApplicationController
       format.png  { render :qrcode => "http://rooms.lsa.umich.edu/classrooms/#{@classroom.facility_code_heprod}", :level => :l, :unit => 8 }
       format.pdf do
        pdf = ClassroomPdf.new(@classroom)
-        
+
         send_data pdf.render, type: "application/pdf",
                               disposition: "inline"
       end
     end
   end
 
-
-  # GET /classrooms/new
+# GET /classrooms/new
   # GET /classrooms/new.xml
   def new
     @classroom = Classroom.new
     @classroom.location = Location.new
     @locations = Location.where(:locatable_type => "Building").order("name ASC")
     @buildings = Building.where(:id => @locations )
-    
+
 
     @owners = find_owners
     @client_ip = request.remote_ip
@@ -167,27 +167,27 @@ class ClassroomsController < ApplicationController
       format.xml  { head :ok }
     end
   end
-  
+
 
 
   private
 
-  def find_classroom  
+  def find_classroom
     #Classroom.find_by_facility_code_heprod(params[:id].upcase)
 
     Classroom.find_by facility_code_heprod:(params[:id].upcase)
 
 
   end
-  
-  def find_owners 
+
+  def find_owners
     Owner.all
   end
-  
-  def find_building location_id    
+
+  def find_building location_id
     Location.find(location_id)
   end
-  
+
   def sort_column
     params[:sort] || "room_number"
   end

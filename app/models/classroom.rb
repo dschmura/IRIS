@@ -65,70 +65,68 @@ class Classroom < ActiveRecord::Base
   #scope :visible, -> { where('locations_visible = ?', true) }
 
 
-
-  accepts_nested_attributes_for :location, :allow_destroy => true  
+ accepts_nested_attributes_for :location, :allow_destroy => true
   validates_presence_of :location_id
-  #attr_accessible :room_number, :facility_code_heprod, :student_capacity, 
-  #                :light_control, :layout_platform, :layout_stage, :layout_tiered, 
-  #                :seating_auditorium, :seating_chairs_fixed, :seating_movable_tables_chairs, 
-  #                :seating_table_conference, :seating_tables_any, :seating_tables_fixed, 
-  #                :seating_tables_moveable, :sound_amplification, :ethernet_students, 
-  #                :power_students, :writing_surface_chalkboard_any, :writing_surface_chalkboard_25ft, 
-  #                :writing_surface_whiteboard_any, :writing_surface_whiteboard_25ft, 
-  #                :computer_classroom_any, :computer_classroom_mac, :computer_classroom_windows, 
-  #                :assisted_listening, :wheelchair_instructor, :dvd_player_regular, :dvd_player_blueray, 
-  #                :captioning_device, :podium_computer_any, :podium_computer_mac, :podium_computer_windows, 
-  #                :document_camera, :interactive_pen, :lecture_capture, :telephone, :video_conferencing, 
-  #                :projection_16mm_film, :projection_35mm_file, :projection_digital_data_video, 
-  #                :projection_traditional_slide, :notes, :location_id, :is_department_space, 
+  #attr_accessible :room_number, :facility_code_heprod, :student_capacity,
+  #                :light_control, :layout_platform, :layout_stage, :layout_tiered,
+  #                :seating_auditorium, :seating_chairs_fixed, :seating_movable_tables_chairs,
+  #                :seating_table_conference, :seating_tables_any, :seating_tables_fixed,
+  #                :seating_tables_moveable, :sound_amplification, :ethernet_students,
+  #                :power_students, :writing_surface_chalkboard_any, :writing_surface_chalkboard_25ft,
+  #                :writing_surface_whiteboard_any, :writing_surface_whiteboard_25ft,
+  #                :computer_classroom_any, :computer_classroom_mac, :computer_classroom_windows,
+  #                :assisted_listening, :wheelchair_instructor, :dvd_player_regular, :dvd_player_blueray,
+  #                :captioning_device, :podium_computer_any, :podium_computer_mac, :podium_computer_windows,
+  #                :document_camera, :interactive_pen, :lecture_capture, :telephone, :video_conferencing,
+  #                :projection_16mm_film, :projection_35mm_file, :projection_digital_data_video,
+  #                :projection_traditional_slide, :notes, :location_id, :is_department_space,
   #                :owner_id, :rmrecnbr
-  
+
   validates :student_capacity, :numericality => true,
                                :length => {:within => 1..2000},
                                :presence => true
-                               
+
   validates :room_number, :presence => true,
                           :length => {:minimum => 1, :maximum => 6}
-                               
+
   #validates :facility_code_heprod,  :presence => true,
   #                                  :uniqueness => true,
   #                                  :format => {:with => /\A(\D{2,6})+(\d{1,6})+(\z)/i}, :on => :create
-                                    
+
   #validates :rmrecnbr,  :presence => true,
   #                      :uniqueness => true,
   #                      :numericality => true,
   #                      :length => { :is => 7 }
-                      
-  
 
-  
+
+
+
   #Makes for links on the site more SEO friendly
   def to_param
     "#{facility_code_heprod.upcase.gsub(/[^[:alnum:]]/,'-')}".gsub(/-{2,}/,'-')
   end
-  
+
   def zero_attributes(facility_code_heprod)
-    attributes = ["light_control" , "layout_platform" , "layout_stage" , 
-                  "layout_tiered" , "seating_auditorium" , "seating_chairs_fixed" , 
-                  "seating_movable_tables_chairs" , "seating_table_conference" , 
-                  "seating_tables_any" , "seating_tables_fixed" , "seating_tables_moveable" , 
-                  "sound_amplification" , "sound_amplification" , "ethernet_students" , 
-                  "power_students" , "writing_surface_chalkboard_any" , "writing_surface_chalkboard_25ft" , 
-                  "writing_surface_whiteboard_any" , "writing_surface_whiteboard_25ft" , 
-                  "computer_classroom_any" , "computer_classroom_any" , "computer_classroom_mac" , 
-                  "computer_classroom_windows" , "assisted_listening" , "wheelchair_instructor" , 
-                  "dvd_player_regular" , "dvd_player_blueray" , "captioning_device" , "podium_computer_mac" , 
-                  "podium_computer_windows" , "document_camera" , "interactive_pen" , 
-                  "lecture_capture" , "telephone" , "video_conferencing" , "projection_16mm_film" , 
+    attributes = ["light_control" , "layout_platform" , "layout_stage" ,
+                  "layout_tiered" , "seating_auditorium" , "seating_chairs_fixed" ,
+                  "seating_movable_tables_chairs" , "seating_table_conference" ,
+                  "seating_tables_any" , "seating_tables_fixed" , "seating_tables_moveable" ,
+                  "sound_amplification" , "sound_amplification" , "ethernet_students" ,
+                  "power_students" , "writing_surface_chalkboard_any" , "writing_surface_chalkboard_25ft" ,
+                  "writing_surface_whiteboard_any" , "writing_surface_whiteboard_25ft" ,
+                  "computer_classroom_any" , "computer_classroom_any" , "computer_classroom_mac" ,
+                  "computer_classroom_windows" , "assisted_listening" , "wheelchair_instructor" ,
+                  "dvd_player_regular" , "dvd_player_blueray" , "captioning_device" , "podium_computer_mac" ,
+                  "podium_computer_windows" , "document_camera" , "interactive_pen" ,
+                  "lecture_capture" , "telephone" , "video_conferencing" , "projection_16mm_film" ,
                   "projection_35mm_file" , "projection_digital_data_video" , "projection_traditional_slide"]
-    @room = Classroom.find_by_facility_code_heprod(facility_code_heprod)  
+    @room = Classroom.find_by_facility_code_heprod(facility_code_heprod)
     attributes.each do |attribute|
       @room[attribute] = false
       @room.save!
-    end 
+    end
   end
-  
-  def self.import(file)
+def self.import(file)
     #map the heprod CHRSTC_DESCRSHORT to our db column
     mapping = {
       "Blackout" => :light_control,
@@ -170,28 +168,28 @@ class Classroom < ActiveRecord::Base
       "ProjDigit" => :projection_digital_data_video,
       "ProjSlide" => :projection_traditional_slide
     }
-    
+
     last_rmrecnbr = nil
     this_classroom = nil
     CSV.foreach(file.path, headers: true) do |row|
-       
+
       if last_rmrecnbr != row["RMRECNBR"]
         this_classroom && this_classroom.save!
         this_classroom = Classroom.find_by_rmrecnbr(row["RMRECNBR"])
         if this_classroom
-          
-          attributes = ["light_control" , "layout_platform" , "layout_stage" , 
-                      "layout_tiered" , "seating_auditorium" , "seating_chairs_fixed" , 
-                      "seating_movable_tables_chairs" , "seating_table_conference" , 
-                      "seating_tables_any" , "seating_tables_fixed" , "seating_tables_moveable" , 
-                      "sound_amplification" , "sound_amplification" , "ethernet_students" , 
-                      "power_students" , "writing_surface_chalkboard_any" , "writing_surface_chalkboard_25ft" , 
-                      "writing_surface_whiteboard_any" , "writing_surface_whiteboard_25ft" , 
-                      "computer_classroom_any" , "computer_classroom_any" , "computer_classroom_mac" , 
-                      "computer_classroom_windows" , "assisted_listening" , "wheelchair_instructor" , 
-                      "dvd_player_regular" , "dvd_player_blueray" , "captioning_device" , "podium_computer_mac" , 
-                      "podium_computer_windows" , "document_camera" , "interactive_pen" , 
-                      "lecture_capture" , "telephone" , "video_conferencing" , "projection_16mm_film" , 
+
+          attributes = ["light_control" , "layout_platform" , "layout_stage" ,
+                      "layout_tiered" , "seating_auditorium" , "seating_chairs_fixed" ,
+                      "seating_movable_tables_chairs" , "seating_table_conference" ,
+                      "seating_tables_any" , "seating_tables_fixed" , "seating_tables_moveable" ,
+                      "sound_amplification" , "sound_amplification" , "ethernet_students" ,
+                      "power_students" , "writing_surface_chalkboard_any" , "writing_surface_chalkboard_25ft" ,
+                      "writing_surface_whiteboard_any" , "writing_surface_whiteboard_25ft" ,
+                      "computer_classroom_any" , "computer_classroom_any" , "computer_classroom_mac" ,
+                      "computer_classroom_windows" , "assisted_listening" , "wheelchair_instructor" ,
+                      "dvd_player_regular" , "dvd_player_blueray" , "captioning_device" , "podium_computer_mac" ,
+                      "podium_computer_windows" , "document_camera" , "interactive_pen" ,
+                      "lecture_capture" , "telephone" , "video_conferencing" , "projection_16mm_film" ,
                       "projection_35mm_file" , "projection_digital_data_video" , "projection_traditional_slide"]
                       attributes.each do |attribute|
                         this_classroom[attribute] = false
@@ -201,33 +199,33 @@ class Classroom < ActiveRecord::Base
                     end
         #zero_attributes(this_classroom)
 
-        last_rmrecnbr = row["RMRECNBR"]
+ last_rmrecnbr = row["RMRECNBR"]
       end
-      
+
       if this_classroom
-        logger.info { this_classroom.facility_code_heprod }                     
+        logger.info { this_classroom.facility_code_heprod }
       else
         logger.info { "NOT FOUND: #{row["RMRECNBR"]}" }
         next
       end
       this_characteristic = row["CHRSTC_DESCRSHORT"]
-      
+
       if mapping[this_characteristic]
         this_classroom[mapping[this_characteristic]] = true
       end
-      
+
       case this_characteristic
-      when "Other"          
+      when "Other"
         #Some logic here
       else
          #Some other logic here
-      end  
+      end
     end # foreach line in csv
-    
+
     # Save last room
     this_classroom && this_classroom.save!
-    
+
   end
-  
+
 end
 
