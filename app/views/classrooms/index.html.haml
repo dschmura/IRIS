@@ -15,7 +15,7 @@
 
         = search_form_for @search, :remote => false, :html => {:class => "form-group"} do |f|
           .form-group
-            = f.select :DEPT_GRP_eq, [['All Departments',''],['College of LSA','COLLEGE_OF_LSA'], ['School of Dentistry', 'SCHOOL_DENTISTRY']]
+            = f.select :DEPT_GRP_eq, [['All Departments',''],['College of LSA','COLLEGE_OF_LSA'], ['Law School', 'LAW_SCHOOL'], ['School of Dentistry', 'SCHOOL_DENTISTRY']]
             %br
             %br
             = f.collection_select :location_id_eq, Location.where(:locatable_type => "Building").order("name ASC"),  :id, :name, {:prompt => "Limit By Building"}, {:style => "width: 160px;"}
@@ -65,10 +65,10 @@
             %br
             = button_tag(type: 'submit', class: "btn btn-lg btn-default", remote: true) do
               %span.fa.fa-search
-              Search  
+              Search
             %br
             %br
-      
+
             = button_tag(type: 'reset', class: "btn  btn-xs btn-danger reset_button", value: "Reset") do
               %span.fa.fa-refresh
               Reset
@@ -109,7 +109,7 @@
                         %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
                         %button.btn.btn-primary{type: "button"} Save changes
 
-                      
+
 
       #rooms_results
         = render :partial => 'classroom_results'
@@ -120,7 +120,7 @@
         =file_field_tag :file
         %br
         = submit_tag "Import"
-  
+
 
 :javascript
   $('.slider').slider().on('slide', function(ev){

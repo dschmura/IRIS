@@ -53,7 +53,7 @@
 
       .sr-only
         = label_tag(:DEPT_GRP, "Department")
-      = f.select:DEPT_GRP, options_for_select([['College of LSA','COLLEGE_OF_LSA'], ['School of Dentistry', 'SCHOOL_DENTISTRY']]),{:prompt => "Department?", :selected => @def_department},class: "form-control input-sm ", style: "width: 40%;"
+      = f.select:DEPT_GRP, options_for_select([['College of LSA','COLLEGE_OF_LSA'], ['Law Schoo', 'LAW_SCHOOL'], ['School of Dentistry', 'SCHOOL_DENTISTRY']]),{:prompt => "Department?", :selected => @def_department},class: "form-control input-sm ", style: "width: 40%;"
 
       %br
       %br
