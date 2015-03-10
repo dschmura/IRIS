@@ -15,7 +15,7 @@
 
         = search_form_for @search, :remote => false, :html => {:class => "form-group"} do |f|
           .form-group
-            = f.select :DEPT_GRP_eq, [['All Departments',''],['College of LSA','COLLEGE_OF_LSA'], ['Law School', 'LAW_SCHOOL'], ['School of Dentistry', 'SCHOOL_DENTISTRY']]
+            = f.select :DEPT_GRP_eq, [['All Departments',''],['College of LSA','COLLEGE_OF_LSA'], ['School of Dentistry', 'SCHOOL_DENTISTRY']]
             %br
             %br
             = f.collection_select :location_id_eq, Location.where(:locatable_type => "Building").order("name ASC"),  :id, :name, {:prompt => "Limit By Building"}, {:style => "width: 160px;"}
