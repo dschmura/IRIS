@@ -12,11 +12,11 @@
 
 .row.classroom_top
   .col-md-2.col-sm-2.col-xs-1
-    = render :partial => 'building_float'
+    = render partial: 'building_float'
   .tab-content.col-md-10.col-sm-10.col-xs.11
-    .tab-pane#picture.active
-      %a{"data-original-title" => "Load the image for this room.", "data-placement" => "bottom", :href => classroom_image, target: '_blank', :rel => "tooltip", style: "color: black;"}
-        %div{ :style => %(background:url("#{classroom_image}") no-repeat center; min-height: 300px;) }
+    .tab-pane.active#picture
+      %a{ "data-original-title" => "Load the image for this room.", "data-placement" => "bottom", href: classroom_image, target: '_blank', rel: "tooltip", style: "color: black;"}
+        %div{ style: %(background:url("#{classroom_image}") no-repeat center; min-height: 300px;) }
 
 
     .tab-pane#pano
@@ -28,28 +28,28 @@
       <div id="map_canvas" > </div>
 
     .tab-pane#contact_me
-      = render :partial => 'contact_sheet'
+      = render partial: 'contact_sheet'
 
 .tabbable#classroomTabs
   %ul.nav.nav-tabs#myTab
     %li.active
-      %a{"data-toggle" => 'tab', :href => '#picture', :id => "#picturetab"}
+      %a{ "data-toggle" => 'tab', :href => '#picture', :id => "#picturetab"}
         Picture
     %li
-      %a{"data-toggle" => 'tab', :href => '#pano', :id => "#panotab"}
+      %a{ "data-toggle" => 'tab', :href => '#pano', :id => "#panotab"}
         Panorama
     %li
-      %a{"data-toggle" => 'tab', :href => '#map', :id => "#maptab"}
+      %a{ "data-toggle" => 'tab', :href => '#map', :id => "#maptab"}
         Map
     %li
-      %a{"data-toggle" => 'tab', :href => '#contact_me', :id => "#contacttab"}
+      %a{ "data-toggle" => 'tab', :href => '#contact_me', :id => "#contacttab"}
         Contact
 
 #room_number
   %h1
     = @classroom.location.name
 
--if technician_required
+- if technician_required
   %br
   %br
   %br
@@ -59,7 +59,7 @@
         #technician_required
           = technician_required
       %br
--else
+- else
   %br
   %br
 
@@ -73,23 +73,20 @@
       %hr
       %i.fa.fa-group
       %b
-      %a{"data-original-title" => "Number of stations with a corresponding writing or lab surface assigned to students for instruction.  In computer labs, this includes only seats with assigned computers. Excludes instructor station and other seating types without writing surfaces.", "data-placement" => "right", :href => "#", :rel => "tooltip"} Student Capacity:
+      %a{ "data-original-title" => "Number of stations with a corresponding writing or lab surface assigned to students for instruction.  In computer labs, this includes only seats with assigned computers. Excludes instructor station and other seating types without writing surfaces.", "data-placement" => "right", :href => "#", :rel => "tooltip"} Student Capacity:
       = @classroom.student_capacity
       %br
 
       %i.fa.fa-lightbulb-o
-      %a{"data-original-title" => "Room is either windowless or can be darkened with the use of specialized blinds for the purpose of film viewing, high resolution image viewing, etc.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.light_control) } Light Control:
+      %a{ "data-original-title" => "Room is either windowless or can be darkened with the use of specialized blinds for the purpose of film viewing, high resolution image viewing, etc.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.light_control) } Light Control:
 
       - if @classroom.light_control
         .fa.fa-check
 
       %br
       %hr
-
-      -#%i#attribute_classroom_layout
-      -#%i.fa.fa-th
       %i.fa.fa-align-center
-      %a{"data-original-title" => "Seating Arrangement for the room", "data-placement" => "right", href: "./#{@classroom.facility_code_heprod}.pdf", rel: "tooltip", target: "_blank"}
+      %a{ "data-original-title" => "Seating Arrangement for the room", "data-placement" => "right", href: "./#{@classroom.facility_code_heprod}.pdf", rel: "tooltip", target: "_blank"}
         %b Layout:
       %br
 
@@ -97,19 +94,19 @@
 
         %li
 
-        %a{"data-original-title" => "Room provides a raised platform for the instructor.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.layout_platform) }
+        %a{ "data-original-title" => "Room provides a raised platform for the instructor.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.layout_platform) }
           Layout Platform
           - if @classroom.layout_platform
             .fa.fa-check
 
         %li
-        %a{"data-original-title" => "Room contains a stage in the front of the room.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.layout_stage) }
+        %a{ "data-original-title" => "Room contains a stage in the front of the room.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.layout_stage) }
           Layout Stage
           - if @classroom.layout_stage
             .fa.fa-check
 
         %li
-        %a{"data-original-title" => "Room contains a stage in the front of the room.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.layout_tiered) } Layout Tiered
+        %a{ "data-original-title" => "Room contains a stage in the front of the room.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.layout_tiered) } Layout Tiered
         - if @classroom.layout_tiered
           .fa.fa-check
 
@@ -119,31 +116,31 @@
       %ul
 
         %li
-          %a{"data-original-title" => "Room contains fixed chairs with tablet writing surface.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.seating_auditorium) }Seating Auditorium
+          %a{ "data-original-title" => "Room contains fixed chairs with tablet writing surface.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.seating_auditorium) }Seating Auditorium
           - if @classroom.seating_auditorium
             .fa.fa-check
         %li
-          %a{"data-original-title" => "Room contains fixed chairs with no tablet.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.seating_chairs_fixed) }Seating Chairs Fixed
+          %a{ "data-original-title" => "Room contains fixed chairs with no tablet.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.seating_chairs_fixed) }Seating Chairs Fixed
           - if @classroom.seating_chairs_fixed
             .fa.fa-check
         %li
-          %a{"data-original-title" => "Room contains movable chairs with tablet writing surface.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.seating_movable_tables_chairs) }Seating Moveable Tablet Chairs
+          %a{ "data-original-title" => "Room contains movable chairs with tablet writing surface.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.seating_movable_tables_chairs) }Seating Moveable Tablet Chairs
           - if @classroom.seating_movable_tables_chairs
             .fa.fa-check
         %li
-          %a{"data-original-title" => "Room is set up in a seminar/conference style with seats surrounding large table.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.seating_table_conference) }Seating Table Conference
+          %a{ "data-original-title" => "Room is set up in a seminar/conference style with seats surrounding large table.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.seating_table_conference) }Seating Table Conference
           - if @classroom.seating_table_conference
             .fa.fa-check
         %li
-          %a{"data-original-title" => "Room contains a table writing surface for students (fixed, movable, or seminar/conference).", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.seating_tables_any) }Seating Tables Any
+          %a{ "data-original-title" => "Room contains a table writing surface for students (fixed, movable, or seminar/conference).", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.seating_tables_any) }Seating Tables Any
           - if @classroom.seating_tables_any
             .fa.fa-check
         %li
-          %a{"data-original-title" => "Room contains fixed table writing surface for students.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.seating_tables_fixed) }Seating Tables Fixed
+          %a{ "data-original-title" => "Room contains fixed table writing surface for students.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.seating_tables_fixed) }Seating Tables Fixed
           - if @classroom.seating_tables_fixed
             .fa.fa-check
         %li
-          %a{"data-original-title" => "Room has moveable table writing surface for students. Rooms w/ moveable tables should be considered fixed if: school/dept prohibits changing arrangement, tables are wired or attached so moving is not easy, or room does not allow for other arrangements.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.seating_tables_moveable) }Seating Tables Moveable
+          %a{ "data-original-title" => "Room has moveable table writing surface for students. Rooms w/ moveable tables should be considered fixed if: school/dept prohibits changing arrangement, tables are wired or attached so moving is not easy, or room does not allow for other arrangements.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.seating_tables_moveable) }Seating Tables Moveable
           - if @classroom.seating_tables_moveable
             .fa.fa-check
 
@@ -151,28 +148,28 @@
 
       %i.fa.fa-volume-up
       %b
-      %a{"data-original-title" => "Room contains a sound system to amplify any of its A/V and IT components, such as computer or DVD/VCR.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.sound_amplification) }Sound Amplification: Program
+      %a{ "data-original-title" => "Room contains a sound system to amplify any of its A/V and IT components, such as computer or DVD/VCR.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.sound_amplification) }Sound Amplification: Program
       - if @classroom.sound_amplification
         .fa.fa-check
 
       %br
       %i.fa.fa-microphone
       %b
-      %a{"data-original-title" => "Room contains sound system for the purpose of amplifying the instructor voice through the use of a wired or wireless microphone.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.sound_amplification_voice) }Sound Amplification: Voice
+      %a{ "data-original-title" => "Room contains sound system for the purpose of amplifying the instructor voice through the use of a wired or wireless microphone.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.sound_amplification_voice) }Sound Amplification: Voice
       - if @classroom.sound_amplification_voice
         .fa.fa-check
 
       %br
       %i.fa.fa-rss
       %b
-      %a{"data-original-title" => "Room provides a hardwired ethernet connection to a portion of student seats.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.ethernet_students) }Ethernet Students
+      %a{ "data-original-title" => "Room provides a hardwired ethernet connection to a portion of student seats.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.ethernet_students) }Ethernet Students
       - if @classroom.ethernet_students
         .fa.fa-check
 
       %br
       %i.fa.fa-plug
       %b
-      %a{"data-original-title" => "Room contains power outlets for a portion of student seats.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.power_students) }Power Students
+      %a{ "data-original-title" => "Room contains power outlets for a portion of student seats.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.power_students) }Power Students
       - if @classroom.power_students
         .fa.fa-check
 
@@ -182,19 +179,19 @@
       %ul
 
         %li
-          %a{"data-original-title" => "Room contains a chalkboard writing surface of any size.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.writing_surface_chalkboard_any) }Writing Surface Chalkboard Any
+          %a{ "data-original-title" => "Room contains a chalkboard writing surface of any size.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.writing_surface_chalkboard_any) }Writing Surface Chalkboard Any
           - if @classroom.writing_surface_chalkboard_any
             .fa.fa-check
         %li
-          %a{"data-original-title" => "Room contains a chalkboard writing surface of over 25 feet.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.writing_surface_chalkboard_25ft) }Writing Surface Chalkboard 25ft
+          %a{ "data-original-title" => "Room contains a chalkboard writing surface of over 25 feet.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.writing_surface_chalkboard_25ft) }Writing Surface Chalkboard 25ft
           - if @classroom.writing_surface_chalkboard_25ft
             .fa.fa-check
         %li
-          %a{"data-original-title" => "Room contains a whiteboard writing surface of any size.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.writing_surface_whiteboard_any) }Writing Surface Whiteboard Any
+          %a{ "data-original-title" => "Room contains a whiteboard writing surface of any size.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.writing_surface_whiteboard_any) }Writing Surface Whiteboard Any
           - if @classroom.writing_surface_whiteboard_any
             .fa.fa-check
         %li
-          %a{"data-original-title" => "Room contains a whiteboard writing surface of over 25 feet.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.writing_surface_whiteboard_25ft) }Writing Surface Whiteboard 25ft
+          %a{ "data-original-title" => "Room contains a whiteboard writing surface of over 25 feet.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.writing_surface_whiteboard_25ft) }Writing Surface Whiteboard 25ft
           - if @classroom.writing_surface_whiteboard_25ft
             .fa.fa-check
       %hr
@@ -205,17 +202,17 @@
 
         %li
           %i.fa.fa-power-off
-          %a{"data-original-title" => "Room contains either PC or MAC computers at each student workstation.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.computer_classroom_any) }Computer Classroom Any
+          %a{ "data-original-title" => "Room contains either PC or MAC computers at each student workstation.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.computer_classroom_any) }Computer Classroom Any
           - if @classroom.computer_classroom_any
             .fa.fa-check
         %li
           %i.fa.fa-apple
-          %a{"data-original-title" => "Room contains Mac computers at each student workstation.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.computer_classroom_mac) }Computer Classroom Mac
+          %a{ "data-original-title" => "Room contains Mac computers at each student workstation.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.computer_classroom_mac) }Computer Classroom Mac
           - if @classroom.computer_classroom_mac
             .fa.fa-check
         %li
           %i.fa.fa-windows
-          %a{"data-original-title" => "Room contains PC computers at each student workstation.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.computer_classroom_windows) }Computer Classroom Windows
+          %a{ "data-original-title" => "Room contains PC computers at each student workstation.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.computer_classroom_windows) }Computer Classroom Windows
           - if @classroom.computer_classroom_windows
             .fa.fa-check
 
@@ -229,18 +226,18 @@
       %ul
 
         %li
-          %a{"data-original-title" => "Room contains DVD player.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.dvd_player_regular) }Standard
+          %a{ "data-original-title" => "Room contains DVD player.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.dvd_player_regular) }Standard
           - if @classroom.dvd_player_regular
             .fa.fa-check
         %li
-          %a{"data-original-title" => "Room contains Blu-Ray Disc player.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.dvd_player_blueray) }Blu-Ray
+          %a{ "data-original-title" => "Room contains Blu-Ray Disc player.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.dvd_player_blueray) }Blu-Ray
           - if @classroom.dvd_player_blueray
             .fa.fa-check
       %hr
 
       %i#attribute_captioning_device
       %b
-        %a{"data-original-title" => "Room contains a special device for transcribing audio into displayable captions.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.captioning_device) }Captioning Device
+        %a{ "data-original-title" => "Room contains a special device for transcribing audio into displayable captions.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.captioning_device) }Captioning Device
         - if @classroom.captioning_device
           .fa.fa-check
 
@@ -251,44 +248,44 @@
       %ul
         %li
           %i.fa.fa-apple
-          %a{"data-original-title" => "Room contains a Mac computer for use by the instructor.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.podium_computer_mac) }Podium Classroom Mac
+          %a{ "data-original-title" => "Room contains a Mac computer for use by the instructor.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.podium_computer_mac) }Podium Classroom Mac
           - if @classroom.podium_computer_mac
             .fa.fa-check
 
         %li
           %i.fa.fa-windows
-          %a{"data-original-title" => "Room contains a PC computer for use by the instructor.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.podium_computer_windows) }Podium Classroom Windows
+          %a{ "data-original-title" => "Room contains a PC computer for use by the instructor.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.podium_computer_windows) }Podium Classroom Windows
           - if @classroom.podium_computer_windows
             .fa.fa-check
 
       %hr
       %i#attribute_doc_camera
       %b
-        %a{"data-original-title" => "Room contains a specialized camera for the real-time displaying of documents, texts, or small objects.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.document_camera) }Document Camera
+        %a{ "data-original-title" => "Room contains a specialized camera for the real-time displaying of documents, texts, or small objects.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.document_camera) }Document Camera
         - if @classroom.document_camera
           .fa.fa-check
       %br
       %i.fa.fa-edit
       %b
-        %a{"data-original-title" => "Room contains special digitial pen and writing surface for commenting/editing digital presentation.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.interactive_pen) }Interactive Pen
+        %a{ "data-original-title" => "Room contains special digitial pen and writing surface for commenting/editing digital presentation.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.interactive_pen) }Interactive Pen
         - if @classroom.interactive_pen
           .fa.fa-check
       %br
       %i#attribute_lecture_capture
       %b
-        %a{"data-original-title" => "Room contains a lecture capture device to record instructor, digital presentation, or audio/voice. Must record voice at a minimum.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.lecture_capture) }Lecture Capture
+        %a{ "data-original-title" => "Room contains a lecture capture device to record instructor, digital presentation, or audio/voice. Must record voice at a minimum.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.lecture_capture) }Lecture Capture
         - if @classroom.lecture_capture
           .fa.fa-check
       %br
       %i.fa.fa-phone
       %b
-        %a{"data-original-title" => "Room contains a telephone.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.telephone) } Telephone
+        %a{ "data-original-title" => "Room contains a telephone.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.telephone) } Telephone
         - if @classroom.telephone
           .fa.fa-check
       %br
       %i.fa.fa-comments-o
       %b
-        %a{"data-original-title" => "Room contains a special video conferencing equipment, including camera.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.video_conferencing) }Video Conferencing
+        %a{ "data-original-title" => "Room contains a special video conferencing equipment, including camera.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.video_conferencing) }Video Conferencing
         - if @classroom.video_conferencing
           .fa.fa-check
       %br
@@ -299,27 +296,28 @@
       %ul
 
         %li
-          %a{"data-original-title" => "Room contains 16mm film projector.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.projection_16mm_film) }Projection 16mm Film
+          %a{ "data-original-title" => "Room contains 16mm film projector.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.projection_16mm_film) }Projection 16mm Film
 
           - if @classroom.projection_16mm_film
             .fa.fa-check
         %li
-          %a{"data-original-title" => "Room contains 35mm film projector.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.projection_35mm_file) }Projection 35mm Film
+          %a{ "data-original-title" => "Room contains 35mm film projector.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.projection_35mm_file) }Projection 35mm Film
           - if @classroom.projection_35mm_file
             .fa.fa-check
         %li
-          %a{"data-original-title" => "Room contains projector or monitor to digitally display video from any of the room A/V and IT components, such as computer or DVD/VCR.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.projection_digital_data_video) }Projection Digital Data Video
+          %a{ "data-original-title" => "Room contains projector or monitor to digitally display video from any of the room A/V and IT components, such as computer or DVD/VCR.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.projection_digital_data_video) }Projection Digital Data Video
           - if @classroom.projection_digital_data_video
             .fa.fa-check
         %li
-          %a{"data-original-title" => "Room contains a traditional slide projector for the display of photographic slides.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.projection_traditional_slide) }Projection Traditional Slide
+          %a{ "data-original-title" => "Room contains a traditional slide projector for the display of photographic slides.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.projection_traditional_slide) }Projection Traditional Slide
           - if @classroom.projection_traditional_slide
             .fa.fa-check
       %hr
       %h4.fa.fa-wheelchair
         Accessibility
 
-      %p Adaptive technologies are provided by request. Please contact the Office of Services for Students with Disabilities to provide adaptive technologies to your classroom. Phone 763-3000 or email <a href="mailto:ssdoffice@umich.edu" target="_blank">ssdoffice@umich.edu</a>
+      %p
+        Adaptive technologies are provided by request. Please contact the Office of Services for Students with Disabilities to provide adaptive technologies to your classroom. Phone 763-3000 or email <a href="mailto:ssdoffice@umich.edu" target="_blank">ssdoffice@umich.edu</a>
 
       %br
       %br
@@ -329,7 +327,7 @@
       %hr
       #last_updated
         Updated:
-        = @classroom.updated_at.strftime "%I:%M %p %Y-%m-%d "
+        = @classroom.updated_at.strftime '%I:%M %p %Y-%m-%d'
 
 
 :javascript
