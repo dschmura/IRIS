@@ -3,7 +3,7 @@
 - @def_lat = 42.2767065413116
 - @def_lon = -83.74007593224604
 - @def_building = 1
-- @def_department = "COLLEGE_OF_LSA"
+-#- @def_department = "COLLEGE_OF_LSA"
 - @def_owner = 1
 
 
@@ -53,7 +53,7 @@
 
       .sr-only
         = label_tag(:DEPT_GRP, "Department")
-      = f.select:DEPT_GRP, options_for_select([['College of LSA','COLLEGE_OF_LSA'], ['Law Schoo', 'LAW_SCHOOL'], ['School of Dentistry', 'SCHOOL_DENTISTRY']]),{:prompt => "Department?", :selected => @def_department},class: "form-control input-sm ", style: "width: 40%;"
+      = f.select:DEPT_GRP, options_for_select([['College of LSA','COLLEGE_OF_LSA'], ['Law School', 'LAW_SCHOOL'], ['School of Dentistry', 'SCHOOL_DENTISTRY']]),{:prompt => "Department?", :selected => @def_department},class: "form-control input-sm ", style: "width: 40%;"
 
       %br
       %br
@@ -398,6 +398,16 @@
     });
   });
 
+:javascript
+  $(document).ready(function(){
+    if($('.classroom_location_attributes_latitude').val().length !=0) {
+      alert("Latitude Exists!");
+    }
+
+    else {
+      alert("NO Latitude");
+    }
+  }
 
 :javascript
 
@@ -430,9 +440,11 @@
               },
      map:{
 
+
            options:{
-             center:[#{@classroom.location.latitude.to_s},#{@classroom.location.longitude.to_s}],
-             zoom:16,
+             zoom:13,
+             center:[42.277092, -83.738212],
+             draggable: true,
              mapTypeControl: true,
              mapTypeControlOptions: {
                style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
@@ -446,10 +458,15 @@
 
 
     }
+
     else
+
     {
-    // If there the latitude does not exist
+
+    // If the latitude does not exist
+    //alert("There is NO latitude.");
      $('#maptest').gmap3({
+
        getgeoloc: {
          callback: function (latLng) {
            //check to see if geolocation
@@ -459,8 +476,6 @@
                  latLng: latLng,
                  options: {
                    draggable: true,
-
-
                  },
                  events: {
                    dragend: function (map, event) {
@@ -474,9 +489,10 @@
                    }
                  }
                },
-               map: {
-                 options: {
-                   zoom: 17
+                map:{
+
+                 options:{
+                   zoom:16
 
                  }
                }
@@ -486,7 +502,7 @@
               alert("Please drap the map marker to select the location");
              $('#maptest').gmap3({
                   marker: {
-                             latLng: [42.277092, -83.738212],
+                            latLng: [42.277092, -83.738212],
                                options: {
                                  draggable: true,
                                },
@@ -505,20 +521,12 @@
                                },
                              },
                            },
-                  map:{
+                  map: {
+                 options: {
+                   zoom: 2
 
-                        options:{
-                          center:[42.277092, -83.738212],
-                          zoom:16,
-                          mapTypeControl: true,
-                          mapTypeControlOptions: {
-                            style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
-                          },
-                          navigationControl: true,
-                          scrollwheel: true,
-                          streetViewControl: true
-                        }
-                      }
+                 }
+               }
                     });
 
            }

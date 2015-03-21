@@ -2,11 +2,11 @@
 %table.results_table.table-striped
   %thead
     %tr
-      %th.col-md-1.col-sm-1.col-xs-1 
-        
-      %th.col-md-4.col-sm-4.col-xs-4 
+      %th.col-md-1.col-sm-1.col-xs-1
+
+      %th.col-md-4.col-sm-4.col-xs-4
         -#= sortable "room_number", "Room Number"
-        = sort_link @search, :location_name, "Classroom Name", :default_order => :desc
+        = sort_link(@search, :location_name, "Classroom Name", :default_order => :desc)
 
 
       - if user_signed_in?
@@ -16,9 +16,9 @@
 
       %th.col-md-2.hidden-xs
 
-        = sort_link @search, :student_capacity, "Capacity", :default_order => :desc
+        = sort_link(@search, :student_capacity, "Capacity", :default_order => :desc)
       %th.col-md-2.hidden-xs
-        = sort_link @search, :facility_code_heprod , "Room Number", :default_order => :desc
+        = sort_link(@search, :facility_code_heprod , "Room Number", :default_order => :desc)
       %th.col-md-2
         %b Details
         -#%b Schedule
@@ -31,22 +31,22 @@
     %tr
       %td= link_to (image_tag classroom.location.picture.url(:thumb).to_s, :alt => @classroom_alt,   :class => "classroom_index_thumb img-thumbnail"), classroom
       %td
-        %a{"data-original-title" => classroom.location.name, "data-placement" => "right", :href => "classrooms/#{classroom.facility_code_heprod}", :rel => "tooltip"} 
+        %a{"data-original-title" => classroom.location.name, "data-placement" => "right", :href => "classrooms/#{classroom.facility_code_heprod}", :rel => "tooltip"}
           = truncate(classroom.location.name, :length => 30)
-      
+
       - if user_signed_in?
         - if current_user.admin?
           %td.hidden-xs= classroom.location.visible?
 
-      %td.hidden-xs= classroom.student_capacity      
+      %td.hidden-xs= classroom.student_capacity
       %td.hidden-xs= link_to classroom.facility_code_heprod , classroom
       %td.classroom_index_icons
-        
+
         -#
         %a{"data-original-title" => "Room Schedule: Login required", "data-placement" => "right", href: "https://csprod.dsc.umich.edu/services/facilitycalendar?facilityid=#{classroom.facility_code_heprod }", target: "_blank", rel: "tooltip"}
           %i.fa.fa-calendar
         %a{"data-original-title" => "Room Contact Information",  "data-placement" => "right", href: "classrooms/#{classroom.facility_code_heprod }#contact_me", rel:"tooltip"}
-          -#%i.fa.fa-comment-o 
+          -#%i.fa.fa-comment-o
           %i.fa.fa-phone
           %a{"data-original-title" => "Seating Arrangement for the room", "data-placement" => "right", href: "classrooms/#{classroom.facility_code_heprod }.pdf", target: "_blank", rel: "tooltip"}
             -#%i.fa.fa-qrcode
@@ -58,7 +58,7 @@
           %td= link_to 'Edit', edit_classroom_path(classroom), :class => 'btn btn-xs'
           %td= link_to 'Destroy', classroom, data: { confirm: 'Are you sure?' } , :method => :delete, :class => 'btn btn-xs btn-danger'
 
-          
+
 %br
 
 %br
