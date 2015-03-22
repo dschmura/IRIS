@@ -19,7 +19,7 @@ class ClassroomsController < ApplicationController
       @per_page = params[:per_page]
     else
       @per_page = 14
-     end
+    end
     if params[:DEPT_GRP]
       @dept_group = "SET"
     else
@@ -168,16 +168,12 @@ class ClassroomsController < ApplicationController
     end
   end
 
-
-
   private
 
   def find_classroom
     #Classroom.find_by_facility_code_heprod(params[:id].upcase)
 
     Classroom.find_by facility_code_heprod:(params[:id].upcase)
-
-
   end
 
   def find_owners
