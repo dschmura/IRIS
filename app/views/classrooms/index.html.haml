@@ -13,7 +13,7 @@
         #rooms_search_instructions_extended
           Use the fields and checkboxes below to specify attributes such as minimum seating capacity, type of writing surface, and installed equipment. Then, press the Search button at the bottom to list rooms that meet your requirements.
 
-        = search_form_for @search, :remote => false, :html => {:class => "form-group"} do |f|
+        = search_form_for @search, :html => {:class => "form-group"} do |f|
           .form-group
             = f.select :DEPT_GRP_eq, [['All Departments',''],['College of LSA','COLLEGE_OF_LSA'], ['Law School', 'LAW_SCHOOL'], ['School of Dentistry', 'SCHOOL_DENTISTRY']]
             %br
@@ -25,31 +25,31 @@
             = f.text_field :facility_code_heprod_cont, :size => 7, :placeholder => "USB2230", :style => ""
             %br
             = f.label :podium_computer
-            = f.check_box :podium_computer_any_or_podium_computer_mac_or_podium_computer_windows_true
+            = f.check_box :podium_computer_any_or_podium_computer_mac_or_podium_computer_windows_true, include_hidden: false
             %br
             = f.label :computer_classroom
-            = f.check_box :computer_classroom_any_or_computer_classroom_mac_or_computer_classroom_windows_true
+            = f.check_box :computer_classroom_any_or_computer_classroom_mac_or_computer_classroom_windows_true, include_hidden: false
             %br
             = f.label "Video Projection"
-            = f.check_box :projection_16mm_film_or_projection_35mm_file_or_projection_digital_data_video_or_projection_traditional_slide_true
+            = f.check_box :projection_16mm_film_or_projection_35mm_file_or_projection_digital_data_video_or_projection_traditional_slide_true, include_hidden: false
             %br
             = f.label "DVD Player"
-            = f.check_box :dvd_player_regular_or_dvd_player_blueray_true
+            = f.check_box :dvd_player_regular_or_dvd_player_blueray_true, include_hidden: false
             %br
             = f.label "Sound Amplification: Program"
-            = f.check_box :sound_amplification_true
+            = f.check_box :sound_amplification_true, include_hidden: false
             %br
             = f.label "Sound Amplification: Voice"
-            = f.check_box :sound_amplification_voice_true
+            = f.check_box :sound_amplification_voice_true, include_hidden: false
             %br
             = f.label :document_camera_
-            = f.check_box :document_camera_true
+            = f.check_box :document_camera_true, include_hidden: false
             %br
             = f.label :lecture_capture
-            = f.check_box :lecture_capture_true
+            = f.check_box :lecture_capture_true, include_hidden: false
             %br
             = f.label :video_conferencing
-            = f.check_box :video_conferencing_true
+            = f.check_box :video_conferencing_true, include_hidden: false
             %br
             %br
             %label{:for => "amount"} Student Capacity
@@ -63,7 +63,7 @@
             = select_tag :per_page, options_for_select([14,25,50,100], @per_page.to_i), :style => "width: 60px;"
             %br
             %br
-            = button_tag(type: 'submit', class: "btn btn-lg btn-default", remote: true) do
+            = button_tag(type: 'submit', class: "btn btn-lg btn-default") do
               %span.fa.fa-search
               Search
             %br

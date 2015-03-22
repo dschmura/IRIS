@@ -1,10 +1,10 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.1.9'
+gem 'rails', '4.2.1'
 gem 'sqlite3'
 
 gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.0.0'
+gem 'coffee-rails', '~> 4.1.0'
 
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
@@ -15,7 +15,7 @@ end
 
 gem "haml"
 gem 'bootstrap-sass', '~> 3.3.1'
-gem 'sass-rails', '~> 4.0.0'
+gem 'sass-rails', '~> 5.0'
 gem 'autoprefixer-rails'
 
 #gem 'google-analytics-rails'
@@ -32,6 +32,7 @@ gem 'pundit'
 #gem "cancan", "1.6.9"
 #gem "rolify", ">= 3.2.0"
 gem 'newrelic_rpm'
+gem 'pry'
 
 # QR-Code generation
 gem 'rqrcode-rails3'
@@ -54,12 +55,25 @@ gem 'will_paginate-bootstrap'
 gem "paperclip"
 
 #gem "meta_search"
-gem "ransack", "1.3.0"
-#gem "ransack"
+#gem "ransack", "1.3.0"
+gem "ransack"
 #gem "ransack", github: "activerecord-hackery/ransack", branch: "rails-4.1"
+#gem 'ransack', github: 'activerecord-hackery/ransack', branch: 'rails-4.2'
 #gem "polyamorous", github: "activerecord-hackery/polyamorous"
 gem 'annotate', ">=2.6.0"
 
 group :production do
   gem 'unicorn'
+end
+
+group :development, :test do
+  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'byebug'
+
+  # Access an IRB console on exception pages or by using <%= console %> in views
+  gem 'web-console', '~> 2.0'
+
+  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem 'spring'
+  gem 'rspec-rails'
 end
