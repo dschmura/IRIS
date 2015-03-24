@@ -98,9 +98,6 @@ class Classroom < ActiveRecord::Base
   #                      :numericality => true,
   #                      :length => { :is => 7 }
 
-
-
-
   #Makes for links on the site more SEO friendly
   def to_param
     "#{facility_code_heprod.upcase.gsub(/[^[:alnum:]]/,'-')}".gsub(/-{2,}/,'-')
@@ -126,7 +123,7 @@ class Classroom < ActiveRecord::Base
       @room.save!
     end
   end
-def self.import(file)
+  def self.import(file)
     #map the heprod CHRSTC_DESCRSHORT to our db column
     mapping = {
       "Blackout" => :light_control,
@@ -191,12 +188,12 @@ def self.import(file)
                       "podium_computer_windows" , "document_camera" , "interactive_pen" ,
                       "lecture_capture" , "telephone" , "video_conferencing" , "projection_16mm_film" ,
                       "projection_35mm_file" , "projection_digital_data_video" , "projection_traditional_slide"]
-                      attributes.each do |attribute|
-                        this_classroom[attribute] = false
-                        this_classroom.save!
-                      end
-                    else
-                    end
+              attributes.each do |attribute|
+                this_classroom[attribute] = false
+                this_classroom.save!
+            end
+          else
+        end
         #zero_attributes(this_classroom)
 
  last_rmrecnbr = row["RMRECNBR"]
@@ -224,8 +221,5 @@ def self.import(file)
 
     # Save last room
     this_classroom && this_classroom.save!
-
   end
-
 end
-

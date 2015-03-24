@@ -29,5 +29,5 @@ class Building < ActiveRecord::Base
   #Makes for links on the site more SEO friendly
   def to_param
     "#{id}-#{location.name.downcase.gsub(/[^[:alnum:]]/,'-')}".gsub(/-{2,}/,'-')
-   end
+  end
 end
