@@ -2,9 +2,9 @@
 
 - @def_lat = 42.2767065413116
 - @def_lon = -83.74007593224604
-- @def_building = 1
--#- @def_department = "COLLEGE_OF_LSA"
-- @def_owner = 1
+- @def_building = (@classroom.location_id || 1)
+- @def_department = (@classroom.DEPT_GRP || "COLLEGE_OF_LSA")
+- @def_owner = (@classroom.owner_id || 1)
 
 
 %container
