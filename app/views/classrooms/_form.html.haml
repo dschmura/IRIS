@@ -1,7 +1,4 @@
 
-
-- @def_lat = 42.2767065413116
-- @def_lon = -83.74007593224604
 - @def_building = (@classroom.location_id || 1)
 - @def_department = (@classroom.DEPT_GRP || "COLLEGE_OF_LSA")
 - @def_owner = (@classroom.owner_id || 1)
@@ -115,12 +112,12 @@
       = f.fields_for :location, :html => {multipart: true, class: 'classroom_form'} do |loc|
         .input-group.input-group-sm.col-md-6.hidden
           %span.input-group-addon Lat:
-          = loc.text_field :latitude,  :value => @def_lat, class: "form-control classroom_location_attributes_latitude"
+          = loc.text_field :latitude,  value: @classroom.location.latitude, class: "form-control classroom_location_attributes_latitude"
         %br
 
         .input-group.input-group-sm.col-md-6.hidden
           %span.input-group-addon Long:
-          = loc.text_field :longitude, :value => @def_lon,  class: "form-control  classroom_location_attributes_longitude"
+          = loc.text_field :longitude, value: @classroom.location.longitude,  class: "form-control  classroom_location_attributes_longitude"
         %b
           Latitude:
           %span#classroom_location_attributes_latitude_text
@@ -399,17 +396,6 @@
   });
 
 :javascript
-  $(document).ready(function(){
-    if($('.classroom_location_attributes_latitude').val().length !=0) {
-      alert("Latitude Exists!");
-    }
-
-    else {
-      alert("NO Latitude");
-    }
-  }
-
-:javascript
 
   $(document).ready(function(){
     // If there is a latitude already, display the map without geolocation using the
@@ -421,7 +407,7 @@
      $('#classroom_location_attributes_longitude_text').html(#{@classroom.location.longitude.to_s})
      $('#maptest').gmap3({
      marker: {
-              latLng: [#{@classroom.location.latitude.to_s},#{@classroom.location.longitude.to_s}],
+              latLng: [#{@classroom.location.latitude.to_s || @def_lat},#{@classroom.location.longitude.to_s || @def_lon}],
               options: {
                 draggable: true,
               },
@@ -442,7 +428,7 @@
 
 
            options:{
-             zoom:13,
+             zoom:16,
              center:[42.277092, -83.738212],
              draggable: true,
              mapTypeControl: true,
