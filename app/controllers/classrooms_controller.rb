@@ -28,7 +28,7 @@ class ClassroomsController < ApplicationController
 
     if @search.student_capacity_gteq.nil?
       @search.student_capacity_gteq = 1
-      @search.student_capacity_lteq = 500
+      @search.student_capacity_lteq = 1400
     end
     matching_classrooms = @search.result.includes(:location)
     filtered_classrooms = matching_classrooms.select { |classroom| classroom.location.visible }

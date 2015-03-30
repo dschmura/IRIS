@@ -1,3 +1,10 @@
+<<<<<<< HEAD
+
+=======
+>>>>>>> feature/add_law_school
+- @def_building = (@classroom.location_id || 1)
+- @def_department = (@classroom.DEPT_GRP || "COLLEGE_OF_LSA")
+- @def_owner = (@classroom.owner_id || 1)
 
 
 %container
