@@ -143,8 +143,10 @@ class ClassroomsController < ApplicationController
   # PUT /classrooms/1
   # PUT /classrooms/1.xml
   def update
-    @classroom = find_classroom
+    @classroom = Classroom.includes(:location).find_by facility_code_heprod:(params[:id].upcase)
 
+    @locations = Location.where(:locatable_type => "Building").order("name ASC")
+    @owners = Owner.all.order("department_name ASC")
 
     respond_to do |format|
       if @classroom.update_attributes(params[:classroom])
