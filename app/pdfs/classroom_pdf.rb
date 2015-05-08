@@ -7,7 +7,7 @@ class ClassroomPdf < Prawn::Document
     @owner = Owner.find(@classroom.owner_id)
 
     classroom_image
-    classroom_instructions
+    classroom_instructions.encode("windows-1252", "UTF-8")
     #classroom_floor_map
     classroom_seating_chart
     logos

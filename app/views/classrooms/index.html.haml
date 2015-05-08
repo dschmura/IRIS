@@ -19,6 +19,8 @@
             %br
             %br
             = f.collection_select :location_id_eq, Location.where(:locatable_type => "Building").order("name ASC"),  :id, :name,  {:include_blank => 'All Buildings'}, {:style => "width: 160px;"}
+            %a{ "data-original-title" => "Please note, Dennison has been renamed to Weiser Hall.", "data-placement" => "right", :href => "#", :rel => "tooltip", id: "WeiserInfo", class: "fa fa-exclamation-triangle"}
+
             %br
             %br
             = f.label :room_number
