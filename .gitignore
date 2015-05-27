@@ -10,6 +10,7 @@ doc/app
 *~
 .DS_Store
 .sass-cache
+.idea/*
 coverage
 webrat.log
 public/system
