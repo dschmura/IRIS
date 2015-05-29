@@ -6,10 +6,10 @@ $font-size-base: 13px
 $navbarLinkBackgroundActive: #f8f5e4
 $navbarCollapseWidth: 720px
 
-
+@import "bootstrap-sprockets"
 @import "bootstrap"
 
-.field_with_errors 
+.field_with_errors
   @extend .has-error
   border: 2px solid #D8241D
 
@@ -90,8 +90,8 @@ footer
       bottom: 5px
       margin-right: auto
       li
-        
-        
+
+
       .active
         background: #eee
 
@@ -100,7 +100,7 @@ footer
   height: 50px
   ul
     padding-right: 3em
-    
+
     li
     a
       padding: 5px
@@ -108,14 +108,14 @@ footer
 
 
 
-.accessible a 
+.accessible a
   position: absolute
   left: -1000em
   padding: 5px
   font-weight: bold
   background-color: #fc3
 
-.accessible a:focus, .accessible a:active 
+.accessible a:focus, .accessible a:active
   position: absolute
   top: 2em
   left: 2em
