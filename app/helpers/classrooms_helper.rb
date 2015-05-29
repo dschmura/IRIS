@@ -35,6 +35,8 @@ module ClassroomsHelper
       end
     elsif @classroom.DEPT_GRP == 'SCHOOL_DENTISTRY'
       'Dental School'
+    elsif @classroom.DEPT_GRP == 'LAW_SCHOOL'
+      'Law School'
     else
       'Departmental Classroom'
     end
