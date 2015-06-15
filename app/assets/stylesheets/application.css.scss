@@ -17,7 +17,7 @@
 
 
 
-@mixin rounded-corners($radius: 10px) 
+@mixin rounded-corners($radius: 10px)
   {border-radius: $radius;
   -moz-border-radius: $radius;
   -webkit-border-radius: $radius;

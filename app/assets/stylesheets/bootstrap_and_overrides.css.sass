@@ -9,6 +9,11 @@ $navbarCollapseWidth: 720px
 @import "bootstrap-sprockets"
 @import "bootstrap"
 
+@mixin rounded-corners($radius: 10px)
+  border-radius: $radius
+  -moz-border-radius: $radius
+  -webkit-border-radius: $radius
+
 .field_with_errors
   @extend .has-error
   border: 2px solid #D8241D
@@ -120,4 +125,20 @@ footer
   top: 2em
   left: 2em
 
-#test
+.alert
+  .close
+    margin: 10px 10px
+
+#flash_notice
+  background-color: #F6BC1C
+  padding: 1em
+  @include rounded-corners(6px)
+
+
+#flash_alert
+  background-color: #CC0000
+  font-weight: bold
+  color: #fff
+  padding: 1em
+  @include rounded-corners(6px)
+
