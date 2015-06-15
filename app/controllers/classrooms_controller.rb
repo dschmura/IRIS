@@ -15,6 +15,8 @@ class ClassroomsController < ApplicationController
   def index
     @page_title = "Classrooms"
     @search = Classroom.search(params[:q] )
+    #set the default sort for the results
+    @search.sorts = 'location_name asc' if @search.sorts.empty?
     if params[:per_page]
       @per_page = params[:per_page]
     else
@@ -64,6 +66,10 @@ class ClassroomsController < ApplicationController
   # GET /classrooms/1.xml
   def show
     @classroom = Classroom.includes(:location).find_by facility_code_heprod:(params[:id].upcase)
+    if @classroom == nil
+      redirect_to classrooms_path, :notice => "That room cannoth be located in our system."
+      return
+    end
     #@classroom = find_classroom
     unless @classroom.location.visible? || user_signed_in?
       redirect_to users_path, :notice => "Must be authorized to see that room."
