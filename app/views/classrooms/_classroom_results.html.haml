@@ -6,7 +6,7 @@
 
       %th.col-md-4.col-sm-4.col-xs-4
         -#= sortable "room_number", "Room Number"
-        = sort_link(@search, :location_name, "Classroom Name", :default_order => :desc)
+        = sort_link(@search, :location_name, "Classroom Name", :default_order => :asc)
 
 
       - if user_signed_in?
@@ -18,9 +18,10 @@
 
         = sort_link(@search, :student_capacity, "Capacity", :default_order => :desc)
       %th.col-md-2.hidden-xs
-        = sort_link(@search, :facility_code_heprod , "Room Number", :default_order => :desc)
+        = sort_link(@search, :facility_code_heprod , "Room Number", :default_order => :asc)
       %th.col-md-2
         %b Details
+
         -#%b Schedule
       - if user_signed_in?
         -#%th
@@ -57,7 +58,6 @@
         - if current_user.admin?
           %td= link_to 'Edit', edit_classroom_path(classroom), :class => 'btn btn-xs'
           %td= link_to 'Destroy', classroom, data: { confirm: 'Are you sure?' } , :method => :delete, :class => 'btn btn-xs btn-danger'
-
 
 %br
 
