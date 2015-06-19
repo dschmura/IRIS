@@ -47,7 +47,7 @@
 #  notes                           :text
 #  created_at                      :datetime
 #  updated_at                      :datetime
-#  location_id                     :integer
+#  building_id                     :integer
 #  is_department_space             :boolean          default(FALSE)
 #  owner_id                        :integer          default(1)
 #  rmrecnbr                        :integer

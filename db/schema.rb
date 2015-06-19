@@ -11,39 +11,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140812195853) do
+ActiveRecord::Schema.define(version: 20150619155817) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
-  create_table "assets", force: true do |t|
+  create_table "assets", force: :cascade do |t|
     t.integer  "location_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "panorama_asset_file_name"
-    t.string   "panorama_asset_content_type"
+    t.string   "panorama_asset_file_name",    limit: 255
+    t.string   "panorama_asset_content_type", limit: 255
     t.integer  "panorama_asset_file_size"
     t.datetime "panorama_asset_updated_at"
   end
 
-  create_table "buildings", force: true do |t|
-    t.string   "building_code_heprod"
+  create_table "buildings", force: :cascade do |t|
+    t.string   "building_code_heprod", limit: 255
     t.integer  "location_id"
-    t.string   "address"
-    t.string   "address2"
-    t.string   "city",                 default: "Ann Arbor"
-    t.string   "state",                default: "Mi"
-    t.string   "zip",                  default: "48109"
+    t.string   "address",              limit: 255
+    t.string   "address2",             limit: 255
+    t.string   "city",                 limit: 255, default: "Ann Arbor"
+    t.string   "state",                limit: 255, default: "Mi"
+    t.string   "zip",                  limit: 255, default: "48109"
     t.text     "description"
     t.text     "history"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "building_short_code"
+    t.string   "building_short_code",  limit: 255
   end
 
-  create_table "classrooms", force: true do |t|
-    t.string   "room_number"
-    t.string   "facility_code_heprod"
+  create_table "classrooms", force: :cascade do |t|
+    t.string   "room_number",                     limit: 255
+    t.string   "facility_code_heprod",            limit: 255
     t.integer  "student_capacity"
     t.boolean  "light_control"
     t.boolean  "layout_platform"
@@ -86,102 +83,103 @@ ActiveRecord::Schema.define(version: 20140812195853) do
     t.text     "notes"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "location_id"
-    t.integer  "owner_id",                        default: 1
+    t.integer  "building_id"
+    t.boolean  "is_department_space",                         default: false
+    t.integer  "owner_id",                                    default: 1
     t.integer  "rmrecnbr"
-    t.string   "DEPT_GRP"
+    t.string   "DEPT_GRP",                        limit: 255
     t.boolean  "sound_amplification_voice"
   end
 
-  create_table "locations", force: true do |t|
-    t.float    "latitude"
-    t.float    "longitude"
-    t.string   "name"
+  create_table "locations", force: :cascade do |t|
+    t.float    "latitude",                   limit: 255
+    t.float    "longitude",                  limit: 255
+    t.string   "name",                       limit: 255
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "gmaps"
-    t.string   "type"
+    t.string   "type",                       limit: 255
     t.integer  "locatable_id"
-    t.string   "locatable_type"
-    t.string   "image"
-    t.string   "picture_file_name"
-    t.string   "picture_content_type"
+    t.string   "locatable_type",             limit: 255
+    t.string   "image",                      limit: 255
+    t.string   "picture_file_name",          limit: 255
+    t.string   "picture_content_type",       limit: 255
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
-    t.string   "building_sign_file_name"
-    t.string   "building_sign_content_type"
+    t.string   "building_sign_file_name",    limit: 255
+    t.string   "building_sign_content_type", limit: 255
     t.integer  "building_sign_file_size"
     t.datetime "building_sign_updated_at"
-    t.boolean  "visible",                    default: true
+    t.boolean  "visible",                                default: true
   end
 
-  add_index "locations", ["locatable_id", "locatable_type"], name: "index_locations_on_locatable_id_and_locatable_type", using: :btree
+  add_index "locations", ["locatable_id", "locatable_type"], name: "index_locations_on_locatable_id_and_locatable_type"
 
-  create_table "owners", force: true do |t|
-    t.string   "department_name"
-    t.string   "facility_id"
-    t.string   "contact_name"
-    t.string   "contact_phone"
-    t.string   "contact_email"
+  create_table "owners", force: :cascade do |t|
+    t.string   "department_name", limit: 255
+    t.string   "facility_id",     limit: 255
+    t.string   "contact_name",    limit: 255
+    t.string   "contact_phone",   limit: 255
+    t.string   "contact_email",   limit: 255
     t.text     "notes"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "url"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.string   "url",             limit: 255
   end
 
-  create_table "room_attributes", force: true do |t|
+  create_table "room_attributes", force: :cascade do |t|
     t.integer  "RMRECNBR"
     t.integer  "CHRSTC"
-    t.string   "CHRSTC_DESCR"
-    t.string   "CHRSTC_DESCRSHORT"
-    t.string   "CHRSTC_DESCR254"
+    t.string   "CHRSTC_DESCR",      limit: 255
+    t.string   "CHRSTC_DESCRSHORT", limit: 255
+    t.string   "CHRSTC_DESCR254",   limit: 255
     t.boolean  "CHRSTC_SCHEDULE"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
   end
 
-  create_table "room_schedule_contacts", force: true do |t|
+  create_table "room_schedule_contacts", force: :cascade do |t|
     t.integer  "rmrecnbr"
-    t.string   "rm_schd_cntct_name"
-    t.string   "rm_schd_email"
-    t.string   "rm_schd_cntct_phone"
-    t.string   "rm_det_url"
-    t.string   "rm_usage_guidlns_url"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "RM_SPPT_DEPTID"
-    t.string   "RM_SPPT_DEPT_DESCR"
-    t.string   "RM_SPPT_CNTCT_EMAIL"
-    t.string   "RM_SPPT_CNTCT_PHONE"
-    t.string   "RM_SPPT_CNTCT_URL"
+    t.string   "rm_schd_cntct_name",   limit: 255
+    t.string   "rm_schd_email",        limit: 255
+    t.string   "rm_schd_cntct_phone",  limit: 255
+    t.string   "rm_det_url",           limit: 255
+    t.string   "rm_usage_guidlns_url", limit: 255
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.string   "RM_SPPT_DEPTID",       limit: 255
+    t.string   "RM_SPPT_DEPT_DESCR",   limit: 255
+    t.string   "RM_SPPT_CNTCT_EMAIL",  limit: 255
+    t.string   "RM_SPPT_CNTCT_PHONE",  limit: 255
+    t.string   "RM_SPPT_CNTCT_URL",    limit: 255
   end
 
-  create_table "users", force: true do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
+  create_table "users", force: :cascade do |t|
+    t.string   "email",                  limit: 255, default: "", null: false
+    t.string   "encrypted_password",     limit: 128, default: "", null: false
+    t.string   "reset_password_token",   limit: 255
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",                      default: 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.inet     "current_sign_in_ip"
-    t.inet     "last_sign_in_ip"
+    t.string   "current_sign_in_ip",     limit: 255
+    t.string   "last_sign_in_ip",        limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "name"
+    t.string   "name",                   limit: 255
     t.integer  "role"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
-  create_table "users_roles", id: false, force: true do |t|
+  create_table "users_roles", id: false, force: :cascade do |t|
     t.integer "user_id"
     t.integer "role_id"
   end
 
-  add_index "users_roles", ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id", using: :btree
+  add_index "users_roles", ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id"
 
 end
