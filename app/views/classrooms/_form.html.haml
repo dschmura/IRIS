@@ -37,8 +37,8 @@
       %br
 
         .sr-only
-          = label_tag(:location_id, "Building")
-        = f.collection_select:location_id, @locations.order(:name), :id, :name,   {:prompt => "What Building is this room in?"},  {:class => "form-control input-sm classroom_location_id", style: "width: 60%;"}
+          = label_tag(:building_id, "Building")
+        = f.collection_select:building_id, @locations.order(:name), :id, :name,   {:prompt => "What Building is this room in?"},  {:class => "form-control input-sm classroom_building_id", style: "width: 60%;"}
       = link_to "Add a building", new_building_path,  :target => "_blank"
 
       %br
@@ -385,7 +385,7 @@
     var room_number = $('input#classroom_room_number').val()
     $('.classroom_facility_code_heprod').val(room_number);
     $('.classroom_location_attributes_name').val(room_number);
-    $('.classroom_location_id').change(function () {
+    $('.classroom_building_id').change(function () {
       var room_name = $('option:selected', this).html();
       $('.classroom_location_attributes_name').val(room_name + " " + room_number);
     });

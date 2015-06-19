@@ -20,7 +20,7 @@
             = f.select :DEPT_GRP_eq, [['All Departments',''],['Academic and Budget Affairs', 'ACAD_&_BDGT_AFFAIRS'],['College of LSA','COLLEGE_OF_LSA'],['Ford School of Public Policy', 'SCHOOL_PUB_POLICY'],['Law School', 'LAW_SCHOOL'],['School of Dentistry', 'SCHOOL_DENTISTRY'],['School of Education', 'SCHOOL_EDUCATION'],['School of Natural Resources and Environment','SCHOOL_NAT_RES_ENVIR'],['School of Social Work', 'SCHOOL_SOCIAL_WORK']]
             %br
             %br
-            = f.collection_select :location_id_eq, Location.where(:locatable_type => "Building").order("name ASC"),  :id, :name,  {:include_blank => 'All Buildings'}, {:style => "width: 160px;"}
+            = f.collection_select :building_id_eq, Location.where(:locatable_type => "Building").order("name ASC"),  :id, :name,  {:include_blank => 'All Buildings'}, {:style => "width: 160px;"}
             %a{ "data-original-title" => "Please note, Dennison has been renamed to Weiser Hall.", "data-placement" => "right", :href => "#", :rel => "tooltip", id: "WeiserInfo", class: "fa fa-exclamation-triangle"}
 
             %br

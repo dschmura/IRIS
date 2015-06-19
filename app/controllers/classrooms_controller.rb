@@ -78,7 +78,7 @@ class ClassroomsController < ApplicationController
 
     @page_title = @classroom.location.name
     @classroom_alt = @classroom.location.name + " - " + @classroom.room_number
-    @building = find_building(@classroom.location_id)
+    @building = find_building(@classroom.building_id)
     #@building = location.building
     #@owner = Owner.find(@classroom.owner_id)
     @room_schedule_contact = RoomScheduleContact.find_by rmrecnbr:(@classroom.rmrecnbr)
@@ -86,7 +86,7 @@ class ClassroomsController < ApplicationController
     @building_sign_image = @building.building_sign.url(:thumb).to_s
     @search = Classroom.search(params[:search])
 
-    #@classroom_herprod = Building.find(params[:location_id]).building_short_code
+    #@classroom_herprod = Building.find(params[:building_id]).building_short_code
     respond_to do |format|
       format.html # show.html.erb
       format.png  { render :qrcode => "http://rooms.lsa.umich.edu/classrooms/#{@classroom.facility_code_heprod}", :level => :l, :unit => 8 }
@@ -122,7 +122,7 @@ class ClassroomsController < ApplicationController
   def edit
     #@location = Location.find(params[:id])
     @classroom = find_classroom
-    @location = Location.find(@classroom.location_id)
+    @location = Location.find(@classroom.building_id)
     @locations = Location.where(:locatable_type => "Building").order("name ASC")
     @owners = find_owners
     @page_title = "Editing Classroom: " + @location.name
@@ -131,7 +131,7 @@ class ClassroomsController < ApplicationController
   # POST /classrooms
   # POST /classrooms.xml
   def create
-    #@building_code = Location.find(params[:classroom][:location_id])
+    #@building_code = Location.find(params[:classroom][:building_id])
     @classroom = Classroom.new(params[:classroom])
     @locations = Location.where(:locatable_type => "Building").order("name ASC")
     @owners = find_owners
@@ -188,8 +188,8 @@ class ClassroomsController < ApplicationController
     Owner.all
   end
 
-  def find_building location_id
-    Location.find(location_id)
+  def find_building building_id
+    Location.find(building_id)
   end
 
   def sort_column
