@@ -66,7 +66,7 @@ class Classroom < ActiveRecord::Base
 
 
  accepts_nested_attributes_for :location, :allow_destroy => true
-  validates_presence_of :location_id
+  validates_presence_of :building_id
   validates :student_capacity, :numericality => true,
                                :length => {:within => 1..2000},
                                :presence => true
