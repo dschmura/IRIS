@@ -67,7 +67,7 @@ class ClassroomsController < ApplicationController
   def show
     @classroom = Classroom.includes(:location).find_by facility_code_heprod:(params[:id].upcase)
     if @classroom == nil
-      redirect_to classrooms_path, :notice => "That room cannoth be located in our system."
+      redirect_to classrooms_path, :notice => "That room cannot be located in our system."
       return
     end
     #@classroom = find_classroom
