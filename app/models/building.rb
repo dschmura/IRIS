@@ -20,6 +20,7 @@
 class Building < ActiveRecord::Base
   has_one :location, as: :locatable
 
+
   accepts_nested_attributes_for :location, :allow_destroy => true
 
   validates :building_short_code, :presence => true

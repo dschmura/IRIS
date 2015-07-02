@@ -52,12 +52,12 @@
 #  owner_id                        :integer          default(1)
 #  rmrecnbr                        :integer
 #  DEPT_GRP                        :string(255)
+#  sound_amplification_voice       :boolean
 #
 
 class Classroom < ActiveRecord::Base
   #resourcify
   has_one :location, :as => :locatable
-  has_one :building
   has_one :owner
   has_one :room_schedule_contact
   has_many :room_attributes
@@ -83,8 +83,8 @@ class Classroom < ActiveRecord::Base
     attributes= %w[ light_control layout_platform layout_stage layout_tiered seating_auditorium seating_chairs_fixed seating_movable_tables_chairs seating_table_conference seating_tables_any seating_tables_fixed seating_tables_moveable sound_amplification sound_amplification ethernet_students power_students writing_surface_chalkboard_any writing_surface_chalkboard_25ft writing_surface_whiteboard_any writing_surface_whiteboard_25ft computer_classroom_any computer_classroom_any computer_classroom_mac computer_classroom_windows assisted_listening wheelchair_instructor dvd_player_regular dvd_player_blueray captioning_device podium_computer_mac podium_computer_windows document_camera interactive_pen lecture_capture telephone video_conferencing projection_16mm_film projection_35mm_file projection_digital_data_video projection_traditional_slide ]
     this_classroom = Classroom.find_by rmrecnbr: (row['RMRECNBR'])
     attributes.each do |attribute|
-      this_classroom[attribute] = false
-      logger.info { "ATTRIBUTES ZEROED FOR #{this_classroom.facility_code_heprod}"}
+      #this_classroom[attribute] = false
+      #logger.info { "ATTRIBUTES ZEROED FOR #{this_classroom.facility_code_heprod}"}
     end
     this_classroom.save!
     logger.info { "SAVED #{@room.facility_code_heprod} with ZEROED ATTRIBUTES"}
