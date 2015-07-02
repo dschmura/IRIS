@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150619155817) do
+ActiveRecord::Schema.define(version: 20150625174325) do
 
   create_table "assets", force: :cascade do |t|
     t.integer  "location_id"
@@ -89,6 +89,7 @@ ActiveRecord::Schema.define(version: 20150619155817) do
     t.integer  "rmrecnbr"
     t.string   "DEPT_GRP",                        limit: 255
     t.boolean  "sound_amplification_voice"
+    t.string   "building_short_code"
   end
 
   create_table "locations", force: :cascade do |t|
