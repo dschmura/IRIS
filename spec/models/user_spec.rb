@@ -16,6 +16,7 @@
 #  created_at             :datetime
 #  updated_at             :datetime
 #  name                   :string(255)
+#  role                   :integer
 #
 
 require 'spec_helper'

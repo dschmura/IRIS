@@ -47,11 +47,12 @@
 #  notes                           :text
 #  created_at                      :datetime
 #  updated_at                      :datetime
-#  location_id                     :integer
+#  building_id                     :integer
 #  is_department_space             :boolean          default(FALSE)
 #  owner_id                        :integer          default(1)
 #  rmrecnbr                        :integer
 #  DEPT_GRP                        :string(255)
+#  sound_amplification_voice       :boolean
 #
 
 require 'spec_helper'
