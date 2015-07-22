@@ -1,4 +1,4 @@
-require 'spec_helper'
+
 
 describe "RoomAttributes" do
   describe "GET /room_attributes" do

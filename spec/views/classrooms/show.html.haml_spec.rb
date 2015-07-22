@@ -1,4 +1,4 @@
-require 'spec_helper'
+
 
 describe "classrooms/show.html.haml" do
   before(:each) do

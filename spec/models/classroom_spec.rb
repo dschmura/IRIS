@@ -55,7 +55,7 @@
 #  sound_amplification_voice       :boolean
 #
 
-require 'spec_helper'
+
 
 describe Classroom do
   pending "add some examples to (or delete) #{__FILE__}"

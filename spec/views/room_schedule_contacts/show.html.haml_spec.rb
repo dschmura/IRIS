@@ -1,4 +1,4 @@
-require 'spec_helper'
+
 
 describe "room_schedule_contacts/show" do
   before(:each) do

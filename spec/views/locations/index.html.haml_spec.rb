@@ -1,4 +1,4 @@
-require 'spec_helper'
+
 
 describe "locations/index.html.haml" do
   before(:each) do

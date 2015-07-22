@@ -1,4 +1,4 @@
-require 'spec_helper'
+
 
 describe PagesController do
   render_views
@@ -33,11 +33,11 @@ describe PagesController do
         get :home
         response.should have_selector('a', :href => following_user_path(@user),
                                             :content => "0 following")
-                                            
+
         response.should have_selector('a', :href => followers_user_path(@user),
                                             :content => "1 follower")
       end
-    end 
+    end
   end
 
   describe "GET 'contact'" do
@@ -54,7 +54,7 @@ describe PagesController do
           response.body.should_not =~ /<body>\s*<\/body>/
         end
   end
-  
+
   describe "GET 'about'" do
     it "should be successful" do
       get 'about'

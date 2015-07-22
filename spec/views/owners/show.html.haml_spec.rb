@@ -1,4 +1,4 @@
-require 'spec_helper'
+
 
 describe "owners/show" do
   before(:each) do

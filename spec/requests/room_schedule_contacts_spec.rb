@@ -1,4 +1,4 @@
-require 'spec_helper'
+
 
 describe "RoomScheduleContacts" do
   describe "GET /room_schedule_contacts" do

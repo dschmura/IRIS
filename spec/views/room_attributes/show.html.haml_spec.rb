@@ -1,4 +1,4 @@
-require 'spec_helper'
+
 
 describe "room_attributes/show" do
   before(:each) do

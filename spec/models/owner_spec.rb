@@ -14,7 +14,7 @@
 #  url             :string(255)
 #
 
-require 'spec_helper'
+
 
 describe Owner do
   pending "add some examples to (or delete) #{__FILE__}"

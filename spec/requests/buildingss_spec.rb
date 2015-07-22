@@ -1,4 +1,4 @@
-require 'spec_helper'
+
 
 describe "Buildings" do
   describe "GET /buildings" do

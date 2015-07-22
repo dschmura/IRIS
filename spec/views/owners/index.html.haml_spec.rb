@@ -1,4 +1,4 @@
-require 'spec_helper'
+
 
 describe "owners/index" do
   before(:each) do

@@ -1,4 +1,4 @@
-require 'spec_helper'
+
 
 describe "buildings/new.html.haml" do
   before(:each) do
