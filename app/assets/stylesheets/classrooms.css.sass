@@ -2,15 +2,7 @@
 /* Classrooms have location attributes as well (lat/long)
 
 
-@mixin rounded-corners($radius: 10px)
-  border-radius: $radius
-  -moz-border-radius: $radius
-  -webkit-border-radius: $radius
-
-@mixin transparent($transparency: 0.5, $trans: 50)
-  zoom: 1
-  filter: alpha(opacity=$trans)
-  opacity: $transparency
+@import 'application_common'
 
 /* Index
 #WeiserInfo
@@ -20,6 +12,10 @@
   &:hover
     color: #fff
     text-decoration: none
+
+.row
+  .quick_links
+    background: #ggg
 
 
 #rooms_search
