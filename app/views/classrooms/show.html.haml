@@ -62,6 +62,17 @@
   %br
   %br
 
+.row.pull-right
+  #quick_links
+    %i.fa.fa-calendar
+      -# = mail_to "Support Contact", @room_schedule_contact.RM_SPPT_CNTCT_EMAIL.to_s
+      = scheduling_contact_email
+
+    %i.fa.fa-wrench
+      = support_contact_email
+
+    %i.fa.fa-building
+      = floor_plan
 
 .row
   #attributes
