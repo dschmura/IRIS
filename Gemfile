@@ -46,7 +46,7 @@ gem 'capistrano', '2.15.5'
 #gem 'capistrano'
 gem "simple_form"
 gem 'will_paginate', '~> 3.0.5'
-gem "therubyracer", :group => :assets, :platform => :ruby
+gem 'therubyracer'
 gem 'will_paginate-bootstrap'
 #gem 'kaminari'
 
