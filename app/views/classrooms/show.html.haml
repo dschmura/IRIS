@@ -48,6 +48,8 @@
   %h1
     = @classroom.location.name
 
+/= render 'quick_links'
+
 - if technician_required
   %br
   %br
@@ -57,23 +59,10 @@
       .well.well-small
         #technician_required
           = technician_required
-      %br
+
 - else
   %br
   %br
-
-.row.pull-right
-  #quick_links
-    %i.fa.fa-calendar
-      -# = mail_to "Support Contact", @room_schedule_contact.RM_SPPT_CNTCT_EMAIL.to_s
-      = scheduling_contact_email
-
-    %i.fa.fa-wrench
-      = support_contact_email
-
-    %i.fa.fa-building
-      = floor_plan
-
 .row
   #attributes
     .col-md-5.col-md-offset-1
@@ -341,7 +330,9 @@
 
 
 :javascript
-
+    $(function () {
+      $('[data-toggle="popover"]').popover()
+    })
 
     $('#myTab').click(function(e) {
       if (e.target.id == "#picturetab"){
