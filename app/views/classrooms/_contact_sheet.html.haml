@@ -14,7 +14,8 @@
     %b Support Contact:
     %a{"data-original-title" => "Full Name:" + @room_schedule_contact.RM_SPPT_DEPT_DESCR.to_s, "data-placement" => "right", :href => "#", :rel => "tooltip"}
       -#= truncate(@owner.department_name, :length => 30)
-    = link_to @room_schedule_contact.RM_SPPT_CNTCT_EMAIL.to_s, "mailto:"+@room_schedule_contact.RM_SPPT_CNTCT_EMAIL.to_s
+    //= link_to @room_schedule_contact.RM_SPPT_CNTCT_EMAIL.to_s, "mailto:"+@room_schedule_contact.RM_SPPT_CNTCT_EMAIL.to_s
+    = support_contact_email
 
     %br
     %b Support Contact Phone:
@@ -27,10 +28,10 @@
   #scheduling_info
 
     %b Department:
-    -#= @owner.department_name
+    = scheduling_contact_email
     %a{"data-original-title" => @room_schedule_contact.rm_schd_cntct_name, "data-placement" => "right", :href => "https://csprod.dsc.umich.edu/services/facilitycalendar?facilityid=#{@classroom.facility_code_heprod }", :target => "_blank", :rel => "tooltip"}
 
-      = truncate(@room_schedule_contact.rm_schd_cntct_name, :length => 40)
+    -#   = truncate(@room_schedule_contact.rm_schd_cntct_name, :length => 40)
     %br
     %b Contact Phone:
     = @room_schedule_contact.rm_schd_cntct_phone
