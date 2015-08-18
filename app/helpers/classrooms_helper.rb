@@ -29,16 +29,32 @@ module ClassroomsHelper
   def departmental_room?
     if  @classroom.DEPT_GRP == 'COLLEGE_OF_LSA'
       if @classroom.owner_id == 1
-        "LSA ISS Classroom"
+        "LSA ISS Room"
       else
-        "Departmental Classroom"
+        "Departmental Room"
       end
     elsif @classroom.DEPT_GRP == 'SCHOOL_DENTISTRY'
       'Dental School'
     elsif @classroom.DEPT_GRP == 'LAW_SCHOOL'
       'Law School'
+    elsif @classroom.DEPT_GRP == 'COLLEGE_PHARMACY'
+      'College of Pharmancy'
+    elsif @classroom.DEPT_GRP == 'SCHOOL_PUB_POLICY'
+      'Ford School of Public Policy'  
+    elsif @classroom.DEPT_GRP == 'VP_ACAD_GRAD_STUDY'
+      'Museum of Art'
+    elsif @classroom.DEPT_GRP == 'SCHOOL_DENTISTRY'
+      'School of Dentistry'
+    elsif @classroom.DEPT_GRP == 'SCHOOL_EDUCATION'
+      'School of Education'
+    elsif @classroom.DEPT_GRP == 'SCHOOL_INFORMATION'
+      'School of SCHOOL_INFORMATION'
+    elsif @classroom.DEPT_GRP == 'SCHOOL_NAT_RES_ENVIR'
+      'School of Natural Resources and Environment'  
+    elsif @classroom.DEPT_GRP == 'SCHOOL_SOCIAL_WORK'
+      'School of Scoial Work'
     else
-      'Departmental Classroom'
+      'Departmental Room'
     end
 
   end
