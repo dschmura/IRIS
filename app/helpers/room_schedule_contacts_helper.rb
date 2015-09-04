@@ -2,7 +2,7 @@ module RoomScheduleContactsHelper
 
   def scheduling_contact_email
     if @room_schedule_contact.RM_SPPT_CNTCT_EMAIL.present?
-      mail_to @room_schedule_contact. RM_SPPT_CNTCT_EMAIL.to_s, "Email Scheduler"
+      mail_to @room_schedule_contact. RM_SPPT_CNTCT_EMAIL.to_s, truncate(@room_schedule_contact.rm_schd_cntct_name, :length => 40)
     else
       "Scheduling Contact Not Available"
 
@@ -11,7 +11,7 @@ module RoomScheduleContactsHelper
 
   def support_contact_email
     if @room_schedule_contact.RM_SPPT_CNTCT_EMAIL.present?
-      mail_to @room_schedule_contact.RM_SPPT_CNTCT_EMAIL.to_s, "Email Support"
+      mail_to @room_schedule_contact.RM_SPPT_CNTCT_EMAIL.to_s, truncate(@room_schedule_contact.RM_SPPT_DEPT_DESCR, :length => 40)
     else
       "Support Contact Not Available"
     end
