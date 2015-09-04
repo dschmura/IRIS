@@ -1,5 +1,0 @@
-
-
-describe OldSiteRedirectorController do
-
-end

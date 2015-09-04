@@ -1,5 +1,0 @@
-
-
-describe RedirectController do
-
-end
