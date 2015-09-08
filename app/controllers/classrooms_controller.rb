@@ -20,7 +20,7 @@ class ClassroomsController < ApplicationController
     if params[:per_page]
       @per_page = params[:per_page]
     else
-      @per_page = 14
+      @per_page = 15
     end
     if params[:DEPT_GRP]
       @dept_group = "SET"
