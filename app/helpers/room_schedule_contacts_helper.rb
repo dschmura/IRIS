@@ -19,7 +19,7 @@ module RoomScheduleContactsHelper
 
   def floor_plan
     if  File.exist?("#{Rails.root}/public/maps/#{basement}.html")
-      link_to "Floor Map", "../maps/#{basement}.html"
+      link_to @classroom.location.name, "../maps/#{basement}.html"
     else
       "Floor Map Not Available"
     end
