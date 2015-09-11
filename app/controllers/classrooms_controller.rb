@@ -132,7 +132,7 @@ class ClassroomsController < ApplicationController
   # POST /classrooms.xml
   def create
     #@building_code = Location.find(params[:classroom][:building_id])
-    @classroom = Classroom.new(params[:classroom])
+    @classroom = Classroom.new(app_params)
     @locations = Location.where(:locatable_type => "Building").order("name ASC")
     @owners = find_owners
     respond_to do |format|
@@ -149,13 +149,13 @@ class ClassroomsController < ApplicationController
   # PUT /classrooms/1
   # PUT /classrooms/1.xml
   def update
-    @classroom = Classroom.includes(:location).find_by facility_code_heprod:(params[:id].upcase)
+    @classroom = find_classroom
 
     @locations = Location.where(:locatable_type => "Building").order("name ASC")
     @owners = Owner.all.order("department_name ASC")
 
     respond_to do |format|
-      if @classroom.update_attributes(params[:classroom])
+      if @classroom.update_attributes(app_params)
         format.html { redirect_to(@classroom, :notice => 'Classroom was successfully updated.') }
         format.xml  { head :ok }
       else
@@ -177,6 +177,10 @@ class ClassroomsController < ApplicationController
   end
 
   private
+
+  def app_params
+    params.require(:classroom).permit(:room_number, :facility_code_heprod, :room_number, :facility_code_heprod, :student_capacity, :light_control, :layout_platform , :layout_stage , :layout_tiered, :seating_auditorium, :seating_chairs_fixed, :seating_movable_tables_chairs , :seating_table_conference , :seating_tables_any, :seating_tables_fixed, :seating_tables_moveable, :sound_amplification , :ethernet_students , :power_students, :writing_surface_chalkboard_any, :writing_surface_chalkboard_25ft , :writing_surface_whiteboard_any, :writing_surface_whiteboard_25ft , :computer_classroom_any , :computer_classroom_mac , :computer_classroom_windows, :assisted_listening, :wheelchair_instructor, :dvd_player_regular, :dvd_player_blueray, :captioning_device , :podium_computer_any , :podium_computer_mac , :podium_computer_windows, :document_camera , :interactive_pen , :lecture_capture , :telephone, :video_conferencing, :projection_16mm_film, :projection_35mm_file, :projection_digital_data_video , :projection_traditional_slide, :notes, :building_id, :is_department_space , :owner_id , :rmrecnbr , :DEPT_GRP , :sound_amplification_voice)
+  end
 
   def find_classroom
     #Classroom.find_by_facility_code_heprod(params[:id].upcase)
