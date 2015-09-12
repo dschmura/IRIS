@@ -47,7 +47,7 @@ class RoomScheduleContactsController < ApplicationController
   # POST /room_schedule_contacts
   # POST /room_schedule_contacts.json
   def create
-    @room_schedule_contact = RoomScheduleContact.new(params[:room_schedule_contact])
+    @room_schedule_contact = RoomScheduleContact.new(app_params)
 
     respond_to do |format|
       if @room_schedule_contact.save
@@ -66,7 +66,7 @@ class RoomScheduleContactsController < ApplicationController
     @room_schedule_contact = RoomScheduleContact.find(params[:id])
 
     respond_to do |format|
-      if @room_schedule_contact.update_attributes(params[:room_schedule_contact])
+      if @room_schedule_contact.update_attributes(app_params)
         format.html { redirect_to @room_schedule_contact, notice: 'Room schedule contact was successfully updated.' }
         format.json { head :no_content }
       else
@@ -86,5 +86,11 @@ class RoomScheduleContactsController < ApplicationController
       format.html { redirect_to room_schedule_contacts_url }
       format.json { head :no_content }
     end
+  end
+
+
+  private
+  def app_params
+    params.require(:location).permit(:rmrecnbr, :rm_schd_cntct_name, :rm_schd_email, :rm_schd_cntct_phone, :rm_det_url, :rm_usage_guidlns_url, :RM_SPPT_DEPTID, :RM_SPPT_DEPT_DESCR, :RM_SPPT_CNTCT_EMAIL, :RM_SPPT_CNTCT_PHONE, :RM_SPPT_CNTCT_URL)
   end
 end

@@ -42,7 +42,7 @@ class BuildingsController < ApplicationController
   end
 
   def create
-    @building = Building.new(params[:building])
+    @building = Building.new(app_params)
     if @building.save
       redirect_to(@building, notice: 'Building was successfully added.')
     else
@@ -52,7 +52,7 @@ class BuildingsController < ApplicationController
 
   def update
     @building = Building.find(params[:id])
-    if @building.update_attributes(params[:building])
+    if @building.update_attributes(app_params)
       redirect_to(@building, notice: 'Building was successfully updated.')
     else
       render action: 'edit'
@@ -63,5 +63,10 @@ class BuildingsController < ApplicationController
     @building = Building.find(params[:id])
     @building.destroy
     redirect_to buildings_path, flash: { success: 'Building destroyed.' }
+  end
+
+  private
+  def app_params
+    params.require(:building).permit(:building_code_heprod, :location_id, :address, :address2, :city, :state, :zip, :description, :history, :building_short_code)
   end
 end
