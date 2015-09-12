@@ -62,7 +62,7 @@ class LocationsController < ApplicationController
   
   private
   def app_params
-    params.require(:location).permit(:latitude, :longitude, :name, :description, :created_at :updated_at :gmaps, :type, :locatable_id :locatable_type, :image, :picture_file_name, :picture_content_type, :picture_file_size, :picture_updated_at, :building_sign_file_name, :building_sign_content_type, :building_sign_file_size, :building_sign_updated_at, :visible)
+    params.require(:location).permit(:latitude, :longitude, :name, :description, :gmaps, :type, :locatable_id :locatable_type, :image, :picture_file_name, :picture_content_type, :picture_file_size, :picture_updated_at, :building_sign_file_name, :building_sign_content_type, :building_sign_file_size, :building_sign_updated_at, :visible)
   end
   
   def find_locatable  
