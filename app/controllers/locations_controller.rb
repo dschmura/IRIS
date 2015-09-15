@@ -33,7 +33,7 @@ class LocationsController < ApplicationController
 
   def create
     @locatable = find_locatable
-    @location = @locatable.locations.build(app_params)
+    @location = @locatable.locations.build(params[:location])
     if @location.save
       redirect_to([@location], :notice => 'Location was successfully created.')      
     end
@@ -62,7 +62,7 @@ class LocationsController < ApplicationController
   
   private
   def app_params
-    params.require(:location).permit(:latitude, :longitude, :name, :description, :gmaps, :type, :locatable_id, :locatable_type, :image, :picture_file_name, :picture_content_type, :picture_file_size, :picture_updated_at, :building_sign_file_name, :building_sign_content_type, :building_sign_file_size, :building_sign_updated_at, :visible)
+    params.require(:location).permit(:latitude, :longitude, :name, :description, :created_at :updated_at :gmaps, :type, :locatable_id :locatable_type, :image, :picture_file_name, :picture_content_type, :picture_file_size, :picture_updated_at, :building_sign_file_name, :building_sign_content_type, :building_sign_file_size, :building_sign_updated_at, :visible, :picture)
   end
   
   def find_locatable  
