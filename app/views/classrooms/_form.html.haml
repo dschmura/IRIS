@@ -50,13 +50,6 @@
 
       %br
       %br
-      .row
-        .sr-only
-          = label_tag(:department_name, "Owner")
-        = f.collection_select:owner_id, @owners.order(:department_name), :id, :department_name,   {prompt: "Who owns this space?" }, {class:"form-control input-sm ", style: "width: 65%;"}
-      = link_to "Add an Owner", new_owner_path,  :target => "_blank"
-      %br
-      %br
 
       .row
       .input-group.input-group-sm.col-md-7

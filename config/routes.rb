@@ -12,7 +12,6 @@ Iris::Application.routes.draw do
   match 'detail.php', :to => 'old_site_redirector#detail', via: :get
   match 'index.php', :to => 'old_site_redirector#pages', via: :get
 
-  resources :owners
 
   resources :classrooms do
     get :search, :on => :collection
