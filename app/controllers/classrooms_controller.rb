@@ -106,9 +106,6 @@ class ClassroomsController < ApplicationController
     @classroom.location = Location.new
     @locations = Location.where(:locatable_type => "Building").order("name ASC")
     @buildings = Building.where(:id => @locations )
-
-
-    @owners = find_owners
     @client_ip = request.remote_ip
     @page_title = "Add A New Classroom"
     #@ip = GeoLocation.find('141.213.155.40')
@@ -124,7 +121,6 @@ class ClassroomsController < ApplicationController
     @classroom = find_classroom
     @location = Location.find(@classroom.building_id)
     @locations = Location.where(:locatable_type => "Building").order("name ASC")
-    @owners = find_owners
     @page_title = "Editing Classroom: " + @location.name
   end
 
@@ -186,10 +182,6 @@ class ClassroomsController < ApplicationController
     #Classroom.find_by_facility_code_heprod(params[:id].upcase)
 
     Classroom.find_by facility_code_heprod:(params[:id].upcase)
-  end
-
-  def find_owners
-    Owner.all
   end
 
   def find_building building_id
