@@ -60,7 +60,6 @@ class Classroom < ActiveRecord::Base
   has_one :location, :as => :locatable
   has_one :owner
   has_one :room_schedule_contact
-  has_many :room_attributes
 
   #scope :visible, -> { where('locations_visible = ?', true) }
 
