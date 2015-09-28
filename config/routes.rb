@@ -1,9 +1,5 @@
 Iris::Application.routes.draw do
 
-  resources :room_attributes do
-      collection {post :import}
-  end
-
   resources :room_schedule_contacts do
       collection {post :import}
   end
