@@ -67,6 +67,6 @@ class BuildingsController < ApplicationController
 
   private
   def app_params
-    params.require(:building).permit(:building_code_heprod, :location_id, :address, :address2, :city, :state, :zip, :description, :history, :building_short_code, location_attributes: [:name, :descritpion, :latitude, :longitude, :picture, :building_sign])
+    params.require(:building).permit(:building_code_heprod, :location_id, :address, :address2, :city, :state, :zip, :description, :history, :building_short_code, location_attributes: [:id, :name, :descritpion, :latitude, :longitude, :picture, :building_sign])
   end
 end
