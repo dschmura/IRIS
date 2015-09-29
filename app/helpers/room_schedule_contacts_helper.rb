@@ -17,6 +17,14 @@ module RoomScheduleContactsHelper
     end
   end
 
+  def support_contact_phone
+    if @room_schedule_contact.RM_SPPT_CNTCT_PHONE.present?
+      mail_to @room_schedule_contact.RM_SPPT_CNTCT_PHONE.to_s, truncate(@room_schedule_contact.RM_SPPT_CNTCT_PHONE, :length => 40)
+    else
+      "Support Contact Not Available"
+    end
+  end
+
   def floor_plan
     if  File.exist?("#{Rails.root}/public/maps/#{basement}.html")
       link_to @classroom.location.name, "../maps/#{basement}.html"
