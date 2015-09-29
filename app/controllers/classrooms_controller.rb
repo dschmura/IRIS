@@ -148,7 +148,6 @@ class ClassroomsController < ApplicationController
     @classroom = find_classroom
 
     @locations = Location.where(:locatable_type => "Building").order("name ASC")
-    @owners = Owner.all.order("department_name ASC")
 
     respond_to do |format|
       if @classroom.update_attributes(app_params)
