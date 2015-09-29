@@ -1,18 +1,16 @@
 class ClassroomPdf < Prawn::Document
   include ClassroomsHelper
+  include RoomScheduleContactsHelper
   def initialize(classroom)
     super(top_margin: 70, page_layout: :landscape)
 
     @classroom = classroom
-    @owner = Owner.find(@classroom.owner_id)
+    @room_schedule_contact = RoomScheduleContact.find_by rmrecnbr:(@classroom.rmrecnbr)
 
     classroom_image
     classroom_instructions.encode("windows-1252", "UTF-8")
-    #classroom_floor_map
     classroom_seating_chart
     logos
-    #stroke_axis(step_length: 25)
-    #stroke_circle [0, 0], 10
     classroom_name
     classroom_capacity
     classroom_qr_code
@@ -26,22 +24,19 @@ class ClassroomPdf < Prawn::Document
     y_position = cursor + 250
     bounding_box([10, 200], width: 350) do
       text "Support for this room is provided by "
-      text "<b><color rgb='3A5AA0'>#{@owner.department_name}</color></b>", inline_format: :true
+      text "<b><color rgb='3A5AA0'>#{@room_schedule_contact.RM_SPPT_DEPT_DESCR}</color></b>", inline_format: :true
 
-      text "<b>Support Contact:</b> <color rgb='DD0806'> #{@owner.contact_email}</color>", inline_format: :true
-      text "<b>Support Contact Phone:</b> <color rgb='DD0806'> #{@owner.contact_phone}</color>", inline_format: :true
+      text "<b>Support Contact:</b> <color rgb='DD0806'> #{@room_schedule_contact.RM_SPPT_CNTCT_EMAIL}</color>", inline_format: :true
+      text "<b>Support Contact Phone:</b> <color rgb='DD0806'> #{@room_schedule_contact.RM_SPPT_CNTCT_PHONE}</color>", inline_format: :true
     end
   end
   def logos
-      #image "#{Rails.root}/app/assets/images/MClassrooms_Logo.png", fit: [200, 200], at: [75, 70]
-      image "#{Rails.root}/app/assets/images/logoBlockM_univers.png", fit: [250, 200], at: [75, 70]
-
+    image "#{Rails.root}/app/assets/images/logoBlockM_univers.png", fit: [250, 200], at: [75, 70]
   end
 
   def classroom_url
     bounding_box([75,20 ], :width => 300) do
       transparent(0) {stroke_bounds}
-
       text "http://rooms.lsa.umich.edu/classrooms/#{@classroom.facility_code_heprod}", size: 12, color: "3A5AA0"
     end
   end
