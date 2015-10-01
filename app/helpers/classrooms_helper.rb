@@ -48,7 +48,7 @@ module ClassroomsHelper
     elsif @classroom.DEPT_GRP == 'SCHOOL_EDUCATION'
       'School of Education'
     elsif @classroom.DEPT_GRP == 'SCHOOL_INFORMATION'
-      'School of SCHOOL_INFORMATION'
+      'School of Information'
     elsif @classroom.DEPT_GRP == 'SCHOOL_NAT_RES_ENVIR'
       'School of Natural Resources and Environment'  
     elsif @classroom.DEPT_GRP == 'SCHOOL_SOCIAL_WORK'
