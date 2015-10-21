@@ -1,13 +1,4 @@
-:javascript
-  var hash = window.location.hash,
-  hashPart=hash.split('!')[1],
-  activeTab=$('ul.nav a[href="#' + hashPart + '"]');
-  activeTab && activeTab.tab('show');
 
-  $('.nav-tabs a').click(function (e) {
-      $(this).tab('show');
-      window.location.hash = '#!'+$(this).attr('href').split('#')[1];
-  });
 
 .row.classroom_top
   .col-md-2.col-sm-2.col-xs-1
@@ -336,75 +327,85 @@
 
     $('#myTab').click(function(e) {
       if (e.target.id == "#picturetab"){
+      alert("in the #picturetab");
         var placeholder = "nothing";
-
       }
-      else if (e.target.id == "#panotab") {
+      //close #picturetab
+      });
 
-      //check if html5 version or panorama exists.
-      $.ajax({
-        url:'/system/videos/panoramas/#{@classroom.facility_code_heprod.upcase}_QTVR_OUT.xml',
-        type:'HEAD',
-        error:
-          function(){
-            $("#pano").insertAfter("<div id='missing_pano'><h4>Attempting to load panorama</h4></div>")
-            },
-        success:
+      $('#myTab').click(function(e) {
+        if (e.target.id == "#panotab") {
+          alert("in the #panotab");
 
-          function(){
+          //check if html5 version or panorama exists.
+          $.ajax({
+            url:'/system/videos/panoramas/#{@classroom.facility_code_heprod.upcase}_QTVR_OUT.xml',
+            type:'HEAD',
+            error:
+              function(){
+                $("#pano").insertAfter("<div id='missing_pano'><h4>Attempting to load panorama</h4></div>")
+                },
+            success:
 
-            if (swfobject.hasFlashPlayerVersion("9"))
-            {
+              function(){
 
-
-        			var flashvars = {};
-        			var params = {};
-        			params.quality = "high";
-        			params.bgcolor = "#ffffff";
-        			params.allowscriptaccess = "sameDomain";
-        			params.allowfullscreen = "true";
-        			params.wmode = "transparent";
-        			var attributes = {};
-        			attributes.id = "pano";
-        			attributes.name = "pano";
-        			attributes.align = "middle";
-
-        			flashvars.panoxml="/system/videos/panoramas/#{@classroom.facility_code_heprod.upcase}_QTVR_OUT.xml";
-
-        			params.base=".";
-        			swfobject.embedSWF(
-        				"/system/videos/panoramas/pano2vr_player.swf", "missing_pano",
-        				"1200", "500",
-        				"9", "",
-        				flashvars, params, attributes);
+                if (swfobject.hasFlashPlayerVersion("9"))
+                {
 
 
+            			var flashvars = {};
+            			var params = {};
+            			params.quality = "high";
+            			params.bgcolor = "#ffffff";
+            			params.allowscriptaccess = "sameDomain";
+            			params.allowfullscreen = "true";
+            			params.wmode = "transparent";
+            			var attributes = {};
+            			attributes.id = "pano";
+            			attributes.name = "pano";
+            			attributes.align = "middle";
+
+            			flashvars.panoxml="/system/videos/panoramas/#{@classroom.facility_code_heprod.upcase}_QTVR_OUT.xml";
+
+            			params.base=".";
+            			swfobject.embedSWF(
+            				"/system/videos/panoramas/pano2vr_player.swf", "missing_pano",
+            				"1200", "500",
+            				"9", "",
+            				flashvars, params, attributes);
 
 
-        		} else
-        		// check for CSS3 3D transformations and WebGL
-        		if (ggHasHtml5Css3D() || ggHasWebGL()) {
 
 
-        			// create the panorama player with the container
-        			pano=new pano2vrPlayer("pano");
-        			pano.readConfigUrl("/system/videos/panoramas/#{@classroom.facility_code_heprod.upcase}_QTVR_OUT.xml");
-
-        			// hide the URL bar on the iPhone
-        			hideUrlBar();
-
-        		}
+            		} else
+            		// check for CSS3 3D transformations and WebGL
+            		if (ggHasHtml5Css3D() || ggHasWebGL()) {
 
 
-              else{
-                $("#missing_pano").replaceWith("<object CLASSID=\"clsid:02BF25D5-8C17-4B23-BC80-D3488ABDDC6B\" width=\"900\" height=\"260\" class=\"legacy_panorama\" CODEBASE=\"http://www.apple.com/qtactivex/qtplugin.cab\" class=\"legacy_panorama\"> <param name=\"src\" value=\"/system/videos/panoramas/#{@classroom.facility_code_heprod.upcase}_QTVR.mov\"><param name=\"target\" value=\"myself\" /><param name=\"controller\" value=\"false\"><param name=\"scale\" value=\"tofit\"><param name=\"kioskmode\" value=\"true\"> <embed src=\"/system/videos/panoramas/#{@classroom.facility_code_heprod.upcase}_QTVR.mov\" width=\"900\" height=\"260\" scale=\"tofit\" target=\"myself\"  kioskmode=\"true\" loop=\"false\" controller=\"false\" pluginspage=\"http://www.apple.com/quicktime/\"></embed></object>");
+            			// create the panorama player with the container
+            			pano=new pano2vrPlayer("pano");
+            			pano.readConfigUrl("/system/videos/panoramas/#{@classroom.facility_code_heprod.upcase}_QTVR_OUT.xml");
 
-                }
-              }
-        });
+            			// hide the URL bar on the iPhone
+            			hideUrlBar();
+
+            		}
+
+
+                  else{
+                    $("#missing_pano").replaceWith("<object CLASSID=\"clsid:02BF25D5-8C17-4B23-BC80-D3488ABDDC6B\" width=\"900\" height=\"260\" class=\"legacy_panorama\" CODEBASE=\"http://www.apple.com/qtactivex/qtplugin.cab\" class=\"legacy_panorama\"> <param name=\"src\" value=\"/system/videos/panoramas/#{@classroom.facility_code_heprod.upcase}_QTVR.mov\"><param name=\"target\" value=\"myself\" /><param name=\"controller\" value=\"false\"><param name=\"scale\" value=\"tofit\"><param name=\"kioskmode\" value=\"true\"> <embed src=\"/system/videos/panoramas/#{@classroom.facility_code_heprod.upcase}_QTVR.mov\" width=\"900\" height=\"260\" scale=\"tofit\" target=\"myself\"  kioskmode=\"true\" loop=\"false\" controller=\"false\" pluginspage=\"http://www.apple.com/quicktime/\"></embed></object>");
+
+                    }
+                  }
+            });
           }
-      else if (e.target.id == "#maptab"){
+          //close #panotab
+      });
 
+
+    $('#myTab').click(function(e) {
+      if (e.target.id == "#maptab"){
+          alert("in the #maptab");
         $('#map').height("300px").width("106%").gmap3({
 
           map:{
