@@ -438,18 +438,22 @@
                   content:'<div style=""><col-md->#{link_to image_tag(@building_image, :class => "round", :style => "max-width: 100px; float: left; margin-right: 1em;"), "../classrooms?utf8=✓&search%5Blocation_id_equals%5D=#{@building.id}"} </col-md-> <col-md- style="float: right;  font-size: 11px;  line-height: 1.2em;"><b>#{@building.name}<br /> #{@building.locatable.address}<br /> #{link_to "All Classrooms",  "../classrooms?utf8=✓&search%5Blocation_id_equals%5D=#{@building.id}"}<br /> #{link_to "Floor Map",  "../maps/#{basement}.html"}</col-md-> </div> '
                   }
                 }
-
         });
 
           }
-        else if (e.target.id == "#contacttab"){
+      //close #map
+      });
 
-
+    $('#myTab').click(function(e) {
+       if (e.target.id == "#contacttab"){
+        alert("in the #contacttab");
         }
-        google.maps.event.addListener(map, "idle", function(){
-        	google.maps.event.trigger(map, 'resize');
-        });
-    });
+     //close #contacttab
+      });
+
+    google.maps.event.addListener(map, "idle", function(){
+      	google.maps.event.trigger(map, 'resize');
+      });
 
   // Allows direct links to specific tabs
   $(function() {
