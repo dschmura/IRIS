@@ -48,12 +48,6 @@ class ClassroomsController < ApplicationController
       @locations = Location.visible.where(visible: true).paginate(:page => params[:page], :per_page => 15)
     end
 
-    @owners = "Owner"
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @classrooms }
-      format.js
-    end
   end
 
   def search
