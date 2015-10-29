@@ -1,5 +1,13 @@
 Iris::Application.routes.draw do
 
+  namespace :api do
+    namespace :v1 do
+      get 'classrooms.json', to: 'classrooms#index'
+      get "classrooms_:facility_code_heprod.json", to: "classrooms#show"
+    end
+  end
+
+
   resources :room_schedule_contacts do
       collection {post :import}
   end
