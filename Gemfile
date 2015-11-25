@@ -14,7 +14,7 @@ group :doc do
 end
 
 gem "haml"
-gem 'bootstrap-sass', '~> 3.3.5'
+gem 'bootstrap-sass', '~> 3.3.6'
 gem 'sass-rails', '~> 5.0'
 gem 'autoprefixer-rails'
 
