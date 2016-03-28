@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150625174325) do
+ActiveRecord::Schema.define(version: 20160328134208) do
 
   create_table "assets", force: :cascade do |t|
     t.integer  "location_id"
@@ -36,6 +36,9 @@ ActiveRecord::Schema.define(version: 20150625174325) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "building_short_code",  limit: 255
+    t.string   "name"
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   create_table "classrooms", force: :cascade do |t|
@@ -175,5 +178,12 @@ ActiveRecord::Schema.define(version: 20150625174325) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+
+  create_table "users_roles", id: false, force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "role_id"
+  end
+
+  add_index "users_roles", ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id"
 
 end
