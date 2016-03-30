@@ -15,6 +15,9 @@
 #  created_at           :datetime
 #  updated_at           :datetime
 #  building_short_code  :string(255)
+#  name                 :string
+#  latitude             :float
+#  longitude            :float
 #
 
 class Building < ActiveRecord::Base

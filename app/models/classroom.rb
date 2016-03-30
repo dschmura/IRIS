@@ -53,6 +53,7 @@
 #  rmrecnbr                        :integer
 #  DEPT_GRP                        :string(255)
 #  sound_amplification_voice       :boolean
+#  building_short_code             :string
 #
 
 class Classroom < ActiveRecord::Base
