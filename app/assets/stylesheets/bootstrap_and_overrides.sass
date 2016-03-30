@@ -1,9 +1,7 @@
 
 $navbarBackground: #FFF
-$navbarBackgroundHighlight: #FFF
 $navbarLinkColorHover: #3A5AA0
 $font-size-base: 15px
-$navbarLinkBackgroundActive: #f8f5e4
 $navbarCollapseWidth: 720px
 
 @import "bootstrap-sprockets"
@@ -31,13 +29,13 @@ body
   padding-top: 12px
   /* for non-css3 browsers
   /* for non-css3 browsers */
-  background: #c9bf98
+  background: #093479
   /* for IE */
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#979170', endColorstr='#e4debd')
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#093479', endColorstr='#04204F')
   /* for webkit browsers */
-  background: -webkit-gradient(linear, left top, left bottom, from(#979170), to(#e4debd))
+  background: -webkit-gradient(linear, left top, left bottom, from(#093479), to(#04204F))
   /* for firefox 3.6+ */
-  background: -moz-linear-gradient(top,  #979170,  #e4debd)
+  background: -moz-linear-gradient(top,  #093479  #04204F)
 
   display: block
   text-align: left
@@ -60,10 +58,18 @@ textarea
   text-align: center
   h1
     margin-bottom: 10px
+
+select
+  height: 2em
+  max-height: 2em
+
 header
-  padding-bottom: 1%
   nav
-    height: 33px
+
+    ul
+      color: green
+        min-height: 300px
+
 footer
   margin-top: 20px
   text-align: center
@@ -75,12 +81,6 @@ footer
   .regents_link
     a
       color: #fff
-
-select
-  height: 2em
-  max-height: 2em
-
-footer
   nav
     max-height: 43px
     display: block
@@ -92,14 +92,9 @@ footer
       bottom: 5px
       margin-right: auto
       .active
-        background: #eee
-.navbar-header
-  height: 50px
-  ul
-    padding-right: 3em
-    a
-      padding: 5px
-      margin: 10px 5px 0 0
+        background: #fc3
+
+
 
 .accessible a
   position: absolute
