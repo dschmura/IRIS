@@ -137,7 +137,7 @@ module ClassroomsHelper
     	when /CHEMA/
     	  "chema"
     	when /DENTG/
-    	  "/dentg"
+    	  "dentg"
     	when /DENTB/
     	  "dentb"
     	when /EHB/
