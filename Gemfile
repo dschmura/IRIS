@@ -46,14 +46,14 @@ gem 'capistrano', '2.15.5'
 #gem 'capistrano'
 gem "simple_form"
 gem 'will_paginate', '~> 3.0.5'
-gem 'therubyracer'
+#gem 'therubyracer'
 gem 'will_paginate-bootstrap'
 #gem 'kaminari'
 
 ## Used for uploading and resizing images (Need both paperclip and mini_magick)
 
 #gem "paperclip"
-gem "paperclip", "~> 5.0.0.beta1"
+gem "paperclip", "~> 5.0.0.beta2"
 #gem "meta_search"
 #gem "ransack", "1.3.0"
 gem "ransack"
