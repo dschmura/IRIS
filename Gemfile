@@ -1,13 +1,14 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.2.6'
+# gem 'rails', '4.2.6'
+gem 'rails', '>= 5.0.0.rc1', '< 5.1'
 gem 'sqlite3'
 
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 
 gem 'turbolinks'
-gem 'jbuilder', '~> 1.2'
+gem 'jbuilder', '~> 2.0'
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
@@ -45,7 +46,7 @@ gem 'prawn-qrcode'
 gem 'capistrano', '2.15.5'
 #gem 'capistrano'
 gem "simple_form"
-gem 'will_paginate', '~> 3.0.5'
+gem 'will_paginate', '~> 3.1.0'
 #gem 'therubyracer'
 gem 'will_paginate-bootstrap'
 #gem 'kaminari'
