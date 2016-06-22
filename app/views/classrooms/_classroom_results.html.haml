@@ -6,7 +6,7 @@
 
       %th.col-md-4.col-sm-4.col-xs-4
         -#= sortable "room_number", "Room Number"
-        = sort_link(@search, :location_name, "Classroom Name", :default_order => :asc)
+        -# = sort_link(@search, :location_name, "Classroom Name", :default_order => :asc)
 
 
       - if user_signed_in?
@@ -16,9 +16,9 @@
 
       %th.col-md-2.hidden-xs
 
-        = sort_link(@search, :student_capacity, "Capacity", :default_order => :desc)
+        -# = sort_link(@search, :student_capacity, "Capacity", :default_order => :desc)
       %th.col-md-2.hidden-xs
-        = sort_link(@search, :facility_code_heprod , "Room Number", :default_order => :asc)
+        -# = sort_link(@search, :facility_code_heprod , "Room Number", :default_order => :asc)
       %th.col-md-2
         %b Details
 
