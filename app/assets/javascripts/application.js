@@ -13,7 +13,7 @@
 //= require jquery
 
 //= require respond
-//= require modernizr
+
 
 // LOADS ALL BOOTSTRAP JAVASCRIPTS
 //= require bootstrap
