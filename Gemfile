@@ -23,8 +23,7 @@ gem 'autoprefixer-rails'
 gem 'font-awesome-rails'
 gem 'jquery-fileupload-rails'
 
-gem 'protected_attributes'
-gem 'modernizr-rails'
+# gem 'modernizr-rails'
 gem "jquery-rails"
 #gem "devise", "3.2.4"
 gem "devise"
