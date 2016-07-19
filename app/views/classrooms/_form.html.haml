@@ -399,6 +399,7 @@
               latLng: [#{@classroom.location.latitude.to_s || @def_lat},#{@classroom.location.longitude.to_s || @def_lon}],
               options: {
                 draggable: true,
+
               },
               events: {
                 dragend: function (map, event) {
@@ -474,7 +475,7 @@
              });
            } else {
            // if no geolocation display the map centered on the diag.
-              alert("Please drap the map marker to select the location");
+              
              $('#maptest').gmap3({
                   marker: {
                             latLng: [42.277092, -83.738212],
@@ -498,7 +499,7 @@
                            },
                   map: {
                  options: {
-                   zoom: 2
+                   zoom: 16
 
                  }
                }
