@@ -98,6 +98,9 @@
                         = link_to 'New Classroom', new_classroom_path, :class => 'btn btn-mini'
                         %br
                         %hr
+                        = link_to 'Import Room Schedule Contacts', room_schedule_contacts_path, :class => 'btn btn-mini'
+                        %br
+                        %hr
                         -#Import Attributes
                           = form_tag import_classrooms_path, multipart: true do
                             =file_field_tag :file
