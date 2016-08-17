@@ -13,7 +13,8 @@ set :deploy_to,  "/var/www/html/#{application}/"
 set :deploy_via, :remote_cache
 set :scm, :git
 #set :repository, "git@bitbucket.org:mclassrooms/iris.git"
-set :repository, "git@github.com:dschmura/IRIS.git"
+# set :repository, "git@github.com:dschmura/IRIS.git"
+set :repository, "https://github.com/lsa-mis/IRIS"
 set :branch, ENV['BRANCH'] if ENV['BRANCH']
 set :git_enable_submodules, 1
 set :scm_verbose, true
