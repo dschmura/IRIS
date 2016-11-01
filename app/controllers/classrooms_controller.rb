@@ -72,7 +72,7 @@ class ClassroomsController < ApplicationController
   # GET /classrooms.xml
   def index
     @page_title = "Classrooms"
-    @search = Classroom.search(params[:q] )
+    @search = Classroom.ransack(params[:q] )
     #set the default sort for the results
     @search.sorts = 'location_name asc' if @search.sorts.empty?
     if params[:per_page]
@@ -109,7 +109,7 @@ class ClassroomsController < ApplicationController
   end
 
   def search
-    @search = policy_scope(Classroom).search(params[:q])
+    @search = policy_scope(Classroom).ransack(params[:q])
     @classrooms = @search.all   # or @search.relation to lazy load in view
   end
 
@@ -136,7 +136,7 @@ class ClassroomsController < ApplicationController
     @room_schedule_contact = RoomScheduleContact.find_by rmrecnbr:(@classroom.rmrecnbr)
     @building_image = @building.picture.url(:medium).to_s
     @building_sign_image = @building.building_sign.url(:thumb).to_s
-    @search = Classroom.search(params[:search])
+    @search = Classroom.ransack(params[:search])
 
     #@classroom_herprod = Building.find(params[:building_id]).building_short_code
     respond_to do |format|
