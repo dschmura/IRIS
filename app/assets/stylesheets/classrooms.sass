@@ -1,12 +1,12 @@
 /* Classroom Styles
 /* Classrooms have location attributes as well (lat/long)
 
-
 @import 'application_common'
+@import 'bootstrap_and_overrides'
 
 /* Index
 #WeiserInfo
-  color: #8F0900
+  color: $alert
   margin-left: 1em
 
   &:hover
@@ -17,9 +17,6 @@
   *
     @include rounded-corners(10px)
     font-size: 95%
-
-
-
 
 #rooms_search
   clear: both
@@ -58,7 +55,7 @@
 
   min-width: 200px
   //background-color: #B4C3DD
-  background-color: #76a6c9
+  background-color: lighten($rich_heather_blue, 20%)
   //@include transparent($transparency: 0.8, $trans: 80)
 
   #min-height: 675px
@@ -87,14 +84,14 @@
 
   min-height: 675px
   height: 100%
-  background-color: #f8f5e4
+  background-color: lighten($umma_tan, 10%)
 
 #number_of_results_selector
   float: right
 
 #rooms_search_results_count
   @include rounded-corners(11px)
-  background: #e7e8e0
+  background: lighten($the_rock_gray, 40%)
   padding: 0.75em
   margin: 1em 1em 1em 0
   font-weight: bold
@@ -108,7 +105,7 @@
       margin-left: -3em
 
 .results_table
-  background-color: #f8f5e4
+  background-color: lighten($umma_tan, 60%)
 
 #contact
   margin: 100px
@@ -147,7 +144,7 @@
   @include transparent($transparency: 0.8, $trans: 80)
   @include rounded-corners(6px)
   visibility: visible
-  background: #7D96B3
+  background: lighten($rich_heather_blue, 20%)
   position: absolute
   left: 75%
   top: 100px
@@ -222,7 +219,7 @@
 #contact_sheet
   height: 300px
   padding: .9em
-  background: #e7e8e0
+  background: $the_rock_gray
 
   font-size: 90%
 
@@ -239,7 +236,7 @@
     font: normal normal normal 0.8em Arial, sans-serif
 
 #contact_me
-  background: #e7e8e0
+  background: $the_rock_gray
   height: 300px
 
 #picture
