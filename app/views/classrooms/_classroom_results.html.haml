@@ -61,10 +61,10 @@
 
 %br
 
-%br
-- if @search.result.count > 14
-  .apple_pagination.col-md-9.row
-    = will_paginate
+  %br
+  - if @search.result.count > 14
+    .apple_pagination
+      = will_paginate
 
 = javascript_include_tag 'jquery_ujs'
 
