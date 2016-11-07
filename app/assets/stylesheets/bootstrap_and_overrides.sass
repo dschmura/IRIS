@@ -1,3 +1,37 @@
+$um_blue: #00274c
+$um_maize: #ffcb05
+$puma_black: #111b23
+$law_quad_stone: #655a52
+$the_rock_gray: #6a6d68
+$angell_hall_ash: #7a6e66
+$dark_grey: #333
+$grey: #555
+$tappan_red: #b51e0a
+$hill_brown: #7a121c
+$archway_ivy: #7e732f
+$burton_tower_beige: #797852
+$umma_tan: #766536
+$observatory_white: #6d675d
+$pea_soup: #886b01
+$greyb: #6a6a6a
+$greyc: #6f767a
+$ross_school_orange: #ac5f00
+$lsa_orange: #ac5600
+$wave_field_green: #797500
+$arboretum_blue: #006ab8
+$canham_pool_blue: #4568ae
+$deep_blue: #002a5b
+$semi_deep_blue: #027494
+$blue: #0257aa
+$heather_blue: #465d85
+$rich_heather_blue: #40658f
+$taubman_teal: #007474
+$rackham_roof_green: #48736a
+$ann_arbor_amethyst: #702490
+$matthaei_violet: #575294
+$south_forrest_green: #18453b
+$huron_river_green: #0c5832
+$spring_term_green: #00743c
 
 $navbarBackground: #FFF
 $navbarBackgroundHighlight: #FFF
@@ -5,6 +39,7 @@ $navbarLinkColorHover: #3A5AA0
 $font-size-base: 15px
 $navbarLinkBackgroundActive: #f8f5e4
 $navbarCollapseWidth: 720px
+$alert: #8F0900
 
 @import "bootstrap-sprockets"
 @import "bootstrap"
@@ -16,7 +51,7 @@ $navbarCollapseWidth: 720px
 
 .field_with_errors
   @extend .has-error
-  border: 2px solid #D8241D
+  border: 2px solid $alert
 
 html
   overflow-y: scroll
@@ -31,13 +66,13 @@ body
   padding-top: 12px
   /* for non-css3 browsers
   /* for non-css3 browsers */
-  background: #c9bf98
+  background: $umma_tan
   /* for IE */
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#979170', endColorstr='#e4debd')
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='lighten($umma_tan, 10%)', endColorstr='lighten($umma_tan, 40%)')
   /* for webkit browsers */
-  background: -webkit-gradient(linear, left top, left bottom, from(#979170), to(#e4debd))
+  background: -webkit-gradient(linear, left top, left bottom, from(lighten($umma_tan, 10%)), to(lighten($umma_tan, 40%)))
   /* for firefox 3.6+ */
-  background: -moz-linear-gradient(top,  #979170,  #e4debd)
+  background: -moz-linear-gradient(top,  lighten($umma_tan, 10%),  lighten($umma_tan, 40%))
 
   display: block
   text-align: left
@@ -124,7 +159,7 @@ footer
 
 
 #flash_alert
-  background-color: #CC0000
+  background-color: $alert
   font-weight: bold
   color: #fff
   padding: 1em
