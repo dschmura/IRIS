@@ -39,9 +39,7 @@
 
 .content
   .row.classroom_top
-    border-radius: 8px 8px 0px 0px
-    -moz-border-radius: 8px 8px 0px 0px
-    -webkit-border-radius: 8px 8px 0px 0px
+    @include rounded-corners(8px)
     overflow: hidden
     width: auto
 
@@ -82,9 +80,9 @@
 #rooms_results
   margin: 0 0 0 -5%
 
-  min-height: 675px
+
   height: 100%
-  background-color: lighten($rich_heather_blue, 40%)
+  background-color: lighten($rich_heather_blue, 60%)
 
 #number_of_results_selector
   float: right
