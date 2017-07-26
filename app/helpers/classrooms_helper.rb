@@ -98,7 +98,7 @@ module ClassroomsHelper
     elsif @classroom.DEPT_GRP == 'COLLEGE_PHARMACY'
       'College of Pharmancy'
     elsif @classroom.DEPT_GRP == 'SCHOOL_PUB_POLICY'
-      'Ford School of Public Policy'  
+      'Ford School of Public Policy'
     elsif @classroom.DEPT_GRP == 'VP_ACAD_GRAD_STUDY'
       'Museum of Art'
     elsif @classroom.DEPT_GRP == 'SCHOOL_DENTISTRY'
@@ -108,7 +108,7 @@ module ClassroomsHelper
     elsif @classroom.DEPT_GRP == 'SCHOOL_INFORMATION'
       'School of Information'
     elsif @classroom.DEPT_GRP == 'SCHOOL_NAT_RES_ENVIR'
-      'School of Natural Resources and Environment'  
+      'School for Environment and Sustainability'
     elsif @classroom.DEPT_GRP == 'SCHOOL_SOCIAL_WORK'
       'School of Scoial Work'
     else
