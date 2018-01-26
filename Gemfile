@@ -37,7 +37,7 @@ gem 'pry'
 # QR-Code generation
 gem 'rqrcode-rails3'
 gem 'mini_magick'
-
+gem 'nokogiri', '~>1.8.1'
 
 gem 'prawn'
 gem 'prawn-qrcode'
@@ -53,7 +53,7 @@ gem 'will_paginate-bootstrap'
 ## Used for uploading and resizing images (Need both paperclip and mini_magick)
 
 #gem "paperclip"
-gem "paperclip"
+gem "paperclip", '~>5.2.1'
 #gem "meta_search"
 #gem "ransack", "1.3.0"
 gem "ransack"
