@@ -57,6 +57,11 @@
 #
 
 module ClassroomsHelper
+  def ccl_nub_converter
+    if @classroom.facility_code_heprod.include?('NUB')
+      @classroom.facility_code_heprod.gsub('NUB', 'CCL')
+    end
+  end
 
   # Displays Alert message for classrooms that require a technician
   # to operate. Rooms that require technicians are stored in the technician_required_rooms array
@@ -117,6 +122,7 @@ module ClassroomsHelper
 
   end
 
+
   def basement
     # Buildings with basements or other weird floors
     # AH (G)
@@ -163,7 +169,3 @@ module ClassroomsHelper
   end
 
 end
-
-
-
-
