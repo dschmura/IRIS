@@ -44,7 +44,7 @@
       %td.classroom_index_icons
 
         -#
-        %a{"data-original-title" => "Room Schedule: Login required", "data-placement" => "right", href: "https://csprod.dsc.umich.edu/services/facilitycalendar?facilityid=#{classroom.facility_code_heprod }", target: "_blank", rel: "tooltip"}
+        %a{"data-original-title" => "Room Schedule: Login required", "data-placement" => "right", href: "https://csprod.dsc.umich.edu/services/facilitycalendar?facilityid=#{ccl_nub_converter(classroom) }", target: "_blank", rel: "tooltip"}
           %i.fa.fa-calendar
         %a{"data-original-title" => "Room Contact Information",  "data-placement" => "right", href: "classrooms/#{classroom.facility_code_heprod }#contact_me", rel:"tooltip"}
           -#%i.fa.fa-comment-o

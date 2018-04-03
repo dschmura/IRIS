@@ -3,7 +3,7 @@
 %br
 .row.pull-right
   #quick_links
-    %button#myPopover.btn.btn-default.btn-sm{"data-content" => "#{link_to "View Room Schedule", "https://csprod.dsc.umich.edu/services/facilitycalendar?facilityid=#{ccl_nub_converter }", :target => "_blank" }", "data-toggle" => "popover", :title => "Room Schedule<a  style='margin-left: 30px;' class ='pull-right' onclick='$(this).parent().parent().hide()'>X</a>", :type => "button", "data-html" => :true, "data-placement" => "bottom"}
+    %button#myPopover.btn.btn-default.btn-sm{"data-content" => "#{link_to "View Room Schedule", "https://csprod.dsc.umich.edu/services/facilitycalendar?facilityid=#{ccl_nub_converter(@classroom) }", :target => "_blank" }", "data-toggle" => "popover", :title => "Room Schedule<a  style='margin-left: 30px;' class ='pull-right' onclick='$(this).parent().parent().hide()'>X</a>", :type => "button", "data-html" => :true, "data-placement" => "bottom"}
       .fa.fa-calendar
         Room Schedule
     %button#myPopover.btn.btn-default.btn-sm{"data-content" => "#{support_contact_email}", "data-toggle" => "popover", :title => "Support Contact <a  style='margin-left: 30px;' class ='pull-right' onclick='$(this).parent().parent().hide()'>X</a>", :type => "button", "data-html" => :true, "data-placement" => "bottom"}

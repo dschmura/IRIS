@@ -57,9 +57,11 @@
 #
 
 module ClassroomsHelper
-  def ccl_nub_converter
-    if @classroom.facility_code_heprod.include?('NUB')
-      @classroom.facility_code_heprod.gsub('NUB', 'CCL')
+  def ccl_nub_converter(classroom)
+    if classroom.facility_code_heprod.include?('NUB')
+      classroom.facility_code_heprod.gsub('NUB', 'CCL')
+    else
+      classroom.facility_code_heprod
     end
   end
 
