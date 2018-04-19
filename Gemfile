@@ -13,7 +13,8 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-gem "haml"
+gem 'skylight'
+gem 'haml'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'sass-rails', '~> 5.0'
 gem 'autoprefixer-rails'
