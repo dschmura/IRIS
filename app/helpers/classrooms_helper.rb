@@ -141,7 +141,7 @@ module ClassroomsHelper
     case $basement
       # Angell Hall floors G or Auds point to ahg
     	when (/AHG|AHA|AHB|AHC|AHD/)
-    	  "ah"
+    	  "ahg"
     	when /CHEMA/
     	  "chema"
     	when /DENTG/
