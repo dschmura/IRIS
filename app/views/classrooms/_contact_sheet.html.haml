@@ -29,7 +29,7 @@
 
     %b Department:
     = scheduling_contact_email
-    %a{"data-original-title" => @room_schedule_contact.rm_schd_cntct_name, "data-placement" => "right", :href => "https://csprod.dsc.umich.edu/services/facilitycalendar?facilityid=#{ccl_nub_converter(@classroom)}", :target => "_blank", :rel => "tooltip"}
+    %a{"data-original-title" => @room_schedule_contact.rm_schd_cntct_name, "data-placement" => "right", :href => "https://csprod.dsc.umich.edu/services/facilitycalendar?facilityid=#{@classroom.facility_code_heprod}", :target => "_blank", :rel => "tooltip"}
 
     -#   = truncate(@room_schedule_contact.rm_schd_cntct_name, :length => 40)
     %br
@@ -37,7 +37,7 @@
     = @room_schedule_contact.rm_schd_cntct_phone
     %br
     %b Room Schedule:
-    = link_to "View Room Schedule", "https://csprod.dsc.umich.edu/services/facilitycalendar?facilityid=#{ccl_nub_converter(@classroom) }", :target => "_blank"
+    = link_to "View Room Schedule", "https://csprod.dsc.umich.edu/services/facilitycalendar?facilityid=#{@classroom.facility_code_heprod }", :target => "_blank"
 
   %hr
   .fa.fa-info-circle

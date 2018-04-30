@@ -57,13 +57,13 @@
 #
 
 module ClassroomsHelper
-  def ccl_nub_converter(classroom)
-    if classroom.facility_code_heprod.include?('NUB')
-      classroom.facility_code_heprod.gsub('NUB', 'CCL')
-    else
-      classroom.facility_code_heprod
-    end
-  end
+  # def ccl_nub_converter(classroom)
+  #   if classroom.facility_code_heprod.include?('NUB')
+  #     classroom.facility_code_heprod.gsub('NUB', 'CCL')
+  #   else
+  #     classroom.facility_code_heprod
+  #   end
+  # end
 
   # Displays Alert message for classrooms that require a technician
   # to operate. Rooms that require technicians are stored in the technician_required_rooms array
