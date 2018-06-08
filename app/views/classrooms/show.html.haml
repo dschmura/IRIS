@@ -224,12 +224,12 @@
 
       %ul
 
-        %li
+        -# %li
           %a{ "data-original-title" => "Room contains DVD player.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.dvd_player_regular) }Standard
           - if @classroom.dvd_player_regular
             .fa.fa-check
         %li
-          %a{ "data-original-title" => "Room contains Blu-Ray Disc player.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.dvd_player_blueray) }Blu-Ray
+          %a{ "data-original-title" => "Room contains Blu-Ray Disc player.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.dvd_player_blueray) }Blu-Ray / DVD
           - if @classroom.dvd_player_blueray
             .fa.fa-check
       %hr
@@ -464,11 +464,3 @@
       window.location.hash = e.target.hash;
     });
   });
-
-
-
-
-
-
-
-
