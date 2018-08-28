@@ -17,6 +17,7 @@ end
 gem 'haml'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'sass-rails', '~> 5.0'
+gem 'mini_racer'
 gem 'autoprefixer-rails'
 
 #gem 'google-analytics-rails'
