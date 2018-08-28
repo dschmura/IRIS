@@ -17,9 +17,9 @@ end
 gem 'haml'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'sass-rails', '~> 5.0'
-gem 'mini_racer'
-gem 'autoprefixer-rails'
-
+# gem 'mini_racer'
+# gem 'autoprefixer-rails'
+gem 'autoprefixer-rails', '8.2.0'
 #gem 'google-analytics-rails'
 
 gem 'font-awesome-rails'
