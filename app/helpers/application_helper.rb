@@ -18,7 +18,7 @@ module ApplicationHelper
     image_tag("MClassrooms_Logo.png", :alt => "University of Michigan Logo", :class => "round", style: "width: 200px; position:absolute; top: 4px;")
   end
   def footer_logo
-   image_tag("LSA_ISS_Pill.png", :alt => "#{@base_title} is brought to you by LSA Instructional Support Services",
+   image_tag("LSA_TechnologyServices_Pill.png", :alt => "#{@base_title} is brought to you by LSA Technology Services",
                                  :style => "height: 44px; float: left; position: relative; right:4px; bottom: 1px; margin: 0px;")
   end
   def footer_logo_um

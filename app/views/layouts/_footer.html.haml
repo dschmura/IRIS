@@ -9,7 +9,7 @@
         %span.icon-bar
         %span.icon-bar
 
-      = link_to footer_logo, about_iss_path
+      = link_to footer_logo, 'https://lsa.umich.edu/technology-services/instructional-support-services.html', target: '_blank'
       .navbar-collapse.collapse
         %ul.nav.navbar-nav.center-block
 
@@ -27,7 +27,7 @@
     = link_to footer_logo_um, "http://www.umich.edu", :target => "_blank"
 
   %br
-    = link_to "Copyright The Regents of the University of Michigan, 2011", "http://www.umich.edu", :target => '_blank'
+    = link_to "Copyright The Regents of the University of Michigan, 2018", "http://www.umich.edu", :target => '_blank'
     %br
     - if user_signed_in?
       .btn-group.dropup
@@ -46,7 +46,7 @@
                 = link_to('Admin', users_path)
             %li
               %i.fa.fa-phone
-                = link_to('Import Contacts', room_schedule_contacts_path)    
+                = link_to('Import Contacts', room_schedule_contacts_path)
           %li
             %i.fa.fa-sign-out
               = link_to 'Sign out', destroy_user_session_path, :method=>'delete'
