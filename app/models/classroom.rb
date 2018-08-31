@@ -54,6 +54,9 @@
 #  DEPT_GRP                        :string(255)
 #  sound_amplification_voice       :boolean
 #  building_short_code             :string
+#  team_tables                     :boolean
+#  team_technology                 :boolean
+#  team_writing_surface            :boolean
 #
 
 class Classroom < ActiveRecord::Base
@@ -81,7 +84,7 @@ class Classroom < ActiveRecord::Base
   end
 
   def zero_attributes(rmrecnbr)
-    attributes= %w[ light_control layout_platform layout_stage layout_tiered seating_auditorium seating_chairs_fixed seating_movable_tables_chairs seating_table_conference seating_tables_any seating_tables_fixed seating_tables_moveable sound_amplification sound_amplification ethernet_students power_students writing_surface_chalkboard_any writing_surface_chalkboard_25ft writing_surface_whiteboard_any writing_surface_whiteboard_25ft computer_classroom_any computer_classroom_any computer_classroom_mac computer_classroom_windows assisted_listening wheelchair_instructor dvd_player_regular dvd_player_blueray captioning_device podium_computer_mac podium_computer_windows document_camera interactive_pen lecture_capture telephone video_conferencing projection_16mm_film projection_35mm_file projection_digital_data_video projection_traditional_slide ]
+    attributes= %w[ light_control layout_platform layout_stage layout_tiered seating_auditorium seating_chairs_fixed seating_movable_tables_chairs seating_table_conference seating_tables_any seating_tables_fixed seating_tables_moveable sound_amplification sound_amplification ethernet_students power_students writing_surface_chalkboard_any writing_surface_chalkboard_25ft writing_surface_whiteboard_any writing_surface_whiteboard_25ft computer_classroom_any computer_classroom_any computer_classroom_mac computer_classroom_windows assisted_listening wheelchair_instructor dvd_player_regular dvd_player_blueray captioning_device podium_computer_mac podium_computer_windows document_camera interactive_pen lecture_capture telephone video_conferencing projection_16mm_film projection_35mm_file projection_digital_data_video projection_traditional_slide team_tables	team_technology team_writing_surface ]
     this_classroom = Classroom.find_by rmrecnbr: (row['RMRECNBR'])
     attributes.each do |attribute|
       #this_classroom[attribute] = false
@@ -130,7 +133,10 @@ class Classroom < ActiveRecord::Base
       'Proj16mm' => :projection_16mm_film,
       'Proj35mm' => :projection_35mm_file,
       'ProjDigit' => :projection_digital_data_video,
-      'ProjSlide' => :projection_traditional_slide
+      'ProjSlide' => :projection_traditional_slide,
+      'TeamTables' => :team_tables,
+      'TeamTech' => :team_technology,
+      'TeamBoard' => :team_writing_surface
     }
 
     last_rmrecnbr = nil
@@ -141,7 +147,7 @@ class Classroom < ActiveRecord::Base
         this_classroom = Classroom.find_by rmrecnbr: (row['RMRECNBR'])
         if this_classroom
           logger.info { "WORKING ON #{this_classroom.facility_code_heprod}" }
-          attributes= %w[ light_control layout_platform layout_stage layout_tiered seating_auditorium seating_chairs_fixed seating_movable_tables_chairs seating_table_conference seating_tables_any seating_tables_fixed seating_tables_moveable sound_amplification sound_amplification ethernet_students power_students writing_surface_chalkboard_any writing_surface_chalkboard_25ft writing_surface_whiteboard_any writing_surface_whiteboard_25ft computer_classroom_any computer_classroom_any computer_classroom_mac computer_classroom_windows assisted_listening wheelchair_instructor dvd_player_regular dvd_player_blueray captioning_device podium_computer_mac podium_computer_windows document_camera interactive_pen lecture_capture telephone video_conferencing projection_16mm_film projection_35mm_file projection_digital_data_video projection_traditional_slide ]
+          attributes= %w[ light_control layout_platform layout_stage layout_tiered seating_auditorium seating_chairs_fixed seating_movable_tables_chairs seating_table_conference seating_tables_any seating_tables_fixed seating_tables_moveable sound_amplification sound_amplification ethernet_students power_students writing_surface_chalkboard_any writing_surface_chalkboard_25ft writing_surface_whiteboard_any writing_surface_whiteboard_25ft computer_classroom_any computer_classroom_any computer_classroom_mac computer_classroom_windows assisted_listening wheelchair_instructor dvd_player_regular dvd_player_blueray captioning_device podium_computer_mac podium_computer_windows document_camera interactive_pen lecture_capture telephone video_conferencing projection_16mm_film projection_35mm_file projection_digital_data_video projection_traditional_slide team_tables team_technology team_writing_surface]
             attributes.each do |attribute|
               #this_classroom[attribute] = false
             end

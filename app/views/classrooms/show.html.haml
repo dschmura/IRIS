@@ -110,6 +110,28 @@
           .fa.fa-check
 
       %hr
+      %i.fa.fa-handshake-o{"aria-hidden" => "true"}
+        %b Team Learning:
+      %br
+
+      %ul
+
+        %li
+        %a{ "data-original-title" => "Room has tables arranged for students to work in groups. Tables may or may not be moveable, room may feature turn-to-team tables.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.team_tables) }
+          Team Tables
+          - if @classroom.team_tables
+            .fa.fa-check
+        %li
+        %a{ "data-original-title" => "Room has multiple computers and monitors for students to use technology in small groups.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.team_technology) } Team Technology
+        - if @classroom.team_technology
+          .fa.fa-check
+        %li
+        %a{ "data-original-title" => "Room has whiteboards, blackboards or writable walls for students working in small groups.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.team_writing_surface) }
+          Team Writing Surfaces
+          - if @classroom.team_writing_surface
+            .fa.fa-check
+
+      %hr
       %i#attribute_seating{"aria-hidden" => "true"}
       %b Seating:
       %ul
@@ -193,27 +215,6 @@
           %a{ "data-original-title" => "Room contains a whiteboard writing surface of over 25 feet.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.writing_surface_whiteboard_25ft) }Writing Surface Whiteboard 25ft
           - if @classroom.writing_surface_whiteboard_25ft
             .fa.fa-check
-      %hr
-      %i.fa.fa-desktop{"aria-hidden" => "true"}
-      %b Computer Classroom:
-
-      %ul
-
-        %li
-          %i.fa.fa-power-off{"aria-hidden" => "true"}
-          %a{ "data-original-title" => "Room contains either PC or MAC computers at each student workstation.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.computer_classroom_any) }Computer Classroom Any
-          - if @classroom.computer_classroom_any
-            .fa.fa-check
-        %li
-          %i.fa.fa-apple{"aria-hidden" => "true"}
-          %a{ "data-original-title" => "Room contains Mac computers at each student workstation.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.computer_classroom_mac) }Computer Classroom Mac
-          - if @classroom.computer_classroom_mac
-            .fa.fa-check
-        %li
-          %i.fa.fa-windows{"aria-hidden" => "true"}
-          %a{ "data-original-title" => "Room contains PC computers at each student workstation.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.computer_classroom_windows) }Computer Classroom Windows
-          - if @classroom.computer_classroom_windows
-            .fa.fa-check
 
     .col-md-5.col-md-offset-1
       %h3 Equipment
@@ -241,6 +242,27 @@
         - if @classroom.captioning_device
           .fa.fa-check
 
+      %hr
+      %i.fa.fa-desktop{"aria-hidden" => "true"}
+      %b Computer Classroom:
+
+      %ul
+
+        %li
+          %i.fa.fa-power-off{"aria-hidden" => "true"}
+          %a{ "data-original-title" => "Room contains either PC or MAC computers at each student workstation.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.computer_classroom_any) }Computer Classroom Any
+          - if @classroom.computer_classroom_any
+            .fa.fa-check
+        %li
+          %i.fa.fa-apple{"aria-hidden" => "true"}
+          %a{ "data-original-title" => "Room contains Mac computers at each student workstation.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.computer_classroom_mac) }Computer Classroom Mac
+          - if @classroom.computer_classroom_mac
+            .fa.fa-check
+        %li
+          %i.fa.fa-windows{"aria-hidden" => "true"}
+          %a{ "data-original-title" => "Room contains PC computers at each student workstation.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.computer_classroom_windows) }Computer Classroom Windows
+          - if @classroom.computer_classroom_windows
+            .fa.fa-check
       %hr
       %i.fa.fa-laptop{"aria-hidden" => "true"}
 

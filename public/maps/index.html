@@ -1,37 +1,329 @@
 <!DOCTYPE html>
 <head>
-<title>Central Campus</title>
+<title>Map-Central Campus</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
-img{margin:5%;}
+
+body{font-family:Arial, Helvetica, sans-serif; background-color:ivory;}
+
+h1{
+ position:relative;
+ display:inline-block;
+ left:0;
+ top:0;
+ margin:0;
+ font-size:x-large;
+ vertical-align:bottom;
+ padding-bottom:.3%;
+ width:45%;
+}
+
+a:link{text-decoration:none;}
+a:hover{text-decoration:underline;}
+
+a.bld{z-index:1;position:absolute;}
+a.bld:focus{
+ opacity:1;
+ border: double thick brown;
+}
+a.bld:hover{
+ opacity:1;
+ border: double thick brown;
+}
+
+.text{
+ display:inline-block;
+ font-size:x-large;
+ font-weight:bold;
+ position:absolute;
+ right:0;
+ top:0;
+ margin:0;
+ padding-bottom:.3%;
+ vertical-align:bottom;
+ text-align:end;
+ width:45%;
+}
+
+
+#nav{
+position:absolute;
+right:0px;
+margin-top:6%;
+z-index:5;
+text-align:center;
+background-color: rgba(255,255,255,0.8);
+width:45%;
+height:auto;
+display:none;
+border: thin solid black;
+}
+
+.page{
+  max-width:800px;
+  height:100%;
+  max-height:800px;
+  margin:auto;
+  display:block;
+  position:relative;
+}
+
+#scrollbox{
+  position:relative;
+  max-height:800px;
+  width:95%;
+  height:95%;
+  overflow:auto;
+  border:solid black;
+  margin:auto;
+}
+#fpbox{
+  position:relative;
+  overflow:visible;
+  width:100%;
+}
+#fp{
+  position:relative;
+  width:100%;
+}
+
+  @media only screen and (max-height:900px) {
+   .page{
+     margin:auto;
+     max-height:800px;
+   }
+   #scrollbox{
+     position:relative;
+     max-height:700px;
+     width:95%;
+     height:90%;
+     overflow:auto;
+     border:solid black;
+     margin:auto;
+   }
+  }
+  @media only screen and (max-height:800px) {
+   .page{
+     margin:auto;
+     max-height:700px;
+   }
+   #scrollbox{
+     position:relative;
+     max-height:600px;
+     width:95%;
+     height:90%;
+     overflow:auto;
+     border:solid black;
+     margin:auto;
+   }
+  }
+  @media only screen and (max-height:700px) {
+   .page{
+     margin:auto;
+     max-height:600px;
+   }
+   #scrollbox{
+     position:relative;
+     max-height:500px;
+     width:95%;
+     height:90%;
+     overflow:auto;
+     border:solid black;
+     margin:auto;
+   }
+  }
+
+@media only screen and (max-width:600px){
+  .text{
+    display:inline;
+    width:50%;
+    font-size:small;
+    font-weight:bold;
+    position:relative;
+    float:right;
+    text-align:end;
+    padding:0%;
+  }
+  h1{
+    position:relative;
+    display:inline;
+    width:45%;
+    float:left;
+    font-size:small;
+    padding:.3%;
+  }
+  @media only screen and (orientation:portrait) {
+    .page{
+     width:100%;
+     max-width:300px;
+     margin:auto;
+   }
+   #scrollbox{
+     position:relative;
+     width:98%;
+     max-height:400px;
+     margin:auto;
+     overflow:auto;
+     border:solid black;
+     margin:auto;
+   }
+  }
+  @media only screen and (orientation:landscape) {
+   .page{
+     width:100%;
+     max-width:510px;
+     margin:auto;
+   }
+   #scrollbox{
+     position:relative;
+     width:100%;
+     max-width:510px;
+     max-height:190px;
+     overflow:auto;
+     border:solid black;
+     margin:auto;
+   }
+  }
+}
+
+
+
+/* padding and positions for all the links normal screen size */
+
+a.agrmu{padding:5% 6.5%; top:30.5%; right:6.5%;}
+
+a.ah{padding:5%; top:49%; left:20%;}
+
+a.bsb{padding:5% 9%; top:22.5%; right:4.3%;}
+
+a.chem{padding:6.5% 11%; top:31%; left:46%}
+
+a.eh{padding:7% 5%; bottom:35%; right:16%;}
+
+a.eq{padding:12% 6%; bottom:3.5%; right:14%;}
+
+a.hh{padding:5% 3%; top:48.5%; left:32%;}
+
+a.lorch{padding:6%; bottom:15%; left:45%;}
+
+a.lsa{padding:7% 5%; bottom:40.5%; left:2%;}
+
+a.mh{padding:4.5%; top:42%; left:25.7%;}
+
+a.mlb{padding:6% 4%; top:13%; left:30%;}
+
+a.nq{padding:6% 8%; top:4%; left:15%;}
+
+a.ns{padding:6%; top:32%; left:30%;}
+
+a.nub{padding:7.5% 5%;  top:36.5%; right:17.5%;}
+
+a.rand{padding:5.5%; top:44%; right:30%;}
+
+a.seb{padding:7.5% 7%; bottom:16%; right:26%;}
+
+a.stb{padding:5.5% 4%; top:13%; left:20%;}
+
+a.tap{padding:5% 4%; bottom:34.5%; left:30%;}
+
+a.usb{padding:6% 8%; top:13.3%; right:8.8%;}
+
+a.weis{padding:6%; bottom:45%; right:16%;}
+
+a.wh{padding:9% 3.5%; bottom:35%; right:31%;}
+
 </style>
 </head>
+
 <body>
-<img src="diag.jpg" alt="Map of central campus" width="672" height="1000" usemap="#diag" />
 
-<map name="diag" id="diag">
+<div class="page">
 
-<area shape="rect" coords="483,475,573,549" href="weis1.html" tabindex="14" alt="Weiser Hall, ground floor" title="to Weiser - ground">
-<area shape="rect" coords="83,30,213,130" href="nq2.html" tabindex="1" alt="North Quad, 2nd floor, ground" title="to NQ - 2nd floor (ground)">
-<area shape="rect" coords="132,129,195,179" href="stb1.html" tabindex="2" alt="South Thayer Building, ground floor" title="to S. Thayer Bldg. - ground">
-<area shape="rect" coords="199,130,269,228" href="mlb1.html" tabindex="3" alt="the Modern Language Building, ground floor" title="to MLB - ground">
-<area shape="poly" coords="490,136,492,237,531,235,618,170,623,130" href="usb1.html" tabindex="4" alt="the Undergraduate Science Building, first floor, plaza level" title="to USB - 1st (plaza) level">
-<area shape="rect" coords="199,316,287,413" href="ns1.html" tabindex="5" title="Kraus, ground floor" alt="Kraus, ground floor">
-<area shape="rect" coords="311,313,469,410" href="chem1.html" tabindex="6" alt="Chemistry, ground floor" title="to Chem - ground">
-<area shape="poly" coords="504,356,475,368,478,475,525,474,568,419" href="nub1.html" tabindex="8" alt="North University Building, ground floor" title="to NUB - ground">
-<area shape="poly" coords="527,300,515,326,564,381,632,376,629,300" href="agrmu1.html" tabindex="7" alt="Ruthven Museum, ground floor" title="to Ruthven - 1st floor (ground)">
-<area shape="rect" coords="493,548,570,647" href="eh1.html" tabindex="17" alt="East Hall, ground floor" title="to EH - ground">
-<area shape="poly" coords="387,450,389,571,416,573,416,509,472,509,461,451" href="rand4.html" tabindex="13" alt="Randall Laboratory, fourth floor, department room" title="to Randall - 4th floor dept room">
-<area shape="rect" coords="209,490,249,570" href="hhg.html" tabindex="12" alt="Haven Hall, ground floor" title="to Haven - ground">
-<area shape="rect" coords="16,506,97,607" href="lsa3.html" tabindex="9" alt="Literature, Science, and the Arts building, third floor" title="to LSA - 3rd floor">
-<area shape="rect" coords="490,794,580,973" href="eq1.html" tabindex="20" alt="East Quad, ground floor" title="to 1st floor (ground) East Quad">
-<area shape="rect" coords="199,591,239,660" href="tap1.html" tabindex="15" alt="Tappan Hall, first floor" title="to 1st floor Tappan">
-<area shape="poly" coords="142,568,207,570,206,491,169,491,171,412,136,413" href="ahg.html" tabindex="10" alt="Angell and Tisch Halls, ground floor" title="to Angell - ground">
-<area shape="rect" coords="175,418,244,489" href="mhg.html" tabindex="11" alt="Mason Hall, ground floor" title="to Mason - ground">
-<area shape="rect" coords="393,741,483,836" href="seb1.html" tabindex="19" alt="the School of Education Building, ground floor" title="to SEB - ground">
-<area shape="poly" coords="393,620,416,577,418,510,480,510,477,649,393,650" href="wh1.html" tabindex="16" title="to WH - ground" alt="West Hall, ground floor">
-<area shape="rect" coords="305,773,388,844" href="lorch1.html" tabindex="18" title="to lorch-ground" alt="Lorch Hall, ground floor">
+<h1>Central Campus</h1>
 
-</map>
+<p class="text">
+<a href="/" alt="back to the MClassrooms Home Page" title="back to MClassrooms" tabindex="22">MClassrooms Home Page</a>
+</p>
+
+<!-- floor plan -->
+
+<div id="scrollbox">
+<div id="fpbox">
+<img id="fp" src="diag.jpg" alt="a drawing central campus" />
+
+<!-- links to buildings  -->
+
+<a class="bld agrmu" href="agrmu1.html" tabindex="8" alt="to the ground floor of the Ruthven Museums Building" title="to Ruthven ground floor">
+</a>
+
+<a class="bld ah" href="ah.html" tabindex="11" alt="to the ground floor of the Angell and Tisch Hall complex" title="to Angell/Tisch ground floor">
+</a>
+
+<a class="bld bsb" href="bsb1.html" tabindex="5" alt="to the ground floor of the Biological Sciences Building" title="to Bio. Science Bldg. ground floor">
+</a>
+
+<a class="bld chem" href="chem1.html" tabindex="7" alt="to the ground floor of Chemistry" title="to Chemistry ground floor">
+</a>
+
+<a class="bld eh" href="eh1.html" tabindex="18" alt="to the ground floor of the East Hall" title="to East Hall ground floor">
+</a>
+
+<a class="bld eq" href="eq1.html" tabindex="21" alt="to the ground floor of the East Quad" title="to East Quad ground floor">
+</a>
+
+<a class="bld hh" href="hh1.html" tabindex="12" alt="to the ground floor of the Haven, Angell, and Tisch Hall complex" title="to Haven/Angell/Tisch ground floor">
+</a>
+
+<a class="bld lorch" href="hh1.html" tabindex="19" alt="to the ground floor of the Lorch Hall" title="to Lorch ground floor">
+</a>
+
+<a class="bld lsa" href="lsa3.html" tabindex="15" alt="to the third floor of the literature, science, and the arts building" title="to LSA third floor">
+</a>
+
+<a class="bld mh" href="mhg.html" tabindex="10" alt="to the ground floor of the Mason Hall complex" title="to Mason ground floor">
+</a>
+
+<a class="bld mlb" href="mlb1.html" tabindex="3" alt="the ground floor of the Modern Language Building" title="to MLB ground">
+</a>
+
+<a class="bld nq" href="nq2.html" tabindex="1" alt="to the second floor, which is the ground floor, of North Quad" title="to North Quad 2nd floor, ground">
+</a>
+
+<!-- Under Renovation ---
+<a class="bld ns" href="ns1.html" tabindex=6" alt="to the ground floor of Kraus" title="to Kraus ground floor">
+</a>
+-->
+
+<a class="bld nub" href="nub1.html" tabindex="9" alt="to the ground floor of the North University Building" title="to NUB ground floor">
+</a>
+
+<a class="bld rand" href="rand4.html" tabindex="12" alt="to the fourth floor of Randall Laboratories" title="to Randall Lab fourth floor">
+</a>
+
+<a class="bld seb" href="seb1.html" tabindex="20" alt="to the ground floor of the School of Education Building" title="to the School of Education ground floor">
+</a>
+
+<a class="bld stb" href="stb1.html" tabindex="2" alt="to the ground floor of the South Thayer Building" title="to South Thayer Bldg ground floor">
+</a>
+
+<a class="bld tap" href="tap1.html" tabindex="16" alt="to the ground floor of Tappan Hall" title="to Tappan Hall ground floor">
+</a>
+
+<a class="bld usb" href="usb1.html" tabindex="4" alt="to the first floor, plaza level of the Undergraduate Science Building" title="to USB plaza level">
+</a>
+
+<a class="bld weis" href="weis1.html" tabindex="14" alt="to the ground floor of Weiser Hall" title="to Weiser Hall ground floor">
+</a>
+
+<a class="bld wh" href="wh1.html" tabindex="17" alt="to the ground floor of west hall" title="to West Hall ground floor">
+</a>
+
+</div>
+</div>
+
+</div>
 
 </body>
 </html>

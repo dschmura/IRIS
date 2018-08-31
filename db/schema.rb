@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160328134208) do
+ActiveRecord::Schema.define(version: 20180831150309) do
 
   create_table "assets", force: :cascade do |t|
     t.integer  "location_id"
@@ -93,6 +93,9 @@ ActiveRecord::Schema.define(version: 20160328134208) do
     t.string   "DEPT_GRP",                        limit: 255
     t.boolean  "sound_amplification_voice"
     t.string   "building_short_code"
+    t.boolean  "team_tables"
+    t.boolean  "team_technology"
+    t.boolean  "team_writing_surface"
   end
 
   create_table "locations", force: :cascade do |t|
