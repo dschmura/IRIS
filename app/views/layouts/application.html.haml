@@ -12,7 +12,9 @@
 
     = javascript_include_tag "application", "data-turbolinks-track" => true
     -#= javascript_include_tag "https://maps.google.com/maps/api/js?sensor=true"
-    = javascript_include_tag "https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true"
+    %script{:async => "", :defer => "defer", :src => "https://maps.googleapis.com/maps/api/js?key=AIzaSyDanqx5Jg7UKmeh9tTVeV6ovANhFhxOFhk&callback=initMap", :type => "text/javascript"}
+
+    -# = javascript_include_tag "https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true"
 
     = csrf_meta_tags
 
