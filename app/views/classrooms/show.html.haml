@@ -109,13 +109,14 @@
         - if @classroom.layout_tiered
           .fa.fa-check
 
+      %br
       %hr
       %i.fa.fa-handshake-o{"aria-hidden" => "true"}
+      %a{ "data-original-title" => "Team Learning", "data-placement" => "right", rel: "tooltip", target: "_blank"}
         %b Team Learning:
+
       %br
-
       %ul
-
         %li
         %a{ "data-original-title" => "Room has tables arranged for students to work in groups. Tables may or may not be moveable, room may feature turn-to-team tables.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.team_tables) }
           Team Tables
