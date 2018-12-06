@@ -1,18 +1,260 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Haven Hall - 7th floor</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Haven Hall Seventh Floor</title>
+
+<style>
+
+/* css common to all pages */
+
+body{
+font-family:Arial, Helvetica, sans-serif;
+background-color:ivory;
+}
+
+#nav{
+position:absolute;
+right:0px;
+margin-top:0%;
+z-index:5;
+text-align:center;
+background-color: rgba(255,255,255,0.8);
+width:45%;
+height:auto;
+display:none;
+border: thin solid black;
+}
+
+hr{
+width:80%;
+color:lightgrey;
+}
+
+button{
+ position:absolute;
+ display:inline-block;
+ right:0;
+ top:0;
+ margin:0% 0% 1% 0%;
+ font-size:large;
+}
+button.closenav{
+ display:none;
+}
+
+h1{
+ position:relative;
+ display:inline-block;
+ left:0;
+ top:0;
+ margin: 0% 0% 1% 0%;
+ font-size:x-large;
+ width:45%;
+}
+
+.text{
+ display:block;
+ font-size:x-large;
+ font-weight:bold;
+ position:relative;
+ text-align:center;
+ padding-bottom:1%;
+}
+.navlabel{
+ display:block;
+ font-size:large;
+ font-weight:bold;
+ position:relative;
+ text-align:center;
+ padding-bottom:1%;
+}
+
+a:link{text-decoration:none;}
+a:hover{text-decoration:underline;}
+
+a.bld{z-index:1;position:absolute;}
+a.bld:focus{
+ opacity:1;
+ border: double thick brown;
+}
+a.bld:hover{
+ opacity:1;
+ border: double thick brown;
+}
+a.rm{position:absolute;z-index:1;}
+a.rm:focus{
+ opacity:1;
+ border: double thick cyan;
+}
+a.rm:hover{
+ opacity:1;
+ border: double thick cyan;
+}
+
+.page{
+  max-width:800px;
+  height:auto;
+  margin:auto;
+  position:relative;
+}
+
+#scrollbox{
+  position:relative;
+  width:100%;
+  max-height:800px;
+  overflow:auto;
+  border:solid black;
+  margin:auto;
+}
+
+#fp{
+  position:relative;
+  width:100%;
+}
+
+@media only screen and (max-width:800px) {
+  h1{font-size:large;}
+  .text{font-size:large;}
+  .navlabel{font-size:medium;}
+}
+@media only screen and (max-height:900px) {
+  #scrollbox{height:700px;}
+}
+@media only screen and (max-height:800px) {
+  #scrollbox{height:600px;}
+}
+
+/* end common */
+
+/* css unique to this page */
+
+#fpbox{
+  position:relative;
+  overflow:visible;
+  width:60%;
+  margin:auto;
+}
+
+@media only screen and (max-width:600px){
+  h1{font-size:small;}
+  .text{font-size:small;}
+  .navlabel{font-size:x-small;}
+  button{font-size:small;}
+  @media only screen and (orientation:portrait){
+     #scrollbox{height:400px;}
+     #fpbox{width:100%;}
+     #nav{width:60%}
+  }
+  @media only screen and (orientation:landscape){
+    #scrollbox{height:250px;}
+    #fpbox{width:60%;}
+  }
+}
+
+/* padding and positions for all the links */
+
+a.hh7603{padding:11% 16%; top:.5%; right:14%;}
+
+</style>
 </head>
+
+<html lang="en">
 <body>
-<img src="hh7.jpg" alt="image 7th floor Haven" width="395" height="700" hspace="50" border="0" usemap="#hh7" />
-<map name="hh7" id="hh7">
-  <area shape="rect" coords="18,398,83,418" href="hh2.html" alt="to 2nd floor" title="to 2nd floor" />
-  <area shape="rect" coords="284,9,365,82" href="../classrooms/HH7603" alt="link to data room 7603" title="link to data room 7603" />
-  <area shape="rect" coords="9,315,137,335" href="index.html" alt="to campus map" title="to campus map" />
-  <area shape="rect" coords="111,289,137,307" href="hh5.html" alt="to 5th floor" title="to 5th floor" />
-  <area shape="rect" coords="75,290,101,308" href="hh3.html" alt="to 3rd floor" title="to 3rd floor" />
-  <area shape="rect" coords="10,288,61,309" href="hhg.html" alt="to ground floor" title="to ground floor" />
-</map>
+
+<div class="page">
+
+<h1>Haven Hall Seventh Floor</h1>
+
+<button type="button" id="navButt" tabindex="1" title="click to open navagation links" aria-label="click to open navagation links">Navigate Floor Plans</button>
+<button class="closenav" type="button" id="closeNavButt" tabindex="1" title="click to close navagation links" aria-label="click to close navagation links">Close Navigation</button>
+
+<div id="nav">
+<p class="text">
+<a href="hhg.html" tabindex="4" title="to the ground floor" aria-label="to the ground floor of Haven Hall">
+Ground Floor</a>
+</p>
+<p class="text">
+<a href="hh1.html" tabindex="5" title="to the first floor" aria-label="to the first floor of Haven Hall">
+First Floor</a>
+</p>
+<p class="text">
+<a href="hh2.html" tabindex="6" title="to the second floor" aria-label="to the second floor of Haven Hall">
+Second Floor</a>
+</p>
+<p class="text">
+<a href="hh3.html" tabindex="7" title="to the third floor" aria-label="to the third floor of Haven Hall">
+Third Floor</a>
+</p>
+
+<p class="navlabel">Upper floors with classrooms</p>
+
+<p class="text">
+<a href="hh5.html" tabindex="10" title="to the fifth floor" aria-label="to the fifth floor of Haven Hall">
+Fifth Floor</a>
+</p>
+
+<p class="text" style="color:gray;" tabindex="12" aria-label="this is the seventh floor of Haven Hall">you are on the seventh floor</p>
+
+<hr aria-hidden="true">
+<p class="navlabel">There is no seventh floor of Angell</p>
+<p class="navlabel">There is no seventh floor of Mason</p>
+<hr aria-hidden="true">
+<p class="text">
+<a href="index.html" tabindex="20" title="to the central campus map" aria-label="to the central campus map">
+Central Campus</a>
+</p>
+<p class="text">
+<a href="rooms.lsa.umich.edu.html" tabindex="22" title="to the MClassrooms home page" aria-label="to the M classrooms Home Page">
+MClassrooms Home</a>
+</p>
+
+</div>
+
+<!-- floor plan -->
+<div id="scrollbox">
+<div id="fpbox">
+<img id="fp" src="hh7.jpg" alt="Drawing of the seventh floor of Haven Hall" />
+
+<!-- links to classroom data  -->
+
+<a class="rm hh7603" href="../classrooms/HH5521" tabindex="30" title="to information for 7603 Haven" aria-label="to information about room seven six zero three, haven hall"></a>
+
+</div>
+</div>
+</div>
+
 </body>
 </html>
+
+<script>
+
+window.onload=function scrolldown() {
+    var elmnt = document.getElementById("scrollbox");
+    elmnt.scrollLeft = 0;
+    elmnt.scrollTop = 0;
+}
+
+document.getElementById("navButt").onclick = function() {showNav()};
+document.getElementById("closeNavButt").onclick = function() {hideNav()};
+
+function showNav(){
+   document.getElementById("nav").style.display = "block";
+   document.getElementById("navButt").style.display = "none";
+   document.getElementById("closeNavButt").style.display = "inline-block";
+}
+function hideNav(){
+   document.getElementById("nav").style.display = "none";
+   document.getElementById("navButt").style.display = "inline-block";
+   document.getElementById("closeNavButt").style.display = "none";
+}
+
+document.onkeyup = function(e){
+   if (e.key=='Escape'||e.key=='Esc'||e.keyCode==27){
+      document.getElementById("nav").style.display = "none";
+      document.getElementById("closeNavButt").style.display = "none";
+      document.getElementById("navButt").style.display = "inline-block";
+   }
+}
+
+</script>

@@ -1,33 +1,273 @@
 <!DOCTYPE html>
 <head>
-<title>Mason Hall - 1st floor</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mason Complex First Floor</title>
+
 <style>
-#blgname{font-family:Verdana, Geneva, sans-serif; font-size:x-large; top:50px; margin-left:50px;}
-img{padding:5px;}
-a{font-family:Verdana, Geneva, sans-serif; font-size:large; font-weight:bold; position:absolute; z-index:1;}
+
+/* css common to all pages */
+
+body{
+font-family:Arial, Helvetica, sans-serif;
+background-color:ivory;
+}
+
+#nav{
+position:absolute;
+right:0px;
+margin-top:0%;
+z-index:5;
+text-align:center;
+background-color: rgba(255,255,255,0.8);
+width:45%;
+height:auto;
+display:none;
+border: thin solid black;
+}
+
+hr{
+width:80%;
+color:lightgrey;
+}
+
+button{
+ position:absolute;
+ display:inline-block;
+ right:0;
+ top:0;
+ margin:0% 0% 1% 0%;
+ font-size:large;
+}
+button.closenav{
+ display:none;
+}
+
+h1{
+ position:relative;
+ display:inline-block;
+ left:0;
+ top:0;
+ margin: 0% 0% 1% 0%;
+ font-size:x-large;
+ width:45%;
+}
+
+.text{
+ display:block;
+ font-size:x-large;
+ font-weight:bold;
+ position:relative;
+ text-align:center;
+ padding-bottom:1%;
+}
+.navlabel{
+ display:block;
+ font-size:large;
+ font-weight:bold;
+ position:relative;
+ text-align:center;
+ padding-bottom:1%;
+}
+
 a:link{text-decoration:none;}
-a:hover{text-decoration:underline}
+a:hover{text-decoration:underline;}
+
+a.bld{z-index:1;position:absolute;}
+a.bld:focus{
+ opacity:1;
+ border: double thick brown;
+}
+a.bld:hover{
+ opacity:1;
+ border: double thick brown;
+}
+a.rm{position:absolute;z-index:1;}
+a.rm:focus{
+ opacity:1;
+ border: double thick cyan;
+}
+a.rm:hover{
+ opacity:1;
+ border: double thick cyan;
+}
+
+.page{
+  max-width:800px;
+  height:auto;
+  margin:auto;
+  position:relative;
+}
+
+#scrollbox{
+  position:relative;
+  width:100%;
+  max-height:800px;
+  overflow:auto;
+  border:solid black;
+  margin:auto;
+}
+
+#fp{
+  position:relative;
+  width:100%;
+}
+
+@media only screen and (max-width:800px) {
+  h1{font-size:large;}
+  .text{font-size:large;}
+  .navlabel{font-size:medium;}
+}
+@media only screen and (max-height:900px) {
+  #scrollbox{height:700px;}
+}
+@media only screen and (max-height:800px) {
+  #scrollbox{height:600px;}
+}
+
+/* end common */
+
+/* css unique to this page */
+
+#fpbox{
+  position:relative;
+  overflow:visible;
+  width:150%;
+}
+
+@media only screen and (max-width:600px){
+  h1{font-size:small;}
+  .text{font-size:small;}
+  .navlabel{font-size:x-small;}
+  button{font-size:small;}
+  @media only screen and (orientation:portrait){
+     #scrollbox{height:400px;}
+     #fpbox{width:160%;}
+     #nav{width:60%}
+   }
+  @media only screen and (orientation:landscape){
+    #scrollbox{height:225px;}
+    #fpbox{width:140%;}
+  }
+}
+
+/* padding and positions for all the links */
+
+a.mh1303{padding:3.5%; top:10%; left:36%;}
+a.mh1339{padding:3.5%; top:9.5%; right:34.3%;}
+a.mh1359{padding:3.5%; top:9.5%; right:26.3%;}
+a.mh1401{padding:6% 3.5%; top:4.5%; right:10.5%;}
+a.mh1427{padding:5.2% 3.5%; top:15%; right:10.5%;}
+a.mh1436{padding:4% 3.5%; top:23%; right:20%;}
+a.mh1437{padding:3.5%; top:24%; right:10.5%;}
+a.mh1448{padding:3.5%; top:30%; right:20%;}
+a.mh1449{padding:5.3% 3.5%; top:30%; right:10.5%;}
+a.mh1460{padding:4% 3.5%; top:36%; right:20%;}
+a.mh1469{padding:4% 3.5%; top:39%; right:10.5%;}
+
 </style>
 </head>
+
+<html lang="en">
 <body>
-<p id="blgname"><b>First Floor Mason Hall</b></p>
-<img src="mh1.jpg" alt="Image of the first floor Mason Hall" border="0" usemap="#mh1" />
-<a style="left:111px; top:60px;" href="mhg.html" title="link to ground floor" alt="link to ground floor">link to ground floor</a>
-<a style="left:111px; top:90px;" href="mh2.html" title="link to second floor" alt="link to second floor">link to second floor</a>
-<a style="left:111px; top:120px;" href="mh3.html" title="link to second floor" alt="link to third floor">link to third floor</a>
-<a style="left:89px; top:150px;" href="index.html"  alt="link campus map" title="link to campus map">link to campus map</a>
-<map name="mh1" id="mh1">
-  <area shape="rect" coords="74,173,184,273" href="../classrooms/MH1303" target="_self" alt="Link to data room 1303" title="Link to data room 1303" />
-  <area shape="poly" coords="457,149,339,145,334,263,493,264,494,231,457,229" href="../classrooms/MH1339" target="_self" alt="Link to data room 1339" title="Link to data room 1339" />
-  <area shape="poly" coords="457,148,460,225,496,228,495,263,583,264,582,151" href="../classrooms/MH1359" target="_self" alt="Link to data room 1359" title="Link to data room 1359" />
-  <area shape="rect" coords="676,100,755,248" href="../classrooms/MH1401" target="_self" alt="Link to data room 1401" title="Link to data room 1401" />
-  <area shape="rect" coords="677,249,752,394" href="../classrooms/MH1427" target="_self" alt="Link to data room 1427" title="Link to data room 1427" />
-  <area shape="rect" coords="555,394,634,491" href="../classrooms/MH1436" target="_self" alt="Link to data room 1436" title="Link to data room 1436" />
-  <area shape="rect" coords="678,395,754,494" href="../classrooms/MH1437" target="_self" alt="Link to data room 1437" title="Link to data room 1437" />
-  <area shape="rect" coords="556,491,636,589" href="../classrooms/MH1448" target="_self" alt="Link to data room 1448" title="Link to data room 1448" />
-  <area shape="rect" coords="679,493,756,641" href="../classrooms/MH1449" target="_self" alt="Link to data room 1449" title="Link to data room 1449" />
-  <area shape="rect" coords="556,591,635,692" href="../classrooms/MH1460" target="_self" alt="Link to data room 1460" title="Link to data room 1460" />
-  <area shape="rect" coords="678,641,755,742" href="../classrooms/MH1469" target="_self" alt="Link to data room 1469" title="Link to data room 1469" />
-</map>
+
+<div class="page">
+
+<h1>Mason Complex First Floor</h1>
+
+<button type="button" id="navButt" tabindex="1" title="click to open navagation links" aria-label="click to open navagation links">Navigate Floor Plans</button>
+<button class="closenav" type="button" id="closeNavButt" tabindex="1" title="click to close navagation links" aria-label="click to close navagation links">Close Navigation</button>
+
+<div id="nav">
+<p class="text">
+<a href="mhg.html" tabindex="4" title="to the ground floor" aria-label="to the ground floor of mason hall">
+Ground Floor</a>
+</p>
+<p class="text" style="color:gray;" tabindex="5" aria-label="this is the first floor of mason hall">you are on the first floor</p>
+<p class="text">
+<a href="mh2.html" tabindex="6" title="to the second floor" aria-label="to the second floor of mason hall">
+Second Floor</a>
+</p>
+<p class="text">
+<a href="mh3.html" tabindex="7" title="to the third floor" aria-label="to the third floor of mason hall">
+Third Floor</a>
+</p>
+<hr aria-hidden="true">
+<p class="text">
+<a href="ah1.html" tabindex="10" title="to Angell Hall, first floor" aria-label="to the first floor of Angell Hall">
+Angell Hall</a>
+</p>
+<p class="text">
+<a href="hh1.html" tabindex="12" title="to Haven Hall, first floor" aria-label="to the first floor of Haven Hall">
+Haven Hall</a>
+</p>
+<hr aria-hidden="true">
+<p class="text">
+<a href="index.html" tabindex="18" title="to the central campus map" aria-label="to the central campus map">
+Central Campus</a>
+</p>
+<p class="text">
+<a href="/" tabindex="20" title="to the MClassrooms home page" aria-label="to the M Classrooms Home Page">
+MClassrooms Home</a>
+</p>
+
+</div>
+
+<!-- floor plan -->
+<div id="scrollbox">
+<div id="fpbox">
+<img id="fp" src="ahplex1.jpg" alt="Drawing of the first floor of the Mason Hall Complex" />
+
+<!-- links to classroom data  -->
+
+<a class="rm mh1303" href="../classrooms/MH1303" tabindex="30" title="to information for 1303 Mason" aria-label="to information about room one three zero three, mason hall"></a>
+<a class="rm mh1339" href="../classrooms/MH1339" tabindex="35" title="to information for 1339 Mason" aria-label="to information about room one three three nine, mason hall"></a>
+<a class="rm mh1359" href="../classrooms/MH1359" tabindex="40" title="to information for 1359 Mason" aria-label="to information about room one three five nine, mason hall"></a>
+<a class="rm mh1401" href="../classrooms/MH1401" tabindex="45" title="to information for 1401 Mason" aria-label="to information about room one four zero one, mason hall"></a>
+<a class="rm mh1427" href="../classrooms/MH1427" tabindex="50" title="to information for 1427 Mason" aria-label="to information about room one four two seven, mason hall"></a>
+<a class="rm mh1436" href="../classrooms/MH1436" tabindex="55" title="to information for room 1436 Mason" aria-label="to information about room one four three six, mason hall"></a>
+<a class="rm mh1437" href="../classrooms/MH1437" tabindex="60" title="to information for room 1437 Mason" aria-label="to information about room one four three seven, mason hall"></a>
+<a class="rm mh1448" href="../classrooms/MH1448" tabindex="65" title="to information for room 1448 Mason" aria-label="to information about room one four four eight, mason hall"></a>
+<a class="rm mh1449" href="../classrooms/MH1449" tabindex="70" title="to information for room 1449 Mason" aria-label="to information about room one four four nine, mason hall"></a>
+<a class="rm mh1460" href="../classrooms/MH1460" tabindex="75" title="to information for room 1460 Mason" aria-label="to information about room one four six zero, mason hall"></a>
+<a class="rm mh1469" href="../classrooms/MH1469" tabindex="80" title="to information for room 1469 Mason" aria-label="to information about room one four six nine, mason hall"></a>
+
+</div>
+</div>
+</div>
+
 </body>
 </html>
+
+<script>
+
+window.onload=function scrolldown() {
+    var elmnt = document.getElementById("scrollbox");
+    elmnt.scrollLeft = 1000;
+    elmnt.scrollTop = 0;
+}
+
+document.getElementById("navButt").onclick = function() {showNav()};
+document.getElementById("closeNavButt").onclick = function() {hideNav()};
+
+function showNav(){
+   document.getElementById("nav").style.display = "block";
+   document.getElementById("navButt").style.display = "none";
+   document.getElementById("closeNavButt").style.display = "inline-block";
+}
+function hideNav(){
+   document.getElementById("nav").style.display = "none";
+   document.getElementById("navButt").style.display = "inline-block";
+   document.getElementById("closeNavButt").style.display = "none";
+}
+
+document.onkeyup = function(e){
+   if (e.key=='Escape'||e.key=='Esc'||e.keyCode==27){
+      document.getElementById("nav").style.display = "none";
+      document.getElementById("closeNavButt").style.display = "none";
+      document.getElementById("navButt").style.display = "inline-block";
+   }
+}
+
+</script>
+

@@ -1,21 +1,264 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Maps - AH floor 4</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Angell Hall Fourth Floor</title>
+
+<style>
+
+/* css common to all pages */
+
+body{
+font-family:Arial, Helvetica, sans-serif;
+background-color:ivory;
+}
+
+#nav{
+position:absolute;
+right:0px;
+margin-top:0%;
+z-index:5;
+text-align:center;
+background-color: rgba(255,255,255,0.8);
+width:45%;
+height:auto;
+display:none;
+border: thin solid black;
+}
+
+hr{
+width:80%;
+color:lightgrey;
+}
+
+button{
+ position:absolute;
+ display:inline-block;
+ right:0;
+ top:0;
+ margin:0% 0% 1% 0%;
+ font-size:large;
+}
+button.closenav{
+ display:none;
+}
+
+h1{
+ position:relative;
+ display:inline-block;
+ left:0;
+ top:0;
+ margin: 0% 0% 1% 0%;
+ font-size:x-large;
+ width:45%;
+}
+
+.text{
+ display:block;
+ font-size:x-large;
+ font-weight:bold;
+ position:relative;
+ text-align:center;
+ padding-bottom:1%;
+}
+.navlabel{
+ display:block;
+ font-size:large;
+ font-weight:bold;
+ position:relative;
+ text-align:center;
+ padding-bottom:1%;
+}
+
+a:link{text-decoration:none;}
+a:hover{text-decoration:underline;}
+
+a.bld{z-index:1;position:absolute;}
+a.bld:focus{
+ opacity:1;
+ border: double thick brown;
+}
+a.bld:hover{
+ opacity:1;
+ border: double thick brown;
+}
+a.rm{position:absolute;z-index:1;}
+a.rm:focus{
+ opacity:1;
+ border: double thick cyan;
+}
+a.rm:hover{
+ opacity:1;
+ border: double thick cyan;
+}
+
+.page{
+  max-width:800px;
+  height:auto;
+  margin:auto;
+  position:relative;
+}
+
+#scrollbox{
+  position:relative;
+  width:100%;
+  max-height:800px;
+  overflow:auto;
+  border:solid black;
+  margin:auto;
+}
+
+#fp{
+  position:relative;
+  width:100%;
+}
+
+@media only screen and (max-width:800px) {
+  h1{font-size:large;}
+  .text{font-size:large;}
+  .navlabel{font-size:medium;}
+}
+@media only screen and (max-height:900px) {
+  #scrollbox{height:700px;}
+}
+@media only screen and (max-height:800px) {
+  #scrollbox{height:600px;}
+}
+
+/* end common */
+
+/* css unique to this page */
+
+#fpbox{
+  position:relative;
+  overflow:visible;
+  width:70%;
+  margin:auto;
+}
+
+@media only screen and (max-width:600px){
+  h1{font-size:small;}
+  .text{font-size:small;}
+  button{font-size:small;}
+  .navlabel{font-size:x-small;}
+  @media only screen and (orientation:portrait){
+     #scrollbox{height:400px;}
+     #fpbox{width:110%;}
+     #nav{width:60%}
+  }
+  @media only screen and (orientation:landscape){
+    #scrollbox{height:250px;}
+  }
+}
+
+/* padding and positions for all the links */
+
+a.ah4175{padding:12.3% 10%; bottom:2.5%; left:7.5%;}
+a.ah4199{padding:14% 10%; bottom:37%; left:7.5%;}
+a.ah4207{padding:14% 10%; top:23.4%; left:7.5%;}
+a.ah4211{padding:15.3% 10%; top:2%; left:7.5%;}
+
+</style>
 </head>
 
+<html lang="en">
 <body>
-<img src="ah4.jpg" alt="image of the 4th floor Angell Hall" width="675" height="700" border="0" usemap="#ah4" />
-<map name="ah4" id="ah4">
-  <area shape="rect" coords="25,33,96,174" href="../classrooms/AH4211"  alt="Link to data room 4211" />
-  <area shape="rect" coords="26,178,98,307" href="../classrooms/AH4207" alt="Link to data room 4207" />
-  <area shape="rect" coords="26,310,96,437" href="../classrooms/AH4199" alt="Link to data room 4199" />
-  <area shape="rect" coords="25,558,96,678" href="../classrooms/AH4175"  alt="Link to data room 4175" />
-  <area shape="rect" coords="427,166,521,195" href="ah.html"  alt="Link to ground floor" />
-  <area shape="rect" coords="538,165,586,192" href="ah2.html"  alt="Link to 2nd floor" />
-  <area shape="rect" coords="605,165,640,191" href="ah5.html"  alt="Link to 5th floor" />
-  <area shape="rect" coords="420,203,655,233" href="index.html"  alt="Link to campus map" />
-</map>
+
+<div class="page">
+
+<h1>Angell Hall Fourth Floor</h1>
+
+<button type="button" id="navButt" tabindex="1" title="click to open navagation links" aria-label="click to open navagation links">Navigate Floor Plans</button>
+<button class="closenav" type="button" id="closeNavButt" tabindex="1" title="click to close navagation links" aria-label="click to close navagation links">Close Navigation</button>
+
+<div id="nav">
+<p class="text">
+<a href="ah.html" tabindex="4" title="to the ground floor" aria-label="to the ground floor">
+Ground Floor</a>
+</p>
+<p class="text">
+<a href="ah1.html" tabindex="5" title="to the first floor" aria-label="to the first floor">
+First Floor</a>
+</p>
+<p class="text">
+<a href="ah2.html" tabindex="6" title="to the second floor" aria-label="to the second floor">
+Second Floor</a>
+</p>
+<p class="text">
+<a href="ah3.html" tabindex="7" title="to the third floor" aria-label="to the third floor">
+Third Floor</a>
+</p>
+<p class="text" style="color:gray;" tabindex="8" aria-label="this is the fourth floor of Angell Hall">you are on the fourth floor</p>
+<p class="text">
+<a href="ah5.html" tabindex="9" title="to the fifth floor" aria-label="to the fifth floor">
+Fifth Floor</a>
+</p>
+<hr aria-hidden="true">
+<p class="navlabel" tabindex="15" aria-label="there is no fourth floor mason hall">
+There is no 4th floor Mason
+</p>
+<p class="navlabel" tabindex="18" aria-label="there are no classrooms on the fourth floor of haven hall">
+No classrooms on the 4th floor Haven
+</p>
+<hr aria-hidden="true">
+<p class="text">
+<a href="index.html" tabindex="20" title="to the central campus map" aria-label="to the central campus map">
+Central Campus</a>
+</p>
+<p class="text">
+<a href="/" tabindex="22" title="to the MClassrooms home page" aria-label="to the M Classrooms Home Page">
+MClassrooms Home</a>
+</p>
+
+</div>
+
+<!-- floor plan -->
+<div id="scrollbox">
+<div id="fpbox">
+<img id="fp" src="ah4.jpg" alt="Drawing of the fourth floor of Angell Hall" />
+
+<!-- links to classroom data  -->
+
+<a class="rm ah4175" href="../classrooms/AH4175" tabindex="30" title="to information for 4175 Angell" aria-label="to information about room four one seven five, angell hall"></a>
+<a class="rm ah4199" href="../classrooms/AH4199" tabindex="35" title="to information for 4199 Angell" aria-label="to information about room four one nine nine, angell hall"></a>
+<a class="rm ah4207" href="../classrooms/AH4207" tabindex="40" title="to information for 4207 Angell" aria-label="to information about room four two zero seven, angell hall"></a>
+<a class="rm ah4211" href="../classrooms/AH4211" tabindex="45" title="to information for 4211 Angell" aria-label="to information about room four two one one, angell hall"></a>
+
+</div>
+</div>
+</div>
+
 </body>
 </html>
+
+<script>
+
+window.onload=function scrolldown() {
+    var elmnt = document.getElementById("scrollbox");
+    elmnt.scrollLeft = 0;
+    elmnt.scrollTop = 110;
+}
+
+document.getElementById("navButt").onclick = function() {showNav()};
+document.getElementById("closeNavButt").onclick = function() {hideNav()};
+
+function showNav(){
+   document.getElementById("nav").style.display = "block";
+   document.getElementById("navButt").style.display = "none";
+   document.getElementById("closeNavButt").style.display = "inline-block";
+}
+function hideNav(){
+   document.getElementById("nav").style.display = "none";
+   document.getElementById("navButt").style.display = "inline-block";
+   document.getElementById("closeNavButt").style.display = "none";
+}
+
+document.onkeyup = function(e){
+   if (e.key=='Escape'||e.key=='Esc'||e.keyCode==27){
+      document.getElementById("nav").style.display = "none";
+      document.getElementById("closeNavButt").style.display = "none";
+      document.getElementById("navButt").style.display = "inline-block";
+   }
+}
+
+</script>

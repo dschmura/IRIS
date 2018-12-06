@@ -2,7 +2,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Haven Complex Fifth Floor</title>
+<title>Haven Complex First Floor</title>
 
 <style>
 
@@ -132,8 +132,7 @@ a.rm:hover{
 #fpbox{
   position:relative;
   overflow:visible;
-  width:60%;
-  margin:auto;
+  width:150%;
 }
 
 @media only screen and (max-width:600px){
@@ -143,18 +142,28 @@ a.rm:hover{
   button{font-size:small;}
   @media only screen and (orientation:portrait){
      #scrollbox{height:400px;}
-     #fpbox{width:90%;}
+     #fpbox{width:150%;}
      #nav{width:60%}
   }
   @media only screen and (orientation:landscape){
-    #scrollbox{height:250px;}
-    #fpbox{width:50%;}
+    #scrollbox{height:225px;}
+    #fpbox{width:140%;}
   }
 }
 
 /* padding and positions for all the links */
 
-a.hh5521{padding:15%; top:22%; right:11%;}
+a.mh1303{padding:3.5%; top:10%; left:36%;}
+a.mh1339{padding:3.5%; top:9.5%; right:34.3%;}
+a.mh1359{padding:3.5%; top:9.5%; right:26.3%;}
+a.mh1401{padding:6% 3.5%; top:4.5%; right:10.5%;}
+a.mh1427{padding:5.2% 3.5%; top:15%; right:10.5%;}
+a.mh1436{padding:4% 3.5%; top:23%; right:20%;}
+a.mh1437{padding:3.5%; top:24%; right:10.5%;}
+a.mh1448{padding:3.5%; top:30%; right:20%;}
+a.mh1449{padding:5.3% 3.5%; top:30%; right:10.5%;}
+a.mh1460{padding:4% 3.5%; top:36%; right:20%;}
+a.mh1469{padding:4% 3.5%; top:39%; right:10.5%;}
 
 </style>
 </head>
@@ -164,7 +173,7 @@ a.hh5521{padding:15%; top:22%; right:11%;}
 
 <div class="page">
 
-<h1>Haven Complex Fifth Floor</h1>
+<h1>Haven Complex First Floor</h1>
 
 <button type="button" id="navButt" tabindex="1" title="click to open navagation links" aria-label="click to open navagation links">Navigate Floor Plans</button>
 <button class="closenav" type="button" id="closeNavButt" tabindex="1" title="click to close navagation links" aria-label="click to close navagation links">Close Navigation</button>
@@ -174,10 +183,7 @@ a.hh5521{padding:15%; top:22%; right:11%;}
 <a href="hhg.html" tabindex="4" title="to the ground floor" aria-label="to the ground floor of Haven Hall">
 Ground Floor</a>
 </p>
-<p class="text">
-<a href="hh1.html" tabindex="5" title="to the first floor" aria-label="to the first floor of Haven Hall">
-First Floor</a>
-</p>
+<p class="text" style="color:gray;" tabindex="5" aria-label="this is the first floor of Haven Hall">you are on the first floor</p>
 <p class="text">
 <a href="hh2.html" tabindex="6" title="to the second floor" aria-label="to the second floor of Haven Hall">
 Second Floor</a>
@@ -189,25 +195,30 @@ Third Floor</a>
 
 <p class="navlabel">Upper floors with classrooms</p>
 
-<p class="text" style="color:gray;" tabindex="10" aria-label="this is the fifth floor of Haven Hall">you are on the fifth floor</p>
-
+<p class="text">
+<a href="hh5.html" tabindex="10" title="to the fifth floor" aria-label="to the fifth floor of Haven Hall">
+Fifth Floor</a>
+</p>
 <p class="text">
 <a href="hh7.html" tabindex="12" title="to the seventh floor" aria-label="to the seventh floor of Haven Hall">
 Seventh Floor</a>
 </p>
 <hr aria-hidden="true">
 <p class="text">
-<a href="ah5.html" tabindex="15" title="to Angell Fifth floor" aria-label="to the fifth floor of Angell Hall">
+<a href="ah1.html" tabindex="18" title="to Angell Hall, first floor" aria-label="to the first floor of Angell Hall">
 Angell Hall</a>
 </p>
-<p class="navlabel">There is no fifth floor of Mason</p>
+<p class="text">
+<a href="mh1.html" tabindex=20" title="to Mason Hall, first floor" aria-label="to the first floor of Mason Hall">
+Mason Hall</a>
+</p>
 <hr aria-hidden="true">
 <p class="text">
-<a href="index.html" tabindex="20" title="to the central campus map" aria-label="to the central campus map">
+<a href="index.html" tabindex="22" title="to the central campus map" aria-label="to the central campus map">
 Central Campus</a>
 </p>
 <p class="text">
-<a href="rooms.lsa.umich.edu.html" tabindex="22" title="to the MClassrooms home page" aria-label="to the M classrooms Home Page">
+<a href="rooms.lsa.umich.edu.html" tabindex="24" title="to the MClassrooms home page" aria-label="to the M Classrooms Home Page">
 MClassrooms Home</a>
 </p>
 
@@ -216,11 +227,21 @@ MClassrooms Home</a>
 <!-- floor plan -->
 <div id="scrollbox">
 <div id="fpbox">
-<img id="fp" src="hh5.jpg" alt="Drawing of the fifth floor of Haven Hall" />
+<img id="fp" src="ahplex1.jpg" alt="Drawing of the first floor of the Haven Hall Complex" />
 
 <!-- links to classroom data  -->
 
-<a class="rm hh5521" href="../classrooms/HH5521" tabindex="30" title="to information for 5521 Haven" aria-label="to information about room five five two one, haven hall"></a>
+<a class="rm mh1303" href="../classrooms/MH1303" tabindex="30" title="to information for 1303 Mason" aria-label="to information about room one three zero three, mason hall"></a>
+<a class="rm mh1339" href="../classrooms/MH1339" tabindex="35" title="to information for 1339 Mason" aria-label="to information about room one three three nine, mason hall"></a>
+<a class="rm mh1359" href="../classrooms/MH1359" tabindex="40" title="to information for 1359 Mason" aria-label="to information about room one three five nine, mason hall"></a>
+<a class="rm mh1401" href="../classrooms/MH1401" tabindex="45" title="to information for 1401 Mason" aria-label="to information about room one four zero one, mason hall"></a>
+<a class="rm mh1427" href="../classrooms/MH1427" tabindex="50" title="to information for 1427 Mason" aria-label="to information about room one four two seven, haven hall"></a>
+<a class="rm mh1436" href="../classrooms/MH1436" tabindex="55" title="to information for room 1436 Mason" aria-label="to information about room one four three six, mason hall"></a>
+<a class="rm mh1437" href="../classrooms/MH1437" tabindex="60" title="to information for room 1437 Mason" aria-label="to information about room one four three seven, mason hall"></a>
+<a class="rm mh1448" href="../classrooms/MH1448" tabindex="65" title="to information for room 1448 Mason" aria-label="to information about room one four four eight, mason hall"></a>
+<a class="rm mh1449" href="../classrooms/MH1449" tabindex="70" title="to information for room 1449 Mason" aria-label="to information about room one four four nine, mason hall"></a>
+<a class="rm mh1460" href="../classrooms/MH1460" tabindex="75" title="to information for room 1460 Mason" aria-label="to information about room one four six zero, mason hall"></a>
+<a class="rm mh1469" href="../classrooms/MH1469" tabindex="80" title="to information for room 1469 Mason" aria-label="to information about room one four six nine, mason hall"></a>
 
 </div>
 </div>
@@ -233,8 +254,8 @@ MClassrooms Home</a>
 
 window.onload=function scrolldown() {
     var elmnt = document.getElementById("scrollbox");
-    elmnt.scrollLeft = 0;
-    elmnt.scrollTop = 130;
+    elmnt.scrollLeft = 2000;
+    elmnt.scrollTop = 2000;
 }
 
 document.getElementById("navButt").onclick = function() {showNav()};

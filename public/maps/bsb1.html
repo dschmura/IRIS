@@ -6,6 +6,8 @@
 
 <style>
 
+/* css common to all pages */
+
 body{
 font-family:Arial, Helvetica, sans-serif;
 background-color:ivory;
@@ -14,7 +16,7 @@ background-color:ivory;
 #nav{
 position:absolute;
 right:0px;
-margin-top:6%;
+margin-top:0%;
 z-index:5;
 text-align:center;
 background-color: rgba(255,255,255,0.8);
@@ -24,12 +26,21 @@ display:none;
 border: thin solid black;
 }
 
+hr{
+width:80%;
+color:lightgrey;
+}
+
 button{
  position:absolute;
+ display:inline-block;
  right:0;
  top:0;
  margin:0% 0% 1% 0%;
  font-size:large;
+}
+button.closenav{
+ display:none;
 }
 
 h1{
@@ -43,8 +54,16 @@ h1{
 }
 
 .text{
- display:inline-block;
+ display:block;
  font-size:x-large;
+ font-weight:bold;
+ position:relative;
+ text-align:center;
+ padding-bottom:1%;
+}
+.navlabel{
+ display:block;
+ font-size:large;
  font-weight:bold;
  position:relative;
  text-align:center;
@@ -54,6 +73,15 @@ h1{
 a:link{text-decoration:none;}
 a:hover{text-decoration:underline;}
 
+a.bld{z-index:1;position:absolute;}
+a.bld:focus{
+ opacity:1;
+ border: double thick brown;
+}
+a.bld:hover{
+ opacity:1;
+ border: double thick brown;
+}
 a.rm{position:absolute;z-index:1;}
 a.rm:focus{
  opacity:1;
@@ -79,28 +107,34 @@ a.rm:hover{
   border:solid black;
   margin:auto;
 }
-#fpbox{
-  position:relative;
-  overflow:visible;
-  width:200%;
-}
+
 #fp{
   position:relative;
-  z-index:0;
   width:100%;
 }
 
 @media only screen and (max-width:800px) {
   h1{font-size:large;}
   .text{font-size:large;}
-}
-@media only screen and (max-height:1000px) {
-  #fpbox{width:180%;}
+  .navlabel{font-size:medium;}
 }
 @media only screen and (max-height:900px) {
   #scrollbox{height:700px;}
-  #fpbox{width:150%;}
 }
+@media only screen and (max-height:800px) {
+  #scrollbox{height:600px;}
+}
+
+/* end common */
+
+/* css unique to this page */
+
+#fpbox{
+  position:relative;
+  overflow:visible;
+  width:200%;
+}
+
 @media only screen and (max-height:800px) {
   #scrollbox{height:600px;}
   #fpbox{width:120%;}
@@ -120,10 +154,7 @@ a.rm:hover{
   }
 }
 
-
-
-
-/* padding and positions for all the links normal screen size */
+/* padding and positions for all the links */
 
 
 a.bsb1060{padding:10% 12%; top:24%; left:4.5%;}
@@ -134,24 +165,27 @@ a.bsb1110{padding:5%; top:54%; left:34%;}
 </style>
 </head>
 
+<html lang="en">
 <body>
 
 <div class="page">
 
 <h1>Biological Sciences Building</h1>
-<button type="button" id="navButt" tabindex="4" alt="open navigation links">Navigate Floor Plans</button>
+
+<button type="button" id="navButt" tabindex="1" title="click to open navagation links" aria-label="click to open navagation links">Navigate Floor Plans</button>
+<button class="closenav" type="button" id="closeNavButt" tabindex="1" title="click to close navagation links" aria-label="click to close navagation links">Close Navigation</button>
 
 <!--Navigation hidden until button is clicked javascript below body-->
 <div id="nav">
-<p class="text">
+<p class="text"  tabindex="4">
 There are no other floors with classrooms
 </p>
 <p class="text">
-<a href="index.html" tabindex="5" alt="to the central campus map" title="to the central campus map">
+<a href="index.html" tabindex="5" title="to the central campus map" aria-label="to the central campus map">
 To Central Campus Map</a>
 </p>
 <p class="text">
-<a href="/" tabindex="6" alt="to the MClassrooms homepage" title="to the MClassrooms homepage">
+<a href="/" tabindex="6" title="to the MClassrooms home page" aria-label="to the M Classrooms home page">
 To MClassrooms Homepage</a>
 </p>
 </div>
@@ -166,15 +200,8 @@ To MClassrooms Homepage</a>
 
 <!-- links to classroom data -->
 
-<a class="rm bsb1060" href="../classrooms/BSB1060" tabindex="1" alt="to the information for room one zero six zero" title="to room 1060 information">
+<a class="rm bsb1060" href="../classrooms/BSB1060" tabindex="30" title="to information for room 1060 BSB" aria-label="to information about room one zero six zero, biological science building">
 </a>
-
-<!-- removed class labs from MClassrooms ----
-<a class="rm bsb1100" href="../classrooms/BSB1100" tabindex="2" alt="to the information for room one one zero zero" title="to room 1100 information">
-</a>
-<a class="rm bsb1110" href="../classrooms/BSB1110" tabindex="3" alt="to the information for room one one one zero" title="to room 1110 information">
-</a>
--->
 
 </div>
 </div>
@@ -182,17 +209,36 @@ To MClassrooms Homepage</a>
 </div>
 
 </body>
+</html>
 
 <script>
 
+window.onload=function scrolldown() {
+    var elmnt = document.getElementById("scrollbox");
+    elmnt.scrollLeft = 0;
+    elmnt.scrollTop = 0;
+}
+
 document.getElementById("navButt").onclick = function() {showNav()};
+document.getElementById("closeNavButt").onclick = function() {hideNav()};
 
 function showNav(){
-   if (document.getElementById("nav").style.display === "block"){
-      document.getElementById("nav").style.display = "none";
-   }else{
    document.getElementById("nav").style.display = "block";
+   document.getElementById("navButt").style.display = "none";
+   document.getElementById("closeNavButt").style.display = "inline-block";
+}
+function hideNav(){
+   document.getElementById("nav").style.display = "none";
+   document.getElementById("navButt").style.display = "inline-block";
+   document.getElementById("closeNavButt").style.display = "none";
+}
+
+document.onkeyup = function(e){
+   if (e.key=='Escape'||e.key=='Esc'||e.keyCode==27){
+      document.getElementById("nav").style.display = "none";
+      document.getElementById("closeNavButt").style.display = "none";
+      document.getElementById("navButt").style.display = "inline-block";
    }
 }
+
 </script>
-</html>
