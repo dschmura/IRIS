@@ -17,12 +17,12 @@ background-color:ivory;
 position:absolute;
 right:0px;
 margin-top:0%;
+padding:2% 0%;
 z-index:5;
 text-align:center;
-background-color: rgba(255,255,255,0.8);
+background-color: rgba(255,255,255,0.9);
 width:45%;
 height:auto;
-display:none;
 border: thin solid black;
 }
 
@@ -38,9 +38,6 @@ button{
  top:0;
  margin:0% 0% 1% 0%;
  font-size:large;
-}
-button.closenav{
- display:none;
 }
 
 h1{
@@ -59,19 +56,27 @@ h1{
  font-weight:bold;
  position:relative;
  text-align:center;
- padding-bottom:1%;
+ padding:2%;
 }
 .navlabel{
+ color:black;
  display:block;
  font-size:large;
  font-weight:bold;
  position:relative;
  text-align:center;
- padding-bottom:1%;
+ padding:2%;
 }
 
 a:link{text-decoration:none;}
 a:hover{text-decoration:underline;}
+
+a.dead{color:DarkSlateGrey; font-style:oblique;}
+a.dead:hover{text-decoration:none; cursor:default;}
+a.dead:focus{text-decoration:none;}
+
+a.navlabel:hover{text-decoration:none; cursor:default;}
+a.navlabel:focus{text-decoration:none;}
 
 a.bld{z-index:1;position:absolute;}
 a.bld:focus{
@@ -153,10 +158,10 @@ a.rm:hover{
 
 /* padding and positions for all the links */
 
-a.ah4175{padding:12.3% 10%; bottom:2.5%; left:7.5%;}
-a.ah4199{padding:14% 10%; bottom:37%; left:7.5%;}
-a.ah4207{padding:14% 10%; top:23.4%; left:7.5%;}
-a.ah4211{padding:15.3% 10%; top:2%; left:7.5%;}
+a.ah4175{height:17%; width:19%; bottom:2.5%; left:7.5%;}
+a.ah4199{height:18.1%; width:19%; bottom:37.7%; left:7.5%;}
+a.ah4207{height:18.4%; width:19%; top:23.5%; left:7.5%;}
+a.ah4211{height:20.1%; width:19%; top:2%; left:7.5%;}
 
 </style>
 </head>
@@ -165,67 +170,74 @@ a.ah4211{padding:15.3% 10%; top:2%; left:7.5%;}
 <body>
 
 <div class="page">
-
+<header>
 <h1>Angell Hall Fourth Floor</h1>
+</header>
 
-<button type="button" id="navButt" tabindex="1" title="click to open navagation links" aria-label="click to open navagation links">Navigate Floor Plans</button>
-<button class="closenav" type="button" id="closeNavButt" tabindex="1" title="click to close navagation links" aria-label="click to close navagation links">Close Navigation</button>
+<nav>
+<button type="button" id="navButt" aria-label="select to navigate floor plans">Navigate Floor Plans</button>
 
-<div id="nav">
-<p class="text">
-<a href="ahg.html" tabindex="4" title="to the ground floor" aria-label="to the ground floor">
-Ground Floor</a>
-</p>
-<p class="text">
-<a href="ah1.html" tabindex="5" title="to the first floor" aria-label="to the first floor">
-First Floor</a>
-</p>
-<p class="text">
-<a href="ah2.html" tabindex="6" title="to the second floor" aria-label="to the second floor">
-Second Floor</a>
-</p>
-<p class="text">
-<a href="ah3.html" tabindex="7" title="to the third floor" aria-label="to the third floor">
-Third Floor</a>
-</p>
-<p class="text" style="color:gray;" tabindex="8" aria-label="this is the fourth floor of Angell Hall">you are on the fourth floor</p>
-<p class="text">
-<a href="ah5.html" tabindex="9" title="to the fifth floor" aria-label="to the fifth floor">
-Fifth Floor</a>
-</p>
+<ul id="nav" style="display:none;">
+<li class="text">
+<a href="ahg.html" aria-label="ground floor, Angell Hall">
+Ground Floor Angell</a>
+</li>
+<li class="text">
+<a href="ah1.html" aria-label="first floor, Angell Hall">
+First Floor Angell</a>
+</li>
+<li class="text">
+<a href="ah2.html" aria-label="second floor, Angell Hall">
+Second Floor Angell</a>
+</li>
+<li class="text">
+<a href="ah3.html" aria-label="third floor, Angell Hall">
+Third Floor Angell</a>
+</li>
+<li class="text">
+<a class="dead" href="#!" aria-label="This link is inactive. You are on the fourth floor of angell.">This is the fourth floor</a>
+</li>
+<li class="text">
+<a href="ah5.html" aria-label="fifth floor, Angell Hall">
+Fifth Floor Angell</a>
+</li>
 <hr aria-hidden="true">
-<p class="navlabel" tabindex="15" aria-label="there is no fourth floor mason hall">
-There is no 4th floor Mason
-</p>
-<p class="navlabel" tabindex="18" aria-label="there are no classrooms on the fourth floor of haven hall">
-No classrooms on the 4th floor Haven
-</p>
+<li class="text">
+<a class="navlabel" href="#!" aria-label="This link is inactive. There is no fourth floor in mason hall">
+There is no fourth floor in Mason</a>
+</li>
+<li class="text">
+<a class="navlabel" href="#!" aria-label="This link is inactive. There are no classrooms on the fourth floor in haven hall">
+There are no classrooms on the fourth floor of Haven</a>
+</li>
 <hr aria-hidden="true">
-<p class="text">
-<a href="index.html" tabindex="20" title="to the central campus map" aria-label="to the central campus map">
+<li class="text">
+<a href="index.html" aria-label="central campus map">
 Central Campus</a>
-</p>
-<p class="text">
-<a href="/" tabindex="22" title="to the MClassrooms home page" aria-label="to the M Classrooms Home Page">
+</li>
+<li class="text">
+<a href="/" aria-label="M Classrooms Home Page">
 MClassrooms Home</a>
-</p>
-
-</div>
+</li>
+</ul>
+</nav>
 
 <!-- floor plan -->
+<main>
 <div id="scrollbox">
 <div id="fpbox">
-<img id="fp" src="ah4.jpg" alt="Drawing of the fourth floor of Angell Hall" />
+<img id="fp" src="ah4.jpg" alt="Drawing of the fourth floor of Angell Hall, four classroom links on this drawing" />
 
 <!-- links to classroom data  -->
 
-<a class="rm ah4175" href="../classrooms/AH4175" tabindex="30" title="to information for 4175 Angell" aria-label="to information about room four one seven five, angell hall"></a>
-<a class="rm ah4199" href="../classrooms/AH4199" tabindex="35" title="to information for 4199 Angell" aria-label="to information about room four one nine nine, angell hall"></a>
-<a class="rm ah4207" href="../classrooms/AH4207" tabindex="40" title="to information for 4207 Angell" aria-label="to information about room four two zero seven, angell hall"></a>
-<a class="rm ah4211" href="../classrooms/AH4211" tabindex="45" title="to information for 4211 Angell" aria-label="to information about room four two one one, angell hall"></a>
+<a class="rm ah4175" href="../classrooms/AH4175" title="to information for 4175 Angell" aria-label="room four one seven five angell hall information"></a>
+<a class="rm ah4199" href="../classrooms/AH4199" title="to information for 4199 Angell" aria-label="room four one nine nine angell hall information"></a>
+<a class="rm ah4207" href="../classrooms/AH4207" title="to information for 4207 Angell" aria-label="room four two zero seven angell hall information"></a>
+<a class="rm ah4211" href="../classrooms/AH4211" title="to information for 4211 Angell" aria-label="room four two one one angell hall information" onfocus="scrollup()"></a>
 
 </div>
 </div>
+</main>
 </div>
 
 </body>
@@ -233,31 +245,41 @@ MClassrooms Home</a>
 
 <script>
 
+var elmnt = document.getElementById("scrollbox");
 window.onload=function scrolldown() {
-    var elmnt = document.getElementById("scrollbox");
     elmnt.scrollLeft = 0;
     elmnt.scrollTop = 110;
 }
-
-document.getElementById("navButt").onclick = function() {showNav()};
-document.getElementById("closeNavButt").onclick = function() {hideNav()};
-
-function showNav(){
-   document.getElementById("nav").style.display = "block";
-   document.getElementById("navButt").style.display = "none";
-   document.getElementById("closeNavButt").style.display = "inline-block";
-}
-function hideNav(){
-   document.getElementById("nav").style.display = "none";
-   document.getElementById("navButt").style.display = "inline-block";
-   document.getElementById("closeNavButt").style.display = "none";
+function scrollup() {
+    elmnt.scrollTop = 0;
 }
 
+var x=document.getElementById("navButt")
+var y=document.getElementById("nav")
+x.onclick = function() {togNav()};
+
+function togNav(){
+   if(y.style.display === "none"){
+      y.style.display = "block";
+      x.setAttribute("aria-expanded", "true");
+      x.setAttribute("aria-label", "select to close navigation or use escape");
+      x.innerHTML="Close Navigation Links";
+   x.focus();
+   }else{
+      y.style.display = "none";
+      x.innerHTML="Navigate Floor Plans";
+      x.setAttribute("aria-expanded", "false");
+      x.setAttribute("aria-label", "select to navigate floor plans");
+      x.focus();
+   }
+}
 document.onkeyup = function(e){
    if (e.key=='Escape'||e.key=='Esc'||e.keyCode==27){
-      document.getElementById("nav").style.display = "none";
-      document.getElementById("closeNavButt").style.display = "none";
-      document.getElementById("navButt").style.display = "inline-block";
+      y.style.display = "none";
+      x.innerHTML="Navigate Floor Plans";
+      x.setAttribute("aria-expanded", "false");
+      x.setAttribute("aria-label", "select to navigate floor plans");
+      x.focus();
    }
 }
 

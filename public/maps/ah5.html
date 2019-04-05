@@ -17,12 +17,12 @@ background-color:ivory;
 position:absolute;
 right:0px;
 margin-top:0%;
+padding:2% 0%;
 z-index:5;
 text-align:center;
-background-color: rgba(255,255,255,0.8);
+background-color: rgba(255,255,255,0.9);
 width:45%;
 height:auto;
-display:none;
 border: thin solid black;
 }
 
@@ -38,9 +38,6 @@ button{
  top:0;
  margin:0% 0% 1% 0%;
  font-size:large;
-}
-button.closenav{
- display:none;
 }
 
 h1{
@@ -59,19 +56,28 @@ h1{
  font-weight:bold;
  position:relative;
  text-align:center;
- padding-bottom:1%;
+ padding:2%;
 }
 .navlabel{
+ color:black;
  display:block;
  font-size:large;
  font-weight:bold;
+ font-style:oblique;
  position:relative;
  text-align:center;
- padding-bottom:1%;
+ padding:2%;
 }
 
 a:link{text-decoration:none;}
 a:hover{text-decoration:underline;}
+
+a.dead{color:DarkSlateGrey; font-style:oblique;}
+a.dead:hover{text-decoration:none; cursor:default;}
+a.dead:focus{text-decoration:none;}
+
+a.navlabel:hover{text-decoration:none; cursor:default;}
+a.navlabel:focus{text-decoration:none;}
 
 a.bld{z-index:1;position:absolute;}
 a.bld:focus{
@@ -126,7 +132,6 @@ a.rm:hover{
 }
 
 /* end common */
-
 /* css unique to this page */
 
 #fpbox{
@@ -157,8 +162,8 @@ a.rm:hover{
 
 /* padding and positions for all the links */
 
-a.ah5179{padding:14.5%; bottom:8%; left:6.6%;}
-a.ah5180b{padding:13% 14.5%; bottom:.3%; right:13%;}
+a.ah5179{height:18%; width:26%; bottom:9%; left:7.5%;}
+a.ah5180b{height:16%; width:28%; bottom:.3%; right:13%;}
 
 </style>
 </head>
@@ -167,66 +172,70 @@ a.ah5180b{padding:13% 14.5%; bottom:.3%; right:13%;}
 <body>
 
 <div class="page">
+<header>
+  <h1>Angell Hall Fifth Floor</h1>
+</header>
+  <nav>
+    <button type="button" id="navButt" aria-label="select to navigate floor plans">Navigate Floor Plans</button>
 
-<h1>Angell Hall Fifth Floor</h1>
-
-<button type="button" id="navButt" tabindex="1" title="click to open navagation links" aria-label="click to open navagation links">Navigate Floor Plans</button>
-<button class="closenav" type="button" id="closeNavButt" tabindex="1" title="click to close navagation links" aria-label="click to close navagation links">Close Navigation</button>
-
-<div id="nav">
-<p class="text">
-<a href="ahg.html" tabindex="4" title="to the ground floor" aria-label="to the ground floor">
-Ground Floor</a>
-</p>
-<p class="text">
-<a href="ah1.html" tabindex="5" title="to the first floor" aria-label="to the first floor">
-First Floor</a>
-</p>
-<p class="text">
-<a href="ah2.html" tabindex="6" title="to the second floor" aria-label="to the second floor">
-Second Floor</a>
-</p>
-<p class="text">
-<a href="ah3.html" tabindex="7" title="to the third floor" aria-label="to the third floor">
-Third Floor</a>
-</p>
-<p class="text">
-<a href="ah4.html" tabindex="8" title="to the fourth floor" aria-label="to the fourth floor">
-Fourth Floor</a>
-</p>
-<p class="text" tabindex="9" style="color:gray;" aria-label="this is the fifth floor of Angell Hall">you are on the fifth floor</p>
-<hr aria-hidden="true">
-<p class="navlabel" tabindex="12" aria-label="there is no fifth floor mason hall">
-There is no 5th floor Mason
-</p>
-<p class="text">
-<a href="hh5.html" tabindex="14" title="to Haven Hall fifth floor" aria-label="to the fifth floor of Haven Hall">
-Haven Hall</a>
-</p>
-<hr aria-hidden="true">
-<p class="text">
-<a href="index.html" tabindex="18" title="to the central campus map" aria-label="to the central campus map">
-Central Campus</a>
-</p>
-<p class="text">
-<a href="/" tabindex="20" title="to the MClassrooms home page" aria-label="to the M Classrooms Home Page">
-MClassrooms Home</a>
-</p>
-
-</div>
+    <ul id="nav" style="display:none;">
+      <li class="text">
+      <a href="ahg.html" aria-label="ground floor, Angell Hall">
+      Ground Floor Angell</a>
+      </li>
+      <li class="text">
+      <a href="ah1.html" aria-label="first floor, Angell Hall">
+      First Floor Angell</a>
+      </li>
+      <li class="text">
+      <a href="ah2.html" aria-label="second floor, Angell Hall">
+      Second Floor Angell</a>
+      </li>
+      <li class="text">
+      <a href="ah3.html" aria-label="third floor, Angell Hall">
+      Third Floor Angell</a>
+      </li>
+      <li class="text">
+      <a href="ah4.html" aria-label="fourth floor, Angell Hall">
+      Fourth Floor Angell</a>
+      </li>
+      <li class="text">
+      <a class="dead" href="#!" aria-label="This link is inactive. You are on the fifth floor of angell.">This is the fifth floor</a>
+      </li>
+      <hr aria-hidden="true">
+      <li class="text">
+      <a class="navlabel" href="#!" aria-label="This link is inactive. Mason Hall has no fifth floor.">Mason has no fifth floor</a>
+      </li>
+      <li class="text">
+      <a href="hh5.html" aria-label="Haven Hall, fifth floor">
+      Haven Fifth Floor</a>
+      </li>
+      <hr aria-hidden="true">
+      <li class="text">
+      <a href="index.html" aria-label="central campus map">
+      Central Campus</a>
+      </li>
+      <li class="text">
+      <a href="/" aria-label="M Classrooms Home Page">
+      MClassrooms Home</a>
+      </li>
+    </ul>
+  </nav>
 
 <!-- floor plan -->
-<div id="scrollbox">
-<div id="fpbox">
-<img id="fp" src="ah5.jpg" alt="Drawing of the fifth floor of Angell Hall" />
+  <main>
+    <div id="scrollbox">
+      <div id="fpbox">
+      <img id="fp" src="ah5.jpg" alt="Drawing of the fifth floor of Angell Hall, two classroom links on this drawing" />
 
 <!-- links to classroom data  -->
-
-<a class="rm ah5179" href="../classrooms/AH5179" tabindex="30" title="to information for 5179 Angell" aria-label="to information about room five one seven nine, angell hall"></a>
-<a class="rm ah5180b" href="../classrooms/AH5180B" tabindex="35" title="to information for 5180B Angell" aria-label="to information about room five one eight zero B, angell hall"></a>
-
-</div>
-</div>
+    
+      <a class="rm ah5179" href="../classrooms/AH5179" 	title="to information for 5179 Angell" aria-label="room five one seven nine angell hall information"></a>
+      <a class="rm ah5180b" href="../classrooms/AH5180B" title="to information for 5180B Angell" aria-label="room five one eight zero B angell hall information"></a>
+ 
+      </div>
+    </div>
+  </main>
 </div>
 
 </body>
@@ -240,25 +249,32 @@ window.onload=function scrolldown() {
     elmnt.scrollTop = 2000;
 }
 
-document.getElementById("navButt").onclick = function() {showNav()};
-document.getElementById("closeNavButt").onclick = function() {hideNav()};
+var x=document.getElementById("navButt")
+var y=document.getElementById("nav")
+x.onclick = function() {togNav()};
 
-function showNav(){
-   document.getElementById("nav").style.display = "block";
-   document.getElementById("navButt").style.display = "none";
-   document.getElementById("closeNavButt").style.display = "inline-block";
+function togNav(){
+   if(y.style.display === "none"){
+      y.style.display = "block";
+      x.setAttribute("aria-expanded", "true");
+      x.setAttribute("aria-label", "select to close navigation or use escape");
+      x.innerHTML="Close Navigation Links";
+   x.focus();
+   }else{
+      y.style.display = "none";
+      x.innerHTML="Navigate Floor Plans";
+      x.setAttribute("aria-expanded", "false");
+      x.setAttribute("aria-label", "select to navigate floor plans");
+      x.focus();
+   }
 }
-function hideNav(){
-   document.getElementById("nav").style.display = "none";
-   document.getElementById("navButt").style.display = "inline-block";
-   document.getElementById("closeNavButt").style.display = "none";
-}
-
 document.onkeyup = function(e){
    if (e.key=='Escape'||e.key=='Esc'||e.keyCode==27){
-      document.getElementById("nav").style.display = "none";
-      document.getElementById("closeNavButt").style.display = "none";
-      document.getElementById("navButt").style.display = "inline-block";
+      y.style.display = "none";
+      x.innerHTML="Navigate Floor Plans";
+      x.setAttribute("aria-expanded", "false");
+      x.setAttribute("aria-label", "select to navigate floor plans");
+      x.focus();
    }
 }
 

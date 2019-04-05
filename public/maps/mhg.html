@@ -17,12 +17,12 @@ background-color:ivory;
 position:absolute;
 right:0px;
 margin-top:0%;
+padding:2% 0%;
 z-index:5;
 text-align:center;
-background-color: rgba(255,255,255,0.8);
+background-color: rgba(255,255,255,0.9);
 width:45%;
 height:auto;
-display:none;
 border: thin solid black;
 }
 
@@ -38,9 +38,6 @@ button{
  top:0;
  margin:0% 0% 1% 0%;
  font-size:large;
-}
-button.closenav{
- display:none;
 }
 
 h1{
@@ -59,19 +56,28 @@ h1{
  font-weight:bold;
  position:relative;
  text-align:center;
- padding-bottom:1%;
+ padding:2%;
 }
 .navlabel{
+ color:black;
  display:block;
  font-size:large;
  font-weight:bold;
+ font-style:oblique;
  position:relative;
  text-align:center;
- padding-bottom:1%;
+ padding:2%;
 }
 
 a:link{text-decoration:none;}
 a:hover{text-decoration:underline;}
+
+a.dead{color:DarkSlateGrey; font-style:oblique;}
+a.dead:hover{text-decoration:none; cursor:default;}
+a.dead:focus{text-decoration:none;}
+
+a.navlabel:hover{text-decoration:none; cursor:default;}
+a.navlabel:focus{text-decoration:none;}
 
 a.bld{z-index:1;position:absolute;}
 a.bld:focus{
@@ -151,29 +157,27 @@ a.rm:hover{
   }
 }
 
-/* padding and positions for all the links */
+/* dimensions and positions for all the links */
 
-a.aha{padding:9%; bottom:24.5%; right:29%;}
-a.ahb{padding:9%; bottom:24.5%; left:30%;}
-a.ahc{padding:9%; bottom:38%; right:29%;}
-a.ahd{padding:9%; bottom:38%; left:30%;}
-a.ahg026{padding:5% 4.5%; bottom:16%; left:39.5%;}
-a.ahg040{padding:5% 4%; bottom:16%; left:31%;}
-a.ahg115{padding:7% 5%; bottom:0%; left:11%;}
-a.ahg127{padding:7% 5%; bottom:10.5%; left:11%;}
-a.ahg128{padding:3.5% 2.5%; bottom:7.5%; left:22.5%;}
-a.ahg144{padding:4.5% 3%; bottom:15.5%; left:22.5%;}
-a.ahg128{padding:3.5% 2.5%; bottom:7.5%; left:22.5%;}
-a.ahg144{padding:4.5% 3%; bottom:15.5%; left:22.5%;}
-a.ahg160{padding:4%; bottom:29%; left:22%;}
-a.ahg168{padding:5% 4%; bottom:35%; left:22%;}
-a.ahg228{padding:4%; top:30%; left:22%;}
-a.ahg232{padding:4%; top:23.5%; left:22%;}
-a.mhg421b{padding:4%; top:4%; right:12.5%;}
-a.mhg437{padding:4%; top:24%; right:12.5%;}
-a.mhg449{padding:4%; top:30.3%; right:12.5%;}
-a.mhg463{padding:4%; top:36.6%; right:12.5%;}
-a.hhg634{padding:5.5%; bottom:16%; right:16.5%;}
+a.aha{height:13.5%; width:18%; bottom:24%; right:29%;}
+a.ahb{height:13.5%; width:18%; bottom:24.5%; left:30%;}
+a.ahc{height:12%; width:18%; bottom:38%; right:29%;}
+a.ahd{height:12%; width:18%; bottom:38%; left:30%;}
+a.ahg026{height:7%; width:8%; bottom:16%; left:39.5%;}
+a.ahg040{height:7%; width:8%; bottom:16%; left:31%;}
+a.ahg115{height:9.9%; width:9.2%; bottom:0%; left:11%;}
+a.ahg127{height:9.7%; width:9.2%; bottom:10.2%; left:11%;}
+a.ahg128{height:5.8%; width:6.3%; bottom:7.2%; left:22.2%;}
+a.ahg144{height:7.5%; width:6.3%; bottom:15%; left:22.5%;}
+a.ahg160{height:5.5%; width:7.5%; bottom:29%; left:22%;}
+a.ahg168{height:7%; width:7.5%; bottom:35%; left:22%;}
+a.ahg228{height:5.5%; width:8%; top:30%; left:22%;}
+a.ahg232{height:5.5%; width:8%; top:24.5%; left:22%;}
+a.mhg421b{height:4%; width:8%; top:4.5%; right:12.5%;}
+a.mhg437{height:6.4%; width:8%; top:23.7%; right:12.5%;}
+a.mhg449{height:6%; width:8%; top:30.5%; right:12.5%;}
+a.mhg463{height:6.4%; width:8%; top:36.7%; right:12.5%;}
+a.hhg634{height:4.5%; width:10.5%; bottom:17%; right:17%;}
 
 </style>
 </head>
@@ -182,62 +186,60 @@ a.hhg634{padding:5.5%; bottom:16%; right:16.5%;}
 <body>
 
 <div class="page">
-
+<header>
 <h1>Mason Complex Ground Floor</h1>
+</header>
 
-<button type="button" id="navButt" tabindex="1" title="click to open navagation links" aria-label="click to open navagation links">Navigate Floor Plans</button>
-<button class="closenav" type="button" id="closeNavButt" tabindex="1" title="click to close navagation links" aria-label="click to close navagation links">Close Navigation</button>
+<nav>
+<button type="button" id="navButt" tabindex="1" aria-expanded="false" aria-label="select to navigate floor plans">Navigate Floor Plans</button>
 
-<div id="nav" class="text">
-<p class="text" style="color:gray;" tabindex="4" aria-label="this is the ground floor of mason hall">you are on the ground floor</p>
-<p>
-<a href="mh1.html" tabindex="5" title="to the first floor" aria-label="to the first floor of mason hall">First Floor</a>
-<p>
-<a href="mh2.html" tabindex="6" title="to the second floor" aria-label="to the second floor of mason hall">Second Floor</a>
-<p>
-<a href="mh3.html" tabindex="7" title="to the third floor" aria-label="to the third floor of mason hall">Third Floor</a>
-<p>
+<ul id="nav" style="display:none;">
+
+<li class="text">
+<a class="dead" href="#!" aria-label="This link is inactive. You are on the ground floor of mason hall.">This is the ground floor</a>
+</li>
+<li class="text"><a href="mh1.html" aria-label="first floor, mason hall">First Floor Mason</a></li>
+<li class="text"><a href="mh2.html" aria-label="second floor, mason hall">Second Floor Mason</a></li>
+<li class="text"><a href="mh3.html" aria-label="third floor, mason hall">Third Floor Mason</a></li>
 <hr aria-hidden="true">
-<a href="ahg.html" tabindex="10" title="to Angell Hall ground" aria-label="to the ground floor of Angell Hall">Angell Hall</a>
-<p>
-<a href="hhg.html" tabindex="12" title="to Haven Hall ground" aria-label="to the ground floor of Haven Hall">Haven Hall</a>
-<p>
+<li class="text"><a href="ahg.html" aria-label="Angell Hall, ground floor">Angell Hall Ground</a></li>
+<li class="text"><a href="hhg.html" aria-label="Haven Hall, ground floor">Haven Hall Ground</a></li>
 <hr aria-hidden="true">
-<a href="index.html" tabindex="15" title="to the central campus map" aria-label="to the central campus map">Central Campus</a>
-<p>
-<a href="/" tabindex="18" title="to the MClassrooms home page" aria-label="to the M Classrooms Home Page">MClassrooms Home</a>
-<p>
-
-</div>
+<li class="text"><a href="index.html" aria-label="central campus map">Central Campus</a></li>
+<li class="text"><a href="/" aria-label="M Classrooms Home Page">MClassrooms Home</a></li>
+</ul>
+</nav>
 
 <!-- floor plan -->
+<main>
 <div id="scrollbox">
 <div id="fpbox">
-<img id="fp" src="ahplexg.jpg" alt="Drawing of the ground floor of the mason hall complex" />
+<img id="fp" src="ahplexg.jpg" alt="Drawing of the ground floor of the mason hall complex. nineteen classroom links on this drawing" />
 
 <!-- links to classroom data  -->
 
-<a class="rm mhg421b" href="../classrooms/MHG421B" tabindex="30" title="to information for G421B Mason" aria-label="to information about room gee four two one B, mason hall"></a>
-<a class="rm mhg437" href="../classrooms/MHG437" tabindex="35" title="to information for G437 Mason" aria-label="to information about room gee four three seven, mason hall"></a>
-<a class="rm mhg449" href="../classrooms/MHG449" tabindex="40" title="to information for G449 Mason" aria-label="to information about room gee four four nine, mason hall"></a>
-<a class="rm mhg463" href="../classrooms/MHG463" tabindex="45" title="to information for G463 Mason" aria-label="to information about room gee four six three, mason hall"></a>
-<a class="rm hhg634" href="../classrooms/HHG634" tabindex="50" title="to information for G634 Haven" aria-label="to information about room gee six three four, haven hall"></a>
-<a class="rm aha" href="../classrooms/AHA" tabindex="55" title="to information for Auditorium A, Angell" aria-label="to information about auditorium A, angell hall"></a>
-<a class="rm ahb" href="../classrooms/AHB" tabindex="60" title="to information for Auditorium B, Angell" aria-label="to information about auditorium B, angell hall"></a>
-<a class="rm ahc" href="../classrooms/AHC" tabindex="65" title="to information for Auditorium C, Angell" aria-label="to information about auditorium C, angell hall"></a>
-<a class="rm ahd" href="../classrooms/AHD" tabindex="70" title="to information for Auditorium D, Angell" aria-label="to information about auditorium D, angell hall"></a>
-<a class="rm ahg026" href="../classrooms/AHG026" tabindex="75" title="to information for room G026 Tisch" aria-label="to information about room gee zero two six, tisch hall"></a>
-<a class="rm ahg040" href="../classrooms/AHG040" tabindex="80" title="to information for room G040 Tisch" aria-label="to information about room gee zero four zero, tisch hall"></a>
-<a class="rm ahg115" href="../classrooms/AHG115" tabindex="85" title="to information for room G115 Angell" aria-label="to information about room gee one one five, angell hall"></a>
-<a class="rm ahg127" href="../classrooms/AHG127" tabindex="90" title="to information for room G127 Angell" aria-label="to information about room gee one two seven, angell hall"></a>
-<a class="rm ahg128" href="../classrooms/AHG128" tabindex="95" title="to information for room G128 Angell" aria-label="to information about room gee one two eight, angell hall"></a>
-<a class="rm ahg144" href="../classrooms/AHG144" tabindex="100" title="to information for room G144 Angell" aria-label="to information about room gee one four four, angell hall"></a>
-<a class="rm ahg160" href="../classrooms/AHG160" tabindex="105" title="to information for room G160 Angell" aria-label="to information about room gee one six zero, angell hall"></a>
-<a class="rm ahg168" href="../classrooms/AHG168" tabindex="110" title="to information for room G168 Angell" aria-label="to information about room gee one six eight, angell hall"></a>
-<a class="rm ahg228" href="../classrooms/AHG228" tabindex="115" title="to information for room G228 Angell" aria-label="to information about room gee two two eight, angell hall"></a>
-<a class="rm ahg232" href="../classrooms/AHG232" tabindex="120" title="to information for room G232 Angell" aria-label="to information about room gee two three two, angell hall"></a>
+<a class="rm mhg421b" href="../classrooms/MHG421B" title="to information for G421B Mason" aria-label="room G four two one B mason hall information"></a>
+<a class="rm mhg437" href="../classrooms/MHG437" title="to information for G437 Mason" aria-label="room G four three seven mason hall information"></a>
+<a class="rm mhg449" href="../classrooms/MHG449" title="to information for G449 Mason" aria-label="room G four four nine mason hall information"></a>
+<a class="rm mhg463" href="../classrooms/MHG463" title="to information for G463 Mason" aria-label="room G four six three mason hall information"></a>
+<a class="rm hhg634" href="../classrooms/HHG634" title="to information for G634 Haven" aria-label="room G six three four haven hall information"></a>
+<a class="rm aha" href="../classrooms/AHA" title="to information for Auditorium A, Angell" aria-label="auditorium A, angell hall information"></a>
+<a class="rm ahb" href="../classrooms/AHB" title="to information for Auditorium B, Angell" aria-label="auditorium B, angell hall information"></a>
+<a class="rm ahc" href="../classrooms/AHC" title="to information for Auditorium C, Angell" aria-label="auditorium C, angell hall information"></a>
+<a class="rm ahd" href="../classrooms/AHD" title="to information for Auditorium D, Angell" aria-label="auditorium D, angell hall information"></a>
+<a class="rm ahg026" href="../classrooms/AHG026" title="to information for room G026 Tisch" aria-label="room G zero two six tisch hall information"></a>
+<a class="rm ahg040" href="../classrooms/AHG040" title="to information for room G040 Tisch" aria-label="room G zero four zero tisch hall information"></a>
+<a class="rm ahg115" href="../classrooms/AHG115" title="to information for room G115 Angell" aria-label="room G one one five angell hall information"></a>
+<a class="rm ahg127" href="../classrooms/AHG127" title="to information for room G127 Angell" aria-label="room G one two seven angell hall information"></a>
+<a class="rm ahg128" href="../classrooms/AHG128" title="to information for room G128 Angell" aria-label="room G one two eight angell hall information"></a>
+<a class="rm ahg144" href="../classrooms/AHG144" title="to information for room G144 Angell" aria-label="room G one four four angell hall information"></a>
+<a class="rm ahg160" href="../classrooms/AHG160" title="to information for room G160 Angell" aria-label="room G one six zero angell hall information"></a>
+<a class="rm ahg168" href="../classrooms/AHG168" title="to information for room G168 Angell" aria-label="room G one six eight angell hall information"></a>
+<a class="rm ahg228" href="../classrooms/AHG228" title="to information for room G228 Angell" aria-label="room G two two eight angell hall information"></a>
+<a class="rm ahg232" href="../classrooms/AHG232" title="to information for room G232 Angell" aria-label="room G two three two angell hall information"></a>
 </div>
 </div>
+</main>
 </div>
 
 </body>
@@ -251,25 +253,32 @@ window.onload=function scrolldown() {
     elmnt.scrollTop = 0;
 }
 
-document.getElementById("navButt").onclick = function() {showNav()};
-document.getElementById("closeNavButt").onclick = function() {hideNav()};
+var x=document.getElementById("navButt")
+var y=document.getElementById("nav")
+x.onclick = function() {togNav()};
 
-function showNav(){
-   document.getElementById("nav").style.display = "block";
-   document.getElementById("navButt").style.display = "none";
-   document.getElementById("closeNavButt").style.display = "inline-block";
+function togNav(){
+   if(y.style.display === "none"){
+      y.style.display = "block";
+      x.setAttribute("aria-expanded", "true");
+      x.setAttribute("aria-label", "select to close navigation or use escape");
+      x.innerHTML="Close Navigation Links";
+      x.focus();
+   }else{
+      y.style.display = "none";
+      x.innerHTML="Navigate Floor Plans";
+      x.setAttribute("aria-expanded", "false");
+      x.setAttribute("aria-label", "select to navigate floor plans");
+      x.focus();
+   }
 }
-function hideNav(){
-   document.getElementById("nav").style.display = "none";
-   document.getElementById("navButt").style.display = "inline-block";
-   document.getElementById("closeNavButt").style.display = "none";
-}
-
 document.onkeyup = function(e){
    if (e.key=='Escape'||e.key=='Esc'||e.keyCode==27){
-      document.getElementById("nav").style.display = "none";
-      document.getElementById("closeNavButt").style.display = "none";
-      document.getElementById("navButt").style.display = "inline-block";
+      y.style.display = "none";
+      x.innerHTML="Navigate Floor Plans";
+      x.setAttribute("aria-expanded", "false");
+      x.setAttribute("aria-label", "select to navigate floor plans");
+      x.focus();
    }
 }
 

@@ -17,12 +17,12 @@ background-color:ivory;
 position:absolute;
 right:0px;
 margin-top:0%;
+padding:2% 0%;
 z-index:5;
 text-align:center;
-background-color: rgba(255,255,255,0.8);
+background-color: rgba(255,255,255,0.9);
 width:45%;
 height:auto;
-display:none;
 border: thin solid black;
 }
 
@@ -38,9 +38,6 @@ button{
  top:0;
  margin:0% 0% 1% 0%;
  font-size:large;
-}
-button.closenav{
- display:none;
 }
 
 h1{
@@ -59,19 +56,28 @@ h1{
  font-weight:bold;
  position:relative;
  text-align:center;
- padding-bottom:1%;
+ padding:2%;
 }
 .navlabel{
+ color:black;
  display:block;
  font-size:large;
  font-weight:bold;
+ font-style:oblique;
  position:relative;
  text-align:center;
- padding-bottom:1%;
+ padding:2%;
 }
 
 a:link{text-decoration:none;}
 a:hover{text-decoration:underline;}
+
+a.dead{color:DarkSlateGrey; font-style:oblique;}
+a.dead:hover{text-decoration:none; cursor:default;}
+a.dead:focus{text-decoration:none;}
+
+a.navlabel:hover{text-decoration:none; cursor:default;}
+a.navlabel:focus{text-decoration:none;}
 
 a.bld{z-index:1;position:absolute;}
 a.bld:focus{
@@ -151,30 +157,27 @@ a.rm:hover{
   }
 }
 
-/* padding and positions for all the links */
+/* dimensions and positions for all the links */
 
-a.mh3302{padding:4.5%; top:17.2%; left:29.5%;}
-a.mh3315{padding:4.5% 2.6%; top:9.5%; left:38%;}
-a.mh3314{padding:4.4%; top:17.2%; left:39%;}
-a.mh3333{padding:4.4%; top:9.5%; left:43.5%;}
-a.mh3330{padding:4.5% 6.6%; top:17.2%; right:37.8%;}
-a.mh3347{padding:4.4%; top:9.5%; right:37.8%;}
-a.mh3353{padding:4.5% 2.2%; top:9.5%; right:33.1%;}
-a.mh3356{padding:4.5%; top:17.2%; right:28.2%;}
-a.mh3359{padding:4.5% 2.2%; top:9.5%; right:28.2%;}
-a.mh3401{padding:4.5%; top:5.5%; right:9%;}
-a.mh3411{padding:4.4%; top:12%; right:9%;}
-a.mh3427{padding:4.5%; top:18.1%; right:9%;}
-a.mh3437{padding:5.8% 4.5%; top:24.5%; right:9%;}
-a.mh3440{padding:2.2% 4.5%; top:27.5%; right:20%;}
-a.mh3448{padding:4.4%; top:30.6%; right:20.2%;}
-a.mh3451{padding:3.7% 4.5%; top:32.6%; right:9%;}
-a.mh3460{padding:4.5%; top:36.8%; right:20%;}
-a.mh3463{padding:5.8% 4.5%; top:38%; right:9%;}
-a.hh3505{padding:2.5% 4.5%; top:46.4%; right:9%;}
-a.mh2468{padding:2% 4%; top:39.6%; right:22%;}
-a.mh2469{padding:2% 4%; top:39.5%; right:11.5%;}
-a.mh2475{padding:2% 4%; top:42.6%; right:11.5%;}
+a.mh3302{height:6%; width:9%; top:17.3%; left:29.5%;}
+a.mh3315{height:6%; width:5%; top:9.5%; left:38.2%;}
+a.mh3314{height:6%; width:8.6%; top:17.3%; left:39%;}
+a.mh3333{height:6%; width:8.6%; top:9.5%; left:43.5%;}
+a.mh3330{height:6%; width:13%; top:17.3%; right:37.8%;}
+a.mh3347{height:6%; width:8.6%; top:9.5%; right:37.8%;}
+a.mh3353{height:6%; width:4.5%; top:9.5%; right:33.1%;}
+a.mh3356{height:6%; width:8.6%; top:17.3%; right:28.4%;}
+a.mh3359{height:6%; width:4.5%; top:9.5%; right:28.2%;}
+a.mh3401{height:6%; width:8.5%; top:5.5%; right:9%;}
+a.mh3411{height:6%; width:8.5%; top:12%; right:9%;}
+a.mh3427{height:6%; width:8.5%; top:18.1%; right:9%;}
+a.mh3437{height:7.6%; width:8.5%; top:24.5%; right:9%;}
+a.mh3440{height:2.7%; width:8.5%; top:27.5%; right:20.2%;}
+a.mh3448{height:6%; width:8.5%; top:30.6%; right:20.2%;}
+a.mh3451{height:5.1%; width:8.5%; top:32.6%; right:9%;}
+a.mh3460{height:6%; width:8.5%; top:36.8%; right:20.2%;}
+a.mh3463{height:7.8%; width:8.5%; top:38%; right:9%;}
+a.hh3505{height:2.7%; width:8.5%; top:46.4%; right:9%;}
 
 </style>
 </head>
@@ -183,76 +186,81 @@ a.mh2475{padding:2% 4%; top:42.6%; right:11.5%;}
 <body>
 
 <div class="page">
-
+<header>
 <h1>Mason Complex Third Floor</h1>
+</header>
 
-<button type="button" id="navButt" tabindex="1" title="click to open navagation links" aria-label="click to open navagation links">Navigate Floor Plans</button>
-<button class="closenav" type="button" id="closeNavButt" tabindex="1" title="click to close navagation links" aria-label="click to close navagation links">Close Navigation</button>
+<nav>
+<button type="button" id="navButt" aria-expanded="false" aria-label="select to navigate floor plans">Navigate Floor Plans</button>
 
-<div id="nav">
-<p class="text">
-<a href="mhg.html" tabindex="4" title="to the ground floor" aria-label="to the ground floor of mason hall">
-Ground Floor</a>
-</p>
-<p class="text">
-<a href="mh1.html" tabindex="5" title="to the first floor" aria-label="to the first floor of mason hall">
-First Floor</a>
-</p>
-<p class="text">
-<a href="mh2.html" tabindex="6" title="to the second floor" aria-label="to the second floor of mason hall">
-Second Floor</a>
-</p>
-<p class="text" style="color:gray;" tabindex="7" aria-label="this is the third floor of mason hall">you are on the third floor</p>
+<ul id="nav" style="display:none;">
+<li class="text">
+<a href="mhg.html" aria-label="ground floor, mason hall">
+Ground Floor Mason</a>
+</li>
+<li class="text">
+<a href="mh1.html" aria-label="first floor, mason hall">
+First Floor Mason</a>
+</li>
+<li class="text">
+<a href="mh2.html" aria-label="second floor, mason hall">
+Second Floor Mason</a>
+</li>
+<li class="text">
+<a class="dead" href="#!" aria-label="This link is inactive. You are on the third floor of mason hall.">This is the third floor</a>
+</li>
 <hr aria-hidden="true">
-<p class="text">
-<a href="ah3.html" tabindex="10" title="to Angell Hall third floor" aria-label="to the third floor of Angell Hall">
-Angell Hall</a>
-</p>
-<p class="text">
-<a href="hh3.html" tabindex="12" title="to Haven Hall third floor" aria-label="to the third floor of Haven Hall">
-Haven Hall</a>
-</p>
+<li class="text">
+<a href="ah3.html" aria-label="Angell Hall, third floor">
+Angell Third Floor</a>
+</li>
+<li class="text">
+<a href="hh3.html" aria-label="Haven Hall, third floor">
+Haven Third Floor</a>
+</li>
 <hr aria-hidden="true">
-<p class="text">
-<a href="index.html" tabindex="15" title="to the central campus map" aria-label="to the central campus map">
+<li class="text">
+<a href="index.html" aria-label="central campus map">
 Central Campus</a>
-</p>
-<p class="text">
-<a href="/" tabindex="18" title="to the MClassrooms home page" aria-label="to the M Classrooms Home Page">
+</li>
+<li class="text">
+<a href="/" aria-label="M Classrooms Home Page">
 MClassrooms Home</a>
-</p>
-
-</div>
+</li>
+</ul>
+</nav>
 
 <!-- floor plan -->
+<main>
 <div id="scrollbox">
 <div id="fpbox">
-<img id="fp" src="ahplex3.jpg" alt="drawing of the third floor of the mason hall complex" />
+<img id="fp" src="ahplex3.jpg" alt="drawing of the third floor of the mason hall complex. nineteen classroom links on this drawing." />
 
 <!-- links to classroom data  -->
 
-<a class="rm mh3302" href="../classrooms/MH3302" tabindex="30" title="to information for 3302 Mason" aria-label="to information about room three three zero two, mason hall"></a>
-<a class="rm mh3315" href="../classrooms/MH3315" tabindex="35" title="to information for 3315 Mason" aria-label="to information about room three three one five, mason hall"></a>
-<a class="rm mh3314" href="../classrooms/MH3314" tabindex="40" title="to information for 3314 Mason" aria-label="to information about room three three one four, mason hall"></a>
-<a class="rm mh3333" href="../classrooms/MH3333" tabindex="45" title="to information for 3333 Mason" aria-label="to information about room three three three three, mason hall"></a>
-<a class="rm mh3330" href="../classrooms/MH3330" tabindex="50" title="to information for 3330 Mason" aria-label="to information about room three three three zero, mason hall"></a>
-<a class="rm mh3347" href="../classrooms/MH3347" tabindex="55" title="to information for 3347 Mason" aria-label="to information about room three three four seven, mason hall"></a>
-<a class="rm mh3353" href="../classrooms/MH3353" tabindex="60" title="to information for 3353 Mason" aria-label="to information about room three three five three, mason hall"></a>
-<a class="rm mh3356" href="../classrooms/MH3356" tabindex="65" title="to information for 3356 Mason" aria-label="to information about room three three five six, mason hall"></a>
-<a class="rm mh3359" href="../classrooms/MH3359" tabindex="70" title="to information for 3359 Mason" aria-label="to information about room three three five nine, mason hall"></a>
-<a class="rm mh3401" href="../classrooms/MH3401" tabindex="80" title="to information for 3401 Mason" aria-label="to information about room three four zero one, mason hall"></a>
-<a class="rm mh3411" href="../classrooms/MH3411" tabindex="85" title="to information for 3411 Mason" aria-label="to information about room three four one one, mason hall"></a>
-<a class="rm mh3427" href="../classrooms/MH3427" tabindex="90" title="to information for 3427 Mason" aria-label="to information about room three four two seven, mason hall"></a>
-<a class="rm mh3437" href="../classrooms/MH3437" tabindex="95" title="to information for 3437 Mason" aria-label="to information about room three four three seven, mason hall"></a>
-<a class="rm mh3440" href="../classrooms/MH3440" tabindex="100" title="to information for 3440 Mason" aria-label="to information about room three four four zero, mason hall"></a>
-<a class="rm mh3448" href="../classrooms/MH3448" tabindex="105" title="to information for 3448 Mason" aria-label="to information about room three four four eight, mason hall"></a>
-<a class="rm mh3451" href="../classrooms/MH3451" tabindex="115" title="to information for 3451 Mason" aria-label="to information about room three four five one, mason hall"></a>
-<a class="rm mh3460" href="../classrooms/MH3460" tabindex="120" title="to information for 3460 Mason" aria-label="to information about room three four six zero, mason hall"></a>
-<a class="rm mh3463" href="../classrooms/MH3463" tabindex="125" title="to information for 3463 Mason" aria-label="to information about room three four six three, mason hall"></a>
-<a class="rm hh3505" href="../classrooms/HH3505" tabindex="130" title="to information for 3505 Haven" aria-label="to information about room three five zero five, haven hall"></a>
+<a class="rm mh3302" href="../classrooms/MH3302" title="to information for 3302 Mason" aria-label="room three three zero two mason hall information"></a>
+<a class="rm mh3315" href="../classrooms/MH3315" title="to information for 3315 Mason" aria-label="room three three one five mason hall information"></a>
+<a class="rm mh3314" href="../classrooms/MH3314" title="to information for 3314 Mason" aria-label="room three three one four mason hall information"></a>
+<a class="rm mh3333" href="../classrooms/MH3333" title="to information for 3333 Mason" aria-label="room three three three three mason hall information"></a>
+<a class="rm mh3330" href="../classrooms/MH3330" title="to information for 3330 Mason" aria-label="room three three three zero mason hall information"></a>
+<a class="rm mh3347" href="../classrooms/MH3347" title="to information for 3347 Mason" aria-label="room three three four seven mason hall information"></a>
+<a class="rm mh3353" href="../classrooms/MH3353" title="to information for 3353 Mason" aria-label="room three three five three mason hall information"></a>
+<a class="rm mh3356" href="../classrooms/MH3356" title="to information for 3356 Mason" aria-label="room three three five six mason hall information"></a>
+<a class="rm mh3359" href="../classrooms/MH3359" title="to information for 3359 Mason" aria-label="room three three five nine mason hall information"></a>
+<a class="rm mh3401" href="../classrooms/MH3401" title="to information for 3401 Mason" aria-label="room three four zero one mason hall information"></a>
+<a class="rm mh3411" href="../classrooms/MH3411" title="to information for 3411 Mason" aria-label="room three four one one mason hall information"></a>
+<a class="rm mh3427" href="../classrooms/MH3427" title="to information for 3427 Mason" aria-label="room three four two seven mason hall information"></a>
+<a class="rm mh3437" href="../classrooms/MH3437" title="to information for 3437 Mason" aria-label="room three four three seven mason hall information"></a>
+<a class="rm mh3440" href="../classrooms/MH3440" title="to information for 3440 Mason" aria-label="room three four four zero mason hall information"></a>
+<a class="rm mh3448" href="../classrooms/MH3448" title="to information for 3448 Mason" aria-label="room three four four eight mason hall information"></a>
+<a class="rm mh3451" href="../classrooms/MH3451" title="to information for 3451 Mason" aria-label="room three four five one mason hall information"></a>
+<a class="rm mh3460" href="../classrooms/MH3460" title="to information for 3460 Mason" aria-label="room three four six zero mason hall information"></a>
+<a class="rm mh3463" href="../classrooms/MH3463" title="to information for 3463 Mason" aria-label="room three four six three mason hall information"></a>
+<a class="rm hh3505" href="../classrooms/HH3505" title="to information for 3505 Haven" aria-label="room three five zero five haven hall information"></a>
 
 </div>
 </div>
+</main>
 </div>
 
 </body>
@@ -266,25 +274,32 @@ window.onload=function scrolldown() {
     elmnt.scrollTop = 0;
 }
 
-document.getElementById("navButt").onclick = function() {showNav()};
-document.getElementById("closeNavButt").onclick = function() {hideNav()};
+var x=document.getElementById("navButt")
+var y=document.getElementById("nav")
+x.onclick = function() {togNav()};
 
-function showNav(){
-   document.getElementById("nav").style.display = "block";
-   document.getElementById("navButt").style.display = "none";
-   document.getElementById("closeNavButt").style.display = "inline-block";
+function togNav(){
+   if(y.style.display === "none"){
+      y.style.display = "block";
+      x.setAttribute("aria-expanded", "true");
+      x.setAttribute("aria-label", "select to close navigation or use escape");
+      x.innerHTML="Close Navigation Links";
+      x.focus();
+   }else{
+      y.style.display = "none";
+      x.innerHTML="Navigate Floor Plans";
+      x.setAttribute("aria-expanded", "false");
+      x.setAttribute("aria-label", "select to navigate floor plans");
+      x.focus();
+   }
 }
-function hideNav(){
-   document.getElementById("nav").style.display = "none";
-   document.getElementById("navButt").style.display = "inline-block";
-   document.getElementById("closeNavButt").style.display = "none";
-}
-
 document.onkeyup = function(e){
    if (e.key=='Escape'||e.key=='Esc'||e.keyCode==27){
-      document.getElementById("nav").style.display = "none";
-      document.getElementById("closeNavButt").style.display = "none";
-      document.getElementById("navButt").style.display = "inline-block";
+      y.style.display = "none";
+      x.innerHTML="Navigate Floor Plans";
+      x.setAttribute("aria-expanded", "false");
+      x.setAttribute("aria-label", "select to navigate floor plans");
+      x.focus();
    }
 }
 

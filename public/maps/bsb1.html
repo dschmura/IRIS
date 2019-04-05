@@ -17,12 +17,12 @@ background-color:ivory;
 position:absolute;
 right:0px;
 margin-top:0%;
+padding:2% 0%;
 z-index:5;
 text-align:center;
-background-color: rgba(255,255,255,0.8);
+background-color: rgba(255,255,255,0.9);
 width:45%;
 height:auto;
-display:none;
 border: thin solid black;
 }
 
@@ -38,9 +38,6 @@ button{
  top:0;
  margin:0% 0% 1% 0%;
  font-size:large;
-}
-button.closenav{
- display:none;
 }
 
 h1{
@@ -59,19 +56,28 @@ h1{
  font-weight:bold;
  position:relative;
  text-align:center;
- padding-bottom:1%;
+ padding:2%;
 }
 .navlabel{
+ color:black;
  display:block;
  font-size:large;
  font-weight:bold;
+ font-style:oblique;
  position:relative;
  text-align:center;
- padding-bottom:1%;
+ padding:2%;
 }
 
 a:link{text-decoration:none;}
 a:hover{text-decoration:underline;}
+
+a.dead{color:DarkSlateGrey; font-style:oblique;}
+a.dead:hover{text-decoration:none; cursor:default;}
+a.dead:focus{text-decoration:none;}
+
+a.navlabel:hover{text-decoration:none; cursor:default;}
+a.navlabel:focus{text-decoration:none;}
 
 a.bld{z-index:1;position:absolute;}
 a.bld:focus{
@@ -132,7 +138,7 @@ a.rm:hover{
 #fpbox{
   position:relative;
   overflow:visible;
-  width:200%;
+  width:180%;
 }
 
 @media only screen and (max-height:800px) {
@@ -141,12 +147,14 @@ a.rm:hover{
 }
 
 @media only screen and (max-width:600px){
-  h1{font-size:small;}
   .text{font-size:small;}
+  h1{font-size:small;}
   button{font-size:small;}
+  .navlabel{font-size:small;}
   @media only screen and (orientation:portrait){
      #scrollbox{height:400px;}
      #fpbox{width:250%;}
+     #nav{width:55%;}
   }
   @media only screen and (orientation:landscape){
     #scrollbox{height:250px;}
@@ -157,7 +165,7 @@ a.rm:hover{
 /* padding and positions for all the links */
 
 
-a.bsb1060{padding:10% 12%; top:24%; left:4.5%;}
+a.bsb1060{padding:6% 9%; top:30%; left:7%;}
 a.bsb1100{padding:5%; top:35.5%; left:34%;}
 a.bsb1110{padding:5%; top:54%; left:34%;}
 
@@ -169,43 +177,44 @@ a.bsb1110{padding:5%; top:54%; left:34%;}
 <body>
 
 <div class="page">
-
+<header>
 <h1>Biological Sciences Building</h1>
-
-<button type="button" id="navButt" tabindex="1" title="click to open navagation links" aria-label="click to open navagation links">Navigate Floor Plans</button>
-<button class="closenav" type="button" id="closeNavButt" tabindex="1" title="click to close navagation links" aria-label="click to close navagation links">Close Navigation</button>
+</header>
+<nav>
+<button type="button" id="navButt" tabindex="1" aria-expanded="false" aria-label="select to navigate floor plans">Navigate Floor Plans</button>
 
 <!--Navigation hidden until button is clicked javascript below body-->
-<div id="nav">
-<p class="text"  tabindex="4">
-There are no other floors with classrooms
-</p>
-<p class="text">
-<a href="index.html" tabindex="5" title="to the central campus map" aria-label="to the central campus map">
-To Central Campus Map</a>
-</p>
-<p class="text">
-<a href="/" tabindex="6" title="to the MClassrooms home page" aria-label="to the M Classrooms home page">
-To MClassrooms Homepage</a>
-</p>
-</div>
-
-<div id="scrollbox">
+<ul id="nav" style="display:none;">
+<li class="text">
+<a class="navlabel" href="#!" aria-label="This link is inactive. There are no other floors with general purpose classrooms in this building">There are no other floors with classrooms</a>
+</li>
+<li class="text">
+<a href="index.html" aria-label="central campus map">
+Central Campus Map</a>
+</li>
+<li class="text">
+<a href="/" aria-label="M Classrooms home page">
+MClassrooms Homepage</a>
+</li>
+</ul>
+</nav>
 
 <!-- floor plan -->
-
+<main>
+<div id="scrollbox">
 <div id="fpbox">
 
-<img id="fp" src="bsb1.jpg" alt="a drawing of the biological sciences building" />
+<img id="fp" src="bsb1.jpg" alt="a drawing of the biological sciences building, one classroom link on this drawing" />
 
 <!-- links to classroom data -->
-
-<a class="rm bsb1060" href="../classrooms/BSB1060" tabindex="30" title="to information for room 1060 BSB" aria-label="to information about room one zero six zero, biological science building">
+<ul>
+<a class="rm bsb1060" href="../classrooms/BSB1060" title="to information for room 1060 BSB" aria-label="room one zero six zero biological science building information">
 </a>
+</ul>
 
 </div>
 </div>
-
+</main>
 </div>
 
 </body>
@@ -216,28 +225,35 @@ To MClassrooms Homepage</a>
 window.onload=function scrolldown() {
     var elmnt = document.getElementById("scrollbox");
     elmnt.scrollLeft = 0;
-    elmnt.scrollTop = 0;
+    elmnt.scrollTop = 100;
 }
 
-document.getElementById("navButt").onclick = function() {showNav()};
-document.getElementById("closeNavButt").onclick = function() {hideNav()};
+var x=document.getElementById("navButt")
+var y=document.getElementById("nav")
+x.onclick = function() {togNav()};
 
-function showNav(){
-   document.getElementById("nav").style.display = "block";
-   document.getElementById("navButt").style.display = "none";
-   document.getElementById("closeNavButt").style.display = "inline-block";
+function togNav(){
+   if(y.style.display === "none"){
+      y.style.display = "block";
+      x.setAttribute("aria-expanded", "true");
+      x.setAttribute("aria-label", "select to close navigation or use escape");
+      x.innerHTML="Close Navigation Links";
+   x.focus();
+   }else{
+      y.style.display = "none";
+      x.innerHTML="Navigate Floor Plans";
+      x.setAttribute("aria-expanded", "false");
+      x.setAttribute("aria-label", "select to navigate floor plans");
+      x.focus();
+   }
 }
-function hideNav(){
-   document.getElementById("nav").style.display = "none";
-   document.getElementById("navButt").style.display = "inline-block";
-   document.getElementById("closeNavButt").style.display = "none";
-}
-
 document.onkeyup = function(e){
    if (e.key=='Escape'||e.key=='Esc'||e.keyCode==27){
-      document.getElementById("nav").style.display = "none";
-      document.getElementById("closeNavButt").style.display = "none";
-      document.getElementById("navButt").style.display = "inline-block";
+      y.style.display = "none";
+      x.innerHTML="Navigate Floor Plans";
+      x.setAttribute("aria-expanded", "false");
+      x.setAttribute("aria-label", "select to navigate floor plans");
+      x.focus();
    }
 }
 

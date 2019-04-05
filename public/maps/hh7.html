@@ -17,12 +17,12 @@ background-color:ivory;
 position:absolute;
 right:0px;
 margin-top:0%;
+padding:2% 0%;
 z-index:5;
 text-align:center;
-background-color: rgba(255,255,255,0.8);
+background-color: rgba(255,255,255,0.9);
 width:45%;
 height:auto;
-display:none;
 border: thin solid black;
 }
 
@@ -38,9 +38,6 @@ button{
  top:0;
  margin:0% 0% 1% 0%;
  font-size:large;
-}
-button.closenav{
- display:none;
 }
 
 h1{
@@ -59,19 +56,28 @@ h1{
  font-weight:bold;
  position:relative;
  text-align:center;
- padding-bottom:1%;
+ padding:2%;
 }
 .navlabel{
+ color:black;
  display:block;
  font-size:large;
  font-weight:bold;
+ font-style:oblique;
  position:relative;
  text-align:center;
- padding-bottom:1%;
+ padding:2%;
 }
 
 a:link{text-decoration:none;}
 a:hover{text-decoration:underline;}
+
+a.dead{color:DarkSlateGrey; font-style:oblique;}
+a.dead:hover{text-decoration:none; cursor:default;}
+a.dead:focus{text-decoration:none;}
+
+a.navlabel:hover{text-decoration:none; cursor:default;}
+a.navlabel:focus{text-decoration:none;}
 
 a.bld{z-index:1;position:absolute;}
 a.bld:focus{
@@ -154,78 +160,84 @@ a.rm:hover{
 
 /* padding and positions for all the links */
 
-a.hh7603{padding:11% 16%; top:.5%; right:14%;}
+a.hh7603{height:11%; width:29%; top:.5%; right:13.5%;}
 
 </style>
 </head>
 
 <html lang="en">
 <body>
-
 <div class="page">
-
+<header>
 <h1>Haven Hall Seventh Floor</h1>
+</header>
 
-<button type="button" id="navButt" tabindex="1" title="click to open navagation links" aria-label="click to open navagation links">Navigate Floor Plans</button>
-<button class="closenav" type="button" id="closeNavButt" tabindex="1" title="click to close navagation links" aria-label="click to close navagation links">Close Navigation</button>
+<nav>
+<button type="button" id="navButt" aria-expanded="false" aria-label="select to navigate floor plans">Navigate Floor Plans</button>
 
-<div id="nav">
-<p class="text">
-<a href="hhg.html" tabindex="4" title="to the ground floor" aria-label="to the ground floor of Haven Hall">
-Ground Floor</a>
-</p>
-<p class="text">
-<a href="hh1.html" tabindex="5" title="to the first floor" aria-label="to the first floor of Haven Hall">
-First Floor</a>
-</p>
-<p class="text">
-<a href="hh2.html" tabindex="6" title="to the second floor" aria-label="to the second floor of Haven Hall">
-Second Floor</a>
-</p>
-<p class="text">
-<a href="hh3.html" tabindex="7" title="to the third floor" aria-label="to the third floor of Haven Hall">
-Third Floor</a>
-</p>
-
-<p class="navlabel">Upper floors with classrooms</p>
-
-<p class="text">
-<a href="hh5.html" tabindex="10" title="to the fifth floor" aria-label="to the fifth floor of Haven Hall">
-Fifth Floor</a>
-</p>
-
-<p class="text" style="color:gray;" tabindex="12" aria-label="this is the seventh floor of Haven Hall">you are on the seventh floor</p>
-
+<ul id="nav" style="display:none;">
+<li class="text">
+<a href="hhg.html" aria-label="ground floor, Haven Hall">
+Ground Floor Haven</a>
+</li>
+<li class="text">
+<a href="hh1.html" aria-label="first floor, Haven Hall">
+First Floor Haven</a>
+</li>
+<li class="text">
+<a href="hh2.html" aria-label="second floor, Haven Hall">
+Second Floor Haven</a>
+</li>
+<li class="text">
+<a href="hh3.html" aria-label="third floor, Haven Hall">
+Third Floor Haven</a>
+</li>
+<li class="navlabel" tabindex="0">no classrooms on the fourth floor</li>
+<li class="text">
+<a href="hh5.html" aria-label="fifth floor, Haven Hall">
+Fifth Floor Haven</a>
+</li>
+<li class="navlabel" tabindex="0">no classrooms on the sixth floor</li>
+<li class="text">
+<a class="dead" href="#!" aria-label="This link is inactive. You are on the seventh floor of Haven.">This is the seventh floor</a>
+</li>
 <hr aria-hidden="true">
-<p class="navlabel">There is no seventh floor of Angell</p>
-<p class="navlabel">There is no seventh floor of Mason</p>
+<li class="text">
+<a class="navlabel" href="#!" aria-label="This link is inactive. Angell has no seventh floor">Angell has no seventh floor</a>
+</li>
+<li class="text">
+<a class="navlabel" href="#!" aria-label="This link is inactive. Mason has no seventh floor.">Mason has no seventh floor</a>
+</li>
 <hr aria-hidden="true">
-<p class="text">
-<a href="index.html" tabindex="20" title="to the central campus map" aria-label="to the central campus map">
+<li class="text">
+<a href="index.html" aria-label="central campus map">
 Central Campus</a>
-</p>
-<p class="text">
-<a href="/" tabindex="22" title="to the MClassrooms home page" aria-label="to the M classrooms Home Page">
+</li>
+<li class="text">
+<a href="/" aria-label="M classrooms Home Page">
 MClassrooms Home</a>
-</p>
-
-</div>
+</li>
+</ul>
+</nav>
 
 <!-- floor plan -->
+<main>
 <div id="scrollbox">
 <div id="fpbox">
-<img id="fp" src="hh7.jpg" alt="Drawing of the seventh floor of Haven Hall" />
+<img id="fp" src="hh7.jpg" alt="Drawing of the seventh floor of Haven Hall, one classroom link on this drawing" />
 
 <!-- links to classroom data  -->
 
-<a class="rm hh7603" href="../classrooms/HH7603" tabindex="30" title="to information for 7603 Haven" aria-label="to information about room seven six zero three, haven hall"></a>
+<a class="rm hh7603" href="../classrooms/HH7603" title="to information for 7603 Haven" aria-label="room seven six zero three haven hall information"></a>
 
 </div>
 </div>
+</main>
 </div>
 
 </body>
 </html>
+</main>
 
 <script>
 
@@ -235,25 +247,32 @@ window.onload=function scrolldown() {
     elmnt.scrollTop = 0;
 }
 
-document.getElementById("navButt").onclick = function() {showNav()};
-document.getElementById("closeNavButt").onclick = function() {hideNav()};
+var x=document.getElementById("navButt")
+var y=document.getElementById("nav")
+x.onclick = function() {togNav()};
 
-function showNav(){
-   document.getElementById("nav").style.display = "block";
-   document.getElementById("navButt").style.display = "none";
-   document.getElementById("closeNavButt").style.display = "inline-block";
+function togNav(){
+   if(y.style.display === "none"){
+      y.style.display = "block";
+      x.setAttribute("aria-expanded", "true");
+      x.setAttribute("aria-label", "select to close navigation or use escape");
+      x.innerHTML="Close Navigation Links";
+   x.focus();
+   }else{
+      y.style.display = "none";
+      x.innerHTML="Navigate Floor Plans";
+      x.setAttribute("aria-expanded", "false");
+      x.setAttribute("aria-label", "select to navigate floor plans");
+      x.focus();
+   }
 }
-function hideNav(){
-   document.getElementById("nav").style.display = "none";
-   document.getElementById("navButt").style.display = "inline-block";
-   document.getElementById("closeNavButt").style.display = "none";
-}
-
 document.onkeyup = function(e){
    if (e.key=='Escape'||e.key=='Esc'||e.keyCode==27){
-      document.getElementById("nav").style.display = "none";
-      document.getElementById("closeNavButt").style.display = "none";
-      document.getElementById("navButt").style.display = "inline-block";
+      y.style.display = "none";
+      x.innerHTML="Navigate Floor Plans";
+      x.setAttribute("aria-expanded", "false");
+      x.setAttribute("aria-label", "select to navigate floor plans");
+      x.focus();
    }
 }
 

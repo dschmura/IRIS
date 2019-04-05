@@ -63,12 +63,14 @@ h1{
  padding-bottom:1%;
 }
 .navlabel{
+ color:black;
  display:block;
  font-size:large;
  font-weight:bold;
+ font-style:oblique;
  position:relative;
  text-align:center;
- padding-bottom:1%;
+ padding:2%;
 }
 
 a:link{text-decoration:none;}
@@ -171,47 +173,47 @@ a.rm:hover{
 
 /* padding and positions for all the links */
 
-//a.agrmu{padding:5% 6.5%; top:30.5%; right:6.5%;}
+a.agrmu{height:6%; width:13%; top:30.5%; right:6.5%;}
 
-a.ah{padding:5%; top:49%; left:20%;}
+a.ah{height:7%; width:9%; top:49%; left:21%;}
 
-a.bsb{padding:5% 9%; top:22.5%; right:4.3%;}
+a.bsb{height:6%; width:18%; top:22.5%; right:4%;}
 
-a.chem{padding:6.5% 11%; top:31%; left:46%}
+a.chem{height:8.5%; width:22%; top:31%; left:46%}
 
-a.eh{padding:7% 5%; bottom:35%; right:16%;}
+a.eh{height:9.2%; width:11.5%; bottom:35.5%; right:15%;}
 
-a.eq{padding:12% 6%; bottom:3.5%; right:14%;}
+a.eq{height:15%; width:12%; bottom:4%; right:13.5%;}
 
-a.hh{padding:5% 3%; top:48.5%; left:32%;}
+a.hh{height:7.5%; width:7%; top:48.5%; left:31.6%;}
 
-a.lorch{padding:6%; bottom:15%; left:45%;}
+a.lorch{height:7%; width:11.5%; bottom:15.5%; left:45%;}
 
-a.lsa{padding:7% 5%; bottom:40%; left:2%;}
+a.lsa{height:9%; width:10%; bottom:40%; left:2%;}
 
-a.mh{padding:4.5%; top:42%; left:25.7%;}
+a.mh{height:5.5%; width:9%; top:42%; left:25.7%;}
 
-a.mlb{padding:6% 4%; top:13%; left:30%;}
+a.mlb{height:8%; width:8%; top:13%; left:30%;}
 
-a.nq{padding:6% 8%; top:4%; left:15%;}
+a.nq{height:8%; width:15%; top:4%; left:14.5%;}
 
-a.ns{padding:6%; top:32%; left:30%;}
+a.ns{height:10%; width:14%; top:31%; left:28.5%;}
 
-a.nub{padding:7.5% 5%;  top:36.5%; right:17.5%;}
+a.nub{height:10%; width:9.5%; top:36.2%; right:17.5%;}
 
-a.rand{padding:5.5%; top:45.5%; right:30%;}
+a.rand{height:8%; width:11%; top:45%; right:30%;}
 
-a.seb{padding:7.5% 7%; bottom:16%; right:26%;}
+a.seb{height:10%; width:11%; bottom:16%; right:28.5%;}
 
-a.stb{padding:5.5% 4%; top:13%; left:20%;}
+a.stb{height:8%; width:8%; top:13%; left:20%;}
 
-a.tap{padding:5% 4%; bottom:34.5%; left:30%;}
+a.tap{height:7%; width:8%; bottom:34%; left:30%;}
 
-a.usb{padding:6% 8%; top:13.3%; right:8.8%;}
+a.usb{height:8%; width:15%; top:13.3%; right:8.8%;}
 
-a.weis{padding:6%; bottom:45%; right:16%;}
+a.weis{height:7.5%; width:10.5%; bottom:45%; right:16%;}
 
-a.wh{padding:9% 3.5%; bottom:35%; right:31%;}
+a.wh{height:10.5%; width:9%; bottom:35%; right:30%;}
 
 </style>
 </head>
@@ -220,91 +222,92 @@ a.wh{padding:9% 3.5%; bottom:35%; right:31%;}
 <body>
 
 <div class="page">
-
+<header>
 <h1>Central Campus</h1>
-
+</header>
+<nav>
 <p class="biga">
-<a href="/" title="to the MClassrooms Home Page" aria-lable="to the m classrooms home page" tabindex="1">MClassrooms Home</a>
+<a href="/" aria-label="to the M classrooms home page">MClassrooms Home</a>
 </p>
-
+</nav>
 <!-- floor plan -->
-
+<main>
 <div id="scrollbox">
 <div id="fpbox">
-<img id="fp" src="diag.jpg" alt="a drawing of central campus" />
+<img id="fp" src="diag.jpg" alt="a drawing of central campus, nineteen building links on this drawing" />
 
 <!-- links to buildings  -->
 
-<a class="bld ah" href="ahg.html" tabindex="5" title="to Angell and Tisch, ground floor" aria-label="to Angell and Tisch Halls, ground floor">
+<a class="bld ah" href="ahg.html" title="to Angell and Tisch, ground floor" aria-label="to Angell and Tisch Halls, ground floor">
 </a>
 
-<a class="bld bsb" href="bsb1.html" tabindex="10" title="to Biological Science Building, ground floor" aria-label="to the Biological Science Building, ground floor">
+<a class="bld bsb" href="bsb1.html" title="to Biological Science Building, ground floor" aria-label="to the Biological Science Building, ground floor">
 </a>
 
-<a class="bld chem" href="chem1.html" tabindex="15" title="to Chemistry, ground floor" aria-label="to Chemistry, ground floor">
+<a class="bld chem" href="chem1.html" title="to Chemistry, ground floor" aria-label="to Chemistry, ground floor">
 </a>
 
-<a class="bld eh" href="eh1.html" tabindex="20" title="to East Hall, ground floor" aria-label="to East Hall, ground floor">
+<a class="bld eh" href="eh1.html" title="to East Hall, ground floor" aria-label="to East Hall, ground floor">
 </a>
 
-<a class="bld eq" href="eq1.html" tabindex="25" title="to East Quad, ground floor" aria-label="to East Quad, ground floor">
+<a class="bld eq" href="eq1.html" title="to East Quad, ground floor" aria-label="to East Quad, ground floor">
 </a>
 
-<a class="bld hh" href="hhg.html" tabindex="30" title="to Haven Hall, ground floor" aria-label="to Haven Hall, ground floor">
+<a class="bld hh" href="hhg.html" title="to Haven Hall, ground floor" aria-label="to Haven Hall, ground floor">
 </a>
 
-<a class="bld lorch" href="lorch1.html" tabindex="40" title="to Lorch Hall, ground floor" aria-label="to Lorch Hall, ground floor">
-</a>
-
-<a class="bld lsa" href="lsa3.html" tabindex="35" title="to the LSA Building, third floor" aria-label="to the Literature Science and the Arts building, third floor">
-</a>
-
-<a class="bld mh" href="mhg.html" tabindex="45" title="to Mason Hall, ground floor" aria-label="to Mason Hall, ground floor">
-</a>
-
-<a class="bld mlb" href="mlb1.html" tabindex="50" title="to the MLB, ground floor" aria-label="to the modern language building, ground floor">
-</a>
-
-<a class="bld nq" href="nq2.html" tabindex="60" title="to North Quad 2nd floor, which is ground" aria-label="to North Quad second floor, which is the ground floor">
-</a>
-
-<!-- Under Renovation ---
-<a class="bld ns" href="ns1.html" tabindex="6" title="to Kraus, ground floor" aria-label="to Kraus, ground floor">
+<!--under renovation
+<a class="bld ns" href="ns1.html" title="to Kraus, ground floor" aria-label="to Kraus, ground floor">
 </a>
 -->
 
-<a class="bld nub" href="nub1.html" tabindex="55" title="to North University Building, ground floor" aria-label="to the North University Building, ground floor">
+<a class="bld lorch" href="lorch1.html" title="to Lorch Hall, ground floor" aria-label="to Lorch Hall, ground floor">
 </a>
 
-<a class="bld rand" href="rand4.html" tabindex="65" title="to Randall Lab, fourth floor" aria-label="to Randall Lab, fourth floor">
+<a class="bld lsa" href="lsa3.html" title="to the LSA Building, third floor" aria-label="to the Literature Science and the Arts building, third floor">
 </a>
 
-<!-- Under Renovation ---
-<a class="bld agrmu" href="agrmu1.html" tabindex="70" title="to Ruthven, ground floor" aria-label="to Rooth ven Museum, ground floor">
+<a class="bld mh" href="mhg.html" title="to Mason Hall, ground floor" aria-label="to Mason Hall, ground floor">
+</a>
+
+<a class="bld mlb" href="mlb1.html" title="to the MLB, ground floor" aria-label="to the modern language building, ground floor">
+</a>
+
+<a class="bld nq" href="nq2.html" title="to North Quad 2nd floor, which is ground" aria-label="to North Quad second floor, which is the ground floor">
+</a>
+
+<a class="bld nub" href="nub1.html" title="to North University Building, ground floor" aria-label="to the North University Building, ground floor">
+</a>
+
+<a class="bld rand" href="rand4.html" title="to Randall Lab, fourth floor" aria-label="to Randall Lab, fourth floor">
+</a>
+
+<!-- tranferred to central admin. save for new classroom building planned for fall 2021
+<a class="bld agrmu" href="agrmu1.html" title="to Ruthven, ground floor" aria-label="to Rooth ven Museum, ground floor">
 </a
 -->
 
-<a class="bld seb" href="seb1.html" tabindex="75" title="to the School of Education, ground floor" aria-label="to the School of Education, ground floor">
+<a class="bld seb" href="seb1.html" title="to the School of Education, ground floor" aria-label="to the School of Education, ground floor">
 </a>
 
-<a class="bld stb" href="stb1.html" tabindex="80" title="to the South Thayer Building, ground floor" aria-label="to the South Thayer Building, ground floor">
+<a class="bld stb" href="stb1.html" title="to the South Thayer Building, ground floor" aria-label="to the South Thayer Building, ground floor">
 </a>
 
-<a class="bld tap" href="tap1.html" tabindex="85" title="to Tappan Hall, ground floor" aria-label="to Tappan Hall, ground floor">
+<a class="bld tap" href="tap1.html" title="to Tappan Hall, ground floor" aria-label="to Tappan Hall, ground floor">
 </a>
 
-<a class="bld usb" href="usb1.html" tabindex="90" title="to the USB, plaza level" aria-label="to the undergraduate science building plaza level, which is the ground floor">
+<a class="bld usb" href="usb1.html" title="to the USB, plaza level" aria-label="to the undergraduate science building plaza level, which is the ground floor">
 </a>
 
-<a class="bld weis" href="weis1.html" tabindex="95" title="to weiser Hall, ground floor" aria-label="to weiser hall, ground floor">
+<a class="bld weis" href="weis1.html" title="to weiser Hall, ground floor" aria-label="to weiser hall, ground floor">
 </a>
 
-<a class="bld wh" href="wh1.html" tabindex="100" title="to West Hall, ground floor" aria-label="to West Hall, ground floor">
+<a class="bld wh" href="wh1.html" title="to West Hall, ground floor" aria-label="to West Hall, ground floor">
 </a>
 
 </div>
 </div>
-
+</main>
 </div>
 
 </body>
