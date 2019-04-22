@@ -118,6 +118,15 @@ a.rm:hover{
   position:relative;
   width:100%;
 }
+#fpaudio{
+position:absolute;
+top:10%;
+left:10%;
+width:60%;
+height:60%;
+overflow:hidden;
+z-index:-10;
+}
 
 @media only screen and (max-width:800px) {
   h1{font-size:large;}
@@ -178,6 +187,10 @@ a.mhg437{height:6.4%; width:8%; top:23.7%; right:12.5%;}
 a.mhg449{height:6%; width:8%; top:30.5%; right:12.5%;}
 a.mhg463{height:6.4%; width:8%; top:36.7%; right:12.5%;}
 a.hhg634{height:4.5%; width:10.5%; bottom:17%; right:17%;}
+a.ahg155e{height:29.5%; width:7%; top:49.5%; left:11.5%;}
+a.mhg333{height:5%; width:8%; top:9.8%; right:43.6%;}
+a.mhg340{height:5%; width:30%; top:17.8%; left:30%;}
+a.mhg353{height:5%; width:8%; top:9.8%; right:35%;}
 
 </style>
 </head>
@@ -191,7 +204,7 @@ a.hhg634{height:4.5%; width:10.5%; bottom:17%; right:17%;}
 </header>
 
 <nav>
-<button type="button" id="navButt" tabindex="1" aria-expanded="false" aria-label="select to navigate floor plans">Navigate Floor Plans</button>
+<button type="button" id="navButt" aria-expanded="false" aria-label="select to navigate floor plans">Navigate Floor Plans</button>
 
 <ul id="nav" style="display:none;">
 
@@ -214,29 +227,34 @@ a.hhg634{height:4.5%; width:10.5%; bottom:17%; right:17%;}
 <main>
 <div id="scrollbox">
 <div id="fpbox">
-<img id="fp" src="ahplexg.jpg" alt="Drawing of the ground floor of the Angell Mason Haven Hall Complex" aria-label="Drawing of the ground floor of the Angell Mason Haven Hall Complex, nineteen classroom links on this drawing.  Technology Services on this floor are LSA Information Technology and computer support room G one five five E Angell, Instructional Support room G three four zero Mason, video services room G three three three Mason and the instructional support business office room G three five three Mason." />
+<img id="fp" src="ahplexg.jpg" alt="ground floor of the angell mason haven hall complex, nineteen classroom and four technology services links on this drawing." />
 
 <!-- links to classroom data  -->
 
-<a class="rm mhg421b" href="../classrooms/MHG421B" title="to information for G421B Mason" aria-label="room G four two one B mason hall information"></a>
-<a class="rm mhg437" href="../classrooms/MHG437" title="to information for G437 Mason" aria-label="room G four three seven mason hall information"></a>
-<a class="rm mhg449" href="../classrooms/MHG449" title="to information for G449 Mason" aria-label="room G four four nine mason hall information"></a>
-<a class="rm mhg463" href="../classrooms/MHG463" title="to information for G463 Mason" aria-label="room G four six three mason hall information"></a>
-<a class="rm hhg634" href="../classrooms/HHG634" title="to information for G634 Haven" aria-label="room G six three four haven hall information"></a>
-<a class="rm aha" href="../classrooms/AHA" title="to information for Auditorium A, Angell" aria-label="auditorium A, angell hall information"></a>
-<a class="rm ahb" href="../classrooms/AHB" title="to information for Auditorium B, Angell" aria-label="auditorium B, angell hall information"></a>
-<a class="rm ahc" href="../classrooms/AHC" title="to information for Auditorium C, Angell" aria-label="auditorium C, angell hall information"></a>
-<a class="rm ahd" href="../classrooms/AHD" title="to information for Auditorium D, Angell" aria-label="auditorium D, angell hall information"></a>
-<a class="rm ahg026" href="../classrooms/AHG026" title="to information for room G026 Tisch" aria-label="room G zero two six tisch hall information"></a>
-<a class="rm ahg040" href="../classrooms/AHG040" title="to information for room G040 Tisch" aria-label="room G zero four zero tisch hall information"></a>
-<a class="rm ahg115" href="../classrooms/AHG115" title="to information for room G115 Angell" aria-label="room G one one five angell hall information"></a>
-<a class="rm ahg127" href="../classrooms/AHG127" title="to information for room G127 Angell" aria-label="room G one two seven angell hall information"></a>
-<a class="rm ahg128" href="../classrooms/AHG128" title="to information for room G128 Angell" aria-label="room G one two eight angell hall information"></a>
-<a class="rm ahg144" href="../classrooms/AHG144" title="to information for room G144 Angell" aria-label="room G one four four angell hall information"></a>
-<a class="rm ahg160" href="../classrooms/AHG160" title="to information for room G160 Angell" aria-label="room G one six zero angell hall information"></a>
-<a class="rm ahg168" href="../classrooms/AHG168" title="to information for room G168 Angell" aria-label="room G one six eight angell hall information"></a>
-<a class="rm ahg228" href="../classrooms/AHG228" title="to information for room G228 Angell" aria-label="room G two two eight angell hall information"></a>
-<a class="rm ahg232" href="../classrooms/AHG232" title="to information for room G232 Angell" aria-label="room G two three two angell hall information"></a>
+<a class="rm mhg421b" href="../classrooms/MHG421B" aria-label="room G four two one B mason hall information"></a>
+<a class="rm mhg437" href="../classrooms/MHG437" aria-label="room G four three seven mason hall information"></a>
+<a class="rm mhg449" href="../classrooms/MHG449" aria-label="room G four four nine mason hall information"></a>
+<a class="rm mhg463" href="../classrooms/MHG463" aria-label="room G four six three mason hall information"></a>
+<a class="rm hhg634" href="../classrooms/HHG634" aria-label="room G six three four haven hall information"></a>
+<a class="rm aha" href="../classrooms/AHA" aria-label="auditorium A as in alpha, angell hall information"></a>
+<a class="rm ahb" href="../classrooms/AHB" aria-label="auditorium B as in bravo, angell hall information"></a>
+<a class="rm ahc" href="../classrooms/AHC" aria-label="auditorium C as in charlie, angell hall information"></a>
+<a class="rm ahd" href="../classrooms/AHD" aria-label="auditorium D as in delta, angell hall information"></a>
+<a class="rm ahg026" href="../classrooms/AHG026" aria-label="room G zero two six tisch hall information"></a>
+<a class="rm ahg040" href="../classrooms/AHG040" aria-label="room G zero four zero tisch hall information"></a>
+<a class="rm ahg115" href="../classrooms/AHG115" aria-label="room G one one five angell hall information"></a>
+<a class="rm ahg127" href="../classrooms/AHG127" aria-label="room G one two seven angell hall information"></a>
+<a class="rm ahg128" href="../classrooms/AHG128" aria-label="room G one two eight angell hall information"></a>
+<a class="rm ahg144" href="../classrooms/AHG144" aria-label="room G one four four angell hall information"></a>
+<a class="rm ahg160" href="../classrooms/AHG160" aria-label="room G one six zero angell hall information"></a>
+<a class="rm ahg168" href="../classrooms/AHG168" aria-label="room G one six eight angell hall information"></a>
+<a class="rm ahg228" href="../classrooms/AHG228" aria-label="room G two two eight angell hall information"></a>
+<a class="rm ahg232" href="../classrooms/AHG232" aria-label="room G two three two angell hall information"></a>
+<a class="rm ahg155e" href="https://lsa.umich.edu/technology-services" target="_blank" aria-label="opens a new tab. LSA Technology Services angell hall room G one five five E as in echo."></a>
+<a class="rm mhg333" href="https://lsa.umich.edu/iss/support-and-services/video-services.html" target="_blank" aria-label="opens new tab. LSA Video Services mason hall room G three three three."></a>
+<a class="rm mhg340" href="https://lsa.umich.edu/iss/equipment-loan---reservation-.html" target="_blank" aria-label="opens new tab. LSA Equipment Loans mason hall room G three four zero."></a>
+<a class="rm mhg353" href="https://lsa.umich.edu/iss" target="_blank" aria-label="opens new tab. LSA Instructional Support room G three five three."></a>
+
 </div>
 </div>
 </main>
