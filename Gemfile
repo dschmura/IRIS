@@ -1,17 +1,20 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.2.8'
+
+gem 'rails', '5.2.3'
 gem 'sqlite3'
 
 gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.1.0'
+gem 'coffee-rails'
 
 gem 'turbolinks'
-gem 'jbuilder', '~> 1.2'
+gem 'jbuilder'
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
 end
+
+gem "bootsnap", ">= 1.4.3", require: false
 
 # gem 'skylight'
 gem 'haml'
@@ -19,13 +22,13 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'sass-rails', '~> 5.0'
 # gem 'mini_racer'
 # gem 'autoprefixer-rails'
-gem 'autoprefixer-rails', '8.2.0'
+gem 'autoprefixer-rails'
 #gem 'google-analytics-rails'
 
 gem 'font-awesome-rails'
 gem 'jquery-fileupload-rails'
 
-gem 'protected_attributes'
+# gem 'protected_attributes'
 gem 'modernizr-rails'
 gem "jquery-rails"
 #gem "devise", "3.2.4"
@@ -55,26 +58,23 @@ gem 'will_paginate-bootstrap'
 ## Used for uploading and resizing images (Need both paperclip and mini_magick)
 
 #gem "paperclip"
-gem "paperclip", '~>5.2.1'
+gem "paperclip", '~>6.1.0'
 #gem "meta_search"
 #gem "ransack", "1.3.0"
 gem "ransack"
 #gem "ransack", github: "activerecord-hackery/ransack", branch: "rails-4.1"
 #gem 'ransack', github: 'activerecord-hackery/ransack', branch: 'rails-4.2'
 #gem "polyamorous", github: "activerecord-hackery/polyamorous"
-gem 'annotate', ">=2.6.0"
+gem 'annotate'
 
 group :production do
   gem 'unicorn'
 end
 
-group :development do
-  gem 'web-console', '~> 2.0'
-end
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-
+  gem 'listen'
   # Access an IRB console on exception pages or by using <%= console %> in views
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
