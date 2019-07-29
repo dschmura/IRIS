@@ -60,8 +60,8 @@
 
         - if user_signed_in?
           - if current_user.admin?
-            %td= link_to 'Edit', edit_classroom_path(classroom), :class => 'btn btn-xs'
-            %td= link_to 'Destroy', classroom, data: { confirm: 'Are you sure?' } , :method => :delete, :class => 'btn btn-xs btn-danger'
+            %td= link_to 'Edit', edit_classroom_path(classroom.facility_code_heprod), :class => 'btn btn-xs'
+            %td= link_to 'Destroy', classroom.facility_code_heprod, data: { confirm: 'Are you sure?' } , :method => :delete, :class => 'btn btn-xs btn-danger'
 
 %br
 
