@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
-  skip_filter :redirect_https
-  
+  skip_after_action :redirect_https, raise: false
+
   def home
     @page_title="Home"
   end

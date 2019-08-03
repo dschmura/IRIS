@@ -19,8 +19,8 @@
 #
 
 class RoomScheduleContactsController < ApplicationController
-  before_filter :authenticate_user!
-  
+  before_action :authenticate_user!
+
   def import
     RoomScheduleContact.import(params[:file])
     redirect_to room_schedule_contacts_url, notice: "Contacts Imported"
@@ -28,7 +28,7 @@ class RoomScheduleContactsController < ApplicationController
   # GET /room_schedule_contacts
   # GET /room_schedule_contacts.json
   def index
-    
+
     @room_schedule_contacts = RoomScheduleContact.all
 
     respond_to do |format|

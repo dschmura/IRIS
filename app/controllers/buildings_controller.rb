@@ -23,7 +23,7 @@
 class BuildingsController < ApplicationController
   ## We are going to check authentication before accessing
   # anything but show and index
-  before_filter :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show]
 
   # after_action :verify_authorized, except: [:index]
   def index
