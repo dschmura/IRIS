@@ -70,11 +70,18 @@ module ClassroomsHelper
   # and indicated with the room facility_code_heprod variable.
   def technician_required
     technician_required_rooms = ['AHA', 'AHB', 'AHC', 'AHD', 'CHEM1800', 'EH1324', 'NS2140', 'LORCH140', 'MLB1200', 'MLB1400', 'MLB1420']
-    technician_required_message = 'Alert: An LSA-ISS technician is required for most presentation needs. Please contact LSA-ISS for assistance.'
+    technician_required_message = 'Alert: An LSA Technician is required for all presentation needs. Please call (734) 615-0100, prompt 4, and request our Special Events team.'
+
+    team_learning_rooms = ['CHEMA859', 'WEIS110', 'BSB1060']
+
+    team_learning_room_message = 'Alert: This is a team based learning classroom.  Training on the equipment is highly recommended. Please call (734) 615-0100 prompt 1 and ask to schedule a training in this room.'
+
     tech_req = image_tag("Open_For_Business_Sign.png", :alt => "We are open for change.  Please contribute your feedback.", :class => 'construction')
 
     if technician_required_rooms.include? @classroom.facility_code_heprod
       technician_required_message
+      elsif team_learning_rooms.include? @classroom.facility_code_heprod
+      team_learning_room_message
     end
   end
 
