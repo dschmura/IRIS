@@ -100,12 +100,12 @@
             %p.clearfix
             [ drag & drop the marker to update latitude & longitude
 
-            .input-group.input-group-sm.col-md-5.hidden
+            .input-group.input-group-sm.col-md-5
               %span.input-group-addon Lat:
               = loc.text_field :latitude,  class: "form-control building_location_attributes_latitude", id: " building_location_attributes_latitude"
             %br
 
-            .input-group.input-group-sm.col-md-5.hidden
+            .input-group.input-group-sm.col-md-5
               %span.input-group-addon Long:
               = loc.text_field :longitude,  class: "form-control  building_location_attributes_longitude", id: ""
 
@@ -251,4 +251,3 @@
      });
     }
   });
-
