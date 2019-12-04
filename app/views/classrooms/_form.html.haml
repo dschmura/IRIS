@@ -99,12 +99,12 @@
       %br
 
       = f.fields_for :location, :html => {multipart: true, class: 'classroom_form'} do |loc|
-        .input-group.input-group-sm.col-md-6.hidden
+        .input-group.input-group-sm.col-md-6
           %span.input-group-addon Lat:
           = loc.text_field :latitude,  value: @classroom.location.latitude, class: "form-control classroom_location_attributes_latitude"
         %br
 
-        .input-group.input-group-sm.col-md-6.hidden
+        .input-group.input-group-sm.col-md-6
           %span.input-group-addon Long:
           = loc.text_field :longitude, value: @classroom.location.longitude,  class: "form-control  classroom_location_attributes_longitude"
         %b
