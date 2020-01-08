@@ -2,7 +2,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LSA Third Floor</title>
+<title>LSA First Floor</title>
 
 <style>
 
@@ -148,7 +148,7 @@ z-index:-10;
   position:relative;
   overflow:visible;
   margin:auto;
-  width:60%;
+  width:120%;
 }
 
 @media only screen and (max-width:600px){
@@ -158,20 +158,18 @@ z-index:-10;
   button{font-size:small;}
   @media only screen and (orientation:portrait){
      #scrollbox{height:380px;}
-     #fpbox{width:100%;}
+     #fpbox{width:140%;}
      #nav{width:60%;}
   }
   @media only screen and (orientation:landscape){
     #scrollbox{height:205px;}
-    #fpbox{width:70%;}
+    #fpbox{width:120%;}
   }
 }
 
 /* dimensions and positions for all the links */
 
-a.lsa3207{height:9.8%; width:11.3%; bottom:35%; right:29.9%;}
-a.lsa3242{height:9%; width:18.5%; bottom:.5%; right:13%;}
-a.lsa3254{height:9%; width:28.3%; bottom:.5%; left:11%;}
+a.lsa1280{height:15.5%; width:15%; bottom:.8%; left:38.6%;}
 
 </style>
 </head>
@@ -181,7 +179,7 @@ a.lsa3254{height:9%; width:28.3%; bottom:.5%; left:11%;}
 
 <div class="page">
 <header>
-<h1>Literature Science and the Arts Building Third Floor</h1>
+<h1>Literature Science and the Arts Building First Floor</h1>
 </header>
 
 <nav>
@@ -189,15 +187,15 @@ a.lsa3254{height:9%; width:28.3%; bottom:.5%; left:11%;}
 
 <ul id="nav" style="display:none;">
 <li class="text">
-<a href="lsa1.html">
-First Floor</a>
+<a class="dead" href="#!" aria-label="This link is inactive. You are on the first floor">This is the first floor</a>
 </li>
 <li class="text">
 <a href="lsa2.html">
 Second Floor</a>
 </li>
 <li class="text">
-<a class="dead" href="#!" aria-label="This link is inactive. You are on the third floor">This is the third floor</a>
+<a href="lsa3.html">
+Third Floor</a>
 </li>
 <li class="text">
 <a href="lsa4.html">
@@ -220,13 +218,11 @@ MClassrooms Home</a>
 <main>
 <div id="scrollbox">
 <div id="fpbox">
-<img id="fp" src="lsa3.jpg" alt="third floor literature science and the arts building, three classroom links on this drawing." />
+<img id="fp" src="lsa1.jpg" alt="first floor literature science and the arts building, one classroom link on this drawing." />
 
 <!-- links to classroom data  -->
 
-<a class="rm lsa3207" href="../classrooms/LSA3207" aria-label="room three two zero seven information"></a>
-<a class="rm lsa3242" href="../classrooms/LSA3242" aria-label="room three two four two information"></a>
-<a class="rm lsa3254" href="../classrooms/LSA3254" aria-label="room three two five four information"></a>
+<a class="rm lsa1280" href="../classrooms/LSA1280" aria-label="room one two eight zero information"></a>
 
 </div>
 </div>
@@ -240,11 +236,11 @@ MClassrooms Home</a>
 
 var elmnt = document.getElementById("scrollbox");
 window.onload=function scrolldown() {
-    elmnt.scrollLeft = 0;
+    elmnt.scrollLeft = 100;
     elmnt.scrollTop = 2000;
 }
 window.onorientationchange = function() { 
-    elmnt.scrollLeft = 0;
+    elmnt.scrollLeft = 60;
     elmnt.scrollTop = 2000;
 }
 
