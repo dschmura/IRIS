@@ -70,7 +70,7 @@ module ClassroomsHelper
   # and indicated with the room facility_code_heprod variable.
   def technician_required
     technician_required_rooms = ['AHA', 'AHB', 'AHC', 'AHD', 'CHEM1800', 'EH1324', 'NS2140', 'LORCH140', 'MLB1200', 'MLB1400', 'MLB1420']
-    technician_required_message = 'Alert: An LSA Technician is required for all presentation needs. Please call (734) 615-0100, prompt 4, and request our Special Events team.'
+    technician_required_message = 'Alert: An LSA Technician is required for all presentation needs. Please call (734) 615-0100, and request our Special Events team.'
 
     team_learning_rooms = ['BSB1060', 'LSA1280', 'WEIS110', 'CHEMA859']
 
