@@ -49,20 +49,37 @@
     = @classroom.location.name
 
 = render 'quick_links_2'
+%br
 
+.row
+  .col-md-10.col-md-offset-1
+
+    .remote-learning-adjustments.bg-danger{style: "padding: 1rem"}
+      %h2.center-block.text-danger COVID-19 Information
+      %p
+        Check the
+        = link_to " University of Michigan COVID-19 information ", "https://publicaffairs.vpcomm.umich.edu/2019-novel-coronavirus-covid-19/", target: "_blank"
+        page for COVID-19 related updates on U-M classes, travel, study abroad and events.
+      %p
+        For information on teaching remotely, LSA Tech Services has put together a nice resource.
+        = link_to "LSATS - Teaching Remotely", "https://lsa.umich.edu/technology-services/services/learning-teaching-consulting/teaching-strategies/remote-teaching.html", target: "_blank"
+        Additionally, here is an email address for faculty to ask questions about the use of technology for Remote Teaching:
+        = mail_to('LSATeachingRemotelyQandA@umich.edu', nil, :encode => :javascript)
+
+  .col-md-10.col-md-offset-1{style: "margin-top: 1rem; margin-bottom: 1rem;"}
+    .remote-learning-adjustments.bg-info{style: "padding: 1rem"}
+      %h3.center-block.text-info LSA Step-by-Step Hybrid Teaching Guides
+      %p
+        Guides and instructional videos with step-by-step instructions on using LSA classroom technology for hybrid instruction.
+        = link_to "LSA Step-by-Step Hybrid Teaching Guide", "https://lsa.umich.edu/technology-services/services/learning-teaching-consulting/teaching-strategies/remote-teaching/teaching-remotely--instructor-resources/lsa-step-by-step-hybrid-teaching-guide.html", target: "_blank"
 - if technician_required
-  %br
-  %br
-  %br
+
   .row
     .col-md-10.col-md-offset-1
       .well.well-small
         #technician_required
           = technician_required
 
-- else
-  %br
-  %br
 .row
   #attributes
     .col-md-5.col-md-offset-1
