@@ -35,12 +35,13 @@ gem 'pundit'
 #gem "rolify", ">= 3.2.0"
 gem 'newrelic_rpm'
 gem 'pry'
+gem 'mimemagic', github: 'mimemagicrb/mimemagic', ref: '01f92d86d15d85cfd0f20dabd025dcbd36a8a60f'
 
 # QR-Code generation
 gem 'rqrcode-rails3'
 gem 'mini_magick'
 gem 'nokogiri', '~>1.8.1'
-
+gem 'bigdecimal', '1.4.2'
 gem 'prawn'
 gem 'prawn-qrcode'
 
