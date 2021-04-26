@@ -51,20 +51,23 @@
 = render 'quick_links_2'
 %br
 
+%br
 .row
   .col-md-10.col-md-offset-1
 
     .remote-learning-adjustments.bg-danger{style: "padding: 1rem"}
       %h2.center-block.text-danger COVID-19 Information
+
       %p
         Check the
         = link_to " University of Michigan COVID-19 information ", "https://publicaffairs.vpcomm.umich.edu/2019-novel-coronavirus-covid-19/", target: "_blank"
         page for COVID-19 related updates on U-M classes, travel, study abroad and events.
-      %p
-        For information on teaching remotely, LSA Tech Services has put together a nice resource.
-        = link_to "LSATS - Teaching Remotely", "https://lsa.umich.edu/technology-services/services/learning-teaching-consulting/teaching-strategies/remote-teaching.html", target: "_blank"
-        Additionally, here is an email address for faculty to ask questions about the use of technology for Remote Teaching:
-        = mail_to('LSATeachingRemotelyQandA@umich.edu', nil, :encode => :javascript)
+
+      %section.center-block.covid-19-room-show
+        %ul
+          %li.col-xs-12.col-md-4 Capacities listed currently reflect 6ft physical distancing for Winter 2021 and Spring 2021.
+          %li.col-xs-12.col-md-4 The Registrar will use 3ft distancing to assign appropriately sized classrooms for Fall Term.
+          %li.col-xs-12.col-md-4 Updated capacities for Fall 2021 will be posted the first week of August.
 
 - if @classroom.DEPT_GRP == "COLLEGE_OF_LSA"
 
