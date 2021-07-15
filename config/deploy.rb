@@ -5,11 +5,11 @@ load 'deploy/assets'
 # GENERAL SETTINGS
 # =============================================================================
 
-role :web, "burton.lsa.umich.edu"
-role :app, "burton.lsa.umich.edu"
-role :db,  "burton.lsa.umich.edu", :primary => true
+role :web, "rooms.lsa.umich.edu"
+role :app, "rooms.lsa.umich.edu"
+role :db,  "rooms.lsa.umich.edu", :primary => true
 set :application,  "iris"
-set :deploy_to,  "/var/www/html/#{application}/"
+set :deploy_to,  "/var/www/rooms.lsa.umich.edu/html/#{application}"
 set :deploy_via, :remote_cache
 set :scm, :git
 #set :repository, "git@bitbucket.org:mclassrooms/iris.git"
@@ -19,7 +19,7 @@ set :branch, ENV['BRANCH'] if ENV['BRANCH']
 set :git_enable_submodules, 1
 set :scm_verbose, true
 set :use_sudo, true
-set :user, "iris"
+set :user, "deployer"
 set :ssh_options, { :forward_agent => true }
 set :keep_releases, 5
 default_run_options[:pty] = true
@@ -28,7 +28,7 @@ default_run_options[:pty] = true
 # RECIPE INCLUDES
 # =============================================================================
 
-set :bundle_flags, "--deployment --quiet --binstubs --shebang ruby-local-exec"
+set :bundle_flags, "--deployment --quiet --binstubs --shebang "
 set :rake, "#{release_path}/bin/rake"
 
 namespace :deploy do
@@ -36,7 +36,9 @@ namespace :deploy do
   %w[start stop restart].each do |command|
     desc "#{command} unicorn"
     task command, roles: :app do
-      run "#{sudo} -i /etc/init.d/unicorn-#{application} #{command}"
+      # run "#{sudo} -i /etc/init.d/unicorn-#{application} #{command}"
+      # run "#{sudo} -i /var/www/init.sh #{command}"
+      run "#{sudo} systemctl restarts-site.service"
     end
   end
 
